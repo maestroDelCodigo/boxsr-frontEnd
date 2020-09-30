@@ -10,6 +10,7 @@ import { MuestrasComponent } from './pages/muestras/muestras.component';
 import { ShopComponent } from './pages/shop/shop.component';
 import { SobreBoxsrComponent } from './pages/sobre-boxsr/sobre-boxsr.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatStepperModule } from '@angular/material/stepper';
 
 @NgModule({
   declarations: [
@@ -19,12 +20,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     MuestrasComponent,
     ShopComponent,
-    SobreBoxsrComponent
+    SobreBoxsrComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatStepperModule
   ],
   providers: [],
   bootstrap: [AppComponent]
