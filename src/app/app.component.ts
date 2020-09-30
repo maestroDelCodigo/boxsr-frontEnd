@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'boxsr-front';
+
+  displayLogin = false;
+
+  mostrarLogin(display: boolean): void{
+    this.displayLogin = display;
+  }
 }

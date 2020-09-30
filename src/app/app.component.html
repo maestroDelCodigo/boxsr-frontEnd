@@ -1,4 +1,5 @@
-<app-header></app-header>
+<app-header (showLogin)="mostrarLogin($event)"></app-header>
+<app-login [mostrarLogin]="displayLogin" (cerrarPanel)="displayLogin=false"></app-login>
 
 <router-outlet></router-outlet>
 
