@@ -1,0 +1,45 @@
+* {
+    font-family: averta !important;
+}
+.slider {
+    height: 60vh;
+    background-image: url(../../../assets/images/homeslider.png);
+    background-size: cover;
+    background-position: center;
+    display:flex;    
+    align-items:flex-end;
+}
+
+.slider-text {
+    width: 60%;
+
+    h1 {
+        color: rgb(104, 103, 103);
+        font-size: 30px;
+    }
+    h2 {
+        margin-bottom: 5px;
+        margin-top: 5px;
+        color: rgb(104, 103, 103);
+
+    }
+
+    button {
+        margin-bottom: 5px;
+    }
+}
+
+.bienvenido {
+    margin-top: 5vh;
+    h1 {
+        text-align: center;
+    }
+}
+
+.steps-container {
+    display: flex;
+
+    .step {
+        text-align: center;
+    }
+}
