@@ -1,0 +1,34 @@
+* {
+    font-family: averta !important;
+}
+.slider {
+    height: 70vh;
+    background-image: url(../../../assets/images/homeslider.png);
+    background-size: cover;
+    background-position: center;
+    display:flex;    
+    align-items:flex-end;
+}
+
+.slider-text {
+    width: 60%;
+
+    h1, h4 {
+        color: rgb(104, 103, 103);
+    }
+    h4 {
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+
+    button {
+        margin-bottom: 5px;
+    }
+}
+
+.bienvenido {
+    margin-top: 5vh;
+    h1 {
+        text-align: center;
+    }
+}
