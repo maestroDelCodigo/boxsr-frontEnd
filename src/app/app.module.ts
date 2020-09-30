@@ -11,12 +11,17 @@ import { ShopComponent } from './pages/shop/shop.component';
 import { SobreBoxsrComponent } from './pages/sobre-boxsr/sobre-boxsr.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatStepperModule } from '@angular/material/stepper';
+import { LoginComponent } from './components/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SidebarModule } from 'primeng/sidebar';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    LoginComponent,
     HomeComponent,
     MuestrasComponent,
     ShopComponent,
@@ -24,9 +29,13 @@ import { MatStepperModule } from '@angular/material/stepper';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatStepperModule
+    ReactiveFormsModule,
+    FormsModule,
+    MatStepperModule,
+    SidebarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

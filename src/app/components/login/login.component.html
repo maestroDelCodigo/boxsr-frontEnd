@@ -1,0 +1,29 @@
+<p-sidebar [(visible)]="mostrarLogin" (onHide)="cerrarPanel.emit()" styleClass="p-sidebar-sm">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="container">
+      <div class="form-group">
+          <label for="username">Email</label>
+          <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+              <div *ngIf="f.username.errors.required">Email requerido</div>
+          </div>
+      </div>
+      <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div *ngIf="f.password.errors.required">Password requerido</div>
+          </div>
+      </div>
+      <div class="form-group">
+          <button [disabled]="loading" class="btn btn-primary">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+              Login
+          </button>
+      </div>
+      <div class="form-group">
+        <p *ngIf="error">
+          Usuario o contraseña incorrecta
+      </p>
+      </div>
+  </form>
+</p-sidebar>
