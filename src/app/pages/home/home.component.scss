@@ -1,45 +1,172 @@
+// global styles
 * {
-    font-family: averta !important;
+  font-family: averta !important;
 }
+
+//Slider
 .slider {
-    height: 60vh;
-    background-image: url(../../../assets/images/homeslider.png);
-    background-size: cover;
-    background-position: center;
-    display:flex;    
-    align-items:flex-end;
+  margin-top: -60px;
+  height: 90vh;
+  background-image: url(../../../assets/images/sliderrecortada-home.png);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
 }
 
 .slider-text {
-    width: 60%;
+  width: 60%;
 
-    h1 {
-        color: rgb(104, 103, 103);
-        font-size: 30px;
-    }
-    h2 {
-        margin-bottom: 5px;
-        margin-top: 5px;
-        color: rgb(104, 103, 103);
+  h1 {
+    color: rgb(104, 103, 103);
+    font-size: 30px;
+  }
+  h2 {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    color: rgb(104, 103, 103);
+  }
 
-    }
-
-    button {
-        margin-bottom: 5px;
-    }
+  button {
+    margin-bottom: 5px;
+  }
 }
 
+//Intro 3 steps
 .bienvenido {
-    margin-top: 5vh;
-    h1 {
-        text-align: center;
-    }
+  margin: 20px 0px 30px 0px;
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
 }
 
 .steps-container {
-    display: flex;
+  display: flex;
 
-    .step {
-        text-align: center;
+  .step {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    flex-direction: column;
+
+    .step-number {
+      color: white;
+      background-color: gray;
+      width: 30px;
+      height: 30px;
+      padding: 5px;
+      margin-left: 130px;
+      border-radius: 50px;
     }
+  }
+}
+
+//Section 3 images
+.section1 {
+  height: 90vh;
+  margin-top: 20px;
+
+  .row {
+    height: 100%;
+  }
+
+  .test {
+    background-image: url(../../../assets/images/test-home.JPG);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px 0px;
+  }
+
+  .muestras {
+    background-image: url(../../../assets/images/muestras-home.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px 0px;
+  }
+
+  .boxes {
+    background-image: url(../../../assets/images/boxes-home.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px 0px;
+  }
+}
+
+//Section faces - best sellers
+.section2 {
+  .face1 {
+    background-image: url(../../../assets/images/face2recortada-home.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .face2 {
+    background-image: url(../../../assets/images/face1recortada-home.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .row {
+    height: 90vh;
+  }
+}
+
+//Section ingredientes
+.section3 {
+  height: 90vh;
+  background-image: url(../../../assets/images/ingredientes-home.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  h1 {
+    color: white;
+  }
+}
+
+//Section consulta
+.section4 {
+  height: 90vh;
+
+  .row {
+    height: 100%;
+  }
+
+  .col-4 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+  }
+
+  .text-box {
+      width: 80%;
+  }
+
+  .col-8 {
+    background-image: url(../../../assets/images/consultacortada-home.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
