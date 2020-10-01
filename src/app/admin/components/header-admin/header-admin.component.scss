@@ -1,14 +1,35 @@
-// .nav-link{
-//   margin-left: 100%;
+// // .nav-link{
+// //   margin-left: 100%;
+// // }
+
+// .container-fluid {
+//   padding: 0px;
 // }
 
-.container-fluid {
+// .navbar {
+//   padding-top: 0px;
+//   padding-bottom: 0px;
+// }
+
+// .navbar-toggler {
+//   border: 0px !important;
+//   padding: 0px;
+// }
+
+// button:focus {
+//   outline: none !important;
+// }
+
+.header {
   padding: 0px;
+  background-color: rgba(199, 198, 198, 0.445) !important;
+
 }
 
 .navbar {
   padding-top: 0px;
   padding-bottom: 0px;
+  background-color: transparent !important;
 }
 
 .navbar-toggler {
@@ -20,15 +41,26 @@ button:focus {
   outline: none !important;
 }
 
+
+a {
+  color: black;
+  font-size: 16px;
+
+  &:hover {
+      text-decoration: underline;
+  }
+}
+
+
 .left {
   padding-right: 1.6rem;
   position: absolute;
   right: 0;
   top: 1.4rem;
 
-  a {
-    color: black;
-    padding : 0.6rem;
-  }
+   a {
+     color: black;
+     padding : 0.6rem;
+   }
 }
 
