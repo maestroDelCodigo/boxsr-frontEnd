@@ -20,12 +20,17 @@
                     <a class="nav-link" routerLink="/sobre-boxsr">SOBRE BOXSR</a>
                 </li>
             </ul>
-            <a>
-                <i class="fas fa-shopping-cart"></i>
+            <div class="left">
+              <a>
+                  <i class="fas fa-shopping-cart fa-2x"></i>
+              </a>
+              <a *ngIf="!isUserAuthenticated" (click)="showLogin.emit(true)">
+                  <i class="fas fa-user fa-2x"></i>
+              </a>
+              <a *ngIf="isUserAuthenticated" (click)="logOut()">
+                <i class="fas fa-sign-out-alt fa-2x"></i>
             </a>
-            <a (click)="showLogin.emit(true)">
-                <i class="fas fa-user"></i>
-            </a>
+          </div>
         </div>
     </nav>
 </div>
