@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid header sticky-top">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <button class="navbar-toggler navbar" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
           aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,14 +26,14 @@
                 <a class="nav-link" routerLink="/admin/clientes">CLIENTES</a>
             </li>
           </ul>
-          <div class="left">
-            <a>
-                <i class="fas fa-shopping-cart fa-lg"></i>
-            </a>
-            <a (click)="logOut()">
-              <i class="fas fa-sign-out-alt fa-lg"></i>
-          </a>
-          </div>
+      </div>
+      <div class="left">
+        <a>
+            <i class="fas fa-shopping-cart fa-lg"></i>
+        </a>
+        <a (click)="logOut()">
+          <i class="fas fa-sign-out-alt fa-lg"></i>
+      </a>
       </div>
   </nav>
 </div>
