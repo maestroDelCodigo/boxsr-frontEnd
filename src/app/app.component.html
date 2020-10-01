@@ -1,4 +1,4 @@
-<app-header (showLogin)="mostrarLogin($event)"></app-header>
+<app-header *ngIf="displayHeader" (showLogin)="mostrarLogin($event)"></app-header>
 <app-login [mostrarLogin]="displayLogin" (cerrarPanel)="displayLogin=false"></app-login>
 
 <router-outlet></router-outlet>
