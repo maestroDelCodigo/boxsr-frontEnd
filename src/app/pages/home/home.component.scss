@@ -3,6 +3,17 @@
   font-family: averta !important;
 }
 
+body {
+  overflow-x: hidden;
+}
+
+.arrow-button {
+  font-weight: 700;
+  outline: none;
+  padding: 3px 40px 3px 10px;
+  background-color: white;
+}
+
 //Slider
 .slider {
   margin-top: -60px;
@@ -16,15 +27,17 @@
 
 .slider-text {
   width: 60%;
+  margin: 10px;
 
   h1 {
-    color: rgb(104, 103, 103);
+    color: #4B4A4A;
     font-size: 30px;
+    font-weight: 700;
   }
   h2 {
     margin-bottom: 5px;
     margin-top: 5px;
-    color: rgb(104, 103, 103);
+    color:#4B4A4A;
   }
 
   button {
@@ -51,17 +64,19 @@
   }
   a {
     text-decoration: none;
-    color: black;
+    color: #4B4A4A;
     display: flex;
     flex-direction: column;
 
     .step-number {
       color: white;
-      background-color: gray;
+      background-color: #4B4A4A;
       width: 30px;
       height: 30px;
       padding: 5px;
-      margin-left: 130px;
+      margin-left: 135px;
+      margin-right: 135px;
+
       border-radius: 50px;
     }
   }
@@ -152,18 +167,19 @@
     height: 100%;
   }
 
-  .col-4 {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
+  .text-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4B4A4A;
   }
 
   .text-box {
       width: 80%;
+      color: #4B4A4A;
   }
 
-  .col-8 {
+  .consulta-image {
     background-image: url(../../../assets/images/consultacortada-home.jpg);
     background-position: center;
     background-repeat: no-repeat;
