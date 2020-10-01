@@ -1,10 +1,13 @@
-.container-fluid {
+.header {
     padding: 0px;
+    background-color: rgba(199, 198, 198, 0.445) !important;
+
 }
 
 .navbar {
     padding-top: 0px;
     padding-bottom: 0px;
+    background-color: transparent !important;
 }
 
 .navbar-toggler {
@@ -16,15 +19,12 @@ button:focus {
     outline: none !important;
 }
 
-.left {
-  padding-right: 1.6rem;
-  position: absolute;
-  right: 0;
-  top: 1.4rem;
 
-  a {
+a {
     color: black;
-    padding : 0.6rem;
-  }
-}
+    font-size: 16px;
 
+    &:hover {
+        text-decoration: underline;
+    }
+}
