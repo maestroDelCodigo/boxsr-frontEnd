@@ -9,6 +9,12 @@ import { ColeccionesComponent } from './pages/colecciones/colecciones.component'
 import { ProductosComponent } from './pages/productos/productos.component';
 import { InventarioComponent } from './pages/inventario/inventario.component';
 import { ClientesComponent } from './pages/clientes/clientes.component';
+import { ProductosListComponent } from './pages/productos/productos-list/productos-list.component';
+import { MatTableModule } from '@angular/material/table';
+import {MatInputModule} from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+
 
 
 @NgModule({
@@ -19,10 +25,15 @@ import { ClientesComponent } from './pages/clientes/clientes.component';
     ColeccionesComponent,
     ProductosComponent,
     InventarioComponent,
-    ClientesComponent],
+    ClientesComponent,
+    ProductosListComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
+    MatTableModule,
+    MatInputModule,
+    MatPaginatorModule,
+    MatSortModule
   ]
 })
 export class AdminModule { }
