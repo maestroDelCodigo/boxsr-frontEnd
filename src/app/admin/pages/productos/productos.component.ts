@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductosComponent implements OnInit {
 
+  mostrarCrearProductos = false;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onMostrarCrearProductos(){
+    this.mostrarCrearProductos = true;
+  }
+
+  onOcultarCrearProductos(){
+    this.mostrarCrearProductos = false;
   }
 
 }

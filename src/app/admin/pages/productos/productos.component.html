@@ -1,2 +1,8 @@
 <app-header-admin></app-header-admin>
-<p>productos works!</p>
+
+
+
+
+<app-crear-productos [display]="mostrarCrearProductos" (cerrarDialogo)="onOcultarCrearProductos()" *ngIf="mostrarCrearProductos"></app-crear-productos>
+
+<button (click)="onMostrarCrearProductos()">Mostrar productos</button>

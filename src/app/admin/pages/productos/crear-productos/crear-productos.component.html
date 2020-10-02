@@ -1,0 +1,119 @@
+<!--
+<form [formGroup]="productosForm" (ngSubmit)="onSubmit()" class="container">
+  <div class="form-group">
+      <label for="nombre">Nombre de producto</label>
+      <input type="text" formControlName="nombre" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }" />
+      <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+          <div *ngIf="f.nombre.errors.required">Nombre requerido</div>
+      </div>
+  </div>
+  <div class="form-group">
+      <label for="tipo">Tipo de producto</label>
+      <input type="text" formControlName="tipo" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.tipo.errors }" />
+      <div *ngIf="submitted && f.tipo.errors" class="invalid-feedback">
+          <div *ngIf="f.tipo.errors.required">Tipo de producto requerido</div>
+      </div>
+  </div>
+  <div class="form-group">
+    <label for="codigo">Código de producto</label>
+    <input type="text" formControlName="codigo" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.codigo.errors }" />
+    <div *ngIf="submitted && f.codigo.errors" class="invalid-feedback">
+        <div *ngIf="f.codigo.errors.required">Código de producto requerido</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="peso">Peso</label>
+    <input type="text" formControlName="peso" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.peso.errors }" />
+    <div *ngIf="submitted && f.peso.errors" class="invalid-feedback">
+        <div *ngIf="f.peso.errors.required">Peso de producto requerido</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="stock">Stock</label>
+    <input type="text" formControlName="stock" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.stock.errors }" />
+    <div *ngIf="submitted && f.stock.errors" class="invalid-feedback">
+        <div *ngIf="f.stock.errors.required">Stock de producto requerido</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="precio">Precio</label>
+    <input type="text" formControlName="precio" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.precio.errors }" />
+    <div *ngIf="submitted && f.precio.errors" class="invalid-feedback">
+        <div *ngIf="f.precio.errors.required">Precio de producto requerido</div>
+    </div>
+  </div>
+  <div class="form-group">
+      <button  class="btn btn-primary">
+          Crear
+      </button>
+  </div>
+</form> -->
+
+<p-dialog header="Crear producto" [(visible)]="display" styleClass="mydialog" [baseZIndex]="10000" (onHide)="cerrarDialogo.emit()">
+  <form [formGroup]="productosForm" class="container">
+    <div class="form-group">
+      <mat-form-field class="full-width">
+        <mat-label>Nombre de producto</mat-label>
+        <input matInput formControlName="nombre" [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }" />
+        <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+            <div *ngIf="f.nombre.errors.required">Nombre requerido</div>
+        </div>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="full-width">
+        <mat-label>Tipo de producto</mat-label>
+        <input matInput formControlName="tipo" [ngClass]="{ 'is-invalid': submitted && f.tipo.errors }" />
+        <div *ngIf="submitted && f.tipo.errors" class="invalid-feedback">
+            <div *ngIf="f.tipo.errors.required">Tipo de producto requerido</div>
+        </div>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="full-width">
+        <mat-label>Código de producto</mat-label>
+        <input matInput formControlName="codigo" [ngClass]="{ 'is-invalid': submitted && f.codigo.errors }" />
+      <div *ngIf="submitted && f.codigo.errors" class="invalid-feedback">
+          <div *ngIf="f.codigo.errors.required">Código de producto requerido</div>
+      </div>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="full-width">
+        <mat-label>Peso</mat-label>
+        <input matInput formControlName="peso" [ngClass]="{ 'is-invalid': submitted && f.peso.errors }" />
+        <div *ngIf="submitted && f.peso.errors" class="invalid-feedback">
+            <div *ngIf="f.peso.errors.required">Peso de producto requerido</div>
+        </div>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="full-width">
+        <mat-label>Stock</mat-label>
+        <input matInput formControlName="stock" [ngClass]="{ 'is-invalid': submitted && f.stock.errors }" />
+        <div *ngIf="submitted && f.stock.errors" class="invalid-feedback">
+          <div *ngIf="f.stock.errors.required">Stock de producto requerido</div>
+      </div>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="full-width">
+        <mat-label>Precio</mat-label>
+        <input matInput formControlName="precio" [ngClass]="{ 'is-invalid': submitted && f.precio.errors }" />
+        <div *ngIf="submitted && f.precio.errors" class="invalid-feedback">
+            <div *ngIf="f.precio.errors.required">Precio de producto requerido</div>
+        </div>
+      </mat-form-field>
+    </div>
+  </form>
+
+  <ng-template pTemplate="footer">
+    <div class="form-group">
+    <!-- <button  class="btn btn-primary">
+        Crear
+    </button> -->
+      <button mat-raised-button (click)="onSubmit()">Crear</button>
+    </div>
+  </ng-template>
+
+</p-dialog>

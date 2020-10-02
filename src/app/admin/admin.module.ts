@@ -9,6 +9,13 @@ import { ColeccionesComponent } from './pages/colecciones/colecciones.component'
 import { ProductosComponent } from './pages/productos/productos.component';
 import { InventarioComponent } from './pages/inventario/inventario.component';
 import { ClientesComponent } from './pages/clientes/clientes.component';
+import { CrearProductosComponent } from './pages/productos/crear-productos/crear-productos.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductosService } from './core/productos.service';
+import { MatButtonModule } from '@angular/material/button';
+import { DialogModule } from 'primeng/dialog';
 
 
 @NgModule({
@@ -19,10 +26,20 @@ import { ClientesComponent } from './pages/clientes/clientes.component';
     ColeccionesComponent,
     ProductosComponent,
     InventarioComponent,
-    ClientesComponent],
+    ClientesComponent,
+    CrearProductosComponent],
   imports: [
     CommonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
     AdminRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    DialogModule
+  ],
+  providers: [
+    ProductosService
   ]
 })
 export class AdminModule { }
