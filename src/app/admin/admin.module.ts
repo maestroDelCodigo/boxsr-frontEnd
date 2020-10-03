@@ -9,17 +9,19 @@ import { ColeccionesComponent } from './pages/colecciones/colecciones.component'
 import { ProductosComponent } from './pages/productos/productos.component';
 import { InventarioComponent } from './pages/inventario/inventario.component';
 import { ClientesComponent } from './pages/clientes/clientes.component';
-
+import { HomeAdminComponent } from './pages/home-admin/home-admin.component';
 
 @NgModule({
   declarations: [
     AdminComponent,
+
     HeaderAdminComponent,
     PedidosComponent,
     ColeccionesComponent,
     ProductosComponent,
     InventarioComponent,
-    ClientesComponent],
+    ClientesComponent,
+    HomeAdminComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
