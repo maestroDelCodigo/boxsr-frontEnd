@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ListadoDeAdmin } from '../../models/admin';
 import { AdminService } from '../../services/admin.service';
 
 @Component({
@@ -7,9 +8,10 @@ import { AdminService } from '../../services/admin.service';
   styleUrls: ['./home-admin.component.scss']
 })
 export class HomeAdminComponent implements OnInit {
+  @Input() admins: ListadoDeAdmin[] = [];
   ventasDiarias = [];
   ventasMensuales = [];
-  listaAdmin = [];
+  listaAdmin: ListadoDeAdmin[] = [];
 
   totalVentasDiarias: number;
   totalVentasMensuales: number;
@@ -18,7 +20,7 @@ export class HomeAdminComponent implements OnInit {
   constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
-    this.calcularVentasDiarias(); this.calcularVentasMensuales(); this.listarAdmin();
+    this.calcularVentasDiarias(); this.calcularVentasMensuales();
   }
 
   calcularVentasDiarias(): void {
@@ -45,12 +47,6 @@ export class HomeAdminComponent implements OnInit {
         this.totalVentasMensuales = this.ventasMensuales.map(venta => venta.total_pedido).reduce((acc, venta) => acc + venta)
 
       }
-    });
-  }
-  listarAdmin(): void {
-    this.adminService.listaAdmin().subscribe(datos => {
-      this.listaAdmin = datos;
-      console.log(datos)
     });
   }
 

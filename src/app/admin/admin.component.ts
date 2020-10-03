@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ListadoDeAdmin } from './models/admin';
+import { AdminService } from './services/admin.service';
 
 
 @Component({
@@ -7,12 +9,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-
-
-  constructor() { }
+  admins: ListadoDeAdmin[] = [];
+  listadoDeAdmin: string;
+  constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
+    this.listarAdmin();
   }
+
+  listarAdmin(): void {
+    this.adminService.listaAdmin().subscribe(x => {
+      this.listadoDeAdmin = x;
+      console.log(this.listadoDeAdmin);
+  });
+
 }
 
 
+}

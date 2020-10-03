@@ -5,5 +5,23 @@
 <h1>{{ totalVentasDiarias }}</h1>
 
 <h2>LISTA DE ADMINISTRADORES</h2>
-<p>{{ listaAdmin }}</p>
-
+<div class="tabla">
+<table width="100%">
+    <thead>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Email</th>
+        <th>Rol</th>
+    </thead>
+<tbody>
+<ng-container *ngFor ="let item of admins">
+    <tr>
+        <td>{{item.nombre}}</td>
+        <td>{{item.apellidos}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.rol}}</td>
+    </tr>
+</ng-container>
+</tbody>
+</table>
+</div>
