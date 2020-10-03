@@ -1,3 +1,7 @@
+a {
+    cursor: pointer;
+}
+
 .header {
     padding: 0px;
     background-color: rgba(199, 198, 198, 0.445) !important;
@@ -5,8 +9,7 @@
 }
 
 .navbar {
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding: 0px 30px;
     background-color: transparent !important;
 }
 
@@ -22,7 +25,9 @@ button:focus {
 
 a {
     color: black;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 700;
+    margin-right: 30px;
 
     &:hover {
         text-decoration: underline;
@@ -39,6 +44,7 @@ a {
    a {
      color: black;
      padding : 0.6rem;
+     margin-right: 0px;
    }
 }
 
