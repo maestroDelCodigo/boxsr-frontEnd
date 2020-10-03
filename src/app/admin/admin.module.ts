@@ -36,10 +36,11 @@ import { DialogModule } from 'primeng/dialog';
     AdminRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    DialogModule
+    DialogModule,
   ],
   providers: [
-    ProductosService
+    ProductosService,
+   //  MessageService
   ]
 })
 export class AdminModule { }

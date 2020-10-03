@@ -1,6 +1,6 @@
 <app-header *ngIf="displayHeader" (showLogin)="mostrarLogin($event)"></app-header>
 <app-login [mostrarLogin]="displayLogin" (cerrarPanel)="displayLogin=false"></app-login>
-
+<p-toast baseZIndex="9999"></p-toast>
 <router-outlet></router-outlet>
 
 <app-footer></app-footer>

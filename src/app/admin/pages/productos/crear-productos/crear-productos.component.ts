@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductosService } from 'src/app/admin/core/productos.service';
 import { Producto } from 'src/app/admin/models/producto';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-crear-productos',
@@ -14,7 +15,8 @@ export class CrearProductosComponent implements OnInit {
   productosForm: FormGroup;
   submitted = false;
 
-  constructor(private productosService: ProductosService,   private formBuilder: FormBuilder,) { }
+  constructor(private productosService: ProductosService, private formBuilder: FormBuilder,
+              private messageService: MessageService ) { }
 
   ngOnInit(): void {
 
@@ -50,8 +52,15 @@ export class CrearProductosComponent implements OnInit {
 
     // Llamada al servicio que llama al back
     this.productosService.crearProducto(producto).subscribe(
-
-      // TODO: crear logica de ok o error
+      (resultado) => {
+        if(resultado){
+          this.messageService.add({severity: 'success', summary: 'Producto', detail: 'Producto creado correctamente.'});
+          this.cerrarDialogo.emit();
+        }
+        else{
+          this.messageService.add({severity: 'error', summary: 'Producto', detail: 'Hubo un problema al crear el producto.'});
+        }
+      },
     );
   }
 
