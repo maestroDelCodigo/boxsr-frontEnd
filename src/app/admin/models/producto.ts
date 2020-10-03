@@ -1,4 +1,5 @@
 export class Producto {
+    producto_id: number;
     nombre: string;
     tipo_producto: string;
     codigo_producto: number;

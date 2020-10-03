@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductosService } from './core/productos.service';
 import { MatButtonModule } from '@angular/material/button';
 import { DialogModule } from 'primeng/dialog';
+import { ModificarProductosComponent } from './pages/productos/modificar-productos/modificar-productos.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { DialogModule } from 'primeng/dialog';
     ProductosComponent,
     InventarioComponent,
     ClientesComponent,
-    CrearProductosComponent],
+    CrearProductosComponent,
+    ModificarProductosComponent],
   imports: [
     CommonModule,
     MatFormFieldModule,

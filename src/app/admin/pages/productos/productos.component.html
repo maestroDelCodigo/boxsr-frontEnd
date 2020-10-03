@@ -5,4 +5,18 @@
 
 <app-crear-productos [display]="mostrarCrearProductos" (cerrarDialogo)="onOcultarCrearProductos()" *ngIf="mostrarCrearProductos"></app-crear-productos>
 
-<button (click)="onMostrarCrearProductos()">Mostrar productos</button>
+<app-modificar-productos [display]="mostrarModificarProductos" [producto]="productoModificar" (cerrarDialogo)="onOcultarModificarProductos()" *ngIf="mostrarModificarProductos"></app-modificar-productos>
+
+<button (click)="onMostrarCrearProductos()">Crear producto</button>
+
+
+<div *ngFor="let producto of productos">
+  <button (click)="modificarProducto(producto)">{{producto.nombre}}</button>
+</div>
+
+<hr>
+
+<div *ngFor="let producto of productos">
+  <button (click)="borrarProducto(producto.producto_id)">
+    Borrar {{producto.nombre}}</button>
+</div>
