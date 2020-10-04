@@ -70,10 +70,7 @@ export class CrearColeccionComponent implements OnInit {
     coleccion.precio_rebajado = !this.f.precio_rebajado.value ? 0 : this.f.precio_rebajado.value ;
     coleccion.precio_original = this.f.precio_original.value;
     coleccion.deleted = 0;
-
-    // TODO: Enviar el id e los productos seleccionados
-
-    console.log(this.productosSeleccionados);
+    coleccion.productos_asociados = this.productosSeleccionados;
 
     // Llamada al servicio que llama al back
     this.coleccionesService.crearColeccion(coleccion).subscribe(

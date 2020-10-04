@@ -38,6 +38,8 @@ export class ModificarColeccionComponent implements OnInit {
       precio_original: [this.coleccion.precio_original, [Validators.required, Validators.maxLength(10)]],
     });
 
+    this.precioTotal = this.coleccion.precio_original;
+
     combineLatest( [this.productosService.listarProductos(),
       this.coleccionesService.obtenerProductosAsociados(this.coleccion.coleccion_id)])
       .pipe(
@@ -83,10 +85,7 @@ export class ModificarColeccionComponent implements OnInit {
     this.coleccion.video_url = this.f.video_url.value;
     this.coleccion.precio_rebajado = this.f.precio_rebajado.value;
     this.coleccion.precio_original = this.f.precio_original.value;
-
-    // TODO: Enviar el id e los productos seleccionados
-
-    console.log(this.productosSeleccionados);
+    this.coleccion.productos_asociados = this.productosSeleccionados;
 
     // Llamada al servicio que llama al back
     this.coleccionesService.modificarColeccion(this.coleccion).subscribe(

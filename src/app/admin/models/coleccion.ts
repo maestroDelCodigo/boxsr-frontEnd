@@ -5,6 +5,7 @@ export class Coleccion {
   video_url: string;
   precio_rebajado: number;
   precio_original:number;
+  productos_asociados?: number[];
 
   constructor(item?: any) {
       this.nombre = item?.nombre || '';
@@ -12,5 +13,6 @@ export class Coleccion {
       this.video_url = item?.video_url || '';
       this.precio_rebajado = item?.precio_rebajado || null;
       this.precio_original = item?.precio_original || null;
+      this.productos_asociados = item?.productos_asociados || [];
   }
 }
