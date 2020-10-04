@@ -17,7 +17,10 @@ export class AdminService {
     return this.http.get<any>(`${environment.apiUrl}/admin/ventasMensuales`);
     }
 
-  listaAdmin(): Observable<any>{
-    return this.http.get<any>(`${environment.apiUrl}/admin/listaAdmin`);
+  listaAdminActivos(): Observable<any>{
+    return this.http.get<any>(`${environment.apiUrl}/admin/listaAdminActivos`);
     }
+    listaAdminInactivos(): Observable<any>{
+      return this.http.get<any>(`${environment.apiUrl}/admin/listaAdminInactivos`);
+      }
   }

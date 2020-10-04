@@ -1,4 +1,4 @@
-export class ListadoDeAdmin {
+export class ListadoDeAdminInactivos {
     nombre: string;
     apellidos: string;
     email: string;
