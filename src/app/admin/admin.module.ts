@@ -18,6 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { DialogModule } from 'primeng/dialog';
 import { ModificarProductosComponent } from './pages/productos/modificar-productos/modificar-productos.component';
 import { DigitOnlyModule } from '@uiowa/digit-only';
+import { OrderListModule } from 'primeng/orderlist';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { DigitOnlyModule } from '@uiowa/digit-only';
     ReactiveFormsModule,
     FormsModule,
     DialogModule,
-    DigitOnlyModule
+    DigitOnlyModule,
+    OrderListModule
   ],
   providers: [
     ProductosService,
