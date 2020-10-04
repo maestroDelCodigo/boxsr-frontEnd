@@ -22,6 +22,8 @@ import { ModificarColeccionComponent } from './pages/colecciones/modificar-colec
 import { ColeccionesService } from './core/colecciones.service';
 import { DigitOnlyModule } from '@uiowa/digit-only';
 import { OrderListModule } from 'primeng/orderlist';
+import { MatTableModule } from '@angular/material/table';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,10 @@ import { OrderListModule } from 'primeng/orderlist';
     FormsModule,
     DialogModule,
     DigitOnlyModule,
-    OrderListModule
+    MatTableModule,
+    MatCheckboxModule,
+    OrderListModule,
+
   ],
   providers: [
     ProductosService,

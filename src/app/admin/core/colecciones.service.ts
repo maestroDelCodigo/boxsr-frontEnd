@@ -61,4 +61,14 @@ export class ColeccionesService {
         })
       );
   }
+
+  obtenerProductosAsociados(idColeccion: number): Observable<any>{
+    return this.http.get(`${environment.apiUrl}/coleccion/productos/${idColeccion}`)
+    .pipe(
+      catchError(e => {
+        return of(null);
+      })
+    );
+
+  }
 }
