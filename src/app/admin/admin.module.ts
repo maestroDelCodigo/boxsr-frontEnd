@@ -20,7 +20,8 @@ import { ModificarProductosComponent } from './pages/productos/modificar-product
 import { CrearColeccionComponent } from './pages/colecciones/crear-coleccion/crear-coleccion.component';
 import { ModificarColeccionComponent } from './pages/colecciones/modificar-coleccion/modificar-coleccion.component';
 import { ColeccionesService } from './core/colecciones.service';
-
+import { DigitOnlyModule } from '@uiowa/digit-only';
+import { OrderListModule } from 'primeng/orderlist';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,8 @@ import { ColeccionesService } from './core/colecciones.service';
     ReactiveFormsModule,
     FormsModule,
     DialogModule,
+    DigitOnlyModule,
+    OrderListModule
   ],
   providers: [
     ProductosService,
