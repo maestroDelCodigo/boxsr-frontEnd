@@ -1,2 +1,24 @@
 <app-header-admin></app-header-admin>
-<p>colecciones works!</p>
+
+
+
+
+
+<app-crear-coleccion [display]="mostrarCrearColecciones" (cerrarDialogo)="onOcultarCrearColecciones()" *ngIf="mostrarCrearColecciones"></app-crear-coleccion>
+
+<app-modificar-coleccion [display]="mostrarModificarColecciones" [coleccion]="coleccionModificar" (cerrarDialogo)="onOcultarModificarColecciones()" *ngIf="mostrarModificarColecciones"></app-modificar-coleccion>
+
+<button (click)="onMostrarCrearColecciones()">Crear coleccion</button>
+
+
+<div *ngFor="let coleccion of colecciones">
+  <button (click)="modificarColeccion(coleccion)">{{coleccion.nombre}}</button>
+</div>
+
+<hr>
+
+<div *ngFor="let coleccion of colecciones">
+  <button (click)="borrarColeccion(coleccion.coleccion_id)">
+    Borrar {{coleccion.nombre}}</button>
+</div>
+

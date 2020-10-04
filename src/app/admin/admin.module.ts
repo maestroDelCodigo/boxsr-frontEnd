@@ -17,6 +17,9 @@ import { ProductosService } from './core/productos.service';
 import { MatButtonModule } from '@angular/material/button';
 import { DialogModule } from 'primeng/dialog';
 import { ModificarProductosComponent } from './pages/productos/modificar-productos/modificar-productos.component';
+import { CrearColeccionComponent } from './pages/colecciones/crear-coleccion/crear-coleccion.component';
+import { ModificarColeccionComponent } from './pages/colecciones/modificar-coleccion/modificar-coleccion.component';
+import { ColeccionesService } from './core/colecciones.service';
 
 
 @NgModule({
@@ -29,7 +32,9 @@ import { ModificarProductosComponent } from './pages/productos/modificar-product
     InventarioComponent,
     ClientesComponent,
     CrearProductosComponent,
-    ModificarProductosComponent],
+    ModificarProductosComponent,
+    CrearColeccionComponent,
+    ModificarColeccionComponent],
   imports: [
     CommonModule,
     MatFormFieldModule,
@@ -42,6 +47,7 @@ import { ModificarProductosComponent } from './pages/productos/modificar-product
   ],
   providers: [
     ProductosService,
+    ColeccionesService
    //  MessageService
   ]
 })

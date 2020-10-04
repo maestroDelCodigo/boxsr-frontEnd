@@ -1,0 +1,45 @@
+<p-dialog header="Crear colección" [(visible)]="display" styleClass="mydialog" [baseZIndex]="10000" (onHide)="cerrarDialogo.emit()">
+  <form [formGroup]="coleccionesForm" class="container">
+    <div class="form-group">
+      <mat-form-field class="full-width">
+        <mat-label>Nombre de coleccion</mat-label>
+        <input matInput formControlName="nombre" [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }" />
+        <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+            <div *ngIf="f.nombre.errors.required">Nombre requerido</div>
+        </div>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="full-width">
+        <mat-label>Video Coleccion</mat-label>
+        <input matInput formControlName="video_url" />
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="full-width">
+        <mat-label>Precio rebajado</mat-label>
+        <input matInput formControlName="precio_rebajado" />
+
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="full-width">
+        <mat-label>Precio original</mat-label>
+        <input matInput formControlName="precio_original" [ngClass]="{ 'is-invalid': submitted && f.precio_original.errors }" />
+        <div *ngIf="submitted && f.peso.errors" class="invalid-feedback">
+            <div *ngIf="f.precio_original.errors.required">Precio original requerido</div>
+        </div>
+      </mat-form-field>
+    </div>
+  </form>
+
+  <ng-template pTemplate="footer">
+    <div class="form-group">
+    <!-- <button  class="btn btn-primary">
+        Crear
+    </button> -->
+      <button mat-raised-button (click)="onSubmit()">Crear</button>
+    </div>
+  </ng-template>
+
+</p-dialog>
