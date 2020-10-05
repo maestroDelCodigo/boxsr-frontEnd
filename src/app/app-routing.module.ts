@@ -5,9 +5,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { MuestrasComponent } from './pages/muestras/muestras.component';
 import { ShopComponent } from './pages/shop/shop.component';
 import { SobreBoxsrComponent } from './pages/sobre-boxsr/sobre-boxsr.component';
-import { ConocenosComponent } from './pages/conocenos/conocenos.component';
-import { PielComponent } from './pages/piel/piel.component';
-import { IngredientesComponent } from './pages/ingredientes/ingredientes.component';
+import { ConocenosComponent } from './pages/sobre-boxsr/conocenos/conocenos.component';
+import { PielComponent } from './pages/sobre-boxsr/piel/piel.component';
+import { IngredientesComponent } from './pages/sobre-boxsr/ingredientes/ingredientes.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
