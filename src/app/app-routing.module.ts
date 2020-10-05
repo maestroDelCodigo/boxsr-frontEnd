@@ -5,6 +5,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { MuestrasComponent } from './pages/muestras/muestras.component';
 import { ShopComponent } from './pages/shop/shop.component';
 import { SobreBoxsrComponent } from './pages/sobre-boxsr/sobre-boxsr.component';
+import { ConocenosComponent } from './pages/sobre-boxsr/conocenos/conocenos.component';
+import { PielComponent } from './pages/sobre-boxsr/piel/piel.component';
+import { IngredientesComponent } from './pages/sobre-boxsr/ingredientes/ingredientes.component';
+import { AvisoLegalComponent } from './pages/avisoLegal/avisoLegal.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -12,6 +16,10 @@ const routes: Routes = [
   { path: 'shop', component: ShopComponent },
   { path: 'muestras', component: MuestrasComponent },
   { path: 'sobre-boxsr', component: SobreBoxsrComponent },
+  { path: 'conocenos', component: ConocenosComponent },
+  { path: 'piel', component: PielComponent },
+  { path: 'ingredientes', component: IngredientesComponent },
+  { path: 'aviso-legal', component:AvisoLegalComponent },
   { path: 'admin', canActivate: [AuthGuardService], loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: '**', redirectTo: 'home' },
 ];
