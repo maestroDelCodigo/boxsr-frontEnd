@@ -1,38 +1,34 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ListadoDeAdmin } from '../../models/admin';
-import { ListadoDeAdminInactivos } from '../../models/adminsInactivos'
-import { AdminRol } from '../../models/enums/rol.enum';
 import { MessageService } from 'primeng/api';
-import { AdminService } from '../../services/admin.service';
+import { ListadoDeAdmin } from 'src/app/admin/models/admin';
+import { ListadoDeAdminInactivos } from 'src/app/admin/models/adminsInactivos';
+import { AdminService } from 'src/app/admin/services/admin.service';
 
 @Component({
-  selector: 'app-home-admin',
-  templateUrl: './home-admin.component.html',
-  styleUrls: ['./home-admin.component.scss']
+  selector: 'app-crear-admin',
+  templateUrl: './crear-admin.component.html',
+  styleUrls: ['./crear-admin.component.scss']
 })
-export class HomeAdminComponent implements OnInit {
+export class CrearAdminComponent implements OnInit {
+
   @Input() display: boolean;
   @Output() cerrarDialogo = new EventEmitter<void>();
   ventasDiarias = [];
   ventasMensuales = [];
   listaAdmin: ListadoDeAdmin[] = [];
   listadoDeAdminInactivos: ListadoDeAdminInactivos[] = []
-  roles: AdminRol[] = [];
   formularioAdmin: FormGroup;
   submitted = false;
   id = null;
-  admins: ListadoDeAdmin[] = [];
-  adminsInactivos: ListadoDeAdminInactivos[] = [];
-  mostrarCrearProductos = false;
-  mostrarModificarProductos = false;
+
 
   totalVentasDiarias: number;
   totalVentasMensuales: number;
   totalAdmin: string;
 
   constructor(private adminService: AdminService, fb: FormBuilder, private messageService: MessageService) {
-    // this.elFormularioAdmin(fb);
+    this.elFormularioAdmin(fb);
   }
 
   ngOnInit(): void {
@@ -83,40 +79,40 @@ export class HomeAdminComponent implements OnInit {
     });
   }
 
-//   guardar(value: any): void {
-//     this.submitted = true;
-//     console.log(value)
-//     if (value) {
-//       this.adminService.crearAdmin(value).subscribe(datos => {
-//         if (datos) {
-//           this.messageService.add({ severity: 'success', summary: 'Administrador', detail: 'Admin creado correctamente.' });
-//           this.cerrarDialogo.emit();
-//         }
-//         else {
-//           this.messageService.add({ severity: 'error', summary: 'Administrador', detail: 'Hubo un problema al crear el administrador.' });
-//         }
-//       });
-//       this.listarAdmin();
-//     }
+  guardar(value: any): void {
+    this.submitted = true;
+    console.log(value)
+    if (value) {
+      this.adminService.crearAdmin(value).subscribe(datos => {
+        if(datos){
+          this.messageService.add({severity: 'success', summary: 'Administrador', detail: 'Admin creado correctamente.'});
+          this.cerrarDialogo.emit();
+        }
+        else{
+          this.messageService.add({severity: 'error', summary: 'Administrador', detail: 'Hubo un problema al crear el administrador.'});
+        }
+      });
+      this.listarAdmin();
+    }
 
 
 
 
-//   }
-
-
-
-
-onMostrarCrearProductos(): void {
-    this.mostrarCrearProductos = true;
   }
+  nuevoAdmin() {
 
-onOcultarCrearProductos(): void {
-    this.mostrarCrearProductos = false;
   }
-
-// onOcultarModificarProductos(): void {
-//     this.mostrarModificarProductos = false;
-//   }
-
+ 
+  
+  private elFormularioAdmin(fb: FormBuilder): void {
+    this.formularioAdmin = fb.group({
+      nombre: ['', [Validators.required, Validators.maxLength(145)]],
+      apellidos: ['', [Validators.required, Validators.maxLength(145)]],
+      email: ['', [Validators.required, Validators.maxLength(145)]],
+      password: ['',  [Validators.required, Validators.maxLength(16)]],
+      deleted: ['']
+    });
+  }
+  get f(): any { return this.formularioAdmin.controls; }
 }
+

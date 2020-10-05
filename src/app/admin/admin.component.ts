@@ -12,11 +12,25 @@ import { AdminService } from './services/admin.service';
 export class AdminComponent implements OnInit {
   admins: ListadoDeAdmin[] = [];
   adminsInactivos: ListadoDeAdminInactivos[] = [];
+  mostrarCrearProductos = false;
+  mostrarModificarProductos = false;
 
   constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
   }
+  onMostrarCrearProductos() {
+    this.mostrarCrearProductos = true;
+  }
+
+  onOcultarCrearProductos() {
+    this.mostrarCrearProductos = false;
+  }
+
+  onOcultarModificarProductos() {
+    this.mostrarModificarProductos = false;
+  }
+
 
 
 

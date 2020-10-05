@@ -4,7 +4,9 @@
 <h2>TOTAL VENTAS DIARIAS</h2>
 <h1>{{ totalVentasDiarias }}</h1>
 
-<h2>LISTA DE ADMINISTRADORES ACTIVOS</h2>
+<button (click)="onMostrarCrearProductos()">Crear producto</button>
+<app-crear-admin  [display]="mostrarCrearProductos" (cerrarDialogo)="onOcultarCrearProductos()" *ngIf="mostrarCrearProductos"></app-crear-admin>
+<!-- <h2>LISTA DE ADMINISTRADORES ACTIVOS</h2>
 <div class="tabla">
 <table width="100%">
     <thead>
@@ -12,6 +14,7 @@
         <th>Apellidos</th>
         <th>Email</th>
         <th>Activo</th>
+        <th>Opciones</th>
     </thead>
 <tbody>
 <ng-container *ngFor ="let item of listaAdmin">
@@ -20,6 +23,8 @@
         <td>{{item.apellidos}}</td>
         <td>{{item.email}}</td>
         <td>{{item.deleted}}</td>
+        <td><button>Modificar</button>
+        <button>Eliminar</button></td>
     </tr>
 </ng-container>
 </tbody>
@@ -64,9 +69,14 @@
                 <input type="email" formControlName="email">
             </div>
             <div class="field-element">
+                <label for="">Password</label>
+                <input type="text" formControlName="password">
+            </div>
+            <div class="field-element">
                 <label for="">Activo</label>
                 <select formControlName="deleted">
-                    <option [value]="item" *ngFor="let item of admins">{{item.deleted}}</option>
+                    <option [value]="0">Activo</option>
+                    <option [value]="1">Eliminado</option>
                 </select>
             </div>
         </div>
@@ -75,4 +85,4 @@
             <button class="btn" type="button" (click)="nuevoAdmin()">Nuevo Admin</button>
         </div>
     </form>
-</div>
+</div> -->
