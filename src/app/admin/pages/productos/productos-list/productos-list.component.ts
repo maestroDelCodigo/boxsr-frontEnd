@@ -13,7 +13,7 @@ import { ProductoServiceService } from '../services/producto-service.service';
 })
 export class ProductosListComponent implements OnInit  {
 
-  displayedColumns: string[] = ['id', 'nombre', 'tipo'];
+  displayedColumns: string[] = ['id', 'nombre', 'tipo', 'stock', 'peso', 'precio'];
   dataSource: MatTableDataSource<Producto>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
