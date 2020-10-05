@@ -27,6 +27,7 @@ import { ColeccionesService } from './core/colecciones.service';
 import { DigitOnlyModule } from '@uiowa/digit-only';
 import { OrderListModule } from 'primeng/orderlist';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { ColeccionesListComponent } from './pages/colecciones/colecciones-list/colecciones-list.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     ModificarProductosComponent,
     CrearColeccionComponent,
     ModificarColeccionComponent,
-    ProductosListComponent],
+    ProductosListComponent,
+    ColeccionesListComponent
+  ],
   imports: [
     CommonModule,
     MatFormFieldModule,

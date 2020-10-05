@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, } from '@angular/core';
 import { ColeccionesService } from '../../core/colecciones.service';
 import { Coleccion } from '../../models/Coleccion';
+import { ColeccionesListComponent } from './colecciones-list/colecciones-list.component';
 
 @Component({
   selector: 'app-colecciones',
@@ -8,6 +9,7 @@ import { Coleccion } from '../../models/Coleccion';
   styleUrls: ['./colecciones.component.scss']
 })
 export class ColeccionesComponent implements OnInit {
+  @ViewChild(ColeccionesListComponent) list: ColeccionesListComponent;
   mostrarCrearColecciones = false;
   mostrarModificarColecciones = false;
   colecciones: Coleccion[] = [];
@@ -48,8 +50,8 @@ export class ColeccionesComponent implements OnInit {
   }
 
   borrarColeccion(id: number){
-   this.coleccionesService.descatalogarColeccion(id, 1).subscribe(
-     () => this.obtenerColecciones()
+   this.coleccionesService.descatalogarColeccion(id, true).subscribe(
+     () => this.list.refresh()
    );
 
   }

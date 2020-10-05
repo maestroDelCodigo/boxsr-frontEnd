@@ -61,10 +61,15 @@ export class ModificarColeccionComponent implements OnInit {
   }
 
   private estaAsociado(id: number, productos: any[], idColeccion: number): boolean{
-    const existe = productos.find((producto) => producto.producto_id === id && producto.coleccion_id === idColeccion);
 
-    if (existe){
-      return true;
+    if (productos){
+      const existe = productos.find((producto) => producto.producto_id === id && producto.coleccion_id === idColeccion);
+
+      if (existe){
+        return true;
+      }
+
+      return false;
     }
 
     return false;
