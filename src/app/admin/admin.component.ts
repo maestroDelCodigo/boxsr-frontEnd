@@ -19,15 +19,15 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onMostrarCrearProductos() {
+  onMostrarCrearProductos(): void {
     this.mostrarCrearProductos = true;
   }
 
-  onOcultarCrearProductos() {
+  onOcultarCrearProductos(): void {
     this.mostrarCrearProductos = false;
   }
 
-  onOcultarModificarProductos() {
+  onOcultarModificarProductos(): void {
     this.mostrarModificarProductos = false;
   }
 

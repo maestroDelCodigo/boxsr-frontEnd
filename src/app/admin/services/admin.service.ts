@@ -6,6 +6,9 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AdminService {
+  listarAdmin() {
+    throw new Error('Method not implemented.');
+  }
 
 
   constructor(private http: HttpClient) { }

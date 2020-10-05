@@ -29,6 +29,7 @@ import { OrderListModule } from 'primeng/orderlist';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { CrearAdminComponent } from './pages/home-admin/crear-admin/crear-admin.component';
 import { MessageService } from 'primeng/api';
+import { ListaAdminComponent } from './pages/home-admin/lista-admin/lista-admin.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { MessageService } from 'primeng/api';
     InventarioComponent,
     ClientesComponent,
     HomeAdminComponent,
+    ListaAdminComponent,
     CrearAdminComponent,
 
     // CrearProductosComponent,
