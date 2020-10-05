@@ -9,7 +9,20 @@ import { ColeccionesComponent } from './pages/colecciones/colecciones.component'
 import { ProductosComponent } from './pages/productos/productos.component';
 import { InventarioComponent } from './pages/inventario/inventario.component';
 import { ClientesComponent } from './pages/clientes/clientes.component';
-
+import { ProductosListComponent } from './pages/productos/productos-list/productos-list.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { CrearProductosComponent } from './pages/productos/crear-productos/crear-productos.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductosService } from './core/productos.service';
+import { MatButtonModule } from '@angular/material/button';
+import { DialogModule } from 'primeng/dialog';
+import { ModificarProductosComponent } from './pages/productos/modificar-productos/modificar-productos.component';
+import { DigitOnlyModule } from '@uiowa/digit-only';
+import { OrderListModule } from 'primeng/orderlist';
 
 @NgModule({
   declarations: [
@@ -19,10 +32,29 @@ import { ClientesComponent } from './pages/clientes/clientes.component';
     ColeccionesComponent,
     ProductosComponent,
     InventarioComponent,
-    ClientesComponent],
+    ClientesComponent,
+    CrearProductosComponent,
+    ModificarProductosComponent,
+    ProductosListComponent],
   imports: [
     CommonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
     AdminRoutingModule,
+    MatTableModule,
+    MatInputModule,
+    MatPaginatorModule,
+    MatSortModule,
+    ReactiveFormsModule,
+    FormsModule,
+    DialogModule,
+    DigitOnlyModule,
+    OrderListModule
+  ],
+  providers: [
+    ProductosService,
+   //  MessageService
   ]
 })
 export class AdminModule { }
