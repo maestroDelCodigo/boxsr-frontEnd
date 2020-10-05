@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {AfterViewInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
@@ -12,8 +12,8 @@ import { ProductoServiceService } from '../services/producto-service.service';
   styleUrls: ['./productos-list.component.scss']
 })
 export class ProductosListComponent implements OnInit  {
-
-  displayedColumns: string[] = ['id', 'nombre', 'tipo', 'stock', 'peso', 'precio'];
+  @Output() modificar = new EventEmitter<Producto>();
+  displayedColumns: string[] = ['id', 'nombre', 'tipo', 'stock', 'peso', 'precio', 'actions'];
   dataSource: MatTableDataSource<Producto>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -32,6 +32,11 @@ export class ProductosListComponent implements OnInit  {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  modificarProducto(producto: Producto){
+    console.log(producto)
+    this.modificar.emit(producto);
   }
 
   private cargarListadoProductos(): void {
