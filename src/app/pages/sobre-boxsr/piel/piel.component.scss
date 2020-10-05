@@ -1,0 +1,220 @@
+* {
+    font-family: averta !important;
+  }
+  
+  body {
+    overflow-x: hidden;
+  }
+  
+//   .arrow-button {
+//     font-weight: 700;
+//     outline: none;
+//     padding: 3px 40px 3px 10px;
+//     background-color: white;
+//   }
+  
+//   //Slider
+.slider {
+    height:33vh;
+    margin-top: -70px;
+    background-image: url(../../../../assets/images/Product_photo_Fresh_natural.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+  }
+  
+  .slider-text {
+    width: 60%;
+    margin: 10px;
+    color:white;
+  }  
+  .pd-top{
+    padding-top: 35px;
+  }
+
+  .pd-left-right{
+    padding-left: 15%;
+    padding-right: 10%  
+  }
+  
+//   .width{
+//     width: 100vh;
+//   }  
+//   .padding{
+//     padding-top: 140px;
+//     padding-bottom: 35px;
+//   }
+ 
+//   .imagenEllas{
+//     height: 36vh;
+//     width: 85vh;
+  
+//   }
+//   .Ellas{
+//     justify-content: center;
+//     align-items: center;
+//     display:flex;
+//     height: 78%;
+//   }
+  .black{
+    font-weight: revert;
+     }
+  .italic{
+    font-style: italic;
+  }
+
+//flecha ziquierda
+/* Pretty Stuff? */
+html {
+    background: #011F2A;
+  }
+  
+  .things-left > .content {
+    float: left;
+    width: 30%;
+    height: 230px;
+    -webkit-box-sizing: border-box; 
+      -moz-box-sizing: border-box;    
+      box-sizing: border-box;
+    position: relative;
+  }
+  
+  .things > .content h1 {
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: absolute;
+    height: 150px;
+    color:black;
+  }
+  
+  /* Arrow */
+  
+  .arrowUno {
+    position: relative;
+    margin: 0 auto;
+    width: 100px;
+  }
+  
+  .arrowUno .curve {
+      border: 2px solid #BE5F4B;
+      border-color: transparent transparent transparent black;
+      height: 360px;
+      width: 1200px;
+      border-radius: 230px 0 0 150px;
+  }
+  
+  .arrowUno .point {
+      position: absolute;
+      left: 40px;
+      top: 315px;
+  }
+  
+  .arrowUno .point:before, .arrowUno .point:after {
+      border: 1px solid black;
+      height: 25px;
+      content: "";
+      position: absolute;
+  }
+  
+  .arrowUno .point:before {
+    top: -12px;
+    left: -11px;
+      transform:rotate(-74deg);
+      -webkit-transform:rotate(-74deg);
+    -moz-transform:rotate(-74deg);
+    -ms-transform: rotate(-74deg);
+  }
+  
+  .arrowUno .point:after {
+    top: -20px;
+      left: 5px;
+      transform:rotate(12deg);
+      -webkit-transform: rotate(12deg);
+    -moz-transform:rotate(12deg);
+    -ms-transform: rotate(12deg);
+  }
+  //flecha derecha
+/* Pretty Stuff? */
+html {
+    background: #011F2A;
+  }
+  
+  .things-right > .content {
+    float: right;
+    width: 30%;
+    height: 230px;
+    -webkit-box-sizing: border-box; 
+      -moz-box-sizing: border-box;    
+      box-sizing: border-box;
+    position: relative;
+  }
+  
+  .things > .content h1 {
+    font-family:'Arial', sans-serif;
+    text-transform: uppercase;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: absolute;
+    height: 150px;
+    color:black;
+  }
+  
+  /* Arrow */
+  
+  .arrowDos {
+      position: relative;
+    margin: 0 auto;
+    width: 100px;
+    transform: rotate(180deg);
+  }
+  
+  .arrowDos .curve {
+      border: 2px solid #BE5F4B;
+      border-color: transparent transparent transparent black;
+      height: 360px;
+      width: 1200px;
+      border-radius: 230px 0 0 150px;
+  }
+  
+  .arrowDos .point {
+      position: absolute;
+      left: 40px;
+      top: 315px;
+  }
+  
+  .arrowDos .point:before, .arrowDos .point:after {
+      border: 1px solid black;
+      height: 25px;
+      content: "";
+      position: absolute;
+  }
+  
+  .arrowDos .point:before {
+    top: -266px;
+    left: 10px;
+      transform:rotate(-74deg);
+      -webkit-transform:rotate(-74deg);
+    -moz-transform:rotate(-74deg);
+    -ms-transform: rotate(-74deg);
+  }
+  
+  .arrowDos .point:after {
+    top: -251px;
+    left: 21px;
+      transform:rotate(12deg);
+      -webkit-transform: rotate(12deg);
+    -moz-transform:rotate(12deg);
+    -ms-transform: rotate(12deg);
+  }
+
+
+  
