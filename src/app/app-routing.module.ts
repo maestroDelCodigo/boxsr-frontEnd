@@ -11,6 +11,7 @@ import { IngredientesComponent } from './pages/sobre-boxsr/ingredientes/ingredie
 import { AvisoLegalComponent } from './pages/avisoLegal/avisoLegal.component';
 import { PagoSeguroComponent } from './pages/pago-seguro/pago-seguro.component';
 import { EnviosDevolucionesComponent } from './pages/envios-devoluciones/envios-devoluciones.component';
+import { ContactoComponent } from './pages/contacto/contacto.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'aviso-legal', component:AvisoLegalComponent },
   { path: 'pago-seguro', component:PagoSeguroComponent },
   { path: 'envios-devoluciones', component:EnviosDevolucionesComponent },
+  { path: 'contacto', component:ContactoComponent },
   { path: 'admin', canActivate: [AuthGuardService], loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: '**', redirectTo: 'home' },
 ];
