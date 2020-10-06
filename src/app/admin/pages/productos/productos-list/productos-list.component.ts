@@ -5,7 +5,6 @@ import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { ProductosService } from 'src/app/admin/core/productos.service';
 import { Producto } from 'src/app/models/producto';
-import { ProductoServiceService } from '../services/producto-service.service';
 
 @Component({
   selector: 'app-productos-list',
@@ -40,7 +39,7 @@ export class ProductosListComponent implements OnInit  {
     this.modificar.emit(producto);
   }
 
-  borrarProducto(id:number): void{
+  borrarProducto(id: number): void{
     this.borrar.emit(id);
   }
 
