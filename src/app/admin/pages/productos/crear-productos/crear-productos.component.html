@@ -50,6 +50,20 @@
 </form> -->
 
 <p-dialog header="Crear producto" [(visible)]="display" styleClass="mydialog" [baseZIndex]="10000" (onHide)="cerrarDialogo.emit()">
+
+  <!-- Upload image -->
+  <div class="avatar-upload">
+    <div class="avatar-edit">
+      <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" #fileInput (change)="uploadFile($event)" />
+      <label for="imageUpload" *ngIf="editFile" [ngClass]="['custom-label', 'upload-image']"></label>
+      <label *ngIf="removeUpload" [ngClass]="['custom-label', 'remove-image']" (click)="removeUploadedFile()"></label>
+    </div>
+    <div class="avatar-preview">
+      <div id="imagePreview" [style.backgroundImage]="'url('+ imageUrl +')'">
+      </div>
+    </div>
+  </div>
+
   <form [formGroup]="productosForm" class="container">
     <div class="form-group">
       <mat-form-field class="full-width">

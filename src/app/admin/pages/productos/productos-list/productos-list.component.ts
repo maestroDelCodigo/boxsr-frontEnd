@@ -14,7 +14,7 @@ import { ProductoServiceService } from '../services/producto-service.service';
 })
 export class ProductosListComponent implements OnInit  {
   @Output() modificar = new EventEmitter<Producto>();
-  displayedColumns: string[] = ['id', 'nombre', 'tipo', 'stock', 'peso', 'precio', 'actions'];
+  displayedColumns: string[] = ['imagen', 'id', 'nombre', 'tipo', 'stock', 'peso', 'precio', 'actions'];
   dataSource: MatTableDataSource<Producto>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

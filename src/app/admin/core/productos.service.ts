@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Producto } from '../models/producto';
 
@@ -30,8 +30,15 @@ export class ProductosService {
   }
 
   listarProductos(): Observable<Producto[]>{
+    // https://www.learnrxjs.io/learn-rxjs/concepts/get-started-transforming
     return this.http.get(`${environment.apiUrl}/product`)
       .pipe(
+        map((productos: Producto[]) => {
+          return productos.map(producto => ({
+            ...producto,
+            imagen_url: producto.imagen_url ? `${environment.urlImagesServer}/${producto.imagen_url}` : ''
+          }));
+        }),
         catchError(e => {
           return of(null);
         })
