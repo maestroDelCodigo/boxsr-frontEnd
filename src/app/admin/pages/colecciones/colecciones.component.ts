@@ -27,6 +27,7 @@ export class ColeccionesComponent implements OnInit {
 
   onOcultarCrearColecciones(){
     this.mostrarCrearColecciones = false;
+    this.list.refresh();
   }
 
   obtenerColecciones(){
@@ -42,11 +43,11 @@ export class ColeccionesComponent implements OnInit {
   modificarColeccion(coleccion: Coleccion){
     this.coleccionModificar = coleccion;
     this.mostrarModificarColecciones = true;
-
   }
 
   onOcultarModificarColecciones(){
     this.mostrarModificarColecciones = false;
+    this.list.refresh();
   }
 
   borrarColeccion(id: number){
