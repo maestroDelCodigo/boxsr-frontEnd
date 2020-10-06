@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProductosService } from '../../core/productos.service';
 import { Producto } from '../../models/producto';
+import { ProductosListComponent } from './productos-list/productos-list.component';
 
 @Component({
   selector: 'app-productos',
@@ -8,6 +9,7 @@ import { Producto } from '../../models/producto';
   styleUrls: ['./productos.component.scss']
 })
 export class ProductosComponent implements OnInit {
+  @ViewChild(ProductosListComponent) list: ProductosListComponent;
 
   mostrarCrearProductos = false;
   mostrarModificarProductos = false;
@@ -26,6 +28,7 @@ export class ProductosComponent implements OnInit {
 
   onOcultarCrearProductos(){
     this.mostrarCrearProductos = false;
+    this.list.refresh();
   }
 
   obtenerProductos(){
@@ -46,11 +49,12 @@ export class ProductosComponent implements OnInit {
 
   onOcultarModificarProductos(){
     this.mostrarModificarProductos = false;
+    this.list.refresh();
   }
 
   borrarProducto(id: number){
    this.productosService.descatalogarProducto(id, 1).subscribe(
-     () => this.obtenerProductos()
+     () => this.list.refresh()
    );
 
   }
