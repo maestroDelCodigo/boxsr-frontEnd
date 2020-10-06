@@ -13,6 +13,7 @@ import { PagoSeguroComponent } from './pages/pago-seguro/pago-seguro.component';
 import { EnviosDevolucionesComponent } from './pages/envios-devoluciones/envios-devoluciones.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { PreguntasFrecuentesComponent } from './pages/preguntas-frecuentes/preguntas-frecuentes.component';
+import { CondicionesGeneralesComponent } from './pages/condiciones-generales/condiciones-generales.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'envios-devoluciones', component:EnviosDevolucionesComponent },
   { path: 'contacto', component:ContactoComponent },
   { path: 'preguntas-frecuentes', component:PreguntasFrecuentesComponent },
+  { path: 'condiciones-generales', component:CondicionesGeneralesComponent },
   { path: 'admin', canActivate: [AuthGuardService], loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: '**', redirectTo: 'home' },
 ];
