@@ -3,27 +3,28 @@ import { ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { ProductosService } from 'src/app/admin/core/productos.service';
-import { Producto } from 'src/app/models/producto';
+import { ColeccionesService } from 'src/app/admin/core/colecciones.service';
+import { Coleccion } from 'src/app/admin/models/Coleccion';
+
 
 @Component({
-  selector: 'app-productos-list',
-  templateUrl: './productos-list.component.html',
-  styleUrls: ['./productos-list.component.scss']
+  selector: 'app-colecciones-list',
+  templateUrl: './colecciones-list.component.html',
+  styleUrls: ['./colecciones-list.component.scss']
 })
-export class ProductosListComponent implements OnInit  {
-  @Output() modificar = new EventEmitter<Producto>();
+export class ColeccionesListComponent implements OnInit  {
+  @Output() modificar = new EventEmitter<Coleccion>();
   @Output() borrar = new EventEmitter<number>();
-  displayedColumns: string[] = ['imagen', 'id', 'nombre', 'tipo', 'stock', 'peso', 'precio', 'deleted', 'actions'];
-  dataSource = new MatTableDataSource<Producto>();
+  displayedColumns: string[] = ['nombre', 'video', 'precioRebajado', 'precioOriginal', 'deleted', 'actions'];
+  dataSource = new MatTableDataSource<Coleccion>();
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private productosService: ProductosService) { }
+  constructor(private coleccionesService: ColeccionesService) { }
 
   ngOnInit(): void {
-    this.cargarListadoProductos();
+    this.cargarListadoColecciones();
   }
 
   applyFilter(event: Event): void {
@@ -35,22 +36,22 @@ export class ProductosListComponent implements OnInit  {
     }
   }
 
-  modificarProducto(producto: Producto): void{
-    this.modificar.emit(producto);
+  modificarColeccion(coleccion: Coleccion): void {
+    this.modificar.emit(coleccion);
   }
 
-  borrarProducto(id: number): void{
+  borrarColeccion(id: number): void{
     this.borrar.emit(id);
   }
 
   refresh(): void{
-    this.productosService.listarProductos().subscribe((data) => {
+    this.coleccionesService.listarColecciones().subscribe((data) => {
       this.dataSource.data = data;
     });
   }
 
-  private cargarListadoProductos(): void {
-    this.productosService.listarProductos().subscribe((data) => {
+  private cargarListadoColecciones(): void {
+    this.coleccionesService.listarColecciones().subscribe((data) => {
       this.dataSource.data = data;
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;

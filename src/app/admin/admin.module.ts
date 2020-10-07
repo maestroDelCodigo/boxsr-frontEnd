@@ -21,8 +21,13 @@ import { ProductosService } from './core/productos.service';
 import { MatButtonModule } from '@angular/material/button';
 import { DialogModule } from 'primeng/dialog';
 import { ModificarProductosComponent } from './pages/productos/modificar-productos/modificar-productos.component';
+import { CrearColeccionComponent } from './pages/colecciones/crear-coleccion/crear-coleccion.component';
+import { ModificarColeccionComponent } from './pages/colecciones/modificar-coleccion/modificar-coleccion.component';
+import { ColeccionesService } from './core/colecciones.service';
 import { DigitOnlyModule } from '@uiowa/digit-only';
 import { OrderListModule } from 'primeng/orderlist';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { ColeccionesListComponent } from './pages/colecciones/colecciones-list/colecciones-list.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +40,11 @@ import { OrderListModule } from 'primeng/orderlist';
     ClientesComponent,
     CrearProductosComponent,
     ModificarProductosComponent,
-    ProductosListComponent],
+    CrearColeccionComponent,
+    ModificarColeccionComponent,
+    ProductosListComponent,
+    ColeccionesListComponent
+  ],
   imports: [
     CommonModule,
     MatFormFieldModule,
@@ -50,10 +59,14 @@ import { OrderListModule } from 'primeng/orderlist';
     FormsModule,
     DialogModule,
     DigitOnlyModule,
-    OrderListModule
+    MatTableModule,
+    MatCheckboxModule,
+    OrderListModule,
+
   ],
   providers: [
     ProductosService,
+    ColeccionesService
    //  MessageService
   ]
 })
