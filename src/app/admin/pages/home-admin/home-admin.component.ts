@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Admin } from '../../models/admin';
 import { ListadoDeAdminInactivos } from '../../models/adminsInactivos';
 import { AdminRol } from '../../models/enums/rol.enum';
 import { MessageService } from 'primeng/api';
 import { AdminService } from '../../services/admin.service';
+import { ListaAdminComponent } from './lista-admin/lista-admin.component';
 
 @Component({
   selector: 'app-home-admin',
@@ -12,6 +13,7 @@ import { AdminService } from '../../services/admin.service';
   styleUrls: ['./home-admin.component.scss']
 })
 export class HomeAdminComponent implements OnInit {
+  @ViewChild(ListaAdminComponent) list: ListaAdminComponent;
   @Input() display: boolean;
   @Output() cerrarDialogo = new EventEmitter<void>();
   ventasDiarias = [];
@@ -100,22 +102,29 @@ export class HomeAdminComponent implements OnInit {
       this.listarAdmin();
     }
 
- }
-modificarAdmin(admin: Admin): void{
-  this.adminModificar = admin;
-  console.log(admin.usuario_id);
-  console.log(this.adminModificar);
-  this.mostrarModificarAdmins = true;
+  }
+  modificarAdmin(admin: Admin): void {
+    this.adminModificar = admin;
+    console.log(admin.usuario_id);
+    console.log(this.adminModificar);
+    this.mostrarModificarAdmins = true;
 
-}
-onOcultarModificarAdmins(): void {
+  }
+  borrarAdmin(id: number): void {
+    this.adminService.desactivarAdmin(id, 1).subscribe(
+      () => this.list.refresh()
+    );
+
+  }
+
+  onOcultarModificarAdmins(): void {
     this.mostrarModificarAdmins = false;
   }
-  onMostrarCrearAdmin(): void{
+  onMostrarCrearAdmin(): void {
     this.mostrarCrearAdmin = true;
   }
 
-  onOcultarCrearAdmin(): void{
+  onOcultarCrearAdmin(): void {
     this.mostrarCrearAdmin = false;
   }
 }
