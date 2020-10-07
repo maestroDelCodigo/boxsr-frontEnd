@@ -14,6 +14,11 @@ body {
   background-color: white;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 //Slider
 .slider {
   margin-top: -70px;
@@ -26,7 +31,7 @@ body {
 }
 
 .slider-text {
-  width: 60%;
+  width: 100%;
   margin: 10px;
 
   h1 {
@@ -88,7 +93,7 @@ body {
 }
 
 .filtro {
-  background-color:  #4b4a4a;
+  background-color:  #9b9b9b;
   height: 60px;
 }
 

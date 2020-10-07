@@ -17,6 +17,7 @@ import { SidebarModule } from 'primeng/sidebar';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { ProductoComponent } from './pages/producto/producto.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { MessageService } from 'primeng/api';
     MuestrasComponent,
     ShopComponent,
     SobreBoxsrComponent,
+    ProductoComponent,
   ],
   imports: [
     BrowserModule,
