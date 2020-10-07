@@ -41,7 +41,7 @@ import { ProductoComponent } from './pages/producto/producto.component';
     FormsModule,
     MatStepperModule,
     SidebarModule,
-    ToastModule
+    ToastModule,
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]

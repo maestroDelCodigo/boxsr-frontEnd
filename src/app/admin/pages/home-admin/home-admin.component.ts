@@ -108,6 +108,13 @@ modificarAdmin(admin: Admin): void{
   this.mostrarModificarAdmins = true;
 
 }
+borrarProducto(id: number){
+  this.adminService.descatalogarAdmin(id, 1).subscribe(
+    () => this.list.refresh()
+  );
+
+ }
+
 onOcultarModificarAdmins(): void {
     this.mostrarModificarAdmins = false;
   }
