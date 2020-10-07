@@ -5,7 +5,6 @@ import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { ProductosService } from 'src/app/admin/core/productos.service';
 import { Producto } from 'src/app/models/producto';
-import { ProductoServiceService } from '../services/producto-service.service';
 
 @Component({
   selector: 'app-productos-list',
@@ -14,8 +13,9 @@ import { ProductoServiceService } from '../services/producto-service.service';
 })
 export class ProductosListComponent implements OnInit  {
   @Output() modificar = new EventEmitter<Producto>();
-  displayedColumns: string[] = ['id', 'nombre', 'tipo', 'stock', 'peso', 'precio', 'actions'];
-  dataSource: MatTableDataSource<Producto>;
+  @Output() borrar = new EventEmitter<number>();
+  displayedColumns: string[] = ['imagen', 'id', 'nombre', 'tipo', 'stock', 'peso', 'precio', 'deleted', 'actions'];
+  dataSource = new MatTableDataSource<Producto>();
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -39,9 +39,19 @@ export class ProductosListComponent implements OnInit  {
     this.modificar.emit(producto);
   }
 
+  borrarProducto(id: number): void{
+    this.borrar.emit(id);
+  }
+
+  refresh(): void{
+    this.productosService.listarProductos().subscribe((data) => {
+      this.dataSource.data = data;
+    });
+  }
+
   private cargarListadoProductos(): void {
     this.productosService.listarProductos().subscribe((data) => {
-      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.data = data;
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
