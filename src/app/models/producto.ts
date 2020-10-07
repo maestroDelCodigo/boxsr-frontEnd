@@ -5,7 +5,7 @@ export class Producto {
     // tslint:disable-next-line:variable-name
     tipo_producto: string;
     // tslint:disable-next-line:variable-name
-    codigo_barras: number;
+    codigo_producto: number;
     peso: number;
     stock: number;
     deleted: number;
@@ -15,7 +15,7 @@ export class Producto {
     constructor(item?: any) {
         this.nombre = item?.nombre || '';
         this.tipo_producto = item?.tipo_producto || '';
-        this.codigo_barras = item?.codigo_barras || 0;
+        this.codigo_producto = item?.codigo_producto || 0;
         this.peso = item?.peso || 0;
         this.stock = item?.stock || 0;
         this.deleted = item?.deleted || 0;
