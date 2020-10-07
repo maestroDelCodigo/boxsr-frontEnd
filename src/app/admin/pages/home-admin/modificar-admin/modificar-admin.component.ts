@@ -1,11 +1,13 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { Admin } from 'src/app/admin/models/admin';
 import { ListadoDeAdminInactivos } from 'src/app/admin/models/adminsInactivos';
 import { AdminService } from 'src/app/admin/services/admin.service';
-
+import { MatCheckboxChange } from '@angular/material/checkbox';
+import { MatTableDataSource } from '@angular/material/table';
+import { combineLatest } from 'rxjs';
+import { first, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-modificar-admin',
@@ -13,45 +15,50 @@ import { AdminService } from 'src/app/admin/services/admin.service';
   styleUrls: ['./modificar-admin.component.scss']
 })
 export class ModificarAdminComponent implements OnInit {
-
   @Input() display: boolean;
   @Input() admin: Admin;
   @Output() cerrarDialogo = new EventEmitter<void>();
   listaAdmin: Admin[] = [];
   listadoDeAdminInactivos: ListadoDeAdminInactivos[] = [];
+  displayedColumns: string[] = ['nombre', 'apellidos', 'email', 'password', 'actions', 'deleted'];
+  dataSource = null;
   formularioAdmin: FormGroup;
   submitted = false;
   id = null;
-  private adminId: any;
-  constructor(private adminService: AdminService, fb: FormBuilder, private messageService: MessageService, activatedRoute: ActivatedRoute) {
-    activatedRoute.params.subscribe(x => {
-      console.log(x);
-      this.adminId = x?.usuario_id || null;
-      console.log(this.adminId)
-    });
-    this.elFormularioAdmin(fb);
+  constructor(private adminService: AdminService,
+              private formBuilder: FormBuilder,
+              private messageService: MessageService) {
 
   }
 
   ngOnInit(): void {
-    console.log(this.adminId);
-    if (this.adminId) {
-      this.adminService.getAdmin(this.adminId).subscribe(x => {
-        console.log(x);
-        if (x) {
-          this.formularioAdmin.patchValue(x);
-
-        }
-      });
-    }
+    this.formularioAdmin = this.formBuilder.group({
+      nombre: [this.admin.nombre, [Validators.required, Validators.maxLength(145)]],
+      apellidos: [this.admin.apellidos, [Validators.required, Validators.maxLength(145)]],
+      email: [this.admin.email, [Validators.required, Validators.maxLength(145)]],
+      password: [this.admin.password, [Validators.required, Validators.maxLength(16)]],
+    });
   }
-
-  modificar(): void {
+  onSubmit(): void {
     this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.formularioAdmin.invalid) {
+      return;
+    }
+
+
+
+
+    this.admin.nombre = this.f.nombre.value;
+    this.admin.apellidos = this.f.apellidos.value;
+    this.admin.email = this.f.email.value;
+    this.admin.password = this.f.password.value;
+
     this.adminService.modificarAdmin(this.admin).subscribe(
       (resultado) => {
         if (resultado) {
-          this.messageService.add({ severity: 'success', summary: 'Administrador', detail: 'Producto modificado correctamente.' });
+          this.messageService.add({ severity: 'success', summary: 'Administrador', detail: 'Administrador modificado correctamente.' });
           this.cerrarDialogo.emit();
         }
         else {
@@ -61,16 +68,7 @@ export class ModificarAdminComponent implements OnInit {
           });
         }
       });
-  }
 
-  private elFormularioAdmin(fb: FormBuilder): void {
-    this.formularioAdmin = fb.group({
-      id: [''],
-      nombre: ['', [Validators.required, Validators.maxLength(145)]],
-      apellidos: ['', [Validators.required, Validators.maxLength(145)]],
-      email: ['', [Validators.required, Validators.maxLength(145)]],
-      password: ['', [Validators.required, Validators.maxLength(16)]],
-    });
   }
   get f(): any { return this.formularioAdmin.controls; }
 }

@@ -14,6 +14,7 @@ import { Admin } from '../../../models/admin';
 })
 export class ListaAdminComponent implements OnInit  {
   @Output() modificar = new EventEmitter<Admin>();
+  @Output() borrar = new EventEmitter<number>();
   displayedColumns: string[] = ['nombre', 'apellidos', 'email', 'password', 'actions', 'deleted'];
   dataSource: MatTableDataSource<Admin>;
 
@@ -23,7 +24,7 @@ export class ListaAdminComponent implements OnInit  {
   constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
-    this.listarAdmin();
+    this.listarAdmin(); this.listaAdminInactivos();
   }
 
   applyFilter(event: Event): void {
@@ -38,12 +39,26 @@ export class ListaAdminComponent implements OnInit  {
   modificarAdmin(admin: Admin): void {
     this.modificar.emit(admin);
   }
-
+  borrarAdmin(id: number): void{
+    this.borrar.emit(id);
+  }
   private listarAdmin(): void {
     this.adminService.listaAdminActivos().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+    });
+  }
+  private listaAdminInactivos(): void {
+    this.adminService.listaAdminInactivos().subscribe((data) => {
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
+  }
+  refresh(): void{
+    this.adminService.listaAdminActivos().subscribe((data) => {
+      this.dataSource.data = data;
     });
   }
 }

@@ -76,7 +76,6 @@ import { ColeccionesListComponent } from './pages/colecciones/colecciones-list/c
   providers: [
     ProductosService,
     ColeccionesService,
-    MessageService
   ]
 })
 export class AdminModule { }
