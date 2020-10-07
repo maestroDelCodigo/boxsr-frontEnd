@@ -75,7 +75,7 @@ import { ColeccionesListComponent } from './pages/colecciones/colecciones-list/c
   ],
   providers: [
     ProductosService,
-    ColeccionesService
+    ColeccionesService,
     MessageService
   ]
 })
