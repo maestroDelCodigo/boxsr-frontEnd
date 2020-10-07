@@ -1,4 +1,39 @@
+
+* {
+  
+    color: white !important;
+  
+  }
 .container-fluid {
     height: 80vh;
     background-color: rgb(104, 103, 103);
+    color: white !important;
+}
+.suscribe{
+    padding-left: 10%;
+    padding-top: 18%;
+    width: 62%;
+}
+input{
+    background: transparent;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+}
+.text-secondary{
+    color: white !important;
+    width: 62%;
+    
+}
+.derechos{
+    justify-content: center;
+}
+.footer-social{
+list-style: none;
+display: -webkit-inline-box;
+padding-top: 5%;
+width: 62%;
+}
+.pages{
+    list-style: none;
 }
