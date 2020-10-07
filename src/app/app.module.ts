@@ -19,6 +19,7 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { ProductoComponent } from './pages/producto/producto.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
