@@ -9,6 +9,11 @@ import { ConocenosComponent } from './pages/sobre-boxsr/conocenos/conocenos.comp
 import { PielComponent } from './pages/sobre-boxsr/piel/piel.component';
 import { IngredientesComponent } from './pages/sobre-boxsr/ingredientes/ingredientes.component';
 import { AvisoLegalComponent } from './pages/avisoLegal/avisoLegal.component';
+import { PagoSeguroComponent } from './pages/pago-seguro/pago-seguro.component';
+import { EnviosDevolucionesComponent } from './pages/envios-devoluciones/envios-devoluciones.component';
+import { ContactoComponent } from './pages/contacto/contacto.component';
+import { PreguntasFrecuentesComponent } from './pages/preguntas-frecuentes/preguntas-frecuentes.component';
+import { CondicionesGeneralesComponent } from './pages/condiciones-generales/condiciones-generales.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -20,6 +25,11 @@ const routes: Routes = [
   { path: 'piel', component: PielComponent },
   { path: 'ingredientes', component: IngredientesComponent },
   { path: 'aviso-legal', component:AvisoLegalComponent },
+  { path: 'pago-seguro', component:PagoSeguroComponent },
+  { path: 'envios-devoluciones', component:EnviosDevolucionesComponent },
+  { path: 'contacto', component:ContactoComponent },
+  { path: 'preguntas-frecuentes', component:PreguntasFrecuentesComponent },
+  { path: 'condiciones-generales', component:CondicionesGeneralesComponent },
   { path: 'admin', canActivate: [AuthGuardService], loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: '**', redirectTo: 'home' },
 ];
