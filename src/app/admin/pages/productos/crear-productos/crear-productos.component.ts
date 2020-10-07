@@ -51,7 +51,7 @@ export class CrearProductosComponent implements OnInit {
     const producto = new Producto();
     producto.nombre = this.f.nombre.value;
     producto.tipo_producto = this.f.tipo.value;
-    producto.codigo_producto = this.f.codigo.value;
+    producto.codigo_barras = this.f.codigo.value;
     producto.peso = this.f.peso.value;
     producto.stock = this.f.stock.value;
     producto.precio = this.f.precio.value;

@@ -24,7 +24,7 @@ export class ModificarProductosComponent implements OnInit {
     this.productosForm = this.formBuilder.group({
       nombre: [ this.producto.nombre, [Validators.required, Validators.maxLength(145)]],
       tipo: [this.producto.tipo_producto, [Validators.required, Validators.maxLength(145)]],
-      codigo: [this.producto.codigo_producto, [Validators.required, Validators.maxLength(30)]],
+      codigo: [this.producto.codigo_barras, [Validators.required, Validators.maxLength(30)]],
       peso: [this.producto.peso, [Validators.required, Validators.maxLength(10)]],
       stock: [this.producto.stock, [Validators.required, Validators.maxLength(10)]],
       precio: [this.producto.precio, [Validators.required, Validators.maxLength(10)]],
@@ -43,7 +43,7 @@ export class ModificarProductosComponent implements OnInit {
 
     this.producto.nombre = this.f.nombre.value;
     this.producto.tipo_producto = this.f.tipo.value;
-    this.producto.codigo_producto = this.f.codigo.value;
+    this.producto.codigo_barras = this.f.codigo.value;
     this.producto.peso = this.f.peso.value;
     this.producto.stock = this.f.stock.value;
     this.producto.precio = this.f.precio.value;
