@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Admin } from './models/admin';
+import { ListadoDeAdminInactivos } from './models/adminsInactivos';
+import { AdminService } from './services/admin.service';
+
 
 @Component({
   selector: 'app-admin',
@@ -6,24 +10,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
+  admins: Admin[] = [];
+  adminsInactivos: ListadoDeAdminInactivos[] = [];
+  mostrarCrearProductos = false;
+  mostrarModificarProductos = false;
 
-  ventasDiarias = [
-    { total_pedido: 124 },
-    { total_pedido: 124 },
-    { total_pedido: 2 },
-    { total_pedido: 10 }
-  ];
-
-  totalVentasDiarias: number;
-
-  constructor() { }
+  constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
-    this.calcularVentasDiarias();
+  }
+  onMostrarCrearProductos(): void {
+    this.mostrarCrearProductos = true;
   }
 
-  calcularVentasDiarias(): void {
-    this.totalVentasDiarias = this.ventasDiarias.map(venta => venta.total_pedido).reduce((acc, venta) => acc + venta);
+  onOcultarCrearProductos(): void {
+    this.mostrarCrearProductos = false;
   }
+
+  onOcultarModificarProductos(): void {
+    this.mostrarModificarProductos = false;
+  }
+
+
+
 
 }

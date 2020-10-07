@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 import { HeaderAdminComponent } from './components/header-admin/header-admin.component';
@@ -9,6 +8,11 @@ import { ColeccionesComponent } from './pages/colecciones/colecciones.component'
 import { ProductosComponent } from './pages/productos/productos.component';
 import { InventarioComponent } from './pages/inventario/inventario.component';
 import { ClientesComponent } from './pages/clientes/clientes.component';
+import { HomeAdminComponent } from './pages/home-admin/home-admin.component'
+import { CrearAdminComponent } from './pages/home-admin/crear-admin/crear-admin.component';
+import { MessageService } from 'primeng/api';
+import { ListaAdminComponent } from './pages/home-admin/lista-admin/lista-admin.component';
+import { ModificarAdminComponent } from './pages/home-admin/modificar-admin/modificar-admin.component';
 import { ProductosListComponent } from './pages/productos/productos-list/productos-list.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -29,6 +33,7 @@ import { OrderListModule } from 'primeng/orderlist';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ColeccionesListComponent } from './pages/colecciones/colecciones-list/colecciones-list.component';
 
+
 @NgModule({
   declarations: [
     AdminComponent,
@@ -38,12 +43,17 @@ import { ColeccionesListComponent } from './pages/colecciones/colecciones-list/c
     ProductosComponent,
     InventarioComponent,
     ClientesComponent,
+    HomeAdminComponent,
+    ListaAdminComponent,
+    ModificarAdminComponent,
+    CrearAdminComponent,
     CrearProductosComponent,
     ModificarProductosComponent,
     CrearColeccionComponent,
     ModificarColeccionComponent,
     ProductosListComponent,
     ColeccionesListComponent
+
   ],
   imports: [
     CommonModule,
@@ -62,12 +72,11 @@ import { ColeccionesListComponent } from './pages/colecciones/colecciones-list/c
     MatTableModule,
     MatCheckboxModule,
     OrderListModule,
-
   ],
   providers: [
     ProductosService,
     ColeccionesService
-   //  MessageService
+    MessageService
   ]
 })
 export class AdminModule { }
