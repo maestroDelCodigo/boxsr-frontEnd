@@ -8,7 +8,7 @@ import { ColeccionesComponent } from './pages/colecciones/colecciones.component'
 import { ProductosComponent } from './pages/productos/productos.component';
 import { InventarioComponent } from './pages/inventario/inventario.component';
 import { ClientesComponent } from './pages/clientes/clientes.component';
-import { HomeAdminComponent } from './pages/home-admin/home-admin.component'
+import { HomeAdminComponent } from './pages/home-admin/home-admin.component';
 import { CrearAdminComponent } from './pages/home-admin/crear-admin/crear-admin.component';
 import { MessageService } from 'primeng/api';
 import { ListaAdminComponent } from './pages/home-admin/lista-admin/lista-admin.component';
@@ -75,7 +75,7 @@ import { ColeccionesListComponent } from './pages/colecciones/colecciones-list/c
   ],
   providers: [
     ProductosService,
-    ColeccionesService
+    ColeccionesService,
     MessageService
   ]
 })
