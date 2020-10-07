@@ -24,7 +24,7 @@ export class ListaAdminComponent implements OnInit  {
   constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
-    this.listarAdmin();
+    this.listarAdmin(); this.listaAdminInactivos();
   }
 
   applyFilter(event: Event): void {
@@ -44,6 +44,13 @@ export class ListaAdminComponent implements OnInit  {
   }
   private listarAdmin(): void {
     this.adminService.listaAdminActivos().subscribe((data) => {
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
+  }
+  private listaAdminInactivos(): void {
+    this.adminService.listaAdminInactivos().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
