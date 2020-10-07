@@ -1,0 +1,44 @@
+:host{
+
+  p-dialog  {
+    ::ng-deep {
+      .mydialog{
+        width: 50vw;
+
+        .p-dialog-content{
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 40em) {
+    p-dialog  {
+      ::ng-deep {
+        .mydialog{
+          width: 75vw;
+
+          .p-dialog-content{
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .container {
+      .full-width{
+        width: 80%;
+      }
+    }
+
+    /* Structure */
+    table {
+      width: 100%;
+    }
+
+    .mat-form-field {
+      font-size: 14px;
+      width: 100%;
+    }
+}
