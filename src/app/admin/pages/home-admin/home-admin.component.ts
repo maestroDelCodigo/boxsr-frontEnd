@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ListadoDeAdmin } from '../../models/admin';
-import { ListadoDeAdminInactivos } from '../../models/adminsInactivos'
+import { Admin } from '../../models/admin';
+import { ListadoDeAdminInactivos } from '../../models/adminsInactivos';
 import { AdminRol } from '../../models/enums/rol.enum';
 import { MessageService } from 'primeng/api';
 import { AdminService } from '../../services/admin.service';
@@ -16,20 +16,21 @@ export class HomeAdminComponent implements OnInit {
   @Output() cerrarDialogo = new EventEmitter<void>();
   ventasDiarias = [];
   ventasMensuales = [];
-  listaAdmin: ListadoDeAdmin[] = [];
-  listadoDeAdminInactivos: ListadoDeAdminInactivos[] = []
+  listaAdmin: Admin[] = [];
+  listadoDeAdminInactivos: ListadoDeAdminInactivos[] = [];
   roles: AdminRol[] = [];
   formularioAdmin: FormGroup;
   submitted = false;
   id = null;
-  admins: ListadoDeAdmin[] = [];
+  admins: Admin[] = [];
   adminsInactivos: ListadoDeAdminInactivos[] = [];
-  mostrarCrearProductos = false;
-  mostrarModificarProductos = false;
+  mostrarCrearAdmin = false;
+  mostrarModificarAdmins = false;
 
   totalVentasDiarias: number;
   totalVentasMensuales: number;
   totalAdmin: string;
+  adminModificar: Admin = null;
 
   constructor(private adminService: AdminService, fb: FormBuilder, private messageService: MessageService) {
     // this.elFormularioAdmin(fb);
@@ -64,7 +65,7 @@ export class HomeAdminComponent implements OnInit {
       }
       else {
         this.ventasDiarias = datos;
-        this.totalVentasDiarias = this.ventasDiarias.map(venta => venta.total_pedido).reduce((acc, venta) => acc + venta)
+        this.totalVentasDiarias = this.ventasDiarias.map(venta => venta.total_pedido).reduce((acc, venta) => acc + venta);
 
       }
     });
@@ -77,46 +78,44 @@ export class HomeAdminComponent implements OnInit {
       }
       else {
         this.ventasMensuales = datos;
-        this.totalVentasMensuales = this.ventasMensuales.map(venta => venta.total_pedido).reduce((acc, venta) => acc + venta)
+        this.totalVentasMensuales = this.ventasMensuales.map(venta => venta.total_pedido).reduce((acc, venta) => acc + venta);
 
       }
     });
   }
 
-//   guardar(value: any): void {
-//     this.submitted = true;
-//     console.log(value)
-//     if (value) {
-//       this.adminService.crearAdmin(value).subscribe(datos => {
-//         if (datos) {
-//           this.messageService.add({ severity: 'success', summary: 'Administrador', detail: 'Admin creado correctamente.' });
-//           this.cerrarDialogo.emit();
-//         }
-//         else {
-//           this.messageService.add({ severity: 'error', summary: 'Administrador', detail: 'Hubo un problema al crear el administrador.' });
-//         }
-//       });
-//       this.listarAdmin();
-//     }
+  guardar(value: any): void {
+    this.submitted = true;
+    console.log(value);
+    if (value) {
+      this.adminService.crearAdmin(value).subscribe(datos => {
+        if (datos) {
+          this.messageService.add({ severity: 'success', summary: 'Administrador', detail: 'Admin creado correctamente.' });
+          this.cerrarDialogo.emit();
+        }
+        else {
+          this.messageService.add({ severity: 'error', summary: 'Administrador', detail: 'Hubo un problema al crear el administrador.' });
+        }
+      });
+      this.listarAdmin();
+    }
 
+ }
+modificarAdmin(admin: Admin): void{
+  this.adminModificar = admin;
+  console.log(admin.usuario_id);
+  console.log(this.adminModificar);
+  this.mostrarModificarAdmins = true;
 
-
-
-//   }
-
-
-
-
-onMostrarCrearProductos(): void {
-    this.mostrarCrearProductos = true;
+}
+onOcultarModificarAdmins(): void {
+    this.mostrarModificarAdmins = false;
+  }
+  onMostrarCrearAdmin(): void{
+    this.mostrarCrearAdmin = true;
   }
 
-onOcultarCrearProductos(): void {
-    this.mostrarCrearProductos = false;
+  onOcultarCrearAdmin(): void{
+    this.mostrarCrearAdmin = false;
   }
-
-// onOcultarModificarProductos(): void {
-//     this.mostrarModificarProductos = false;
-//   }
-
 }

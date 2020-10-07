@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
-import { ListadoDeAdmin } from 'src/app/admin/models/admin';
+import { Admin } from 'src/app/admin/models/admin';
 import { ListadoDeAdminInactivos } from 'src/app/admin/models/adminsInactivos';
 import { AdminService } from 'src/app/admin/services/admin.service';
 
@@ -16,8 +16,8 @@ export class CrearAdminComponent implements OnInit {
   @Output() cerrarDialogo = new EventEmitter<void>();
   ventasDiarias = [];
   ventasMensuales = [];
-  listaAdmin: ListadoDeAdmin[] = [];
-  listadoDeAdminInactivos: ListadoDeAdminInactivos[] = []
+  listaAdmin: Admin[] = [];
+  listadoDeAdminInactivos: ListadoDeAdminInactivos[] = [];
   formularioAdmin: FormGroup;
   submitted = false;
   id = null;
@@ -60,7 +60,7 @@ export class CrearAdminComponent implements OnInit {
       }
       else {
         this.ventasDiarias = datos;
-        this.totalVentasDiarias = this.ventasDiarias.map(venta => venta.total_pedido).reduce((acc, venta) => acc + venta)
+        this.totalVentasDiarias = this.ventasDiarias.map(venta => venta.total_pedido).reduce((acc, venta) => acc + venta);
 
       }
     });
@@ -73,7 +73,7 @@ export class CrearAdminComponent implements OnInit {
       }
       else {
         this.ventasMensuales = datos;
-        this.totalVentasMensuales = this.ventasMensuales.map(venta => venta.total_pedido).reduce((acc, venta) => acc + venta)
+        this.totalVentasMensuales = this.ventasMensuales.map(venta => venta.total_pedido).reduce((acc, venta) => acc + venta);
 
       }
     });
@@ -81,10 +81,9 @@ export class CrearAdminComponent implements OnInit {
 
   guardar(value: any): void {
     this.submitted = true;
-    console.log(value)
     if (value) {
       this.adminService.crearAdmin(value).subscribe(datos => {
-        if(datos){
+        if (datos){
           this.messageService.add({severity: 'success', summary: 'Administrador', detail: 'Admin creado correctamente.'});
           this.cerrarDialogo.emit();
         }
@@ -92,25 +91,16 @@ export class CrearAdminComponent implements OnInit {
           this.messageService.add({severity: 'error', summary: 'Administrador', detail: 'Hubo un problema al crear el administrador.'});
         }
       });
-      this.listarAdmin();
     }
 
-
-
-
   }
-  nuevoAdmin() {
-
-  }
- 
-  
   private elFormularioAdmin(fb: FormBuilder): void {
     this.formularioAdmin = fb.group({
       nombre: ['', [Validators.required, Validators.maxLength(145)]],
       apellidos: ['', [Validators.required, Validators.maxLength(145)]],
       email: ['', [Validators.required, Validators.maxLength(145)]],
       password: ['',  [Validators.required, Validators.maxLength(16)]],
-      deleted: ['']
+      deleted: [0]
     });
   }
   get f(): any { return this.formularioAdmin.controls; }

@@ -5,7 +5,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { AdminService } from 'src/app/admin/services/admin.service';
-import { ListadoDeAdmin } from '../../../models/admin'
+import { Admin } from '../../../models/admin';
 
 @Component({
   selector: 'app-lista-admin',
@@ -13,9 +13,9 @@ import { ListadoDeAdmin } from '../../../models/admin'
   styleUrls: ['./lista-admin.component.scss']
 })
 export class ListaAdminComponent implements OnInit  {
-  @Output() modificar = new EventEmitter<ListadoDeAdmin>();
-  displayedColumns: string[] = [ 'nombre', 'apellidos', 'email', 'password', 'actions', 'deleted'];
-  dataSource: MatTableDataSource<ListadoDeAdmin>;
+  @Output() modificar = new EventEmitter<Admin>();
+  displayedColumns: string[] = ['nombre', 'apellidos', 'email', 'password', 'actions', 'deleted'];
+  dataSource: MatTableDataSource<Admin>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -35,7 +35,7 @@ export class ListaAdminComponent implements OnInit  {
     }
   }
 
-  modificarProducto(admin: ListadoDeAdmin): void {
+  modificarAdmin(admin: Admin): void {
     this.modificar.emit(admin);
   }
 

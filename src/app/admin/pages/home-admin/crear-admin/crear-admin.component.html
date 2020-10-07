@@ -24,7 +24,7 @@
           <mat-label>Email</mat-label>
           <input matInput formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
         <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-            <div *ngIf="f.codigo.errors.required">Email requerido</div>
+            <div *ngIf="f.email.errors.required">Email requerido</div>
         </div>
         </mat-form-field>
       </div>

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ListadoDeAdmin } from './models/admin';
+import { Admin } from './models/admin';
 import { ListadoDeAdminInactivos } from './models/adminsInactivos';
 import { AdminService } from './services/admin.service';
 
@@ -10,7 +10,7 @@ import { AdminService } from './services/admin.service';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-  admins: ListadoDeAdmin[] = [];
+  admins: Admin[] = [];
   adminsInactivos: ListadoDeAdminInactivos[] = [];
   mostrarCrearProductos = false;
   mostrarModificarProductos = false;

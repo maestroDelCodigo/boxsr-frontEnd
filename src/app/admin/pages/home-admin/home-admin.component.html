@@ -4,10 +4,11 @@
 <h2>TOTAL VENTAS DIARIAS</h2>
 <h1>{{ totalVentasDiarias }}</h1>
 
-<button (click)="onMostrarCrearProductos()">Crear producto</button>
+<button (click)="onMostrarCrearAdmin()">Crear administrador</button>
+<app-modificar-admin [display]="mostrarModificarAdmins" [admin]="adminModificar" (cerrarDialogo)="onOcultarModificarAdmins()" *ngIf="mostrarModificarAdmins"></app-modificar-admin>
 
-<app-crear-admin  [display]="mostrarCrearProductos" (cerrarDialogo)="onOcultarCrearProductos()" *ngIf="mostrarCrearProductos"></app-crear-admin>
-<app-lista-admin></app-lista-admin>
+<app-crear-admin  [display]="mostrarCrearAdmin" (cerrarDialogo)="onOcultarCrearAdmin()" *ngIf="mostrarCrearAdmin"></app-crear-admin>
+<app-lista-admin (modificar)="modificarAdmin($event)"></app-lista-admin>
 
 
 <!-- <h2>LISTA DE ADMINISTRADORES ACTIVOS</h2>

@@ -2,15 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Admin } from '../models/admin';
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
-  listarAdmin() {
-    throw new Error('Method not implemented.');
-  }
-
-
   constructor(private http: HttpClient) { }
 
   ventasDiarias(): Observable<any> {
@@ -27,7 +23,13 @@ export class AdminService {
     return this.http.get<any>(`${environment.apiUrl}/admin/listaAdminInactivos`);
   }
   crearAdmin(admin: any): Observable<any> {
-    console.log(admin)
     return this.http.post<any>(`${environment.apiUrl}/admin/crearAdmin`, admin);
+  }
+  modificarAdmin(admin: Admin): Observable<Admin> {
+    return this.http.post<any>(`${environment.apiUrl}/admin/modificarAdmin/${admin.usuario_id}`, admin);
+  }
+
+  getAdmin(usuario_id: number): Observable<Admin> {
+    return this.http.get<any>(`${environment.apiUrl}/admin/unAdmin/${usuario_id}`);
   }
 }
