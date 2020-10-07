@@ -35,7 +35,7 @@ export class ProductosListComponent implements OnInit  {
     }
   }
 
-  modificarProducto(producto: Producto): void {
+  modificarProducto(producto: Producto): void{
     this.modificar.emit(producto);
   }
 
