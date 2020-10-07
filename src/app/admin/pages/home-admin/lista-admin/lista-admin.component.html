@@ -35,12 +35,12 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
             <td mat-cell *matCellDef="let row">
               <button (click)="modificarAdmin(row)">Modificar</button>
+              <button (click)="borrarAdmin(row.usuario_id)">Borrar</button>
             </td>
         </ng-container>
         <ng-container matColumnDef="deleted">
           <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
           <td mat-cell *matCellDef="let row">
-            <button>Eliminar</button>
           </td>
       </ng-container>
 

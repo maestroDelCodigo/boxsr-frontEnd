@@ -34,4 +34,17 @@ export class AdminService {
         })
       );
   }
+  desactivarAdmin(usuario_id: number, deletedAdmin: number): Observable<any> {
+
+    const body =  {
+      deleted : deletedAdmin
+    };
+
+    return this.http.post(`${environment.apiUrl}/admin/desactivarAdmin/${usuario_id}`, body)
+      .pipe(
+        catchError(e => {
+          return of(null);
+        })
+      );
+  }
 }

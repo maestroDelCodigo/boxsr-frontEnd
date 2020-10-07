@@ -49,4 +49,9 @@ export class ListaAdminComponent implements OnInit  {
       this.dataSource.sort = this.sort;
     });
   }
+  refresh(): void{
+    this.adminService.listaAdminActivos().subscribe((data) => {
+      this.dataSource.data = data;
+    });
+  }
 }
