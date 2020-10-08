@@ -18,6 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { ProductoComponent } from './pages/producto/producto.component';
+import { ProductosService } from './admin/core/productos.service';
+import { ColeccionesService } from './admin/core/colecciones.service';
 
 
 @NgModule({
@@ -43,7 +45,7 @@ import { ProductoComponent } from './pages/producto/producto.component';
     SidebarModule,
     ToastModule,
   ],
-  providers: [MessageService],
+  providers: [MessageService, ProductosService, ColeccionesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
