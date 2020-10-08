@@ -18,6 +18,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { ProductoComponent } from './pages/producto/producto.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { OrderListModule } from 'primeng/orderlist';
+import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component';
 
 
 @NgModule({
@@ -31,10 +40,18 @@ import { ProductoComponent } from './pages/producto/producto.component';
     ShopComponent,
     SobreBoxsrComponent,
     ProductoComponent,
+    PerfilUsuarioComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatTableModule,
+    MatInputModule,
+    MatPaginatorModule,
+    MatSortModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
@@ -42,6 +59,9 @@ import { ProductoComponent } from './pages/producto/producto.component';
     MatStepperModule,
     SidebarModule,
     ToastModule,
+    MatTableModule,
+    MatCheckboxModule,
+    OrderListModule,
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]
