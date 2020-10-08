@@ -16,6 +16,7 @@ import { PreguntasFrecuentesComponent } from './pages/preguntas-frecuentes/pregu
 import { CondicionesGeneralesComponent } from './pages/condiciones-generales/condiciones-generales.component';
 import { ProductoComponent } from './pages/producto/producto.component';
 import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component';
+import { RegistroUsuarioComponent } from './pages/registro-usuario/registro-usuario.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'condiciones-generales', component: CondicionesGeneralesComponent },
   { path: 'producto', component: ProductoComponent },
   { path: 'perfil-usuario', component: PerfilUsuarioComponent },
+  { path: 'registro-usuario', component: RegistroUsuarioComponent },
 
   { path: 'admin', canActivate: [AuthGuardService], loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: '**', redirectTo: 'home' },

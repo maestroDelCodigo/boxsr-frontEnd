@@ -27,6 +27,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { OrderListModule } from 'primeng/orderlist';
 import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component';
+import { RegistroUsuarioComponent } from './pages/registro-usuario/registro-usuario.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.co
     ShopComponent,
     SobreBoxsrComponent,
     ProductoComponent,
-    PerfilUsuarioComponent
+    PerfilUsuarioComponent,
+    RegistroUsuarioComponent
   ],
   imports: [
     BrowserModule,
