@@ -28,8 +28,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { OrderListModule } from 'primeng/orderlist';
 import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component';
 import { RegistroUsuarioComponent } from './pages/registro-usuario/registro-usuario.component';
-
-
+import {MatIconModule} from '@angular/material/icon';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,8 +65,15 @@ import { RegistroUsuarioComponent } from './pages/registro-usuario/registro-usua
     MatTableModule,
     MatCheckboxModule,
     OrderListModule,
+    MatIconModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+
   ],
-  providers: [MessageService],
+  providers: [MessageService,
+    MatDatepickerModule,
+    MatNativeDateModule,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
