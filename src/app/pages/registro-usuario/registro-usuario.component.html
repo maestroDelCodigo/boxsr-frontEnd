@@ -54,14 +54,16 @@
   </div>
   <div class="form-group">
     <mat-form-field class="full-width">
-      <mat-label>Direccion</mat-label>
+      <mat-label>Dirección</mat-label>
       <input
         matInput
         formControlName="direccion"
         [ngClass]="{ 'is-invalid': submitted && f.direccion.errors }"
       />
       <div *ngIf="submitted && f.direccion.errors" class="invalid-feedback">
-        <div *ngIf="f.direccion.errors.required">Direccion obligatoria</div>
+        <div *ngIf="f.direccion.errors.maxLength">
+        </div>
+        <div *ngIf="f.direccion.errors.required">Dirección obligatoria</div>
       </div>
     </mat-form-field>
   </div>
@@ -71,9 +73,11 @@
       <input
         matInput
         formControlName="poblacion"
-        [ngClass]="{ 'is-invalid': submitted && f.direccion.errors }"
+        [ngClass]="{ 'is-invalid': submitted && f.poblacion.errors }"
       />
-      <div *ngIf="submitted && f.direccion.errors" class="invalid-feedback">
+      <div *ngIf="submitted && f.poblacion.errors" class="invalid-feedback">
+        <div *ngIf="f.poblacion.errors.maxLength">
+        </div>
         <div *ngIf="f.poblacion.errors.required">Poblacion obligatoria</div>
       </div>
     </mat-form-field>
@@ -82,10 +86,12 @@
       <input
         matInput
         formControlName="codigo_postal"
-        [ngClass]="{ 'is-invalid': submitted && f.direccion.errors }"
+        [ngClass]="{ 'is-invalid': submitted && f.codigo_postal.errors }"
       />
-      <div *ngIf="submitted && f.direccion.errors" class="invalid-feedback">
-        <div *ngIf="f.codigo_postal.errors.required">Codigo postal</div>
+      <div *ngIf="submitted && f.codigo_postal.errors" class="invalid-feedback">
+        <div *ngIf="f.codigo_postal.errors.maxLength">
+        </div>
+        <div *ngIf="f.codigo_postal.errors.required">Código postal obligatorio</div>
       </div>
     </mat-form-field>
   </div>

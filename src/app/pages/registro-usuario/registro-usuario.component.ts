@@ -24,6 +24,9 @@ export class RegistroUsuarioComponent implements OnInit {
 
   guardar(value: Usuario): void {
     this.submitted = true;
+    if (this.formularioUsuario.invalid) {
+      return this.messageService.add({ severity: 'error', summary: 'Registro', detail: 'Hubo un problema al hacer el registro' });;
+  }
     if (value) {
       this.registroService.crearUsuario(value).subscribe(datos => {
         if (datos) {
@@ -51,7 +54,7 @@ export class RegistroUsuarioComponent implements OnInit {
       email: ['', [Validators.required, Validators.maxLength(80)]],
       password: ['', [Validators.required, Validators.maxLength(15)]],
       direccion: ['', [Validators.required, Validators.maxLength(145)]],
-      codigo_postal: ['',[Validators.required, Validators.maxLength(15)]],
+      codigo_postal: ['', [Validators.required, Validators.maxLength(5)]],
       poblacion: ['', [Validators.required, Validators.maxLength(60)]],
       deleted: [0]
     });
