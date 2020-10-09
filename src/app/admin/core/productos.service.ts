@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Producto } from '../models/producto';
 
@@ -23,7 +23,9 @@ export class ProductosService {
   modificarProducto(producto: Producto): Observable<any> {
     return this.http.post(`${environment.apiUrl}/product/actualizarProducto/${producto.producto_id}`, producto)
       .pipe(
+        tap((a)=> console.log(a)),
         catchError(e => {
+          console.log(e);
           return of(null);
         })
       );
@@ -36,7 +38,7 @@ export class ProductosService {
         map((productos: Producto[]) => {
           return productos.map(producto => ({
             ...producto,
-            imagen_url: producto.imagen_url ? `${environment.urlImagesServer}/${producto.imagen_url}` : ''
+            imagen_url: producto.nombre_imagen ? `${environment.urlImagesServer}/${producto.nombre_imagen}` : ''
           }));
         }),
         catchError(e => {

@@ -14,7 +14,7 @@ import { Producto } from 'src/app/models/producto';
 export class ProductosListComponent implements OnInit  {
   @Output() modificar = new EventEmitter<Producto>();
   @Output() borrar = new EventEmitter<number>();
-  displayedColumns: string[] = ['imagen', 'id', 'nombre', 'tipo', 'stock', 'peso', 'precio', 'deleted', 'actions'];
+  displayedColumns: string[] = ['imagen', 'codigo_producto', 'nombre', 'tipo', 'stock', 'peso', 'precio', 'deleted', 'actions'];
   dataSource = new MatTableDataSource<Producto>();
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

@@ -22,37 +22,35 @@ export class ProductosComponent implements OnInit {
     this.obtenerProductos();
   }
 
-  onMostrarCrearProductos(){
+  onMostrarCrearProductos(): void{
     this.mostrarCrearProductos = true;
   }
 
-  onOcultarCrearProductos(){
+  onOcultarCrearProductos(): void{
     this.mostrarCrearProductos = false;
     this.list.refresh();
   }
 
-  obtenerProductos(){
+  obtenerProductos(): void{
     this.productosService.listarProductos().subscribe(
-      (productos) =>{
+      (productos) => {
         this.productos = productos;
-
-        console.log(productos);
       }
     );
   }
 
-  modificarProducto(producto: Producto){
+  modificarProducto(producto: Producto): void{
     this.productoModificar = producto;
     this.mostrarModificarProductos = true;
 
   }
 
-  onOcultarModificarProductos(){
+  onOcultarModificarProductos(): void{
     this.mostrarModificarProductos = false;
     this.list.refresh();
   }
 
-  borrarProducto(id: number){
+  borrarProducto(id: number): void{
    this.productosService.descatalogarProducto(id, 1).subscribe(
      () => this.list.refresh()
    );

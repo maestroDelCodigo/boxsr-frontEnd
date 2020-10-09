@@ -1,0 +1,64 @@
+.product-container {
+    min-height: 80vh;
+    border-top: gray 1px solid;
+
+  .row {
+      min-height: 80vh;
+  }
+
+  .product-img {
+    background-image: url(../../../assets/images/aceite-argan.png);
+    background-size: cover;
+    background-position: center;
+    min-height: 40vh;
+  }
+
+  .product-text {
+    padding: 0px;
+    min-height: 80vh;
+    border-left: gray 1px solid;
+
+
+    h1, h3 {
+        padding: 30px;
+    }
+    h1 {
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+
+    }
+  }
+
+  h3 {
+      color: gray;
+  }
+
+  .comprar-ahora {
+      padding: 0px;
+
+      h2 {
+        margin-bottom: 0px;
+        text-align: center;
+        padding: 22px;
+        background-color: gray;
+        color: white;
+      }
+  }
+}
+
+.description {
+    display: flex;
+    align-items: center;
+    min-height: 20vh;
+    border: gray 1px solid;
+
+    .description-title {
+        display: flex;
+        align-items: center;
+
+        h1 {
+            font-size: 40px;
+            text-align: center;
+        }
+    }
+}

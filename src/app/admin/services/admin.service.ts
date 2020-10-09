@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Admin } from '../models/admin';
 @Injectable({
@@ -25,11 +26,25 @@ export class AdminService {
   crearAdmin(admin: any): Observable<any> {
     return this.http.post<any>(`${environment.apiUrl}/admin/crearAdmin`, admin);
   }
-  modificarAdmin(admin: Admin): Observable<Admin> {
-    return this.http.post<any>(`${environment.apiUrl}/admin/modificarAdmin/${admin.usuario_id}`, admin);
+  modificarAdmin(admin: Admin): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/admin/modificarAdmin/${admin.usuario_id}`, admin)
+      .pipe(
+        catchError(e => {
+          return of(null);
+        })
+      );
   }
+  desactivarAdmin(usuario_id: number, deletedAdmin: number): Observable<any> {
 
-  getAdmin(usuario_id: number): Observable<Admin> {
-    return this.http.get<any>(`${environment.apiUrl}/admin/unAdmin/${usuario_id}`);
+    const body =  {
+      deleted : deletedAdmin
+    };
+
+    return this.http.post(`${environment.apiUrl}/admin/desactivarAdmin/${usuario_id}`, body)
+      .pipe(
+        catchError(e => {
+          return of(null);
+        })
+      );
   }
 }

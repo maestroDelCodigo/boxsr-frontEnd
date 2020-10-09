@@ -8,7 +8,7 @@
 <app-modificar-admin [display]="mostrarModificarAdmins" [admin]="adminModificar" (cerrarDialogo)="onOcultarModificarAdmins()" *ngIf="mostrarModificarAdmins"></app-modificar-admin>
 
 <app-crear-admin  [display]="mostrarCrearAdmin" (cerrarDialogo)="onOcultarCrearAdmin()" *ngIf="mostrarCrearAdmin"></app-crear-admin>
-<app-lista-admin (modificar)="modificarAdmin($event)"></app-lista-admin>
+<app-lista-admin (modificar)="modificarAdmin($event)" (borrar)="borrarAdmin($event)"></app-lista-admin>
 
 
 <!-- <h2>LISTA DE ADMINISTRADORES ACTIVOS</h2>
