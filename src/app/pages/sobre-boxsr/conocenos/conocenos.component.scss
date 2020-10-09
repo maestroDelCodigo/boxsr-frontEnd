@@ -7,22 +7,19 @@
     overflow-x: hidden;
   }
   
-  .arrow-button {
-    font-weight: 700;
-    outline: none;
-    padding: 3px 40px 3px 10px;
-    background-color: white;
-  }
+ 
   
   //Slider
-  .slider {
+
+   .slider {
+    margin-top:-70px;
     height: 36vh;
-    width: 85vh;
+    width: 130vh;
     margin-top: 30px;
     margin-bottom: 30px;
     
-    background-image: url(../../../../assets/images/BOXSR_1-8.png);
-    background-size: 80%;
+    background-image: url(../../../../assets/images/macro-shot-of-mans-eye-ES7VQPB.jpg);
+    background-size:cover;
     background-position: center;
     display: flex;
     align-items: flex-end;
@@ -34,7 +31,7 @@
     font-style: italic;
   }
   .width{
-    width: 100vh;
+    width: 130vh;
   }  
   .padding{
     padding-top: 140px;
@@ -43,7 +40,7 @@
  
   .imagenEllas{
     height: 36vh;
-    width: 85vh;
+    width: 100vh;
   
   }
   .Ellas{
