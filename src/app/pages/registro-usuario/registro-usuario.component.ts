@@ -50,12 +50,13 @@ export class RegistroUsuarioComponent implements OnInit {
     this.formularioUsuario = fb.group({
       nombre: ['', [Validators.required, Validators.maxLength(60)]],
       apellidos: ['', [Validators.required, Validators.maxLength(145)]],
-      fecha_nacimiento: ['', [Validators.required, Validators.maxLength(145)]],
+      fecha_nacimiento: ['', [Validators.required, Validators.maxLength(15)]],
       email: ['', [Validators.required, Validators.maxLength(80)]],
       password: ['', [Validators.required, Validators.maxLength(15)]],
       direccion: ['', [Validators.required, Validators.maxLength(145)]],
       codigo_postal: ['', [Validators.required, Validators.maxLength(5)]],
       poblacion: ['', [Validators.required, Validators.maxLength(60)]],
+      provincia: ['', [Validators.required, Validators.maxLength(60)]],
       deleted: [0]
     });
   }

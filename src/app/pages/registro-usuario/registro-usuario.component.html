@@ -97,6 +97,21 @@
   </div>
   <div class="form-group">
     <mat-form-field class="full-width">
+      <mat-label>Provincia</mat-label>
+      <input
+        matInput
+        formControlName="provincia"
+        [ngClass]="{ 'is-invalid': submitted && f.provincia.errors }"
+      />
+      <div *ngIf="submitted && f.provincia.errors" class="invalid-feedback">
+        <div *ngIf="f.provincia.errors.maxLength">
+        </div>
+        <div *ngIf="f.provincia.errors.required">Provincia obligatoria</div>
+      </div>
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-form-field class="full-width">
       <mat-label>Introduce tu password</mat-label>
       <input
         matInput
