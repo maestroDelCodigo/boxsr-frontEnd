@@ -1,4 +1,18 @@
 <p-dialog header="Modificar producto" [(visible)]="display" styleClass="mydialog" [baseZIndex]="10000" (onHide)="cerrarDialogo.emit()">
+
+  <div class="avatar-upload">
+    <div class="avatar-edit">
+      <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" #fileInput (change)="uploadFile($event)" />
+      <label for="imageUpload" *ngIf="editFile" [ngClass]="['custom-label', 'upload-image']"></label>
+      <label *ngIf="removeUpload" [ngClass]="['custom-label', 'remove-image']" (click)="removeUploadedFile()"></label>
+    </div>
+    <div class="avatar-preview">
+      <div id="imagePreview" [style.backgroundImage]="'url('+ imageUrl +')'">
+      </div>
+    </div>
+  </div>
+
+
   <form [formGroup]="productosForm" class="container">
     <div class="form-group">
       <mat-form-field class="full-width">
@@ -38,15 +52,6 @@
         <div *ngIf="submitted && f.peso.errors" class="invalid-feedback">
             <div *ngIf="f.peso.errors.required">Peso de producto requerido</div>
         </div>
-      </mat-form-field>
-    </div>
-    <div class="form-group">
-      <mat-form-field class="full-width">
-        <mat-label>Stock</mat-label>
-        <input matInput digitOnly formControlName="stock" [ngClass]="{ 'is-invalid': submitted && f.stock.errors }" />
-        <div *ngIf="submitted && f.stock.errors" class="invalid-feedback">
-          <div *ngIf="f.stock.errors.required">Stock de producto requerido</div>
-      </div>
       </mat-form-field>
     </div>
     <div class="form-group">

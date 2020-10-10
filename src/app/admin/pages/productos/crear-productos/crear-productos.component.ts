@@ -32,9 +32,9 @@ export class CrearProductosComponent implements OnInit {
       nombre: ['', [Validators.required, Validators.maxLength(145)]],
       tipo: ['', [Validators.required, Validators.maxLength(145)]],
       codigo: ['', [Validators.required, Validators.maxLength(30)]],
-      peso: ['', [Validators.required, Validators.maxLength(10)]],
-      stock: ['', [Validators.required, Validators.maxLength(10)]],
-      precio: ['', [Validators.required, Validators.maxLength(10)]],
+      peso: ['', [Validators.required, Validators.maxLength(6)]],
+      // stock: ['', [Validators.required, Validators.maxLength(10)]],
+      precio: ['', [Validators.required, Validators.maxLength(5)]],
   });
   }
 
@@ -53,7 +53,7 @@ export class CrearProductosComponent implements OnInit {
     producto.tipo_producto = this.f.tipo.value;
     producto.codigo_producto = this.f.codigo.value;
     producto.peso = this.f.peso.value;
-    producto.stock = this.f.stock.value;
+    producto.stock = 0;
     producto.precio = this.f.precio.value;
     producto.deleted = 0;
     producto.fecha_creacion = new Date().toISOString().slice(0, 19).replace('T', ' ');
@@ -70,7 +70,7 @@ export class CrearProductosComponent implements OnInit {
         switchMap(() => this.productosService.crearProducto(producto))
         ).subscribe(
           (resultado) => {
-            if(resultado){
+            if (resultado){
               this.messageService.add({severity: 'success', summary: 'Producto', detail: 'Producto creado correctamente.'});
               this.cerrarDialogo.emit();
             }
@@ -85,7 +85,7 @@ export class CrearProductosComponent implements OnInit {
       // Llamada al servicio que llama al back
       this.productosService.crearProducto(producto).subscribe(
         (resultado) => {
-          if(resultado){
+          if (resultado){
             this.messageService.add({severity: 'success', summary: 'Producto', detail: 'Producto creado correctamente.'});
             this.cerrarDialogo.emit();
           }
@@ -124,14 +124,14 @@ export class CrearProductosComponent implements OnInit {
         // });
         this.editFile = false;
         this.removeUpload = true;
-      }
+      };
       // ChangeDetectorRef since file is loading outside the zone
       this.cd.markForCheck();
     }
   }
 
     // Function to remove uploaded file
-    removeUploadedFile() : void {
+    removeUploadedFile(): void {
       const newFileList = Array.from(this.el.nativeElement.files);
       this.imageUrl = '';
       this.editFile = true;

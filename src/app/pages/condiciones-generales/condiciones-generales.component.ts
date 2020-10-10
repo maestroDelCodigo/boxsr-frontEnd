@@ -9,7 +9,7 @@ export class CondicionesGeneralesComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }
