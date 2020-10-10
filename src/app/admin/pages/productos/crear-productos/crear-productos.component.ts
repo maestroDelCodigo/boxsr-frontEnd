@@ -33,7 +33,7 @@ export class CrearProductosComponent implements OnInit {
       tipo: ['', [Validators.required, Validators.maxLength(145)]],
       codigo: ['', [Validators.required, Validators.maxLength(30)]],
       peso: ['', [Validators.required, Validators.maxLength(6)]],
-      stock: ['', [Validators.required, Validators.maxLength(10)]],
+      // stock: ['', [Validators.required, Validators.maxLength(10)]],
       precio: ['', [Validators.required, Validators.maxLength(5)]],
   });
   }
@@ -53,7 +53,7 @@ export class CrearProductosComponent implements OnInit {
     producto.tipo_producto = this.f.tipo.value;
     producto.codigo_producto = this.f.codigo.value;
     producto.peso = this.f.peso.value;
-    producto.stock = this.f.stock.value;
+    producto.stock = 0;
     producto.precio = this.f.precio.value;
     producto.deleted = 0;
     producto.fecha_creacion = new Date().toISOString().slice(0, 19).replace('T', ' ');
