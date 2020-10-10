@@ -66,7 +66,6 @@ export class ModificarProductosComponent implements OnInit {
     this.producto.deleted = 0;
     this.producto.fecha_creacion = this.producto.fecha_creacion;
 
-
     if (this.file)
     {
       this.producto.nombre_imagen = this.nombreImagen;

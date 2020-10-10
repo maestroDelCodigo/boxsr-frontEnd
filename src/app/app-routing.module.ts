@@ -14,7 +14,7 @@ import { EnviosDevolucionesComponent } from './pages/envios-devoluciones/envios-
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { PreguntasFrecuentesComponent } from './pages/preguntas-frecuentes/preguntas-frecuentes.component';
 import { CondicionesGeneralesComponent } from './pages/condiciones-generales/condiciones-generales.component';
-import { ProductoComponent } from './pages/producto/producto.component';
+import { ProductoComponent } from './pages/shop/producto/producto.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -25,20 +25,25 @@ const routes: Routes = [
   { path: 'conocenos', component: ConocenosComponent },
   { path: 'piel', component: PielComponent },
   { path: 'ingredientes', component: IngredientesComponent },
-  { path: 'aviso-legal', component:AvisoLegalComponent },
-  { path: 'pago-seguro', component:PagoSeguroComponent },
-  { path: 'envios-devoluciones', component:EnviosDevolucionesComponent },
-  { path: 'contacto', component:ContactoComponent },
-  { path: 'preguntas-frecuentes', component:PreguntasFrecuentesComponent },
-  { path: 'condiciones-generales', component:CondicionesGeneralesComponent },
-  { path: 'producto', component:ProductoComponent },
+  { path: 'aviso-legal', component: AvisoLegalComponent },
+  { path: 'pago-seguro', component: PagoSeguroComponent },
+  { path: 'envios-devoluciones', component: EnviosDevolucionesComponent },
+  { path: 'contacto', component: ContactoComponent },
+  { path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
+  { path: 'condiciones-generales', component: CondicionesGeneralesComponent },
+  { path: 'producto/:id', component: ProductoComponent },
 
-  { path: 'admin', canActivate: [AuthGuardService], loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
+  {
+    path: 'admin',
+    canActivate: [AuthGuardService],
+    loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminModule),
+  },
   { path: '**', redirectTo: 'home' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

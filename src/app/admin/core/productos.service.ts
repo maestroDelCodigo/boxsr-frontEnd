@@ -47,6 +47,15 @@ export class ProductosService {
       );
   }
 
+  getProducto(id: number): Observable<Producto>{
+    return this.http.get(`${environment.apiUrl}/product/${id}`)
+      .pipe(
+        catchError(e => {
+          return of(null);
+        })
+      );
+  }
+
   descatalogarProducto(idProducto: number, deletedProducto: number): Observable<any> {
 
     const body =  {
