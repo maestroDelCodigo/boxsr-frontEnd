@@ -1,8 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductosService } from 'src/app/admin/core/productos.service';
 import { Producto } from 'src/app/admin/models/producto';
 import { MessageService } from 'primeng/api';
+import { UploadFilesService } from 'src/app/core/upload.service';
+import { first, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-modificar-productos',
@@ -10,14 +12,20 @@ import { MessageService } from 'primeng/api';
   styleUrls: ['./modificar-productos.component.scss']
 })
 export class ModificarProductosComponent implements OnInit {
+  @ViewChild('fileInput') el: ElementRef;
   @Input() producto: Producto;
   @Input() display: boolean;
   @Output() cerrarDialogo = new EventEmitter<void>();
+  imageUrl: any = '';
   productosForm: FormGroup;
   submitted = false;
+  editFile = true;
+  removeUpload = false;
+  nombreImagen: string;
+  file: any;
 
   constructor(private productosService: ProductosService, private formBuilder: FormBuilder,
-              private messageService: MessageService ) { }
+              private messageService: MessageService, private cd: ChangeDetectorRef, private uploadService: UploadFilesService  ) { }
 
   ngOnInit(): void {
 
@@ -25,10 +33,18 @@ export class ModificarProductosComponent implements OnInit {
       nombre: [ this.producto.nombre, [Validators.required, Validators.maxLength(145)]],
       tipo: [this.producto.tipo_producto, [Validators.required, Validators.maxLength(145)]],
       codigo: [this.producto.codigo_producto, [Validators.required, Validators.maxLength(30)]],
-      peso: [this.producto.peso, [Validators.required, Validators.maxLength(10)]],
+      peso: [this.producto.peso, [Validators.required, Validators.maxLength(6)]],
       stock: [this.producto.stock, [Validators.required, Validators.maxLength(10)]],
-      precio: [this.producto.precio, [Validators.required, Validators.maxLength(10)]],
-  });
+      precio: [this.producto.precio, [Validators.required, Validators.maxLength(5)]],
+    });
+
+    this.imageUrl = this.producto.imagen_url;
+
+    if (this.imageUrl)
+    {
+      this.editFile = false;
+      this.removeUpload = true;
+    }
   }
 
   get f(): any { return this.productosForm.controls; }
@@ -50,20 +66,78 @@ export class ModificarProductosComponent implements OnInit {
     this.producto.deleted = 0;
     this.producto.fecha_creacion = this.producto.fecha_creacion;
 
-    // Llamada al servicio que llama al back
-    this.productosService.modificarProducto(this.producto).subscribe(
-      (resultado) => {
-        console.log(resultado);
-        if (resultado){
-          this.messageService.add({severity: 'success', summary: 'Producto', detail: 'Producto modificado correctamente.'});
-          this.cerrarDialogo.emit();
-        }
-        else{
-          this.messageService.add({severity: 'error', summary: 'Producto', detail: 'Hubo un problema al modificar el producto.'});
-        }
-      },
-    );
+    if (this.file)
+    {
+      this.producto.nombre_imagen = this.nombreImagen;
+
+      this.uploadService.upload(this.file).pipe(
+        first(),
+        switchMap(() => this.productosService.modificarProducto(this.producto))
+        ).subscribe(
+          (resultado) => {
+            if (resultado){
+              this.messageService.add({severity: 'success', summary: 'Producto', detail: 'Producto modificar correctamente.'});
+              this.cerrarDialogo.emit();
+            }
+            else{
+              this.messageService.add({severity: 'error', summary: 'Producto', detail: 'Hubo un problema al modificar el producto.'});
+            }
+          },
+        );
+
+    }else {
+
+      if (!this.imageUrl)
+      {
+        this.producto.nombre_imagen = '';
+      }
+
+      // Llamada al servicio que llama al back
+      this.productosService.modificarProducto(this.producto).subscribe(
+        (resultado) => {
+          if (resultado){
+            this.messageService.add({severity: 'success', summary: 'Producto', detail: 'Producto modificado correctamente.'});
+            this.cerrarDialogo.emit();
+          }
+          else{
+            this.messageService.add({severity: 'error', summary: 'Producto', detail: 'Hubo un problema al modificar el producto.'});
+          }
+        },
+      );
+    }
   }
+
+  uploadFile(event): void{
+    const reader = new FileReader(); // HTML5 FileReader API
+    const file = event.target.files[0];
+    if (event.target.files && event.target.files[0]) {
+      reader.readAsDataURL(file);
+      this.nombreImagen = event.target.files[0].name;
+      this.file = event.target.files[0];
+      // When file uploads set it to file formcontrol
+      reader.onload = () => {
+        this.imageUrl = reader.result;
+        // this.registrationForm.patchValue({
+        //   file: reader.result
+        // });
+        this.editFile = false;
+        this.removeUpload = true;
+      };
+      // ChangeDetectorRef since file is loading outside the zone
+      this.cd.markForCheck();
+    }
+  }
+
+    // Function to remove uploaded file
+    removeUploadedFile(): void {
+      const newFileList = Array.from(this.el.nativeElement.files);
+      this.imageUrl = '';
+      this.editFile = true;
+      this.removeUpload = false;
+      // this.registrationForm.patchValue({
+      //   file: [null]
+      // });
+    }
 
 }
 

@@ -13,7 +13,10 @@
 .div-imagen {
     display:inline-block;
     position:relative;
-  }
+    width: 118%;
+    font-size: 112%;
+}
+  
   
   .div-imagen > div {
     position:absolute;
@@ -57,5 +60,5 @@
   }
   .ingred{
     width: 73%;
-    font-size: 75%;
+    font-size: 100%;
   }
