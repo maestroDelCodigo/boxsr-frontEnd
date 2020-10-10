@@ -1,13 +1,17 @@
 export class Contacto {
-    sugerencias_id: number;
+    nombre: string;
     fecha: string;
     mensaje: string;
-    usuario_id:number;
+    email: string;
+    fecha_creacion: string;
+    apellidos: any;
 
     constructor(item?: any) {
-        this.sugerencias_id = item?.sugerencias_id || '';
+        this.nombre= item?.nombre || '';
         this.fecha = item?.fecha || '';
         this.mensaje = item?.apellidos || '';
-        this.usuario_id = item?.usuario_id || '';
+        this.email = item?.email || '';
+        this.fecha_creacion = item?.fecha_creacion || '';
+       
     }
 }
