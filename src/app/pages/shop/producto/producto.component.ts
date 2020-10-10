@@ -31,7 +31,9 @@ export class ProductoComponent implements OnInit {
   ngOnInit(): void {
     if (this.productoId) {
       this.productosService.getProducto(this.productoId).subscribe(x => {
-        this.producto = x[0];
+        this.producto = x;
+        console.log(this.producto);
+        console.log(this.producto.imagen_url);
       });
     }
   }
