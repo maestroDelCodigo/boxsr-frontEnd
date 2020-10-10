@@ -34,7 +34,7 @@ export class ModificarProductosComponent implements OnInit {
       tipo: [this.producto.tipo_producto, [Validators.required, Validators.maxLength(145)]],
       codigo: [this.producto.codigo_producto, [Validators.required, Validators.maxLength(30)]],
       peso: [this.producto.peso, [Validators.required, Validators.maxLength(6)]],
-      stock: [this.producto.stock, [Validators.required, Validators.maxLength(10)]],
+     // stock: [this.producto.stock, [Validators.required, Validators.maxLength(10)]],
       precio: [this.producto.precio, [Validators.required, Validators.maxLength(5)]],
     });
 
@@ -61,7 +61,6 @@ export class ModificarProductosComponent implements OnInit {
     this.producto.tipo_producto = this.f.tipo.value;
     this.producto.codigo_producto = this.f.codigo.value;
     this.producto.peso = this.f.peso.value;
-    this.producto.stock = this.f.stock.value;
     this.producto.precio = this.f.precio.value;
     this.producto.deleted = 0;
     this.producto.fecha_creacion = this.producto.fecha_creacion;

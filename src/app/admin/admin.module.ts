@@ -32,6 +32,8 @@ import { DigitOnlyModule } from '@uiowa/digit-only';
 import { OrderListModule } from 'primeng/orderlist';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ColeccionesListComponent } from './pages/colecciones/colecciones-list/colecciones-list.component';
+import { InventarioListComponent } from './pages/inventario/inventario-list/inventario-list.component';
+import { ModificarInventarioComponent } from './pages/inventario/modificar-inventario/modificar-inventario.component';
 
 
 @NgModule({
@@ -52,7 +54,9 @@ import { ColeccionesListComponent } from './pages/colecciones/colecciones-list/c
     CrearColeccionComponent,
     ModificarColeccionComponent,
     ProductosListComponent,
-    ColeccionesListComponent
+    ColeccionesListComponent,
+    InventarioListComponent,
+    ModificarInventarioComponent
 
   ],
   imports: [
@@ -75,8 +79,7 @@ import { ColeccionesListComponent } from './pages/colecciones/colecciones-list/c
   ],
   providers: [
     ProductosService,
-    ColeccionesService,
-    MessageService
+    ColeccionesService
   ]
 })
 export class AdminModule { }
