@@ -33,9 +33,9 @@ export class ModificarProductosComponent implements OnInit {
       nombre: [ this.producto.nombre, [Validators.required, Validators.maxLength(145)]],
       tipo: [this.producto.tipo_producto, [Validators.required, Validators.maxLength(145)]],
       codigo: [this.producto.codigo_producto, [Validators.required, Validators.maxLength(30)]],
-      peso: [this.producto.peso, [Validators.required, Validators.maxLength(10)]],
+      peso: [this.producto.peso, [Validators.required, Validators.maxLength(6)]],
       stock: [this.producto.stock, [Validators.required, Validators.maxLength(10)]],
-      precio: [this.producto.precio, [Validators.required, Validators.maxLength(10)]],
+      precio: [this.producto.precio, [Validators.required, Validators.maxLength(5)]],
     });
 
     this.imageUrl = this.producto.imagen_url;
@@ -76,7 +76,7 @@ export class ModificarProductosComponent implements OnInit {
         switchMap(() => this.productosService.modificarProducto(this.producto))
         ).subscribe(
           (resultado) => {
-            if(resultado){
+            if (resultado){
               this.messageService.add({severity: 'success', summary: 'Producto', detail: 'Producto modificar correctamente.'});
               this.cerrarDialogo.emit();
             }
@@ -96,7 +96,7 @@ export class ModificarProductosComponent implements OnInit {
       // Llamada al servicio que llama al back
       this.productosService.modificarProducto(this.producto).subscribe(
         (resultado) => {
-          if(resultado){
+          if (resultado){
             this.messageService.add({severity: 'success', summary: 'Producto', detail: 'Producto modificado correctamente.'});
             this.cerrarDialogo.emit();
           }
@@ -123,14 +123,14 @@ export class ModificarProductosComponent implements OnInit {
         // });
         this.editFile = false;
         this.removeUpload = true;
-      }
+      };
       // ChangeDetectorRef since file is loading outside the zone
       this.cd.markForCheck();
     }
   }
 
     // Function to remove uploaded file
-    removeUploadedFile() : void {
+    removeUploadedFile(): void {
       const newFileList = Array.from(this.el.nativeElement.files);
       this.imageUrl = '';
       this.editFile = true;
