@@ -24,7 +24,7 @@
         <ng-container *ngFor="let producto of productos">
             <div class="col-12 col-md-6 card-container">
                 <a [routerLink]="['/producto', producto.producto_id]" (click)="verProducto(producto)">
-                    <div class="container-fluid card-img" [ngStyle]="{'background-image':'url(' + producto?.imagen_url + ')'}">
+                    <div class="container-fluid card-img">
                     </div>
                     <div class="container-fluid card-text">
                         <h2>{{ producto.nombre }}</h2>
