@@ -17,9 +17,10 @@ import { SidebarModule } from 'primeng/sidebar';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
-import { ProductoComponent } from './pages/producto/producto.component';
+import { ProductoComponent } from './pages/shop/producto/producto.component';
 import { ProductosService } from './admin/core/productos.service';
 import { ColeccionesService } from './admin/core/colecciones.service';
+import { ShopListComponent } from './pages/shop/shop-list/shop-list.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { ColeccionesService } from './admin/core/colecciones.service';
     ShopComponent,
     SobreBoxsrComponent,
     ProductoComponent,
+    ShopListComponent,
   ],
   imports: [
     BrowserModule,

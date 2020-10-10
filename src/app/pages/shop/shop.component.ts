@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { EventEmitter } from 'events';
 import { ColeccionesService } from 'src/app/admin/core/colecciones.service';
 import { ProductosService } from 'src/app/admin/core/productos.service';
 import { Coleccion } from 'src/app/admin/models/Coleccion';
@@ -10,19 +12,19 @@ import { Producto } from 'src/app/models/producto';
   styleUrls: ['./shop.component.scss'],
 })
 export class ShopComponent implements OnInit {
-  productos: any[] = [];
+  productos: Producto[] = [];
   colecciones: Coleccion[] = [];
-  productosColecciones: Producto[] = [];
+  productosColecciones: any[] = [];
 
   constructor(
     private productosService: ProductosService,
-    private coleccionesService: ColeccionesService
+    private coleccionesService: ColeccionesService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.obtenerProductos();
     this.obtenerColecciones();
-    this.obtenerTodo();
   }
 
   obtenerProductos(): void {
@@ -39,8 +41,10 @@ export class ShopComponent implements OnInit {
     });
   }
 
-  obtenerTodo(): void {
-    Array.prototype.push.apply(this.productos, this.colecciones);
-    console.log(this.productos);
+  verProducto(producto: Producto): void {
+
+    if (producto) {
+      this.router.navigate(['/producto/', producto.producto_id]);
+    }
   }
 }

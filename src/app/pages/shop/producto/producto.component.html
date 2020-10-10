@@ -3,8 +3,9 @@
         <div class="col-12 col-md-8 product-img">
 
         </div>
-        <div class="col-12 col-md-4 product-text">
-            <h1>Aceite de Argan</h1>
+        <div [style.backgroundImage]="'url('+ producto?.imagen_url +')'"
+        class="col-12 col-md-4 product-text">
+            <h1>{{ producto?.nombre }}</h1>
             <h3>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Aspernatur distinctio ipsa suscipit amet a? Odit soluta,
@@ -16,7 +17,7 @@
                 expedita odio suscipit, corrupti deserunt quibusdam.
             </h3>
             <div class="container-fluid comprar-ahora">
-                <h2>Compra ahora <strong>15'95€</strong></h2>
+                <h2>Compra ahora <strong>{{producto?.precio }}</strong></h2>
             </div>
         </div>
     </div>

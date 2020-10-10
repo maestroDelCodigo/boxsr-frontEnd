@@ -54,7 +54,7 @@ export class ModificarProductosComponent implements OnInit {
     this.productosService.modificarProducto(this.producto).subscribe(
       (resultado) => {
         console.log(resultado);
-        if(resultado){
+        if (resultado){
           this.messageService.add({severity: 'success', summary: 'Producto', detail: 'Producto modificado correctamente.'});
           this.cerrarDialogo.emit();
         }
