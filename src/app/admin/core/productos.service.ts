@@ -50,6 +50,11 @@ export class ProductosService {
   getProducto(id: number): Observable<Producto>{
     return this.http.get(`${environment.apiUrl}/product/${id}`)
       .pipe(
+        map((producto: Producto) => {
+          producto.imagen_url = producto.nombre_imagen ? `${environment.urlImagesServer}/${producto.nombre_imagen}` : '';
+          console.log(producto);
+          return producto;
+        }),
         catchError(e => {
           return of(null);
         })

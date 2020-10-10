@@ -1,10 +1,11 @@
 <div class="container-fluid product-container">
     <div class="row product-container">
-        <div class="col-12 col-md-8 product-img">
+        <div class="col-12 col-md-8 product-img" [ngStyle]="{'background-image':'url(' + producto?.imagen_url + ')'}">
 
         </div>
         <div
         class="col-12 col-md-4 product-text">
+        <div>
             <h1>{{ producto?.nombre }}</h1>
             <h3>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -16,6 +17,7 @@
                 modi assumenda quam molestiae consequuntur aperiam, quos autem dicta aliquid
                 expedita odio suscipit, corrupti deserunt quibusdam.
             </h3>
+        </div>
             <div class="container-fluid comprar-ahora">
                 <h2>Compra ahora <strong>{{producto?.precio }}</strong></h2>
             </div>

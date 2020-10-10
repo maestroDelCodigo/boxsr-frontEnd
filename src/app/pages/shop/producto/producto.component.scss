@@ -16,6 +16,9 @@
     padding: 0px;
     min-height: 80vh;
     border-left: gray 1px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
 
     h1, h3 {
