@@ -14,6 +14,7 @@ import { EnviosDevolucionesComponent } from './pages/envios-devoluciones/envios-
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { PreguntasFrecuentesComponent } from './pages/preguntas-frecuentes/preguntas-frecuentes.component';
 import { CondicionesGeneralesComponent } from './pages/condiciones-generales/condiciones-generales.component';
+import { HablanDeNosotrosComponent } from './pages/sobre-boxsr/hablan-de-nosotros/hablan-de-nosotros.component';
 import { ProductoComponent } from './pages/shop/producto/producto.component';
 
 const routes: Routes = [
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'contacto', component: ContactoComponent },
   { path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
   { path: 'condiciones-generales', component: CondicionesGeneralesComponent },
+  { path: 'hablan-de-nosotros', component: HablanDeNosotrosComponent },
   { path: 'producto/:id', component: ProductoComponent },
 
   {
