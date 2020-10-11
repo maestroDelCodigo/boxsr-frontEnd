@@ -16,6 +16,16 @@ export class Producto {
     nombre_imagen: string;
     // tslint:disable-next-line:variable-name
     imagen_url: string;
+    descripcion: string;
+    // tslint:disable-next-line:variable-name
+    descripcion_sirve: string;
+    // tslint:disable-next-line:variable-name
+    descripcion_resumen: string;
+    // tslint:disable-next-line:variable-name
+    descripcion_usa: string;
+    // tslint:disable-next-line:variable-name
+    descripcion_ingredientes: string;
+
 
     constructor(item?: any) {
         this.producto_id = item?.producto_id || 0;
@@ -29,5 +39,10 @@ export class Producto {
         this.precio = item?.precio || 0;
         this.nombre_imagen = item?.nombre_imagen || '';
         this.imagen_url = item?.imagen_url || '';
+        this.descripcion = item?.descripcion || '';
+        this.descripcion_resumen = item?.descripcion || '';
+        this.descripcion_sirve = item?.descripcion || '';
+        this.descripcion_usa = item?.descripcion || '';
+        this.descripcion_ingredientes = item?.descripcion || '';
     }
 }
