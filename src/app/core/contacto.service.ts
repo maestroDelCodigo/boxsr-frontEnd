@@ -1,19 +1,24 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, of,  } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+
+import { environment } from 'src/environments/environment';
 import { Contacto } from '../models/contacto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactoService {
+  
   constructor(private http: HttpClient) {}
 
   cargarMensaje(): Observable<Contacto[]> {
-    return this.http.get<Contacto[]>('http://localhost:8080/contacto')
+    return this.http.get(`${environment.apiUrl}/admin/verSugerencias`)
     .pipe(
-      map(datos => datos.map(x => new Contacto(x))));
-  }
+      catchError(e => {
+        return of(null);
+      })
+    );
 }
-
+}

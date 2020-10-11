@@ -25,24 +25,25 @@ export class ContactoComponent implements OnInit {
     if (this.formContact.invalid) {
       return this.messageService.add({
         severity: 'error',
-        summary: 'Registro',
-        detail: 'Hubo un problema al enviar el mensaje',
+        summary: 'Contacto',
+        detail: 'Hubo un problema al crear coleccion',
       });
     } 
 
     const contacto = new Contacto();
 
-        contacto.nombre = this.f.nombre.value;
+    contacto.nombre = this.f.nombre.value;
     contacto.apellidos = this.f.apellidos.value;
-        contacto.email = this.f.email.value;
-        contacto.mensaje = this.f.mensaje.mensaje;
+    contacto.email = this.f.email.value;
+    contacto.mensaje = this.f.mensaje.value;
+    contacto.fecha = this.f.fecha.value;
+    contacto.fecha_creacion=this.f.fecha.value;
 
 
     this.contactoService.cargarMensaje(contacto).subscribe(
       (resultado) => {
         if(resultado){
           this.messageService.add({severity: 'success', summary: 'Contacto', detail: 'Coleccion creada correctamente.'});
-          
         }
         else{
           this.messageService.add({severity: 'error', summary: 'Contacto', detail: 'Hubo un problema al crear coleccion.'});

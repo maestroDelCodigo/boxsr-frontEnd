@@ -8,8 +8,9 @@ export class Contacto {
 
     constructor(item?: any) {
         this.nombre= item?.nombre || '';
+        this.apellidos = item?.apellidos || '';
         this.fecha = item?.fecha || '';
-        this.mensaje = item?.apellidos || '';
+        this.mensaje = item?.mensaje || '';
         this.email = item?.email || '';
         this.fecha_creacion = item?.fecha_creacion || '';
        
