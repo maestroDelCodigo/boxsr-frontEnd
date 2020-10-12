@@ -14,6 +14,7 @@ export class RegistroUsuarioComponent implements OnInit {
   formularioUsuario: FormGroup;
   submitted = false;
   hide = true;
+  messageError = null;
   startDate = new Date(1990, 0, 1);
   constructor(fb: FormBuilder, private messageService: MessageService, private registroService: RegistroUsuarioService) {
     this.elformularioUsuario(fb);
@@ -25,16 +26,19 @@ export class RegistroUsuarioComponent implements OnInit {
   guardar(value: Usuario): void {
     this.submitted = true;
     if (this.formularioUsuario.invalid) {
-      return this.messageService.add({ severity: 'error', summary: 'Registro', detail: 'Hubo un problema al hacer el registro' });;
-  }
+      return this.messageService.add({ severity: 'error', summary: 'Registro', detail: 'Hubo un problema al hacer el registro' });
+    }
     if (value) {
       this.registroService.crearUsuario(value).subscribe(datos => {
+
         if (datos) {
           this.messageService.add({ severity: 'success', summary: 'Registro', detail: 'Te has registrado correctamente' });
         }
         else {
           this.messageService.add({ severity: 'error', summary: 'Registro', detail: 'Hubo un problema al hacer el registro' });
         }
+      }, err => {
+        this.messageError = err;
       });
     }
   }

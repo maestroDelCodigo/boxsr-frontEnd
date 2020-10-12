@@ -138,6 +138,7 @@
       </div>
     </mat-form-field>
     <div class="form-group"></div>
+    <div *ngIf="messageError" style="color:red">{{ messageError.error.message}}</div>
     <div class="form-group">
       <button mat-raised-button (click)="guardar(formularioUsuario.value)">
         Registrarme
