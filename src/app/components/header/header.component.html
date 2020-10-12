@@ -29,7 +29,7 @@
             </ul>
         </div>
         <div class="left">
-          <a>
+          <a (click)="showCart.emit(true)">
               <i class="fas fa-shopping-cart fa-lg"></i>
           </a>
           <a *ngIf="!isUserAuthenticated" (click)="showLogin.emit(true)">

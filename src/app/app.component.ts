@@ -12,12 +12,15 @@ export class AppComponent implements OnInit {
   title = 'boxsr-front';
   displayHeader: boolean;
   displayLogin = false;
+  displayCarrito = false;
+
 
   constructor(private router: Router, private route: ActivatedRoute){
     router.events.pipe(
       filter((event) => event instanceof NavigationEnd))
       .subscribe(x => {
 
+            // tslint:disable-next-line:no-string-literal
             const url =  x['url'] as string;
 
             if (url.indexOf('admin') > 0){
@@ -37,5 +40,10 @@ export class AppComponent implements OnInit {
 
   mostrarLogin(display: boolean): void{
     this.displayLogin = display;
+  }
+
+  mostrarCarrito(display: boolean): void{
+    this.displayCarrito = display;
+    console.log('carrito');
   }
 }

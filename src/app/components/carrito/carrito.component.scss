@@ -1,0 +1,15 @@
+.container {
+  padding: 1.6rem;
+  width: 200px;
+  height: 200px;
+}
+
+:host {
+  p-sidebar {
+    ::ng-deep {
+      .p-sidebar {
+        z-index: 9999 !important;
+      }
+    }
+  }
+}
