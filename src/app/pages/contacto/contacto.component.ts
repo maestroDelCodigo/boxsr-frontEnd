@@ -19,14 +19,15 @@ export class ContactoComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  guardar(value: any): void {
+  guardar(): void {
     this.submitted = true;
 
     if (this.formContact.invalid) {
+      console.log('ha llegado')
       return this.messageService.add({
         severity: 'error',
         summary: 'Contacto',
-        detail: 'Hubo un problema al crear coleccion',
+        detail: 'Hubo un problema al crear el mesaje',
       });
     } 
 
@@ -42,11 +43,12 @@ export class ContactoComponent implements OnInit {
 
     this.contactoService.cargarMensaje(contacto).subscribe(
       (resultado) => {
+        console.log(resultado)
         if(resultado){
-          this.messageService.add({severity: 'success', summary: 'Contacto', detail: 'Coleccion creada correctamente.'});
+          this.messageService.add({severity: 'success', summary: 'Contacto', detail: 'Mensaje enviado correctamente'});
         }
         else{
-          this.messageService.add({severity: 'error', summary: 'Contacto', detail: 'Hubo un problema al crear coleccion.'});
+          this.messageService.add({severity: 'error', summary: 'Contacto', detail: 'Hubo un problema al enviar el mensaje'});
         }
       },
     );

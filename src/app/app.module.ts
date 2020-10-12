@@ -21,6 +21,18 @@ import { ProductoComponent } from './pages/shop/producto/producto.component';
 import { ProductosService } from './admin/core/productos.service';
 import { ColeccionesService } from './admin/core/colecciones.service';
 import { ShopListComponent } from './pages/shop/shop-list/shop-list.component';
+import { CommonModule } from '@angular/common';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { AdminRoutingModule } from './admin/admin-routing.module';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { DialogModule } from 'primeng/dialog';
+import { DigitOnlyModule } from '@uiowa/digit-only';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { OrderListModule } from 'primeng/orderlist';
 
 
 @NgModule({
@@ -46,6 +58,22 @@ import { ShopListComponent } from './pages/shop/shop-list/shop-list.component';
     MatStepperModule,
     SidebarModule,
     ToastModule,
+    CommonModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    AdminRoutingModule,
+    MatInputModule,
+    MatPaginatorModule,
+    MatSortModule,
+    DialogModule,
+    DigitOnlyModule,
+    MatTableModule,
+    MatCheckboxModule,
+    OrderListModule,
+
+
+
+
   ],
   providers: [MessageService, ProductosService, ColeccionesService],
   bootstrap: [AppComponent]

@@ -13,8 +13,8 @@ export class ContactoService {
   
   constructor(private http: HttpClient) {}
 
-  cargarMensaje(): Observable<Contacto[]> {
-    return this.http.get(`${environment.apiUrl}/admin/verSugerencias`)
+  cargarMensaje(contacto): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/sugerencia/crearSugerencia`,contacto)
     .pipe(
       catchError(e => {
         return of(null);
