@@ -30,8 +30,6 @@ export class PerfilUsuarioComponent implements OnInit {
   ngOnInit(): void {
     this.registroService.getUser(this.id).subscribe(x => {
       this.usuario = x;
-      console.log(this.usuario);
-      console.log(this.usuario.nombre);
       this.formularioUsuario = this.fb.group({
         nombre: [this.usuario.nombre, [Validators.required, Validators.maxLength(145)]],
         apellidos: [this.usuario.apellidos, [Validators.required, Validators.maxLength(145)]],
@@ -65,7 +63,6 @@ export class PerfilUsuarioComponent implements OnInit {
 
 
     this.registroService.modificarUsuario(this.usuario, this.id).subscribe(resultado => {
-        console.log(resultado);
         if (resultado) {
           this.messageService.add({ severity: 'success', summary: 'Todo OK', detail: 'Tus datos se han modificado correctamente.' });
         }
@@ -77,12 +74,6 @@ export class PerfilUsuarioComponent implements OnInit {
         }
       });
  }
-
-
-
-
-
-
 
 
   private elformularioUsuario(fb: FormBuilder): void {
