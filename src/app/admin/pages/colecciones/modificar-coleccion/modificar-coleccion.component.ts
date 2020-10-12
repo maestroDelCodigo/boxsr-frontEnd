@@ -35,7 +35,11 @@ export class ModificarColeccionComponent implements OnInit {
       nombre: [this.coleccion.nombre, [Validators.required, Validators.maxLength(145)]],
       video_url: [this.coleccion.video_url, [Validators.maxLength(145)]],
       precio_rebajado: [this.coleccion.precio_rebajado, [ Validators.maxLength(5)]],
-      precio_original: [this.coleccion.precio_original, [Validators.required, Validators.maxLength(5)]],
+      precio_original: [{ value : this.coleccion.precio_original, disabled : true}, [Validators.required, Validators.maxLength(5)]],
+      descripcion: [this.coleccion.descripcion, [Validators.required, Validators.maxLength(245)]],
+      utilidad: [this.coleccion.descripcion_sirve, [Validators.required, Validators.maxLength(245)]],
+      usabilidad: [this.coleccion.descripcion_usa, [Validators.required, Validators.maxLength(245)]],
+      ingredientes: [this.coleccion.descripcion_ingredientes, [Validators.required, Validators.maxLength(245)]],
     });
 
     this.precioTotal = this.coleccion.precio_original;
@@ -66,6 +70,7 @@ export class ModificarColeccionComponent implements OnInit {
       const existe = productos.find((producto) => producto.producto_id === id && producto.coleccion_id === idColeccion);
 
       if (existe){
+        this.productosSeleccionados.push(id);
         return true;
       }
 
@@ -91,6 +96,10 @@ export class ModificarColeccionComponent implements OnInit {
     this.coleccion.precio_rebajado = this.f.precio_rebajado.value;
     this.coleccion.precio_original = this.f.precio_original.value;
     this.coleccion.productos_asociados = this.productosSeleccionados;
+    this.coleccion.descripcion = this.f.descripcion.value;
+    this.coleccion.descripcion_sirve = this.f.utilidad.value;
+    this.coleccion.descripcion_usa = this.f.usabilidad.value;
+    this.coleccion.descripcion_ingredientes = this.f.ingredientes.value;
 
     // Llamada al servicio que llama al back
     this.coleccionesService.modificarColeccion(this.coleccion).subscribe(

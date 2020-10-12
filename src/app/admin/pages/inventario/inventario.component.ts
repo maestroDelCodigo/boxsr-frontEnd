@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Producto } from '../../models/producto';
+import { Producto } from 'src/app/models/producto';
 import { InventarioListComponent } from './inventario-list/inventario-list.component';
 
 @Component({

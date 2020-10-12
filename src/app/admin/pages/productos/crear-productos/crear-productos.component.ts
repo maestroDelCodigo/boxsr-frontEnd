@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductosService } from 'src/app/admin/core/productos.service';
-import { Producto } from 'src/app/admin/models/producto';
+import { Producto } from 'src/app/models/producto';
 import { MessageService } from 'primeng/api';
 import { UploadFilesService } from 'src/app/core/upload.service';
 import { first, switchMap } from 'rxjs/operators';
@@ -33,8 +33,12 @@ export class CrearProductosComponent implements OnInit {
       tipo: ['', [Validators.required, Validators.maxLength(145)]],
       codigo: ['', [Validators.required, Validators.maxLength(30)]],
       peso: ['', [Validators.required, Validators.maxLength(6)]],
-      // stock: ['', [Validators.required, Validators.maxLength(10)]],
       precio: ['', [Validators.required, Validators.maxLength(5)]],
+      descripcion: ['', [Validators.required, Validators.maxLength(245)]],
+      resumen: ['', [Validators.required, Validators.maxLength(145)]],
+      utilidad: ['', [Validators.required, Validators.maxLength(245)]],
+      usabilidad: ['', [Validators.required, Validators.maxLength(245)]],
+      ingredientes: ['', [Validators.required, Validators.maxLength(245)]],
   });
   }
 
@@ -57,7 +61,11 @@ export class CrearProductosComponent implements OnInit {
     producto.precio = this.f.precio.value;
     producto.deleted = 0;
     producto.fecha_creacion = new Date().toISOString().slice(0, 19).replace('T', ' ');
-
+    producto.descripcion = this.f.descripcion.value;
+    producto.descripcion_resumen = this.f.resumen.value;
+    producto.descripcion_sirve = this.f.utilidad.value;
+    producto.descripcion_usa = this.f.usabilidad.value;
+    producto.descripcion_ingredientes = this.f.ingredientes.value;
 
     // Subimos la imagen
 

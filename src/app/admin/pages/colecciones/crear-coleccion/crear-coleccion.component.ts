@@ -32,7 +32,11 @@ export class CrearColeccionComponent implements OnInit {
       nombre: ['', [Validators.required, Validators.maxLength(145)]],
       video_url: ['', [Validators.maxLength(145)]],
       precio_rebajado: ['', [ Validators.maxLength(5)]],
-      precio_original: ['', [Validators.required, Validators.maxLength(10)]],
+      precio_original: [{value: '', disabled: true}, [Validators.required, Validators.maxLength(10)]],
+      descripcion: ['', [Validators.required, Validators.maxLength(245)]],
+      utilidad: ['', [Validators.required, Validators.maxLength(245)]],
+      usabilidad: ['', [Validators.required, Validators.maxLength(245)]],
+      ingredientes: ['', [Validators.required, Validators.maxLength(245)]],
   });
 
     // Pintamos la tabla de productos
@@ -71,6 +75,10 @@ export class CrearColeccionComponent implements OnInit {
     coleccion.precio_original = this.f.precio_original.value;
     coleccion.deleted = 0;
     coleccion.productos_asociados = this.productosSeleccionados;
+    coleccion.descripcion = this.f.descripcion.value;
+    coleccion.descripcion_sirve = this.f.utilidad.value;
+    coleccion.descripcion_usa = this.f.usabilidad.value;
+    coleccion.descripcion_ingredientes = this.f.ingredientes.value;
 
     // Llamada al servicio que llama al back
     this.coleccionesService.crearColeccion(coleccion).subscribe(

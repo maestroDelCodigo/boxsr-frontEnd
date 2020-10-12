@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ColeccionesService } from 'src/app/admin/core/colecciones.service';
 import { ProductosService } from 'src/app/admin/core/productos.service';
 import { Coleccion } from 'src/app/admin/models/Coleccion';
-import { Producto } from 'src/app/admin/models/producto';
+import { Producto } from 'src/app/models/producto';
 
 @Component({
   selector: 'app-producto',
