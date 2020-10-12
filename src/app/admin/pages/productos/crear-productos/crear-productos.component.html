@@ -54,15 +54,6 @@
         </div>
       </mat-form-field>
     </div>
-    <!-- <div class="form-group">
-      <mat-form-field class="full-width">
-        <mat-label>Stock</mat-label>
-        <input matInput digitOnly formControlName="stock" [ngClass]="{ 'is-invalid': submitted && f.stock.errors }" />
-        <div *ngIf="submitted && f.stock.errors" class="invalid-feedback">
-          <div *ngIf="f.stock.errors.required">Stock de producto requerido</div>
-      </div>
-      </mat-form-field>
-    </div> -->
     <div class="form-group">
       <mat-form-field class="full-width">
         <mat-label>Precio</mat-label>
@@ -75,6 +66,51 @@
         <div *ngIf="submitted && f.precio.errors" class="invalid-feedback">
             <div *ngIf="f.precio.errors.required">Precio de producto requerido</div>
         </div>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="full-width">
+        <mat-label>Descripción de producto</mat-label>
+        <textarea matInput formControlName="descripcion" [ngClass]="{ 'is-invalid': submitted && f.descripcion.errors }"></textarea>
+      <div *ngIf="submitted && f.descripcion.errors" class="invalid-feedback">
+          <div *ngIf="f.descripcion.errors.required">Descripción de producto requerido</div>
+      </div>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="full-width">
+        <mat-label>Resumen de producto</mat-label>
+        <textarea matInput formControlName="resumen" [ngClass]="{ 'is-invalid': submitted && f.resumen.errors }"></textarea>
+      <div *ngIf="submitted && f.resumen.errors" class="invalid-feedback">
+          <div *ngIf="f.resumen.errors.required">Resumen de producto requerido</div>
+      </div>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="full-width">
+        <mat-label>Descripción de utilidad</mat-label>
+        <textarea matInput formControlName="utilidad" [ngClass]="{ 'is-invalid': submitted && f.utilidad.errors }" ></textarea>
+      <div *ngIf="submitted && f.utilidad.errors" class="invalid-feedback">
+          <div *ngIf="f.utilidad.errors.required">Descripción de utilidad requerido</div>
+      </div>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="full-width">
+        <mat-label>Descripción de usabilidad</mat-label>
+        <textarea matInput formControlName="usabilidad" [ngClass]="{ 'is-invalid': submitted && f.usabilidad.errors }"></textarea>
+      <div *ngIf="submitted && f.usabilidad.errors" class="invalid-feedback">
+          <div *ngIf="f.usabilidad.errors.required">Descripción de usabilidad requerido</div>
+      </div>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="full-width">
+        <mat-label>Ingredientes</mat-label>
+        <textarea matInput formControlName="ingredientes" [ngClass]="{ 'is-invalid': submitted && f.ingredientes.errors }"></textarea>
+      <div *ngIf="submitted && f.ingredientes.errors" class="invalid-feedback">
+          <div *ngIf="f.ingredientes.errors.required">Ingredientes requerido</div>
+      </div>
       </mat-form-field>
     </div>
   </form>

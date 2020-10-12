@@ -17,7 +17,6 @@ import { SidebarModule } from 'primeng/sidebar';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
-import { ProductoComponent } from './pages/producto/producto.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -50,7 +49,7 @@ import { ShopListComponent } from './pages/shop/shop-list/shop-list.component';
     SobreBoxsrComponent,
     ProductoComponent,
     PerfilUsuarioComponent,
-    RegistroUsuarioComponent
+    RegistroUsuarioComponent,
     ShopListComponent,
 
   ],
@@ -79,11 +78,11 @@ import { ShopListComponent } from './pages/shop/shop-list/shop-list.component';
     MatNativeDateModule,
 
   ],
-  providers: [MessageService,
-    MatDatepickerModule,
-    MatNativeDateModule,
+  providers: [
+    MessageService,
+    ProductosService,
+    ColeccionesService
   ],
-  providers: [MessageService, ProductosService, ColeccionesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
