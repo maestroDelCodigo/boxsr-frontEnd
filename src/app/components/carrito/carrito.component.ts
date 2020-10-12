@@ -10,6 +10,8 @@ export class CarritoComponent implements OnInit {
   @Input() mostrarCarrito = false;
   // @Output() cerrarPanel = new EventEmitter<void>();
 
+  carritoItems = [];
+
   constructor() { }
 
   ngOnInit(): void {

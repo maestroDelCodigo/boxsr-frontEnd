@@ -1,5 +1,19 @@
 <p-sidebar [(visible)]="mostrarCarrito" styleClass="p-sidebar-sm">
-    <div class="container"></div>
+    <div class="container">
+        <h1>Carrito</h1>
+        
+        <h2 *ngIf="carritoItems.length === 0">El carrito esta vacio</h2>
+
+        <ul *ngIf="carritoItems.length < 0" class="list-group">
+            <li class="list-group-item" *ngFor="let i of [1,2,3,4,5]">
+                <app-carrito-item></app-carrito-item>
+            </li>
+
+            <li class="list-group-item">
+                <strong>Total: {{ 200 | currency:'EUR' }}</strong>
+            </li>
+        </ul>
+    </div>
 </p-sidebar>
 
 <!-- (onHide)="cerrarPanel.emit()" -->

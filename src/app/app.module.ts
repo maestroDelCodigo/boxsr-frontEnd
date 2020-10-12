@@ -22,6 +22,7 @@ import { ProductosService } from './admin/core/productos.service';
 import { ColeccionesService } from './admin/core/colecciones.service';
 import { ShopListComponent } from './pages/shop/shop-list/shop-list.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { CarritoItemComponent } from './components/carrito/carrito-item/carrito-item.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { CarritoComponent } from './components/carrito/carrito.component';
     ProductoComponent,
     ShopListComponent,
     CarritoComponent,
+    CarritoItemComponent,
   ],
   imports: [
     BrowserModule,
