@@ -37,8 +37,8 @@ export class ContactoComponent implements OnInit {
     contacto.apellidos = this.f.apellidos.value;
     contacto.email = this.f.email.value;
     contacto.mensaje = this.f.mensaje.value;
-    contacto.fecha = this.f.fecha.value;
-    contacto.fecha_creacion=this.f.fecha.value;
+    // contacto.fecha = this.f.fecha.value;
+    // contacto.fecha_creacion=this.f.fecha.value;
 
 
     this.contactoService.cargarMensaje(contacto).subscribe(

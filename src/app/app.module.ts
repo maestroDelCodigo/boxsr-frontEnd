@@ -33,10 +33,12 @@ import { DialogModule } from 'primeng/dialog';
 import { DigitOnlyModule } from '@uiowa/digit-only';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { OrderListModule } from 'primeng/orderlist';
+import { ContactoComponent } from './pages/contacto/contacto.component';
 
 
 @NgModule({
   declarations: [
+    ContactoComponent,
     AppComponent,
     HeaderComponent,
     FooterComponent,
