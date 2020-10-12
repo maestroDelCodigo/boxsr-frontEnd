@@ -44,6 +44,5 @@ export class AppComponent implements OnInit {
 
   mostrarCarrito(display: boolean): void{
     this.displayCarrito = display;
-    console.log('carrito');
   }
 }

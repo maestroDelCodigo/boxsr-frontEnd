@@ -4,6 +4,7 @@ import { ColeccionesService } from 'src/app/admin/core/colecciones.service';
 import { ProductosService } from 'src/app/admin/core/productos.service';
 import { Coleccion } from 'src/app/admin/models/Coleccion';
 import { Producto } from 'src/app/admin/models/producto';
+import { MessengerService } from 'src/app/admin/core/messenger.service';
 
 @Component({
   selector: 'app-producto',
@@ -13,7 +14,6 @@ import { Producto } from 'src/app/admin/models/producto';
 export class ProductoComponent implements OnInit {
   producto: Producto;
   coleccion: Coleccion;
-  url: any;
 
   private productoId: any;
 
@@ -21,6 +21,7 @@ export class ProductoComponent implements OnInit {
     private productosService: ProductosService,
     private coleccionesService: ColeccionesService,
     private router: Router,
+    private messengerService: MessengerService,
     activatedRoute: ActivatedRoute
   ) {
     activatedRoute.params.subscribe((x) => {
@@ -36,5 +37,9 @@ export class ProductoComponent implements OnInit {
         console.log(this.producto.imagen_url);
       });
     }
+  }
+
+  AddAlCarrito(): void {
+    this.messengerService.sendMsg(this.producto);
   }
 }
