@@ -14,8 +14,12 @@ import { EnviosDevolucionesComponent } from './pages/envios-devoluciones/envios-
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { PreguntasFrecuentesComponent } from './pages/preguntas-frecuentes/preguntas-frecuentes.component';
 import { CondicionesGeneralesComponent } from './pages/condiciones-generales/condiciones-generales.component';
+import { ProductoComponent } from './pages/producto/producto.component';
+import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component';
+import { RegistroUsuarioComponent } from './pages/registro-usuario/registro-usuario.component';
 import { HablanDeNosotrosComponent } from './pages/sobre-boxsr/hablan-de-nosotros/hablan-de-nosotros.component';
 import { ProductoComponent } from './pages/shop/producto/producto.component';
+
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -32,8 +36,12 @@ const routes: Routes = [
   { path: 'contacto', component: ContactoComponent },
   { path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
   { path: 'condiciones-generales', component: CondicionesGeneralesComponent },
+  { path: 'producto', component: ProductoComponent },
+  { path: 'perfil-usuario', component: PerfilUsuarioComponent },
+  { path: 'registro-usuario', component: RegistroUsuarioComponent },
   { path: 'hablan-de-nosotros', component: HablanDeNosotrosComponent },
   { path: 'producto/:id', component: ProductoComponent },
+
 
   {
     path: 'admin',

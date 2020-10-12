@@ -17,10 +17,25 @@ import { SidebarModule } from 'primeng/sidebar';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { ProductoComponent } from './pages/producto/producto.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { OrderListModule } from 'primeng/orderlist';
+import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component';
+import { RegistroUsuarioComponent } from './pages/registro-usuario/registro-usuario.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import { ProductoComponent } from './pages/shop/producto/producto.component';
 import { ProductosService } from './admin/core/productos.service';
 import { ColeccionesService } from './admin/core/colecciones.service';
 import { ShopListComponent } from './pages/shop/shop-list/shop-list.component';
+
 
 
 @NgModule({
@@ -34,11 +49,21 @@ import { ShopListComponent } from './pages/shop/shop-list/shop-list.component';
     ShopComponent,
     SobreBoxsrComponent,
     ProductoComponent,
+    PerfilUsuarioComponent,
+    RegistroUsuarioComponent
     ShopListComponent,
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatTableModule,
+    MatInputModule,
+    MatPaginatorModule,
+    MatSortModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
@@ -46,6 +71,17 @@ import { ShopListComponent } from './pages/shop/shop-list/shop-list.component';
     MatStepperModule,
     SidebarModule,
     ToastModule,
+    MatTableModule,
+    MatCheckboxModule,
+    OrderListModule,
+    MatIconModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+
+  ],
+  providers: [MessageService,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [MessageService, ProductosService, ColeccionesService],
   bootstrap: [AppComponent]
