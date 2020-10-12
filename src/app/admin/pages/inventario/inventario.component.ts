@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Producto } from '../../models/producto';
+import { InventarioListComponent } from './inventario-list/inventario-list.component';
 
 @Component({
   selector: 'app-inventario',
@@ -6,10 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inventario.component.scss']
 })
 export class InventarioComponent implements OnInit {
-
+  @ViewChild(InventarioListComponent) list: InventarioListComponent;
+  mostrarModificarInventario = false;
+  inventarioModificar: Producto = null;
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  onOcultarModificarInventario(): void{
+    this.mostrarModificarInventario = false;
+    this.list.refresh();
+  }
+
+  modificarInventario(producto: Producto): void{
+    this.inventarioModificar = producto;
+    this.mostrarModificarInventario = true;
+  }
+
 
 }

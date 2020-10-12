@@ -34,8 +34,8 @@ export class ModificarColeccionComponent implements OnInit {
     this.coleccionesForm = this.formBuilder.group({
       nombre: [this.coleccion.nombre, [Validators.required, Validators.maxLength(145)]],
       video_url: [this.coleccion.video_url, [Validators.maxLength(145)]],
-      precio_rebajado: [this.coleccion.precio_rebajado, [ Validators.maxLength(10)]],
-      precio_original: [this.coleccion.precio_original, [Validators.required, Validators.maxLength(10)]],
+      precio_rebajado: [this.coleccion.precio_rebajado, [ Validators.maxLength(5)]],
+      precio_original: [this.coleccion.precio_original, [Validators.required, Validators.maxLength(5)]],
     });
 
     this.precioTotal = this.coleccion.precio_original;

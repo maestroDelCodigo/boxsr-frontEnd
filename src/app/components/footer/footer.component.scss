@@ -1,24 +1,30 @@
 
 * {
-  
     color: white !important;
-  
   }
 .container-fluid {
-    height: 80vh;
+    height: auto;
     background-color: rgb(104, 103, 103);
     color: white !important;
 }
 .suscribe{
     padding-left: 10%;
-    padding-top: 18%;
+    padding-top: 7%;
     width: 62%;
+   
 }
+
 input{
     background: transparent;
     border-top: transparent;
     border-left: transparent;
     border-right: transparent;
+    
+}
+button{
+       
+    background-color: unset;
+
 }
 .text-secondary{
     color: white !important;
@@ -27,13 +33,24 @@ input{
 }
 .derechos{
     justify-content: center;
+    text-align: center;
+    display:flex;
 }
 .footer-social{
 list-style: none;
 display: -webkit-inline-box;
 padding-top: 5%;
 width: 62%;
+font-size: 154%;
+    .fab{
+        padding: 7px;
+    }
 }
 .pages{
-    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.li{
+     list-style: none;
 }

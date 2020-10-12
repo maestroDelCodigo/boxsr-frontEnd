@@ -17,6 +17,9 @@ import { CondicionesGeneralesComponent } from './pages/condiciones-generales/con
 import { ProductoComponent } from './pages/producto/producto.component';
 import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component';
 import { RegistroUsuarioComponent } from './pages/registro-usuario/registro-usuario.component';
+import { HablanDeNosotrosComponent } from './pages/sobre-boxsr/hablan-de-nosotros/hablan-de-nosotros.component';
+import { ProductoComponent } from './pages/shop/producto/producto.component';
+
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -36,13 +39,21 @@ const routes: Routes = [
   { path: 'producto', component: ProductoComponent },
   { path: 'perfil-usuario', component: PerfilUsuarioComponent },
   { path: 'registro-usuario', component: RegistroUsuarioComponent },
+  { path: 'hablan-de-nosotros', component: HablanDeNosotrosComponent },
+  { path: 'producto/:id', component: ProductoComponent },
 
-  { path: 'admin', canActivate: [AuthGuardService], loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
+
+  {
+    path: 'admin',
+    canActivate: [AuthGuardService],
+    loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminModule),
+  },
   { path: '**', redirectTo: 'home' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

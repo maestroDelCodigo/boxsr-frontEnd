@@ -31,7 +31,7 @@ export class CrearColeccionComponent implements OnInit {
     this.coleccionesForm = this.formBuilder.group({
       nombre: ['', [Validators.required, Validators.maxLength(145)]],
       video_url: ['', [Validators.maxLength(145)]],
-      precio_rebajado: ['', [ Validators.maxLength(10)]],
+      precio_rebajado: ['', [ Validators.maxLength(5)]],
       precio_original: ['', [Validators.required, Validators.maxLength(10)]],
   });
 
@@ -75,7 +75,7 @@ export class CrearColeccionComponent implements OnInit {
     // Llamada al servicio que llama al back
     this.coleccionesService.crearColeccion(coleccion).subscribe(
       (resultado) => {
-        if(resultado){
+        if (resultado){
           this.messageService.add({severity: 'success', summary: 'Coleccion', detail: 'Coleccion creada correctamente.'});
           this.cerrarDialogo.emit();
         }
@@ -91,9 +91,9 @@ export class CrearColeccionComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  calcularTotal(data : MatCheckboxChange, precio: number, id: number) : void{
+  calcularTotal(data: MatCheckboxChange, precio: number, id: number): void{
 
-    if(data.checked)
+    if (data.checked)
     {
       this.precioTotal = this.precioTotal + precio;
       this.productosSeleccionados.push(id);

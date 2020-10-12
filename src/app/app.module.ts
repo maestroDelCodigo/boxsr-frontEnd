@@ -31,6 +31,13 @@ import { RegistroUsuarioComponent } from './pages/registro-usuario/registro-usua
 import {MatIconModule} from '@angular/material/icon';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ProductoComponent } from './pages/shop/producto/producto.component';
+import { ProductosService } from './admin/core/productos.service';
+import { ColeccionesService } from './admin/core/colecciones.service';
+import { ShopListComponent } from './pages/shop/shop-list/shop-list.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +51,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     ProductoComponent,
     PerfilUsuarioComponent,
     RegistroUsuarioComponent
+    ShopListComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -74,6 +83,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDatepickerModule,
     MatNativeDateModule,
   ],
+  providers: [MessageService, ProductosService, ColeccionesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

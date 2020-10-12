@@ -1,0 +1,29 @@
+<p-dialog header="Modificar" [(visible)]="display" styleClass="mydialog" [baseZIndex]="10000" (onHide)="cerrarDialogo.emit()">
+
+  <div class="card">
+    <img *ngIf="producto.imagen_url" [src]="producto.imagen_url" class="card-img-top rounded" [alt]="producto.nombre_imagen">
+    <div class="card-body">
+      <h3 class="card-title">{{producto.nombre}}</h3>
+
+      <form [formGroup]="inventarioForm" class="container">
+        <div class="form-group">
+          <mat-form-field class="full-width">
+            <mat-label>Stock</mat-label>
+            <input matInput digitOnly formControlName="stock" [ngClass]="{ 'is-invalid': submitted && f.stock.errors }" />
+            <div *ngIf="submitted && f.stock.errors" class="invalid-feedback">
+              <div *ngIf="f.stock.errors.required">Stock de producto requerido</div>
+          </div>
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <ng-template pTemplate="footer">
+    <div class="form-group">
+      <button mat-raised-button (click)="onSubmit()">Modificar</button>
+    </div>
+  </ng-template>
+
+</p-dialog>
+

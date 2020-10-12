@@ -1,14 +1,20 @@
 export class Producto {
+    // tslint:disable-next-line:variable-name
     producto_id: number;
     nombre: string;
+    // tslint:disable-next-line:variable-name
     tipo_producto: string;
+    // tslint:disable-next-line:variable-name
     codigo_producto: number;
     peso: number;
     stock: number;
     deleted: number;
+    // tslint:disable-next-line:variable-name
     fecha_creacion: string;
     precio: number;
+    // tslint:disable-next-line:variable-name
     nombre_imagen: string;
+    // tslint:disable-next-line:variable-name
     imagen_url: string;
 
     constructor(item?: any) {
