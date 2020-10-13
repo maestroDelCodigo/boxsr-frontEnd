@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { ProductosService } from 'src/app/admin/core/productos.service';
-import { Producto } from 'src/app/admin/models/producto';
+import { Producto } from 'src/app/models/producto';
 
 @Component({
   selector: 'app-modificar-inventario',

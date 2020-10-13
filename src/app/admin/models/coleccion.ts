@@ -29,9 +29,9 @@ export class Coleccion {
     this.precio_original = item?.precio_original || null;
     this.productos_asociados = item?.productos_asociados || [];
     this.descripcion = item?.descripcion || '';
-    this.descripcion_resumen = item?.descripcion || '';
-    this.descripcion_sirve = item?.descripcion || '';
-    this.descripcion_usa = item?.descripcion || '';
-    this.descripcion_ingredientes = item?.descripcion || '';
+    this.descripcion_resumen = item?.descripcion_resumen || '';
+    this.descripcion_sirve = item?.descripcion_sirve || '';
+    this.descripcion_usa = item?.descripcion_usa || '';
+    this.descripcion_ingredientes = item?.descripcion_ingredientes || '';
   }
 }

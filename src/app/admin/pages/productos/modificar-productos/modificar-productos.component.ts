@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductosService } from 'src/app/admin/core/productos.service';
-import { Producto } from 'src/app/admin/models/producto';
+import { Producto } from 'src/app/models/producto';
 import { MessageService } from 'primeng/api';
 import { UploadFilesService } from 'src/app/core/upload.service';
 import { first, switchMap } from 'rxjs/operators';
@@ -34,8 +34,12 @@ export class ModificarProductosComponent implements OnInit {
       tipo: [this.producto.tipo_producto, [Validators.required, Validators.maxLength(145)]],
       codigo: [this.producto.codigo_producto, [Validators.required, Validators.maxLength(30)]],
       peso: [this.producto.peso, [Validators.required, Validators.maxLength(6)]],
-     // stock: [this.producto.stock, [Validators.required, Validators.maxLength(10)]],
       precio: [this.producto.precio, [Validators.required, Validators.maxLength(5)]],
+      descripcion: [this.producto.descripcion, [Validators.required, Validators.maxLength(245)]],
+      resumen: [this.producto.descripcion_resumen, [Validators.required, Validators.maxLength(145)]],
+      utilidad: [this.producto.descripcion_sirve, [Validators.required, Validators.maxLength(245)]],
+      usabilidad: [this.producto.descripcion_usa, [Validators.required, Validators.maxLength(245)]],
+      ingredientes: [this.producto.descripcion_ingredientes, [Validators.required, Validators.maxLength(245)]],
     });
 
     this.imageUrl = this.producto.imagen_url;
@@ -64,6 +68,12 @@ export class ModificarProductosComponent implements OnInit {
     this.producto.precio = this.f.precio.value;
     this.producto.deleted = 0;
     this.producto.fecha_creacion = this.producto.fecha_creacion;
+    this.producto.descripcion = this.f.descripcion.value;
+    this.producto.descripcion_resumen = this.f.resumen.value;
+    this.producto.descripcion_sirve = this.f.utilidad.value;
+    this.producto.descripcion_usa = this.f.usabilidad.value;
+    this.producto.descripcion_ingredientes = this.f.ingredientes.value;
+
 
     if (this.file)
     {
