@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { Usuario } from 'src/app/models/usuario';
 import { RegistroUsuarioService } from 'src/app/services/registro-usuario.service';
@@ -20,6 +20,7 @@ export class PerfilUsuarioComponent implements OnInit {
   id = null;
   constructor(private fb: FormBuilder, private messageService: MessageService,
               public registroService: RegistroUsuarioService,
+              public router: Router,
               activatedRoute: ActivatedRoute) {
     activatedRoute.params.subscribe((x) => {
       this.id = x?.id || null;
@@ -73,6 +74,7 @@ export class PerfilUsuarioComponent implements OnInit {
           });
         }
       });
+    this.router.navigate(['home']);
  }
 
 

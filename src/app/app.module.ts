@@ -41,6 +41,7 @@ import { AdminRoutingModule } from './admin/admin-routing.module';
 import { DialogModule } from 'primeng/dialog';
 import { DigitOnlyModule } from '@uiowa/digit-only';
 import { ContactoComponent } from './pages/contacto/contacto.component';
+import { DataSharingService } from './shared/data-sharing.service';
 
 
 @NgModule({
@@ -93,7 +94,8 @@ import { ContactoComponent } from './pages/contacto/contacto.component';
     MatDatepickerModule,
     MatNativeDateModule,
     ProductosService,
-    ColeccionesService
+    ColeccionesService,
+    DataSharingService
   ],
 
   bootstrap: [AppComponent]

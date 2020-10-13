@@ -33,10 +33,10 @@
           <a (click)="showCart.emit(true)">
               <i class="fas fa-shopping-cart fa-lg"></i>
           </a>
-          <a *ngIf="!isUserAuthenticated" (click)="showLogin.emit(true)">
+          <a *ngIf="!isUserLoggedIn" (click)="showLogin.emit(true)">
               <i class="fas fa-user fa-lg"></i>
           </a>
-          <a *ngIf="isUserAuthenticated" (click)="logOut()">
+          <a *ngIf="isUserLoggedIn" (click)="logOut()">
             <i class="fas fa-sign-out-alt fa-lg"></i>
         </a>
       </div>

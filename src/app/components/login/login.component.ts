@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { AuthService } from 'src/app/core/security-services/auth.service';
 import { LoginService } from 'src/app/core/security-services/login.service';
+import { Usuario } from 'src/app/models/usuario';
+import { DataSharingService } from '../../shared/data-sharing.service';
 
 @Component({
   selector: 'app-login',
@@ -20,12 +22,14 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
   submitted = false;
-
+  id = null;
+  usuario: Usuario;
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private authService: AuthService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private dataSharingService: DataSharingService,
   ) {}
 
   ngOnInit(): void {
@@ -40,7 +44,6 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     this.submitted = true;
 
-    // stop here if form is invalid
     if (this.loginForm.invalid) {
         return;
     }
@@ -50,20 +53,19 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.f.username.value, this.f.password.value).pipe(first())
       .subscribe(
         (user) => {
-
           if (user) {
             this.authService.storeUser(user);
 
             // Dependiendo del tipo de usuario iremos a una pagina o utra de la aplicacion.
             if (user.rol === 'Admin'){
-              console.log('admin');
               this.cerrarPanel.emit();
               this.router.navigate(['admin']);
             }
             else{
-              this.router.navigate(['perfil-usuario']); // a donde entra un usuario no administrado ?????
+              this.router.navigate(['perfil-usuario/:id', {id: user.usuario_id}]);
+              this.dataSharingService.isUserLoggedIn.next(true);
+              this.cerrarPanel.emit();
             }
-
           } else {
             this.error = true;
           }
@@ -81,6 +83,6 @@ export class LoginComponent implements OnInit {
 
 registrarUsuario(): void{
   this.router.navigate(['registro-usuario']);
-  this.cerrarPanel.emit();  
-}
+  this.cerrarPanel.emit();
+  }
 }
