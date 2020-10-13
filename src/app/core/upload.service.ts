@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpRequest, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { catchError } from 'rxjs/internal/operators/catchError';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +17,11 @@ export class UploadFilesService {
 
     formData.append('file', file);
 
-    const req = new HttpRequest('POST', `${environment.apiUrl}/file/upload`, formData, {
-      reportProgress: true,
-      responseType: 'json'
-    });
-
-    return this.http.request(req);
+    return this.http.post(`${environment.apiUrl}/file/upload`, formData)
+    .pipe(
+      catchError(e => {
+        return of(null);
+      })
+    );
   }
 }

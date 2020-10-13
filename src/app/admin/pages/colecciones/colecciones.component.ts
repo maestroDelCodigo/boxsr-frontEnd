@@ -21,16 +21,16 @@ export class ColeccionesComponent implements OnInit {
     this.obtenerColecciones();
   }
 
-  onMostrarCrearColecciones(){
+  onMostrarCrearColecciones(): void{
     this.mostrarCrearColecciones = true;
   }
 
-  onOcultarCrearColecciones(){
+  onOcultarCrearColecciones(): void{
     this.mostrarCrearColecciones = false;
     this.list.refresh();
   }
 
-  obtenerColecciones(){
+  obtenerColecciones(): void{
     this.coleccionesService.listarColecciones().subscribe(
       (colecciones) =>{
         this.colecciones = colecciones;
@@ -40,18 +40,21 @@ export class ColeccionesComponent implements OnInit {
     );
   }
 
-  modificarColeccion(coleccion: Coleccion){
+  modificarColeccion(coleccion: Coleccion): void{
     this.coleccionModificar = coleccion;
     this.mostrarModificarColecciones = true;
   }
 
-  onOcultarModificarColecciones(){
+  onOcultarModificarColecciones(): void{
     this.mostrarModificarColecciones = false;
     this.list.refresh();
   }
 
-  borrarColeccion(id: number){
-   this.coleccionesService.descatalogarColeccion(id, true).subscribe(
+  borrarColeccion(coleccion: Coleccion): void{
+
+  const activo = coleccion.deleted === 0 ? 1 : 0;
+
+  this.coleccionesService.descatalogarColeccion(coleccion.coleccion_id, activo).subscribe(
      () => this.list.refresh()
    );
 

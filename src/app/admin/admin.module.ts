@@ -37,6 +37,7 @@ import { ModificarInventarioComponent } from './pages/inventario/modificar-inven
 import { ContactoService } from '../core/contacto.service';
 import { BuzonComponent } from './pages/buzon/buzon.component';
 import { BuzonAdminComponent } from './pages/buzon/buzon-admin/buzon-admin.component';
+import { ClientesListComponent } from './pages/clientes/clientes-list/clientes-list.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { BuzonAdminComponent } from './pages/buzon/buzon-admin/buzon-admin.compo
     ColeccionesListComponent,
     InventarioListComponent,
     ModificarInventarioComponent,
-    BuzonAdminComponent
+    BuzonAdminComponent,
+    ClientesListComponent
 
   ],
   imports: [

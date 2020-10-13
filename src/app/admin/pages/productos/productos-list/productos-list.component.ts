@@ -13,7 +13,7 @@ import { Producto } from 'src/app/models/producto';
 })
 export class ProductosListComponent implements OnInit  {
   @Output() modificar = new EventEmitter<Producto>();
-  @Output() borrar = new EventEmitter<number>();
+  @Output() borrar = new EventEmitter<Producto>();
   displayedColumns: string[] = ['imagen', 'codigo_producto', 'nombre', 'tipo', 'peso', 'precio', 'deleted', 'actions'];
   dataSource = new MatTableDataSource<Producto>();
 
@@ -39,8 +39,8 @@ export class ProductosListComponent implements OnInit  {
     this.modificar.emit(producto);
   }
 
-  borrarProducto(id: number): void{
-    this.borrar.emit(id);
+  borrarProducto(producto: Producto): void{
+    this.borrar.emit(producto);
   }
 
   refresh(): void{

@@ -39,7 +39,7 @@ export class ColeccionesService {
       );
   }
 
-  descatalogarColeccion(idColeccion: number, deletedColeccion: boolean): Observable<any> {
+  descatalogarColeccion(idColeccion: number, deletedColeccion: number): Observable<any> {
 
     const body =  {
       deleted : deletedColeccion

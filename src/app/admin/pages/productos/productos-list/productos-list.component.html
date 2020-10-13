@@ -50,7 +50,14 @@
               <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
               <td mat-cell *matCellDef="let row">
                 <button (click)="modificarProducto(row)">Modificar</button>
-                <button (click)="borrarProducto(row.producto_id)">Borrar</button>
+                <button (click)="borrarProducto(row)">
+                  <ng-container *ngIf="row.deleted === 0">
+                  Desactivar
+                </ng-container>
+                <ng-container *ngIf="row.deleted === 1">
+                  Activar
+                </ng-container>
+                </button>
               </td>
           </ng-container>
 
