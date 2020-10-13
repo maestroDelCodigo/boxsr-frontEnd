@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { Producto } from '../models/producto';
+import { Producto } from 'src/app/models/producto';
 
 @Injectable()
 export class ProductosService {

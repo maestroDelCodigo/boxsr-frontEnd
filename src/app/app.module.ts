@@ -79,6 +79,7 @@ import { UsuarioComponent } from './pages/usuario/usuario.component';
     MatDatepickerModule,
     MatNativeDateModule,
   ],
+
   providers: [MessageService,
     MatDatepickerModule,
     MatNativeDateModule,
@@ -86,6 +87,13 @@ import { UsuarioComponent } from './pages/usuario/usuario.component';
     ColeccionesService
   ],
   // providers: [MessageService, ],
+
+  providers: [
+    MessageService,
+    ProductosService,
+    ColeccionesService
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
