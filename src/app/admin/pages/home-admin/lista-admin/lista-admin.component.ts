@@ -25,6 +25,7 @@ export class ListaAdminComponent implements OnInit  {
 
   ngOnInit(): void {
     this.listarAdmin(); this.listaAdminInactivos();
+    console.log(this.listarAdmin());
   }
 
   applyFilter(event: Event): void {

@@ -25,8 +25,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { OrderListModule } from 'primeng/orderlist';
-import { PerfilUsuarioComponent } from './pages/usuario/perfil-usuario/perfil-usuario.component';
-import { RegistroUsuarioComponent } from './pages/usuario/registro-usuario/registro-usuario.component';
+import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component';
+import { RegistroUsuarioComponent } from './pages/registro-usuario/registro-usuario.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -41,7 +41,7 @@ import { AdminRoutingModule } from './admin/admin-routing.module';
 import { DialogModule } from 'primeng/dialog';
 import { DigitOnlyModule } from '@uiowa/digit-only';
 import { ContactoComponent } from './pages/contacto/contacto.component';
-import { UsuarioComponent } from './pages/usuario/usuario.component';
+
 
 @NgModule({
   declarations: [
@@ -60,7 +60,6 @@ import { UsuarioComponent } from './pages/usuario/usuario.component';
     ShopListComponent,
     CarritoComponent,
     CarritoItemComponent,
-    UsuarioComponent
   ],
   imports: [
     BrowserModule,
