@@ -50,8 +50,11 @@ export class ProductosComponent implements OnInit {
     this.list.refresh();
   }
 
-  borrarProducto(id: number): void{
-   this.productosService.descatalogarProducto(id, 1).subscribe(
+  borrarProducto(producto: Producto): void{
+
+    const activo = producto.deleted === 0 ? 1 : 0;
+
+    this.productosService.descatalogarProducto(producto.producto_id, activo).subscribe(
      () => this.list.refresh()
    );
 

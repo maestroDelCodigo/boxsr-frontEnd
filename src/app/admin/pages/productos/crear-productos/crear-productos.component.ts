@@ -136,6 +136,10 @@ export class CrearProductosComponent implements OnInit {
       // ChangeDetectorRef since file is loading outside the zone
       this.cd.markForCheck();
     }
+
+    // if(this.file){
+    //   this.uploadImageServer(this.file);
+    // }
   }
 
     // Function to remove uploaded file

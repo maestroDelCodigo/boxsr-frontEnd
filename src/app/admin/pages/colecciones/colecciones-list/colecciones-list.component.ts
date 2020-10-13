@@ -14,7 +14,7 @@ import { Coleccion } from 'src/app/admin/models/Coleccion';
 })
 export class ColeccionesListComponent implements OnInit  {
   @Output() modificar = new EventEmitter<Coleccion>();
-  @Output() borrar = new EventEmitter<number>();
+  @Output() borrar = new EventEmitter<Coleccion>();
   displayedColumns: string[] = ['nombre', 'video', 'precioRebajado', 'precioOriginal', 'deleted', 'actions'];
   dataSource = new MatTableDataSource<Coleccion>();
 
@@ -40,8 +40,8 @@ export class ColeccionesListComponent implements OnInit  {
     this.modificar.emit(coleccion);
   }
 
-  borrarColeccion(id: number): void{
-    this.borrar.emit(id);
+  borrarColeccion(coleccion: Coleccion): void{
+    this.borrar.emit(coleccion);
   }
 
   refresh(): void{

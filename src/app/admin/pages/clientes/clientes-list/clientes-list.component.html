@@ -1,0 +1,65 @@
+<div class="grid-container">
+
+  <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+  </mat-form-field>
+
+  <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+
+          <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+            <td mat-cell *matCellDef="let row"> {{row.nombre}} </td>
+          </ng-container>
+
+          <!-- ID Column -->
+          <ng-container matColumnDef="apellidos">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellidos</th>
+              <td mat-cell *matCellDef="let row"> {{row.apellidos}} </td>
+          </ng-container>
+
+          <!-- nombre Column -->
+          <ng-container matColumnDef="email">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+              <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="fecha_nacimiento">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha nacimiento</th>
+              <td mat-cell *matCellDef="let row"> {{row.fecha_nacimiento}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="direccion">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Direccion</th>
+              <td mat-cell *matCellDef="let row"> {{row.direccion}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="poblacion">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Población</th>
+              <td mat-cell *matCellDef="let row"> {{row.poblacion}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="provicia">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Provicia</th>
+            <td mat-cell *matCellDef="let row"> {{row.provicia}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="codigo_postal">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>CP</th>
+          <td mat-cell *matCellDef="let row"> {{row.codigo_postal}} </td>
+      </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+          <!-- Row shown when there is no matching data. -->
+          <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+          </tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+</div>
