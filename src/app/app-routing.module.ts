@@ -18,6 +18,7 @@ import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.co
 import { RegistroUsuarioComponent } from './pages/registro-usuario/registro-usuario.component';
 import { HablanDeNosotrosComponent } from './pages/sobre-boxsr/hablan-de-nosotros/hablan-de-nosotros.component';
 import { ProductoComponent } from './pages/shop/producto/producto.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 
@@ -25,6 +26,7 @@ import { ProductoComponent } from './pages/shop/producto/producto.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent },
+  { path: 'header', component: HeaderComponent },
   { path: 'shop', component: ShopComponent },
   { path: 'muestras', component: MuestrasComponent },
   { path: 'sobre-boxsr', component: SobreBoxsrComponent },
@@ -39,7 +41,7 @@ const routes: Routes = [
   { path: 'condiciones-generales', component: CondicionesGeneralesComponent },
   { path: 'producto', component: ProductoComponent },
   { path: 'perfil-usuario/:id', component: PerfilUsuarioComponent },
-   { path: 'registro-usuario', component: RegistroUsuarioComponent },
+  { path: 'registro-usuario', component: RegistroUsuarioComponent },
   { path: 'hablan-de-nosotros', component: HablanDeNosotrosComponent },
   { path: 'producto/:id', component: ProductoComponent },
 
