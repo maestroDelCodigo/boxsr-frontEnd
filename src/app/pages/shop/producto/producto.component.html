@@ -3,19 +3,14 @@
         <div class="col-12 col-md-8 product-img" [ngStyle]="{'background-image':'url(' + producto?.imagen_url + ')'}">
 
         </div>
-        <div
-        class="col-12 col-md-4 product-text">
-        <div>
-            <h1>{{ producto?.nombre }}</h1>
-            <h3>{{ producto?.descripcion }}</h3>
-        </div>
-            <div class="container-fluid comprar-ahora">
-                <button (click)="AddAlCarrito()">
-                    <h2>Añadir a la cesta</h2>
-                </button>
+        <div class="col-12 col-md-4 product-text">
+            <div>
+                <h1>{{ producto?.nombre }}</h1>
+                <h3>{{ producto?.descripcion }}</h3>
             </div>
-            <div class="container-fluid comprar-ahora">
-                <h2>Compra ahora <strong>{{producto?.precio }}</strong></h2>
+            <div class="container-fluid buttons-container">
+                        <button>COMPRAR AHORA <strong> {{producto?.precio}}€ </strong></button>
+                        <button class="añadir-carro" (click)="AddAlCarrito()">AÑADIR AL CARRO</button>
             </div>
         </div>
     </div>
@@ -49,7 +44,7 @@
 <div class="container-fluid description">
     <div class="row">
         <div class="col-12 col-md-4 description-title">
-            <h1>INGREDIENTES</h1>
+            <h1>Ingredientes</h1>
         </div>
         <div class="col-12 col-md-8 description-text">
             <p>{{ producto?.descripcion_ingredientes }}</p>
