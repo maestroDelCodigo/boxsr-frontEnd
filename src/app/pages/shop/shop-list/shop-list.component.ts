@@ -20,12 +20,10 @@ export class ShopListComponent implements OnInit {
 
   verProducto(producto: any): void {
     this.ver.emit(producto);
-    console.log(producto);
   }
 
   AddAlCarrito(producto: Producto): void {
     this.messengerService.sendMsg(producto);
-    console.log(producto);
   }
 
 }
