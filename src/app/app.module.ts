@@ -25,15 +25,16 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { OrderListModule } from 'primeng/orderlist';
-import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component';
-import { RegistroUsuarioComponent } from './pages/registro-usuario/registro-usuario.component';
-import {MatIconModule} from '@angular/material/icon';
+import { PerfilUsuarioComponent } from './pages/usuario/perfil-usuario/perfil-usuario.component';
+import { RegistroUsuarioComponent } from './pages/usuario/registro-usuario/registro-usuario.component';
+import { MatIconModule } from '@angular/material/icon';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ProductoComponent } from './pages/shop/producto/producto.component';
 import { ProductosService } from './admin/core/productos.service';
 import { ColeccionesService } from './admin/core/colecciones.service';
 import { ShopListComponent } from './pages/shop/shop-list/shop-list.component';
+import { UsuarioComponent } from './pages/usuario/usuario.component';
 
 
 
@@ -51,6 +52,7 @@ import { ShopListComponent } from './pages/shop/shop-list/shop-list.component';
     PerfilUsuarioComponent,
     RegistroUsuarioComponent,
     ShopListComponent,
+    UsuarioComponent
 
   ],
   imports: [
@@ -76,13 +78,22 @@ import { ShopListComponent } from './pages/shop/shop-list/shop-list.component';
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
-
   ],
+
+  providers: [MessageService,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ProductosService,
+    ColeccionesService
+  ],
+  // providers: [MessageService, ],
+
   providers: [
     MessageService,
     ProductosService,
     ColeccionesService
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
