@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
               this.router.navigate(['admin']);
             }
             else{
-              this.router.navigate(['']); // a donde entra un usuario no administrado ?????
+              this.router.navigate(['perfil-usuario']); // a donde entra un usuario no administrado ?????
             }
 
           } else {
