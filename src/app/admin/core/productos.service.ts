@@ -23,7 +23,7 @@ export class ProductosService {
   modificarProducto(producto: Producto): Observable<any> {
     return this.http.post(`${environment.apiUrl}/product/actualizarProducto/${producto.producto_id}`, producto)
       .pipe(
-        tap((a)=> console.log(a)),
+        tap((a) => console.log(a)),
         catchError(e => {
           console.log(e);
           return of(null);

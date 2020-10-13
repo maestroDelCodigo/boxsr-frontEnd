@@ -59,9 +59,7 @@
       padding: 0px;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      width: 70%;
-      padding: 20px 50px;
+      padding: 10vh 5vw;
   
       .card-img {
         height: 300px;
@@ -95,10 +93,35 @@
     background-color:  #9b9b9b;
     height: 60px;
   }
+
+  .buttons-container {
+    display: flex;
+    padding: 0px;
+}
+
+button {
+    background-color: #4b4a4a;
+    color: white;
+    border: none;
+    padding: 16px 0px;
+    font-size: 16px;
+    width: 100%;
+  }
+
+  .añadir-carro {
+    background-color: white;
+    color: #4b4a4a;
+    border: #4b4a4a 1px solid;
+  }
+
   
   @media (max-width: 575.98px) { 
     .cards-container {
       padding: 0px;
+    }
+
+    .buttons-container {
+      flex-direction: column;
     }
   }
   
