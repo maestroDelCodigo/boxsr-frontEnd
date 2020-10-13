@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MessengerService } from 'src/app/admin/core/messenger.service';
 import { Producto } from 'src/app/admin/models/producto';
 
@@ -9,7 +9,7 @@ import { Producto } from 'src/app/admin/models/producto';
 })
 export class CarritoComponent implements OnInit {
   @Input() mostrarCarrito = false;
-  // @Output() cerrarPanel = new EventEmitter<void>();
+  @Output() cerrarCarrito = new EventEmitter<void>();
 
   carritoItems = [];
 
@@ -46,5 +46,6 @@ export class CarritoComponent implements OnInit {
     this.carritoItems.forEach((item) => {
       this.carritoTotal += item.cantidad * item.precio;
     });
+    this.mostrarCarrito = !this.mostrarCarrito;
   }
 }

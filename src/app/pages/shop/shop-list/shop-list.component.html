@@ -30,11 +30,12 @@
                         <h2>{{ producto.nombre }}</h2>
                         <p>{{ producto.descripcion_resumen }}</p>
                         <h3>{{ producto.precio }}€</h3>
-                        <button class="arrow-button">SHOP NOW</button>
-                        <button class="arrow-button">ADD TO CARD</button>
-
                     </div>
                 </a>
+                <div>
+                    <button class="arrow-button">COMPRAR AHORA</button>
+                    <button class="arrow-button" (click)="AddAlCarrito(producto)">AÑADIR AL CARRO</button>
+                </div>
             </div>
         </ng-container>
     </div>
