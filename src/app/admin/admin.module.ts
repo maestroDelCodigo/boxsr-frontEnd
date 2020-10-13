@@ -34,11 +34,15 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ColeccionesListComponent } from './pages/colecciones/colecciones-list/colecciones-list.component';
 import { InventarioListComponent } from './pages/inventario/inventario-list/inventario-list.component';
 import { ModificarInventarioComponent } from './pages/inventario/modificar-inventario/modificar-inventario.component';
+import { ContactoService } from '../core/contacto.service';
+import { BuzonComponent } from './pages/buzon/buzon.component';
+import { BuzonAdminComponent } from './pages/buzon/buzon-admin/buzon-admin.component';
 
 
 @NgModule({
   declarations: [
     AdminComponent,
+    BuzonComponent,
     HeaderAdminComponent,
     PedidosComponent,
     ColeccionesComponent,
@@ -56,7 +60,8 @@ import { ModificarInventarioComponent } from './pages/inventario/modificar-inven
     ProductosListComponent,
     ColeccionesListComponent,
     InventarioListComponent,
-    ModificarInventarioComponent
+    ModificarInventarioComponent,
+    BuzonAdminComponent
 
   ],
   imports: [
@@ -77,7 +82,8 @@ import { ModificarInventarioComponent } from './pages/inventario/modificar-inven
   ],
   providers: [
     ProductosService,
-    ColeccionesService
+    ColeccionesService,
+    ContactoService
   ]
 })
 export class AdminModule { }

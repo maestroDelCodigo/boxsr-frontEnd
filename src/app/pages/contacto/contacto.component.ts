@@ -41,6 +41,8 @@ export class ContactoComponent implements OnInit {
     // contacto.fecha_creacion=this.f.fecha.value;
 
 
+
+
     this.contactoService.cargarMensaje(contacto).subscribe(
       (resultado) => {
         console.log(resultado)

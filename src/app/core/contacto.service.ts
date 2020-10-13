@@ -21,4 +21,14 @@ export class ContactoService {
       })
     );
 }
+
+verMensajes():  Observable<Contacto[]>{
+  return this.http.get(`${environment.apiUrl}/sugerencia/verSugerencias`)
+    .pipe(
+      catchError(e => {
+        return of(null);
+      })
+    );
+}
+
 }

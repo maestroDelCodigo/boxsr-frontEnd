@@ -7,6 +7,7 @@ import { ColeccionesComponent } from './pages/colecciones/colecciones.component'
 import { InventarioComponent } from './pages/inventario/inventario.component';
 import { PedidosComponent } from './pages/pedidos/pedidos.component';
 import { ProductosComponent } from './pages/productos/productos.component';
+import { BuzonComponent } from './pages/buzon/buzon.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,8 @@ const routes: Routes = [
     path: 'productos',
     component: ProductosComponent,
   },
+  { path: 'buzon',
+   component: BuzonComponent }
 ];
 
 @NgModule({

@@ -17,6 +17,7 @@ import { CondicionesGeneralesComponent } from './pages/condiciones-generales/con
 import { HablanDeNosotrosComponent } from './pages/sobre-boxsr/hablan-de-nosotros/hablan-de-nosotros.component';
 import { ProductoComponent } from './pages/shop/producto/producto.component';
 
+
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent },
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'condiciones-generales', component: CondicionesGeneralesComponent },
   { path: 'hablan-de-nosotros', component: HablanDeNosotrosComponent },
   { path: 'producto/:id', component: ProductoComponent },
+
 
   {
     path: 'admin',

@@ -36,8 +36,13 @@ import { OrderListModule } from 'primeng/orderlist';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 
 
+
+
+
+
 @NgModule({
   declarations: [
+   
     ContactoComponent,
     AppComponent,
     HeaderComponent,
@@ -49,6 +54,9 @@ import { ContactoComponent } from './pages/contacto/contacto.component';
     SobreBoxsrComponent,
     ProductoComponent,
     ShopListComponent,
+    
+   
+  
   ],
   imports: [
     BrowserModule,
