@@ -1,52 +1,100 @@
-// global styles
+
+  // global styles
 * {
-    font-family: averta !important;
-  }
+  font-family: averta !important;
+
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.arrow-button {
+  font-weight: 700;
+  outline: none;
+  padding: 3px 40px 3px 10px;
+  background-color: white;
+}
+
+//Slider
+.slider {
+  margin-top: -70px;
+  height: 40vh;
+  background-image:url(../../../../assets/images/macro-shot-of-mans-eye-ES7VQPB.jpg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
   
+}
+
+.slider-text {
+  width: 60%;
+  margin: 10px;
+
+  h1 {
+    color: #4B4A4A;
+    font-size: 30px;
+    font-weight: 700;
+  }
+  h2 {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    color:#4B4A4A;
+  }
+
+  button {
+    margin-bottom: 5px;
+  }
+}
+
   body {
     overflow-x: hidden;
   }
   
- 
-  
   //Slider
 
-   .slider {
-    margin-top:-70px;
-    height: 36vh;
-    width: 130vh;
-    margin-top: 30px;
-    margin-bottom: 30px;
+  //  .slider {
+  //   margin-top:-70px;
+  //   height: 36vh;
+  //   width: 100vh;
+  //   margin-top: 30px;
+  //   margin-bottom: 30px;
     
-    background-image: url(../../../../assets/images/macro-shot-of-mans-eye-ES7VQPB.jpg);
-    background-size:cover;
-    background-position: center;
-    display: flex;
-    align-items: flex-end;
-  }
+  //   background-image: url(../../../../assets/images/macro-shot-of-mans-eye-ES7VQPB.jpg);
+  //   background-size:cover;
+  //   background-position: center;
+  //   display: flex;
+  //   align-items: flex-end;
+  // }
+  // * {
+  //   font-family: averta !important;
+  //   color: #4B4A4A;
+  // }
   .black{
     font-weight: revert;
   }
   .italic{
     font-style: italic;
   }
-  .width{
-    width: 130vh;
-  }  
-  .padding{
-    padding-top: 140px;
-    padding-bottom: 35px;
+  .padding-top{
+    padding-top: 5%;
+   
+    padding-left: 12%;
+    padding-right: 12%;
   }
+  .padding-bot{
+    // padding-top: 7%;
+    padding-bottom: 5%;
+    padding-left: 12%;
+    padding-right: 12%;
+  }
+
  
   .imagenEllas{
-    height: 36vh;
-    width: 100vh;
+    max-width: 100%;
+    width: 80%;
   
   }
-  .Ellas{
-    justify-content: center;
-    align-items: center;
-    display:flex;
-    height: 78%;
-  }
+
  
