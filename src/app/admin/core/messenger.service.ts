@@ -11,7 +11,6 @@ export class MessengerService {
   constructor() { }
 
   sendMsg(producto): void {
-    console.log(producto);
     this.subject.next(producto);
   }
 

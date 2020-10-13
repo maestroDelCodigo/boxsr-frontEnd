@@ -14,5 +14,4 @@ export class CarritoItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
 }

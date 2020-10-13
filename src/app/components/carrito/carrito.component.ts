@@ -12,6 +12,7 @@ export class CarritoComponent implements OnInit {
   @Output() cerrarCarrito = new EventEmitter<void>();
 
   carritoItems = [];
+  carritoItem: any;
 
   carritoTotal = 0;
 
@@ -21,6 +22,8 @@ export class CarritoComponent implements OnInit {
     this.messageService.getMsg().subscribe((producto: Producto) => {
       this.addProductoAlCarrito(producto);
     });
+    this.getLocalItems();
+    console.log(this.carritoItems);
   }
 
   addProductoAlCarrito(producto: Producto): void {
@@ -42,10 +45,29 @@ export class CarritoComponent implements OnInit {
       });
     }
 
+    this.calcularTotalCarrito();
+
+    this.mostrarCarrito = !this.mostrarCarrito;
+    this.addToStorage();
+  }
+
+  calcularTotalCarrito(): void {
     this.carritoTotal = 0;
     this.carritoItems.forEach((item) => {
       this.carritoTotal += item.cantidad * item.precio;
+      this.carritoItem = item;
     });
-    this.mostrarCarrito = !this.mostrarCarrito;
+  }
+
+  addToStorage(): void {
+    localStorage.removeItem('carritoItems');
+    localStorage.setItem('carritoItems', JSON.stringify(this.carritoItems));
+  }
+
+  getLocalItems(): void {
+    const localItems = JSON.parse(localStorage.getItem('carritoItems'));
+    if (localItems.length) {
+      this.carritoItems = localItems;
+    }
   }
 }
