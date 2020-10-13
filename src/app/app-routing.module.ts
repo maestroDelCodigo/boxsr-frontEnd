@@ -21,6 +21,7 @@ import { ProductoComponent } from './pages/shop/producto/producto.component';
 import { UsuarioComponent } from './pages/usuario/usuario.component';
 
 
+
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent },

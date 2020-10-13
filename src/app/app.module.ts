@@ -34,12 +34,32 @@ import { ProductoComponent } from './pages/shop/producto/producto.component';
 import { ProductosService } from './admin/core/productos.service';
 import { ColeccionesService } from './admin/core/colecciones.service';
 import { ShopListComponent } from './pages/shop/shop-list/shop-list.component';
+
+import { CommonModule } from '@angular/common';
+
+
+
+import { AdminRoutingModule } from './admin/admin-routing.module';
+
+
+
+import { DialogModule } from 'primeng/dialog';
+import { DigitOnlyModule } from '@uiowa/digit-only';
+
+import { ContactoComponent } from './pages/contacto/contacto.component';
+
+
+
+
 import { UsuarioComponent } from './pages/usuario/usuario.component';
+
 
 
 
 @NgModule({
   declarations: [
+   
+    ContactoComponent,
     AppComponent,
     HeaderComponent,
     FooterComponent,
@@ -52,7 +72,13 @@ import { UsuarioComponent } from './pages/usuario/usuario.component';
     PerfilUsuarioComponent,
     RegistroUsuarioComponent,
     ShopListComponent,
+
+    
+   
+  
+
     UsuarioComponent
+
 
   ],
   imports: [
@@ -62,7 +88,6 @@ import { UsuarioComponent } from './pages/usuario/usuario.component';
     MatInputModule,
     MatButtonModule,
     MatTableModule,
-    MatInputModule,
     MatPaginatorModule,
     MatSortModule,
     AppRoutingModule,
@@ -72,7 +97,10 @@ import { UsuarioComponent } from './pages/usuario/usuario.component';
     MatStepperModule,
     SidebarModule,
     ToastModule,
-    MatTableModule,
+    CommonModule,
+    AdminRoutingModule,
+    DialogModule,
+    DigitOnlyModule,
     MatCheckboxModule,
     OrderListModule,
     MatIconModule,
@@ -85,6 +113,7 @@ import { UsuarioComponent } from './pages/usuario/usuario.component';
     MatNativeDateModule,
     ProductosService,
     ColeccionesService
+
   ],
   // providers: [MessageService, ],
 
