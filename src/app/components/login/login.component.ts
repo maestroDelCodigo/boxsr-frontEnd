@@ -78,4 +78,9 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
+registrarUsuario(): void{
+  this.router.navigate(['registro-usuario']);
+  this.cerrarPanel.emit();  
+}
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { Usuario } from 'src/app/models/usuario';
 import { RegistroUsuarioService } from 'src/app/services/registro-usuario.service';
@@ -16,7 +17,9 @@ export class RegistroUsuarioComponent implements OnInit {
   hide = true;
   messageError = null;
   startDate = new Date(1990, 0, 1);
-  constructor(fb: FormBuilder, private messageService: MessageService, private registroService: RegistroUsuarioService) {
+  constructor(fb: FormBuilder, private messageService: MessageService,
+              private registroService: RegistroUsuarioService,
+              private router: Router,) {
     this.elformularioUsuario(fb);
   }
 
@@ -41,6 +44,7 @@ export class RegistroUsuarioComponent implements OnInit {
         this.messageError = err;
       });
     }
+    this.router.navigate(['home']);
   }
 
 
