@@ -28,14 +28,14 @@
                     </div>
                     <div class="container-fluid card-text">
                         <h2>{{ producto.nombre }}</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, odio quis illo qui cumque
-                            id
-                            eius
-                            assumenda sed nam vel.</p>
+                        <p>{{ producto.descripcion_resumen }}</p>
                         <h3>{{ producto.precio }}€</h3>
-                        <button class="arrow-button">SHOP NOW</button>
                     </div>
                 </a>
+                <div>
+                    <button class="arrow-button">COMPRAR AHORA</button>
+                    <button class="arrow-button" (click)="AddAlCarrito(producto)">AÑADIR AL CARRO</button>
+                </div>
             </div>
         </ng-container>
     </div>

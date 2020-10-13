@@ -34,6 +34,7 @@ export class AdminService {
         })
       );
   }
+  // tslint:disable-next-line:variable-name
   desactivarAdmin(usuario_id: number, deletedAdmin: number): Observable<any> {
 
     const body =  {

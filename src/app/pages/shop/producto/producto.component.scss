@@ -49,18 +49,13 @@
 }
 
 .description {
-    display: flex;
-    align-items: center;
-    min-height: 20vh;
+    min-height: 10vh;
     border: gray 1px solid;
 
     .description-title {
-        display: flex;
-        align-items: center;
 
         h1 {
             font-size: 40px;
-            text-align: center;
         }
     }
 }

@@ -1,0 +1,17 @@
+.container {
+  padding: 1.6rem;
+}
+
+:host {
+  p-sidebar {
+    ::ng-deep {
+      .p-sidebar {
+        z-index: 9999 !important;
+      }
+    }
+  }
+}
+
+ul {
+  padding-left: 0px;
+}

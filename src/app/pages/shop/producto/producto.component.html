@@ -7,17 +7,13 @@
         class="col-12 col-md-4 product-text">
         <div>
             <h1>{{ producto?.nombre }}</h1>
-            <h3>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Aspernatur distinctio ipsa suscipit amet a? Odit soluta,
-                vero eveniet aperiam sunt possimus necessitatibus totam cupiditate
-                commodi vitae! In tempore sit possimus modi explicabo,
-                voluptatem saepe fugiat impedit excepturi ut porro velit odit amet
-                animi quasi quaerat commodi ex, labore unde! Inventore consequatur vitae
-                modi assumenda quam molestiae consequuntur aperiam, quos autem dicta aliquid
-                expedita odio suscipit, corrupti deserunt quibusdam.
-            </h3>
+            <h3>{{ producto?.descripcion }}</h3>
         </div>
+            <div class="container-fluid comprar-ahora">
+                <button (click)="AddAlCarrito()">
+                    <h2>Añadir a la cesta</h2>
+                </button>
+            </div>
             <div class="container-fluid comprar-ahora">
                 <h2>Compra ahora <strong>{{producto?.precio }}</strong></h2>
             </div>
@@ -32,11 +28,7 @@
             <h1>¿Para que sirve?</h1>
         </div>
         <div class="col-12 col-md-8 description-text">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et ut velit iste nam? Asperiores in quisquam
-                obcaecati ex veritatis fugit aperiam soluta, cumque blanditiis fuga distinctio totam voluptatibus vitae
-                iste hic reiciendis dolorum a molestias eos necessitatibus culpa ea facere vero. Natus, ad aut cumque
-                veniam perferendis reiciendis, molestiae nobis ex corrupti doloremque odit sed quae accusamus non
-                officia laboriosam?</p>
+            <p>{{ producto?.descripcion_sirve}}</p>
         </div>
     </div>
 </div>
@@ -48,11 +40,7 @@
             <h1>¿Como se usa?</h1>
         </div>
         <div class="col-12 col-md-8 description-text">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et ut velit iste nam? Asperiores in quisquam
-                obcaecati ex veritatis fugit aperiam soluta, cumque blanditiis fuga distinctio totam voluptatibus vitae
-                iste hic reiciendis dolorum a molestias eos necessitatibus culpa ea facere vero. Natus, ad aut cumque
-                veniam perferendis reiciendis, molestiae nobis ex corrupti doloremque odit sed quae accusamus non
-                officia laboriosam?</p>
+            <p>{{ producto?.descripcion_usa}}</p>
         </div>
     </div>
 </div>
@@ -64,11 +52,8 @@
             <h1>INGREDIENTES</h1>
         </div>
         <div class="col-12 col-md-8 description-text">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et ut velit iste nam? Asperiores in quisquam
-                obcaecati ex veritatis fugit aperiam soluta, cumque blanditiis fuga distinctio totam voluptatibus vitae
-                iste hic reiciendis dolorum a molestias eos necessitatibus culpa ea facere vero. Natus, ad aut cumque
-                veniam perferendis reiciendis, molestiae nobis ex corrupti doloremque odit sed quae accusamus non
-                officia laboriosam?</p>
+            <p>{{ producto?.descripcion_ingredientes }}</p>
+
         </div>
     </div>
 </div>

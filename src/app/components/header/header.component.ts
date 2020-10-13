@@ -10,6 +10,9 @@ import { AuthService } from 'src/app/core/security-services/auth.service';
 export class HeaderComponent implements OnInit {
   @Output() showLogin = new EventEmitter<boolean>();
 
+  @Output() showCart = new EventEmitter<boolean>();
+
+
   isUserAuthenticated = false;
 
   constructor(private authService: AuthService, private router: Router) { }

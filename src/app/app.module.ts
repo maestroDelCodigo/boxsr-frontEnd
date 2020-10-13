@@ -28,37 +28,23 @@ import { OrderListModule } from 'primeng/orderlist';
 import { PerfilUsuarioComponent } from './pages/usuario/perfil-usuario/perfil-usuario.component';
 import { RegistroUsuarioComponent } from './pages/usuario/registro-usuario/registro-usuario.component';
 import { MatIconModule } from '@angular/material/icon';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ProductoComponent } from './pages/shop/producto/producto.component';
 import { ProductosService } from './admin/core/productos.service';
 import { ColeccionesService } from './admin/core/colecciones.service';
 import { ShopListComponent } from './pages/shop/shop-list/shop-list.component';
-
+import { CarritoComponent } from './components/carrito/carrito.component';
+import { CarritoItemComponent } from './components/carrito/carrito-item/carrito-item.component';
 import { CommonModule } from '@angular/common';
-
-
-
 import { AdminRoutingModule } from './admin/admin-routing.module';
-
-
-
 import { DialogModule } from 'primeng/dialog';
 import { DigitOnlyModule } from '@uiowa/digit-only';
-
 import { ContactoComponent } from './pages/contacto/contacto.component';
-
-
-
-
 import { UsuarioComponent } from './pages/usuario/usuario.component';
-
-
-
 
 @NgModule({
   declarations: [
-   
     ContactoComponent,
     AppComponent,
     HeaderComponent,
@@ -72,14 +58,9 @@ import { UsuarioComponent } from './pages/usuario/usuario.component';
     PerfilUsuarioComponent,
     RegistroUsuarioComponent,
     ShopListComponent,
-
-    
-   
-  
-
+    CarritoComponent,
+    CarritoItemComponent,
     UsuarioComponent
-
-
   ],
   imports: [
     BrowserModule,
@@ -108,17 +89,10 @@ import { UsuarioComponent } from './pages/usuario/usuario.component';
     MatNativeDateModule,
   ],
 
-  providers: [MessageService,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    ProductosService,
-    ColeccionesService
-
-  ],
-  // providers: [MessageService, ],
-
   providers: [
     MessageService,
+    MatDatepickerModule,
+    MatNativeDateModule,
     ProductosService,
     ColeccionesService
   ],

@@ -1,0 +1,20 @@
+<p-sidebar [(visible)]="mostrarCarrito" (onHide)="cerrarCarrito.emit()" styleClass="p-sidebar-sm">
+    <div class="container">
+        <h1>Carrito</h1>
+
+        <h2 *ngIf="carritoItems.length === 0">El carrito esta vacio</h2>
+
+        <div class="container-fluid" *ngIf="carritoItems.length > 0" class="list-group">
+            <ul>
+                <li class="list-group-item" *ngFor="let item of carritoItems">
+                    <app-carrito-item [carritoItem]="item"></app-carrito-item>
+                </li>
+
+                <li class="list-group-item">
+                    <strong>Total: {{ carritoTotal | currency:'EUR' }}</strong>
+                </li>
+            </ul>
+            <button class="arrow-button">Hacer pedido</button>
+        </div>
+    </div>
+</p-sidebar>
