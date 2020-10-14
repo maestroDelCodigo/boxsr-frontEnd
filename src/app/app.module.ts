@@ -46,7 +46,7 @@ import { DataSharingService } from './shared/data-sharing.service';
 // stripe
 import { NgxStripeModule } from 'ngx-stripe';
 
-import { PaymentsComponent } from './components/payments/payments.component';
+import { PaymentsComponent } from './pages/checkout/payments/payments.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 
@@ -95,7 +95,7 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    NgxStripeModule.forRoot('***your-stripe-publishable-key***'),
+    NgxStripeModule.forRoot('PublicKey'),
   ],
 
   providers: [
