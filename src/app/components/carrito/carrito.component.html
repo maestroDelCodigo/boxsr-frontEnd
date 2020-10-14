@@ -14,7 +14,7 @@
                     <strong>Total: {{ carritoTotal | currency:'EUR' }}</strong>
                 </li>
             </ul>
-            <button class="arrow-button">Hacer pedido</button>
+            <button (click)="checkOut()" class="arrow-button">Hacer pedido</button>
         </div>
     </div>
 </p-sidebar>

@@ -34,7 +34,7 @@
                     </div>
                 </a>
                 <div class="container-fluid buttons-container">
-                    <button>COMPRAR AHORA <strong> {{producto?.precio}}€ </strong></button>
+                    <button (click)="checkOut()">COMPRAR AHORA <strong> {{producto?.precio}}€ </strong></button>
                     <button class="añadir-carro" (click)="AddAlCarrito(producto)">AÑADIR AL CARRO</button>
                 </div>
             </div>

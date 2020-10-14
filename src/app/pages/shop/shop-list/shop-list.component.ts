@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { MessengerService } from 'src/app/admin/core/messenger.service';
 import { Producto } from 'src/app/admin/models/producto';
 
@@ -13,7 +14,8 @@ export class ShopListComponent implements OnInit {
   @Input() productos: Producto[];
   @Output() ver = new EventEmitter();
 
-  constructor(private messengerService: MessengerService) { }
+
+  constructor(private messengerService: MessengerService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +26,9 @@ export class ShopListComponent implements OnInit {
 
   AddAlCarrito(producto: Producto): void {
     this.messengerService.sendMsg(producto);
+  }
+  checkOut(): void{
+    this.router.navigate(['checkout']);
   }
 
 }
