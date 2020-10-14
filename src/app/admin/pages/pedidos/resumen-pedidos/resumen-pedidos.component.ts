@@ -2,29 +2,26 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { ContactoService } from '../../../../core/contacto.service';
-
+import { PedidoService } from '../../../services/pedido.service';
 
 @Component({
-  selector: 'app-buzon-admin',
-  templateUrl: './buzon-admin.component.html',
-  styleUrls: ['./buzon-admin.component.scss']
+  selector: 'app-resumen-pedidos',
+  templateUrl: './resumen-pedidos.component.html',
+  styleUrls: ['./resumen-pedidos.component.scss']
 })
+export class ResumenPedidosComponent implements OnInit {
 
-export class BuzonAdminComponent implements OnInit {
-
-  displayedColumns: string[] = ['nombre', 'apellidos', 'email', 'mensaje'];
+  displayedColumns: string[] = ['pedido_id', 'fecha', 'cliente', 'total', 'pago', 'preparacion', 'cantidad'];
   dataSource = new MatTableDataSource<any>();
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  
-  constructor(private contactoService: ContactoService) { }
+
+  constructor(private pedidoService: PedidoService) { }
 
   ngOnInit(): void {
-    this.cargarListadoMensajes();
+    this.cargarListadoPedidos();
   }
-  
 
   applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -37,11 +34,12 @@ export class BuzonAdminComponent implements OnInit {
 
 
 
-  private cargarListadoMensajes(): void {
-    this.contactoService.verMensajes().subscribe((data) => {
+  private cargarListadoPedidos(): void {
+    this.pedidoService.verPedidos().subscribe((data) => {
       this.dataSource.data = data;
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
+
   }
 }

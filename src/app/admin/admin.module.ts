@@ -38,10 +38,14 @@ import { ContactoService } from '../core/contacto.service';
 import { BuzonComponent } from './pages/buzon/buzon.component';
 import { BuzonAdminComponent } from './pages/buzon/buzon-admin/buzon-admin.component';
 import { ClientesListComponent } from './pages/clientes/clientes-list/clientes-list.component';
+import { ResumenPedidosComponent } from './pages/pedidos/resumen-pedidos/resumen-pedidos.component';
+import { PedidoService } from './services/pedido.service';
+
 
 
 @NgModule({
   declarations: [
+    ResumenPedidosComponent,
     AdminComponent,
     BuzonComponent,
     HeaderAdminComponent,
@@ -85,7 +89,8 @@ import { ClientesListComponent } from './pages/clientes/clientes-list/clientes-l
   providers: [
     ProductosService,
     ColeccionesService,
-    ContactoService
+    ContactoService,
+    PedidoService
   ]
 })
 export class AdminModule { }
