@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { MessengerService } from 'src/app/admin/core/messenger.service';
 import { Producto } from 'src/app/admin/models/producto';
 
@@ -16,7 +17,7 @@ export class CarritoComponent implements OnInit {
 
   carritoTotal = 0;
 
-  constructor(private messageService: MessengerService) {}
+  constructor(private messageService: MessengerService, private router: Router) {}
 
   ngOnInit(): void {
     this.messageService.getMsg().subscribe((producto: Producto) => {
@@ -69,5 +70,9 @@ export class CarritoComponent implements OnInit {
     if (localItems.length) {
       this.carritoItems = localItems;
     }
+  }
+  checkOut(): void{
+    this.router.navigate(['checkout']);
+    this.cerrarCarrito.emit();
   }
 }

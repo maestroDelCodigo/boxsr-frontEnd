@@ -42,10 +42,12 @@ import { DialogModule } from 'primeng/dialog';
 import { DigitOnlyModule } from '@uiowa/digit-only';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { DataSharingService } from './shared/data-sharing.service';
+
 // stripe
 import { NgxStripeModule } from 'ngx-stripe';
-import { PaymentsComponent } from './components/payments/payments.component';
 
+import { PaymentsComponent } from './components/payments/payments.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 
 @NgModule({
@@ -66,6 +68,7 @@ import { PaymentsComponent } from './components/payments/payments.component';
     CarritoComponent,
     CarritoItemComponent,
     PaymentsComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,

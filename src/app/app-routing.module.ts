@@ -19,6 +19,7 @@ import { RegistroUsuarioComponent } from './pages/registro-usuario/registro-usua
 import { HablanDeNosotrosComponent } from './pages/sobre-boxsr/hablan-de-nosotros/hablan-de-nosotros.component';
 import { ProductoComponent } from './pages/shop/producto/producto.component';
 import { HeaderComponent } from './components/header/header.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 
 
@@ -44,6 +45,7 @@ const routes: Routes = [
   { path: 'registro-usuario', component: RegistroUsuarioComponent },
   { path: 'hablan-de-nosotros', component: HablanDeNosotrosComponent },
   { path: 'producto/:id', component: ProductoComponent },
+  { path: 'checkout', component: CheckoutComponent },
 
 
   {
