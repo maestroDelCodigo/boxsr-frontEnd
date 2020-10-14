@@ -42,6 +42,7 @@ import { DialogModule } from 'primeng/dialog';
 import { DigitOnlyModule } from '@uiowa/digit-only';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { DataSharingService } from './shared/data-sharing.service';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { DataSharingService } from './shared/data-sharing.service';
     ShopListComponent,
     CarritoComponent,
     CarritoItemComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
