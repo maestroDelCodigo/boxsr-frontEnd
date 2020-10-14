@@ -24,7 +24,6 @@ export class CarritoComponent implements OnInit {
       this.addProductoAlCarrito(producto);
     });
     this.getLocalItems();
-    console.log(this.carritoItems);
   }
 
   addProductoAlCarrito(producto: Producto): void {
