@@ -11,7 +11,7 @@ import { PedidoService } from '../../../services/pedido.service';
 })
 export class ResumenPedidosComponent implements OnInit {
 
-  displayedColumns: string[] = ['pedido_id', 'fecha', 'cliente', 'total', 'pago', 'preparacion', 'articulos'];
+  displayedColumns: string[] = ['pedido_id', 'fecha', 'cliente', 'total', 'pago', 'preparacion', 'cantidad'];
   dataSource = new MatTableDataSource<any>();
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

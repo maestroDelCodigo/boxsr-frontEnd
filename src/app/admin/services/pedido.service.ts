@@ -13,15 +13,6 @@ export class PedidoService {
 
   constructor(private http: HttpClient) {}
 
-//   cargarMensaje(pedido): Observable<any> {
-//     return this.http.post(`${environment.apiUrl}/pedidos/crearPedido`,pedido)
-//     .pipe(
-//       catchError(e => {
-//         return of(null);
-//       })
-//     );
-// }
-
 verPedidos(): Observable<Pedido[]>{
   return this.http.get(`${environment.apiUrl}/pedidos/listaPedidos`)
     .pipe(

@@ -14,6 +14,7 @@ export class Pedido {
     fecha_pedido: string;
     nombre: string;
     apellidos: string;
+    cantidad: number;
 
     constructor(item?: any) {
         this.estado_pago = item?.estado_pago || '';
@@ -24,5 +25,6 @@ export class Pedido {
         this.fecha_pedido = item?.fecha_pedido || '';
         this.nombre= item?.nombre || '';
         this.apellidos=  item?.apellidos || '';
+        this.cantidad= item?.cantidad || '';
     }
 }
