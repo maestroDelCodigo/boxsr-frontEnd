@@ -40,6 +40,7 @@ export class PaymentsComponent implements OnInit {
   };
 
   stripeForm: FormGroup;
+  carritoTotal: number;
 
   constructor(
     private fb: FormBuilder,
@@ -53,9 +54,18 @@ export class PaymentsComponent implements OnInit {
     });
 
     this.carritoItems = JSON.parse(localStorage.getItem('carritoItems')) || 0;
+    this.calcularTotalCarrito();
   }
 
-  createToken(formData): void {
+  calcularTotalCarrito(): void {
+    this.carritoTotal = 0;
+    this.carritoItems.forEach((item) => {
+      this.carritoTotal += item.cantidad * item.precio;
+    });
+    console.log(this.carritoTotal);
+  }
+
+  createToken(): void {
     const name = this.stripeForm.get('name').value;
     this.stripeService
       .createToken(this.card.element, { name })
@@ -66,6 +76,7 @@ export class PaymentsComponent implements OnInit {
             // tslint:disable-next-line:object-literal-shorthand
             name: name,
             items: this.carritoItems,
+            totalPedido: this.carritoTotal,
           };
 
           this.httpclient

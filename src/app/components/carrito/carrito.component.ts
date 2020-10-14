@@ -17,13 +17,17 @@ export class CarritoComponent implements OnInit {
 
   carritoTotal = 0;
 
-  constructor(private messageService: MessengerService, private router: Router) {}
+  constructor(
+    private messageService: MessengerService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.messageService.getMsg().subscribe((producto: Producto) => {
       this.addProductoAlCarrito(producto);
     });
     this.getLocalItems();
+    this.calcularTotalCarrito();
     console.log(this.carritoItems);
   }
 
@@ -71,7 +75,7 @@ export class CarritoComponent implements OnInit {
       this.carritoItems = localItems;
     }
   }
-  checkOut(): void{
+  checkOut(): void {
     this.router.navigate(['checkout']);
     this.cerrarCarrito.emit();
   }
