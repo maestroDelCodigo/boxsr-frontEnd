@@ -42,6 +42,10 @@ import { DialogModule } from 'primeng/dialog';
 import { DigitOnlyModule } from '@uiowa/digit-only';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { DataSharingService } from './shared/data-sharing.service';
+// stripe
+import { NgxStripeModule } from 'ngx-stripe';
+import { PaymentsComponent } from './components/payments/payments.component';
+
 
 
 @NgModule({
@@ -61,6 +65,7 @@ import { DataSharingService } from './shared/data-sharing.service';
     ShopListComponent,
     CarritoComponent,
     CarritoItemComponent,
+    PaymentsComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,6 +92,7 @@ import { DataSharingService } from './shared/data-sharing.service';
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    NgxStripeModule.forRoot('***your-stripe-publishable-key***'),
   ],
 
   providers: [
