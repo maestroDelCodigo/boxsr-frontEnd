@@ -1,0 +1,12 @@
+<div class="container">
+    <form novalidate (ngSubmit)="createToken(stripeForm.value)" [formGroup]="stripeForm">
+        <input type="text" formControlName="name" placeholder="Nombre">
+        <ngx-stripe-card
+          [options]="cardOptions"
+          [elementsOptions]="elementsOptions"
+        ></ngx-stripe-card>
+        <button type="submit">
+          PAGAR
+        </button>
+      </form>
+</div>
