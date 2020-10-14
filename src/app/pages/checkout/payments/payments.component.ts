@@ -1,11 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 import { StripeService, StripeCardComponent } from 'ngx-stripe';
 import {
   StripeCardElementOptions,
   StripeElementsOptions,
 } from '@stripe/stripe-js';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-payments',
@@ -14,6 +16,9 @@ import {
 })
 export class PaymentsComponent implements OnInit {
   @ViewChild(StripeCardComponent) card: StripeCardComponent;
+
+  carritoItems = [];
+  stripeToken;
 
   cardOptions: StripeCardElementOptions = {
     style: {
@@ -34,26 +39,45 @@ export class PaymentsComponent implements OnInit {
     locale: 'es',
   };
 
-  stripeTest: FormGroup;
+  stripeForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private stripeService: StripeService) {}
+  constructor(
+    private fb: FormBuilder,
+    private stripeService: StripeService,
+    private httpclient: HttpClient
+  ) {}
 
   ngOnInit(): void {
-    this.stripeTest = this.fb.group({
+    this.stripeForm = this.fb.group({
       name: ['', [Validators.required]],
     });
+
+    this.carritoItems = JSON.parse(localStorage.getItem('carritoItems')) || 0;
   }
 
-  createToken(): void {
-    const name = this.stripeTest.get('name').value;
+  createToken(formData): void {
+    const name = this.stripeForm.get('name').value;
     this.stripeService
       .createToken(this.card.element, { name })
       .subscribe((result) => {
         if (result.token) {
-          // Use the token
+          const pedido = {
+            id: result.token.id,
+            // tslint:disable-next-line:object-literal-shorthand
+            name: name,
+            items: this.carritoItems,
+          };
+
+          this.httpclient
+            .post(`${environment.apiUrl}/checkout`, pedido)
+            .subscribe((data) => {
+              console.log('transaccion ok');
+              console.log(data);
+              console.log(this.carritoItems);
+            });
+
           console.log(result.token.id);
         } else if (result.error) {
-          // Error creating the token
           console.log(result.error.message);
         }
       });
