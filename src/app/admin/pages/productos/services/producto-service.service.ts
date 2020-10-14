@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Producto } from 'src/app/models/producto';
 
+
+
 @Injectable({
   providedIn: 'root',
 })
@@ -15,4 +17,6 @@ export class ProductoServiceService {
     .pipe(
       map(datos => datos.map(x => new Producto(x))));
   }
+
+  
 }

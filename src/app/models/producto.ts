@@ -1,9 +1,11 @@
+
+
 export class Producto {
   // tslint:disable-next-line:variable-name
   producto_id: number;
   nombre: string;
   // tslint:disable-next-line:variable-name
-  tipo_producto: string;
+  tipo_producto: number;
   // tslint:disable-next-line:variable-name
   codigo_producto: number;
   peso: number;

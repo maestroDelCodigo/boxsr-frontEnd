@@ -37,6 +37,7 @@ import { ModificarInventarioComponent } from './pages/inventario/modificar-inven
 import { ContactoService } from '../core/contacto.service';
 import { BuzonComponent } from './pages/buzon/buzon.component';
 import { BuzonAdminComponent } from './pages/buzon/buzon-admin/buzon-admin.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -65,6 +66,7 @@ import { BuzonAdminComponent } from './pages/buzon/buzon-admin/buzon-admin.compo
 
   ],
   imports: [
+    MatSelectModule,
     CommonModule,
     MatFormFieldModule,
     MatInputModule,

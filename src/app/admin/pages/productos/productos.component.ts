@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProductosService } from '../../core/productos.service';
 import { Producto } from 'src/app/models/producto';
 import { ProductosListComponent } from './productos-list/productos-list.component';
+import { TiposProductoService } from '../../../services/tipos-producto.service';
+import { IdName } from '../../models/id-name';
 
 @Component({
   selector: 'app-productos',
@@ -15,11 +17,13 @@ export class ProductosComponent implements OnInit {
   mostrarModificarProductos = false;
   productos: Producto[] = [];
   productoModificar: Producto = null;
+  tipoProducto: IdName[];
 
-  constructor(private productosService: ProductosService) { }
+  constructor(private productosService: ProductosService, private tiposProducto:TiposProductoService) { }
 
   ngOnInit(): void {
     this.obtenerProductos();
+    this.tipoProducto=this.tiposProducto.getTipoProducto();
   }
 
   onMostrarCrearProductos(): void{

@@ -41,6 +41,7 @@ import { AdminRoutingModule } from './admin/admin-routing.module';
 import { DialogModule } from 'primeng/dialog';
 import { DigitOnlyModule } from '@uiowa/digit-only';
 import { ContactoComponent } from './pages/contacto/contacto.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { ContactoComponent } from './pages/contacto/contacto.component';
     CarritoItemComponent,
   ],
   imports: [
+    MatSelectModule,
     BrowserModule,
     HttpClientModule,
     MatFormFieldModule,

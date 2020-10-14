@@ -26,10 +26,10 @@
     <div class="form-group">
       <mat-form-field class="full-width">
         <mat-label>Tipo de producto</mat-label>
-        <input matInput formControlName="tipo" [ngClass]="{ 'is-invalid': submitted && f.tipo.errors }" />
-        <div *ngIf="submitted && f.tipo.errors" class="invalid-feedback">
-            <div *ngIf="f.tipo.errors.required">Tipo de producto requerido</div>
-        </div>
+        <mat-select formControlName="tipo" >
+        <mat-option *ngFor="let item of tipos" [value]="item.id"> {{item.name}}
+        </mat-option>
+        </mat-select>
       </mat-form-field>
     </div>
     <div class="form-group">

@@ -5,6 +5,7 @@ import { Producto } from 'src/app/models/producto';
 import { MessageService } from 'primeng/api';
 import { UploadFilesService } from 'src/app/core/upload.service';
 import { first, switchMap } from 'rxjs/operators';
+import { IdName } from 'src/app/admin/models/id-name';
 
 @Component({
   selector: 'app-crear-productos',
@@ -14,6 +15,7 @@ import { first, switchMap } from 'rxjs/operators';
 export class CrearProductosComponent implements OnInit {
   @ViewChild('fileInput') el: ElementRef;
   @Input() display: boolean;
+  @Input() tipos: IdName[]=[];
   @Output() cerrarDialogo = new EventEmitter<void>();
   imageUrl: any = '';
   productosForm: FormGroup;
@@ -30,7 +32,7 @@ export class CrearProductosComponent implements OnInit {
 
     this.productosForm = this.formBuilder.group({
       nombre: ['', [Validators.required, Validators.maxLength(145)]],
-      tipo: ['', [Validators.required, Validators.maxLength(145)]],
+     //tipo: ['', [Validators.required, Validators.maxLength(145)]],
       codigo: ['', [Validators.required, Validators.maxLength(30)]],
       peso: ['', [Validators.required, Validators.maxLength(6)]],
       precio: ['', [Validators.required, Validators.maxLength(5)]],
