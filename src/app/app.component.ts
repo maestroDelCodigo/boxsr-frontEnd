@@ -35,10 +35,14 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.abrirLogin(false)
   }
 
 
   mostrarLogin(display: boolean): void{
+    this.displayLogin = display;
+  }
+  abrirLogin(display: boolean): void{
     this.displayLogin = display;
   }
 

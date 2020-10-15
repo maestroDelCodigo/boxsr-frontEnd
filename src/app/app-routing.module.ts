@@ -20,6 +20,7 @@ import { HablanDeNosotrosComponent } from './pages/sobre-boxsr/hablan-de-nosotro
 import { ProductoComponent } from './pages/shop/producto/producto.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 
@@ -46,6 +47,7 @@ const routes: Routes = [
   { path: 'hablan-de-nosotros', component: HablanDeNosotrosComponent },
   { path: 'producto/:id', component: ProductoComponent },
   { path: 'checkout', component: CheckoutComponent },
+  { path: 'login', component: LoginComponent },
 
 
   {

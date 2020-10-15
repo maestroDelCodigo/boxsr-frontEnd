@@ -1,6 +1,9 @@
-<h1>{{carritoItems[0].producto_id}}</h1>
-<h1>{{carritoItems[0].nombre}}</h1>
-<h1>{{carritoItems[0].precio}}</h1>
-<h1>{{carritoItems[1].producto_id}}</h1>
-<h1>{{carritoItems[1].nombre}}</h1>
-<h1>{{carritoItems[1].precio}}</h1>
+<div class="resumenPedido">
+<div class="card border-dark mb-3" style="max-width: 18rem;" *ngFor="let item of carritoItems">
+  <div class="card-header"><h1>{{item.nombre}}</h1></div>
+  <div class="card-body text-dark">
+    <p class="card-title">Precio: {{item.precio}}</p>
+    <p class="card-text">Cantidad: {{item.cantidad}}</p>
+  </div>
+</div>
+</div>

@@ -8,13 +8,14 @@
             <ul>
                 <li class="list-group-item" *ngFor="let item of carritoItems">
                     <app-carrito-item [carritoItem]="item"></app-carrito-item>
+                    <button (click)="deleteItem(item.producto_id)">Eliminar</button>
                 </li>
 
                 <li class="list-group-item">
                     <strong>Total: {{ carritoTotal | currency:'EUR' }}</strong>
                 </li>
             </ul>
-            <button (click)="checkOut()" class="arrow-button">Hacer pedido</button>
+            <button (click)="checkOut()" (click)="abrirLogin.emit(true)" class="arrow-button">Hacer pedido</button>
         </div>
     </div>
 </p-sidebar>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Producto } from 'src/app/models/producto';
+import { Pedidos } from '../../../models/pedidos';
 
 @Component({
   selector: 'app-checkout-resumen-pedido',
@@ -7,10 +7,10 @@ import { Producto } from 'src/app/models/producto';
   styleUrls: ['./checkout-resumen-pedido.component.scss']
 })
 export class CheckoutResumenPedidoComponent implements OnInit {
-  carritoItems: Producto [] = [];
+  carritoItems: Pedidos [] = [];
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.carritoItems = JSON.parse(localStorage.getItem('carritoItems')) || 0;
   }
 

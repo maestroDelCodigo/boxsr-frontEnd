@@ -1,4 +1,4 @@
-export class Pedido {
+export class Pedidos {
     // tslint:disable-next-line: variable-name
     pedido_id: number;
     // tslint:disable-next-line: variable-name
@@ -10,10 +10,11 @@ export class Pedido {
     total_pedido: number;
     // tslint:disable-next-line: variable-name
     estado_preparacion: string;
-    // tslint:disable-next-line: variable-name
-    fecha_pedido: string;
+    fechaPedido: string;
     nombre: string;
     apellidos: string;
+    cantidad: number;
+    precio: number;
 
     constructor(item?: any) {
         this.estado_pago = item?.estado_pago || '';
@@ -21,8 +22,10 @@ export class Pedido {
         this.iva = item?.iva || '';
         this.total_pedido = item?.total_pedido || '';
         this.estado_preparacion = item?.estado_preparacion || '';
-        this.fecha_pedido = item?.fecha_pedido || '';
+        this.fechaPedido = item?.fecha_pedido || '';
         this.nombre = item?.nombre || '';
         this.apellidos =  item?.apellidos || '';
+        this.cantidad = item?.cantidad || '';
+        this.precio = item?.precio || '';
     }
 }
