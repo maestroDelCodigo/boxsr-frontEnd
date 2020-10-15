@@ -15,7 +15,7 @@ import { Coleccion } from 'src/app/admin/models/Coleccion';
 export class ColeccionesListComponent implements OnInit  {
   @Output() modificar = new EventEmitter<Coleccion>();
   @Output() borrar = new EventEmitter<Coleccion>();
-  displayedColumns: string[] = ['nombre', 'video', 'precioRebajado', 'precioOriginal', 'deleted', 'actions'];
+  displayedColumns: string[] = ['imagen', 'nombre', 'video', 'precioRebajado', 'precioOriginal', 'deleted', 'actions'];
   dataSource = new MatTableDataSource<Coleccion>();
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

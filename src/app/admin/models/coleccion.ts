@@ -20,6 +20,10 @@ export class Coleccion {
   descripcion_usa: string;
   // tslint:disable-next-line:variable-name
   descripcion_ingredientes: string;
+  // tslint:disable-next-line: variable-name
+  nombre_imagen: string;
+  // tslint:disable-next-line:variable-name
+  imagen_url: string;
 
   constructor(item?: any) {
     this.nombre = item?.nombre || '';
@@ -33,5 +37,7 @@ export class Coleccion {
     this.descripcion_sirve = item?.descripcion_sirve || '';
     this.descripcion_usa = item?.descripcion_usa || '';
     this.descripcion_ingredientes = item?.descripcion_ingredientes || '';
+    this.nombre_imagen = item?.nombre_imagen || '';
+    this.imagen_url = item?.imagen_url || '';
   }
 }
