@@ -20,6 +20,7 @@ import { HablanDeNosotrosComponent } from './pages/sobre-boxsr/hablan-de-nosotro
 import { ProductoComponent } from './pages/shop/producto/producto.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -42,8 +43,10 @@ const routes: Routes = [
   { path: 'registro-usuario', component: RegistroUsuarioComponent },
   { path: 'hablan-de-nosotros', component: HablanDeNosotrosComponent },
   { path: 'producto/:id', component: ProductoComponent },
+  { path: 'login', component: LoginComponent },
   // { path: 'checkout', component: CheckoutComponent },
   { path: 'checkout/:id', component: CheckoutComponent },
+
 
   {
     path: 'admin',

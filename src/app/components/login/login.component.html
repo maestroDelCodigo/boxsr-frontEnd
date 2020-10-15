@@ -1,4 +1,4 @@
-<p-sidebar [(visible)]="mostrarLogin" (onHide)="cerrarPanel.emit()" styleClass="p-sidebar-sm">
+<p-sidebar [(visible)]="mostrarLogin" [(visible)]="abrirLogin" (onHide)="cerrarPanel.emit()" styleClass="p-sidebar-sm">
   <form [formGroup]="loginForm"  class="container">
       <div class="form-group">
           <label for="username">Email</label>

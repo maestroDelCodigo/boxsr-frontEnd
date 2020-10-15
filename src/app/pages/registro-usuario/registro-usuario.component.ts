@@ -44,7 +44,7 @@ export class RegistroUsuarioComponent implements OnInit {
         this.messageError = err;
       });
     }
-    this.router.navigate(['home']);
+    this.router.navigate(['checkout']);
   }
 
 

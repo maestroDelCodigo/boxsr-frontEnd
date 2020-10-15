@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DataSharingService } from 'src/app/shared/data-sharing.service';
 
 @Component({
   selector: 'app-carrito-item',
@@ -8,10 +9,14 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CarritoItemComponent implements OnInit {
 
   @Input() carritoItem: any;
+  @Input() deleteItems: any;
 
-  constructor() { }
+  constructor( private dataSharingService: DataSharingService,) { }
 
   ngOnInit(): void {
   }
 
+  deleteItem() {
+
+}
 }

@@ -48,6 +48,7 @@ import { NgxStripeModule } from 'ngx-stripe';
 
 import { PaymentsComponent } from './pages/checkout/payments/payments.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { CheckoutResumenPedidoComponent } from './pages/checkout/checkout-resumen-pedido/checkout-resumen-pedido.component';
 
 
 @NgModule({
@@ -69,6 +70,7 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
     CarritoItemComponent,
     PaymentsComponent,
     CheckoutComponent,
+    CheckoutResumenPedidoComponent,
   ],
   imports: [
     BrowserModule,

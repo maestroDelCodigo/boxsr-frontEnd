@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   @Input() mostrarLogin = false;
   @Output() cerrarPanel = new EventEmitter<void>();
-
+  @Input() abrirLogin = false;
   error = false;
   loginForm: FormGroup;
   loading = false;
@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
               this.router.navigate(['admin']);
             }
             else{
-              this.router.navigate(['perfil-usuario/:id', {id: user.usuario_id}]);
+              this.router.navigate(['checkout']);
               this.dataSharingService.isUserLoggedIn.next(true);
               this.cerrarPanel.emit();
             }
