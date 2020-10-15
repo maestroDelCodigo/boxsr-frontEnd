@@ -21,9 +21,6 @@ import { ProductoComponent } from './pages/shop/producto/producto.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 
-
-
-
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent },
@@ -45,8 +42,8 @@ const routes: Routes = [
   { path: 'registro-usuario', component: RegistroUsuarioComponent },
   { path: 'hablan-de-nosotros', component: HablanDeNosotrosComponent },
   { path: 'producto/:id', component: ProductoComponent },
-  { path: 'checkout', component: CheckoutComponent },
-
+  // { path: 'checkout', component: CheckoutComponent },
+  { path: 'checkout/:id', component: CheckoutComponent },
 
   {
     path: 'admin',
