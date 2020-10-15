@@ -8,7 +8,7 @@ import { RegistroUsuarioService } from 'src/app/services/registro-usuario.servic
 @Component({
   selector: 'app-perfil-usuario',
   templateUrl: './perfil-usuario.component.html',
-  styleUrls: ['./perfil-usuario.component.scss']
+  styleUrls: ['./perfil-usuario.component.scss'],
 })
 export class PerfilUsuarioComponent implements OnInit {
   usuario: Usuario;
@@ -18,10 +18,13 @@ export class PerfilUsuarioComponent implements OnInit {
   messageError = null;
   startDate = new Date(1990, 0, 1);
   id = null;
-  constructor(private fb: FormBuilder, private messageService: MessageService,
-              public registroService: RegistroUsuarioService,
-              public router: Router,
-              activatedRoute: ActivatedRoute) {
+  constructor(
+    private fb: FormBuilder,
+    private messageService: MessageService,
+    public registroService: RegistroUsuarioService,
+    public router: Router,
+    activatedRoute: ActivatedRoute
+  ) {
     activatedRoute.params.subscribe((x) => {
       this.id = x?.id || null;
     });
@@ -29,18 +32,46 @@ export class PerfilUsuarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.registroService.getUser(this.id).subscribe(x => {
+    this.registroService.getUser(this.id).subscribe((x) => {
       this.usuario = x;
+      console.log(x);
       this.formularioUsuario = this.fb.group({
-        nombre: [this.usuario.nombre, [Validators.required, Validators.maxLength(145)]],
-        apellidos: [this.usuario.apellidos, [Validators.required, Validators.maxLength(145)]],
-        email: [this.usuario.email, [Validators.required, Validators.maxLength(145)]],
-        password: [this.usuario.password, [Validators.required, Validators.maxLength(16)]],
-        fecha_nacimiento: [this.usuario.fecha_nacimiento, [Validators.required, Validators.maxLength(60)]],
-        direccion: [this.usuario.direccion, [Validators.required, Validators.maxLength(145)]],
-        codigo_postal: [this.usuario.codigo_postal, [Validators.required, Validators.maxLength(5)]],
-        poblacion: [this.usuario.poblacion, [Validators.required, Validators.maxLength(60)]],
-        provincia: [this.usuario.provincia, [Validators.required, Validators.maxLength(60)]],
+        nombre: [
+          this.usuario.nombre,
+          [Validators.required, Validators.maxLength(145)],
+        ],
+        apellidos: [
+          this.usuario.apellidos,
+          [Validators.required, Validators.maxLength(145)],
+        ],
+        email: [
+          this.usuario.email,
+          [Validators.required, Validators.maxLength(145)],
+        ],
+        password: [
+          this.usuario.password,
+          [Validators.required, Validators.maxLength(16)],
+        ],
+        fecha_nacimiento: [
+          this.usuario.fecha_nacimiento,
+          [Validators.required, Validators.maxLength(60)],
+        ],
+        direccion: [
+          this.usuario.direccion,
+          [Validators.required, Validators.maxLength(145)],
+        ],
+        codigo_postal: [
+          this.usuario.codigo_postal,
+          [Validators.required, Validators.maxLength(5)],
+        ],
+        poblacion: [
+          this.usuario.poblacion,
+          [Validators.required, Validators.maxLength(60)],
+        ],
+        provincia: [
+          this.usuario.provincia,
+          [Validators.required, Validators.maxLength(60)],
+        ],
         deleted: [0],
       });
     });
@@ -49,7 +80,11 @@ export class PerfilUsuarioComponent implements OnInit {
     this.submitted = true;
 
     if (this.formularioUsuario.invalid) {
-      return  this.messageService.add({ severity: 'error', summary: 'Administrador', detail: 'Los datos no son válidos' });
+      return this.messageService.add({
+        severity: 'error',
+        summary: 'Administrador',
+        detail: 'Los datos no son válidos',
+      });
     }
 
     this.usuario.nombre = this.f.nombre.value;
@@ -61,22 +96,25 @@ export class PerfilUsuarioComponent implements OnInit {
     this.usuario.poblacion = this.f.poblacion.value;
     this.usuario.provincia = this.f.provincia.value;
 
-
-
-    this.registroService.modificarUsuario(this.usuario, this.id).subscribe(resultado => {
+    this.registroService
+      .modificarUsuario(this.usuario, this.id)
+      .subscribe((resultado) => {
         if (resultado) {
-          this.messageService.add({ severity: 'success', summary: 'Todo OK', detail: 'Tus datos se han modificado correctamente.' });
-        }
-        else {
           this.messageService.add({
-            severity: 'error', summary: 'Error',
-            detail: 'Hubo un problema al modificar tu perfil.'
+            severity: 'success',
+            summary: 'Todo OK',
+            detail: 'Tus datos se han modificado correctamente.',
+          });
+        } else {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Hubo un problema al modificar tu perfil.',
           });
         }
       });
     this.router.navigate(['home']);
- }
-
+  }
 
   private elformularioUsuario(fb: FormBuilder): void {
     this.formularioUsuario = fb.group({
@@ -89,8 +127,10 @@ export class PerfilUsuarioComponent implements OnInit {
       codigo_postal: ['', [Validators.required, Validators.maxLength(5)]],
       poblacion: ['', [Validators.required, Validators.maxLength(60)]],
       provincia: ['', [Validators.required, Validators.maxLength(60)]],
-      deleted: [0]
+      deleted: [0],
     });
   }
-  get f(): any { return this.formularioUsuario.controls; }
+  get f(): any {
+    return this.formularioUsuario.controls;
+  }
 }

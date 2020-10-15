@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessengerService } from 'src/app/admin/core/messenger.service';
 import { Producto } from 'src/app/admin/models/producto';
+import { Usuario } from 'src/app/models/usuario';
 
 @Component({
   selector: 'app-carrito',
@@ -16,6 +17,7 @@ export class CarritoComponent implements OnInit {
   carritoItem: any;
 
   carritoTotal = 0;
+  user: any;
 
   constructor(
     private messageService: MessengerService,
@@ -76,7 +78,12 @@ export class CarritoComponent implements OnInit {
     }
   }
   checkOut(): void {
-    this.router.navigate(['checkout']);
+    this.user = localStorage.getItem('APP_USER')
+      ? JSON.parse(localStorage.getItem('APP_USER'))
+      : [];
+    console.log(this.user);
+
+    this.router.navigate(['checkout/:id', { id: this.user.usuario_id }]);
     this.cerrarCarrito.emit();
   }
 }
