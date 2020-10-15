@@ -46,7 +46,7 @@ import { DataSharingService } from './shared/data-sharing.service';
 // stripe
 import { NgxStripeModule } from 'ngx-stripe';
 
-import { PaymentsComponent } from './components/payments/payments.component';
+import { PaymentsComponent } from './pages/checkout/payments/payments.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { CheckoutResumenPedidoComponent } from './pages/checkout/checkout-resumen-pedido/checkout-resumen-pedido.component';
 
@@ -97,7 +97,7 @@ import { CheckoutResumenPedidoComponent } from './pages/checkout/checkout-resume
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    NgxStripeModule.forRoot('***your-stripe-publishable-key***'),
+    NgxStripeModule.forRoot('pk_test_51Hc87kA0e2wVUT1Fvx1JxU9IXXQyoxfmMcAt8Zgwp1MfEj3nQARj8vByNdnbE3AJ1L3iKuOKdDczfcEdWhrSL3dM00zPptpq9c'),
   ],
 
   providers: [

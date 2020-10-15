@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { MessengerService } from 'src/app/admin/core/messenger.service';
 import { Producto } from 'src/app/admin/models/producto';
 import { DataSharingService } from 'src/app/shared/data-sharing.service';
+import { Usuario } from 'src/app/models/usuario';
+
 
 @Component({
   selector: 'app-carrito',
@@ -17,17 +19,19 @@ export class CarritoComponent implements OnInit {
 
   carritoItems = [];
   carritoItem: any;
-
   carritoTotal = 0;
+  user: any;
 
   constructor(private messageService: MessengerService, private router: Router, private dataSharingService: DataSharingService,) { }
+
 
   ngOnInit(): void {
     this.messageService.getMsg().subscribe((producto: Producto) => {
       this.addProductoAlCarrito(producto);
     });
     this.getLocalItems();
-    this.checkOut()
+    this.calcularTotalCarrito();
+
   }
 
   addProductoAlCarrito(producto: Producto): void {
@@ -91,13 +95,15 @@ export class CarritoComponent implements OnInit {
   }
   checkOut(): void {
     const login = localStorage.getItem('APP_USER');
+    this.user = localStorage.getItem('APP_USER')
+      ? JSON.parse(localStorage.getItem('APP_USER'))
+      : [];
+    this.router.navigate(['checkout/:id', { id: this.user.usuario_id }]);
     this.cerrarCarrito.emit();
     if (login) {
       this.router.navigate(['checkout']);
     }
     else{
-      console.log('Llega al else')
-      // this.cerrarCarrito.emit();
       this.abrirLogin.emit();
     }
 
