@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Coleccion } from '../models/Coleccion';
 
@@ -33,6 +33,12 @@ export class ColeccionesService {
   listarColecciones(): Observable<Coleccion[]>{
     return this.http.get(`${environment.apiUrl}/coleccion`)
       .pipe(
+        map((colecciones: Coleccion[]) => {
+          return colecciones.map(coleccion => ({
+            ...coleccion,
+            imagen_url: coleccion.nombre_imagen ? `${environment.urlImagesServer}/${coleccion.nombre_imagen}` : ''
+          }));
+        }),
         catchError(e => {
           return of(null);
         })
