@@ -24,19 +24,21 @@ export class LoginComponent implements OnInit {
   submitted = false;
   id = null;
   usuario: Usuario;
+  user: any;
+  item: any;
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private authService: AuthService,
     private loginService: LoginService,
     private dataSharingService: DataSharingService,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
-  });
+    });
   }
 
   get f(): any { return this.loginForm.controls; }
@@ -45,7 +47,7 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
 
     if (this.loginForm.invalid) {
-        return;
+      return;
     }
 
     this.loading = true;
@@ -57,12 +59,23 @@ export class LoginComponent implements OnInit {
             this.authService.storeUser(user);
 
             // Dependiendo del tipo de usuario iremos a una pagina o utra de la aplicacion.
-            if (user.rol === 'Admin'){
+            if (user.rol === 'Admin') {
               this.cerrarPanel.emit();
               this.router.navigate(['admin']);
             }
-            else{
-              this.router.navigate(['checkout']);
+            else {
+              this.item = localStorage.getItem('carritoItems')
+                ? JSON.parse(localStorage.getItem('carritoItems'))
+                : [];
+              if (this.item.length) {
+                this.user = localStorage.getItem('APP_USER')
+                  ? JSON.parse(localStorage.getItem('APP_USER'))
+                  : [];
+                this.router.navigate(['checkout/:id', { id: this.user.usuario_id }]);
+              } else {
+                this.router.navigate(['home']);
+              }
+
               this.dataSharingService.isUserLoggedIn.next(true);
               this.cerrarPanel.emit();
             }
@@ -73,16 +86,16 @@ export class LoginComponent implements OnInit {
           this.loading = false;
 
 
-      },
-      (error) => {
-        this.loading = false;
-        this.router.navigate(['home']);
-      }
-    );
+        },
+        (error) => {
+          this.loading = false;
+          this.router.navigate(['home']);
+        }
+      );
   }
 
-registrarUsuario(): void{
-  this.router.navigate(['registro-usuario']);
-  this.cerrarPanel.emit();
+  registrarUsuario(): void {
+    this.router.navigate(['registro-usuario']);
+    this.cerrarPanel.emit();
   }
 }
