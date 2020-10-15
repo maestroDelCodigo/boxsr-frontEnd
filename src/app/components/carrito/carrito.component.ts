@@ -96,7 +96,7 @@ export class CarritoComponent implements OnInit {
   checkOut(): void {
     const login = localStorage.getItem('APP_USER');
     const item = localStorage.getItem('carritoItems');
-    if (login && item) {
+    if (login.length && item.length) {
       this.cerrarCarrito.emit();
       this.user = localStorage.getItem('APP_USER')
         ? JSON.parse(localStorage.getItem('APP_USER'))
