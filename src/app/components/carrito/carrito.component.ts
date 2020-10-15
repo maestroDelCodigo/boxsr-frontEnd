@@ -89,21 +89,22 @@ export class CarritoComponent implements OnInit {
 
   getLocalItems(): void {
     const localItems = JSON.parse(localStorage.getItem('carritoItems'));
-    if (localItems.length) {
+    if (localItems) {
       this.carritoItems = localItems;
     }
   }
   checkOut(): void {
     const login = localStorage.getItem('APP_USER');
-    this.user = localStorage.getItem('APP_USER')
-      ? JSON.parse(localStorage.getItem('APP_USER'))
-      : [];
-    this.router.navigate(['checkout/:id', { id: this.user.usuario_id }]);
-    this.cerrarCarrito.emit();
-    if (login) {
-      this.router.navigate(['checkout']);
+    const item = localStorage.getItem('carritoItems');
+    if (login && item) {
+      this.cerrarCarrito.emit();
+      this.user = localStorage.getItem('APP_USER')
+        ? JSON.parse(localStorage.getItem('APP_USER'))
+        : [];
+      this.router.navigate(['checkout/:id', { id: this.user.usuario_id }]);
     }
-    else{
+    else {
+      this.cerrarCarrito.emit();
       this.abrirLogin.emit();
     }
 
