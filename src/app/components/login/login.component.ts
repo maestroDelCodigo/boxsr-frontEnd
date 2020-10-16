@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
     this.user = localStorage.getItem('APP_USER')
                 ? JSON.parse(localStorage.getItem('APP_USER'))
                 : [];
-    if(this.user){
+    if (this.user){
       this.dataSharingService.isUserLoggedIn.next(true);
     }
   }

@@ -11,7 +11,7 @@ import { DataSharingService } from '../../shared/data-sharing.service';
 })
 export class HeaderComponent implements OnInit {
   @Output() showLogin = new EventEmitter<boolean>();
-
+  @Output() perfilUsuario = new EventEmitter<any>();
   @Output() showCart = new EventEmitter<boolean>();
   isUserLoggedIn: boolean;
 
@@ -35,6 +35,5 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['']);
     this.dataSharingService.isUserLoggedIn.next(false);
   }
-
 
 }

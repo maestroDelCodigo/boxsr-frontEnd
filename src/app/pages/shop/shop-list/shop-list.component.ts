@@ -13,11 +13,15 @@ export class ShopListComponent implements OnInit {
 
   @Input() productos: Producto[];
   @Output() ver = new EventEmitter();
+  user: any;
 
 
   constructor(private messengerService: MessengerService, private router: Router) { }
 
   ngOnInit(): void {
+    this.user = localStorage.getItem('APP_USER')
+      ? JSON.parse(localStorage.getItem('APP_USER'))
+      : [];
   }
 
   verProducto(producto: any): void {
