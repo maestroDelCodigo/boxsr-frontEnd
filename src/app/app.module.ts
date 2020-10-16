@@ -43,12 +43,13 @@ import { DigitOnlyModule } from '@uiowa/digit-only';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { DataSharingService } from './shared/data-sharing.service';
 
-// stripe
+
 import { NgxStripeModule } from 'ngx-stripe';
 
 import { PaymentsComponent } from './pages/checkout/payments/payments.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { CheckoutResumenPedidoComponent } from './pages/checkout/checkout-resumen-pedido/checkout-resumen-pedido.component';
+
 
 
 @NgModule({
@@ -70,6 +71,9 @@ import { CheckoutResumenPedidoComponent } from './pages/checkout/checkout-resume
     CarritoItemComponent,
     PaymentsComponent,
     CheckoutComponent,
+
+    
+
     CheckoutResumenPedidoComponent,
   ],
   imports: [

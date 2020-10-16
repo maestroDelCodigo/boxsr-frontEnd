@@ -1,3 +1,5 @@
 <app-header-admin></app-header-admin>
+<!-- <button (click)="onVerDetalles()"></button> -->
+<app-resumen-pedidos (detalle)="detallePedido2($event)"></app-resumen-pedidos>
 
-<app-resumen-pedidos></app-resumen-pedidos>
+<app-detalle-pedidos [row]="pedidoDetalle" (cerrarDialogo)="ocultarPedido()" *ngIf="mostrarPedido"></app-detalle-pedidos>

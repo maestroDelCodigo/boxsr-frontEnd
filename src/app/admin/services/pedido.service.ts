@@ -21,5 +21,9 @@ verPedidos(): Observable<Pedido[]>{
       })
     );
 }
+lanzarVistaDetalle(id: any): Observable<any>{
+  return this.http.post<any>(`${environment.apiUrl}/pedidos/obtenerDetalle`, {id})
+    
+}
 
 }
