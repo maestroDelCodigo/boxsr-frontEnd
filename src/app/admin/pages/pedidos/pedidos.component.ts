@@ -27,11 +27,19 @@ export class PedidosComponent implements OnInit {
   ngOnInit(): void {
 
   }
- 
+
   detallePedido2(pedidoDetalle: PedidoDetalle): void {
-  
- 
-  this.pedidoDetalle= pedidoDetalle;
+
+    this.detallePedidoService.obtenerProductosPedido(pedidoDetalle.pedido_id)
+    .subscribe((productosDelPedido)=> {
+
+      const nombresProducto =  productosDelPedido.map((producto) => producto.nombre);
+      pedidoDetalle.nombre_producto = nombresProducto.join (', ');
+
+      this.pedidoDetalle= pedidoDetalle;
+    });
+
+
   console.log(this.pedidoDetalle)
   this.mostrarPedido=true;
 

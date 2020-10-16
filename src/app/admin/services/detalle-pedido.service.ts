@@ -20,6 +20,15 @@ export class DetallePedidoService {
         })
       );
   }
- 
-  
+
+  obtenerProductosPedido(id: any): Observable<any[]>{
+    return this.http.get(`${environment.apiUrl}/pedidos/obtenerProductosPedido/${id}`)
+      .pipe(
+        catchError(e => {
+          return of(null);
+        })
+      );
+  }
+
+
   }
