@@ -15,7 +15,8 @@
                     <strong>Total: {{ carritoTotal | currency:'EUR' }}</strong>
                 </li>
             </ul>
-            <button (click)="checkOut()" (click)="abrirLogin.emit(true)" class="arrow-button">Hacer pedido</button>
+            <button (click)="checkOut()"  *ngIf="this.user.usuario_id" (click)="cerrarCarrito2()"  class="arrow-button">Hacer pedido</button>
+            <button (click)="abrirLogin.emit(true)" (click)="cerrarCarrito2()"   *ngIf="this.user.length === 0" class="arrow-button">Logueate para hacer tu compra</button>
         </div>
     </div>
 </p-sidebar>

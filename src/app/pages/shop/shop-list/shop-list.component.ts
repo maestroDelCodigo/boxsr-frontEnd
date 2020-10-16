@@ -13,11 +13,15 @@ export class ShopListComponent implements OnInit {
 
   @Input() productos: Producto[];
   @Output() ver = new EventEmitter();
+  user: any;
 
 
   constructor(private messengerService: MessengerService, private router: Router) { }
 
   ngOnInit(): void {
+    this.user = localStorage.getItem('APP_USER')
+      ? JSON.parse(localStorage.getItem('APP_USER'))
+      : [];
   }
 
   verProducto(producto: any): void {
@@ -27,8 +31,8 @@ export class ShopListComponent implements OnInit {
   AddAlCarrito(producto: Producto): void {
     this.messengerService.sendMsg(producto);
   }
-  checkOut(): void{
+   checkOut(): void{
     this.router.navigate(['checkout']);
-  }
+   }
 
 }

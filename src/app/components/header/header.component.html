@@ -36,6 +36,9 @@
           <a *ngIf="!isUserLoggedIn" (click)="showLogin.emit(true)">
               <i class="fas fa-user fa-lg"></i>
           </a>
+          <a *ngIf="isUserLoggedIn" (click)="perfilUsuario.emit()">
+            <i class="fas fa-user fa-lg"></i>
+        </a>
           <a *ngIf="isUserLoggedIn" (click)="logOut()">
             <i class="fas fa-sign-out-alt fa-lg"></i>
         </a>

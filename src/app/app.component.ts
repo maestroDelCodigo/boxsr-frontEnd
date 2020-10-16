@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router , NavigationEnd  } from '@angular/router';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { AuthService } from './core/security-services/auth.service';
 
@@ -13,40 +13,54 @@ export class AppComponent implements OnInit {
   displayHeader: boolean;
   displayLogin = false;
   displayCarrito = false;
+  user: any;
 
 
-  constructor(private router: Router, private route: ActivatedRoute){
+
+  constructor(private router: Router, private route: ActivatedRoute, private ref: ChangeDetectorRef) {
     router.events.pipe(
       filter((event) => event instanceof NavigationEnd))
       .subscribe(x => {
 
-            // tslint:disable-next-line:no-string-literal
-            const url =  x['url'] as string;
+        // tslint:disable-next-line:no-string-literal
+        const url = x['url'] as string;
 
-            if (url.indexOf('admin') > 0){
-              this.displayHeader = false;
-            }
-            else{
-              this.displayHeader = true;
-            }
+        if (url.indexOf('admin') > 0) {
+          this.displayHeader = false;
+        }
+        else {
+          this.displayHeader = true;
+        }
 
-          }
+      }
       );
   }
 
-  ngOnInit(): void {
-    this.abrirLogin(false)
-  }
+  ngOnInit(): void {this.user = localStorage.getItem('APP_USER')
+  ? JSON.parse(localStorage.getItem('APP_USER'))
+  : [];}
 
 
-  mostrarLogin(display: boolean): void{
+  mostrarLogin(display: boolean): void {
     this.displayLogin = display;
   }
-  abrirLogin(display: boolean): void{
+  abrirLogin(display: boolean): void {
     this.displayLogin = display;
   }
-
-  mostrarCarrito(display: boolean): void{
+  cerrarPanel(display: boolean): void {
+    this.displayLogin = display;
+  }
+  cerrarCarrito(display: boolean): void {
     this.displayCarrito = display;
+
+  }
+  mostrarCarrito(display: boolean): void {
+    this.displayCarrito = display;
+    this.user = localStorage.getItem('APP_USER')
+    ? JSON.parse(localStorage.getItem('APP_USER'))
+    : [];
+  }
+  perfilUsuario(): void{
+    this.router.navigate(['perfil-usuario/:id',{id: this.user.usuario_id}]);
   }
 }

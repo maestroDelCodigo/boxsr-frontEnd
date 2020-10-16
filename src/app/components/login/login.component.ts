@@ -39,6 +39,12 @@ export class LoginComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
+    this.user = localStorage.getItem('APP_USER')
+                ? JSON.parse(localStorage.getItem('APP_USER'))
+                : [];
+    if (this.user){
+      this.dataSharingService.isUserLoggedIn.next(true);
+    }
   }
 
   get f(): any { return this.loginForm.controls; }
@@ -57,10 +63,11 @@ export class LoginComponent implements OnInit {
         (user) => {
           if (user) {
             this.authService.storeUser(user);
-
+            this.dataSharingService.isUserLoggedIn.next(true);
+            this.cerrarPanel.emit();
             // Dependiendo del tipo de usuario iremos a una pagina o utra de la aplicacion.
             if (user.rol === 'Admin') {
-              this.cerrarPanel.emit();
+              // this.cerrarPanel.emit();
               this.router.navigate(['admin']);
             }
             else {
@@ -68,16 +75,12 @@ export class LoginComponent implements OnInit {
                 ? JSON.parse(localStorage.getItem('carritoItems'))
                 : [];
               if (this.item.length) {
-                this.user = localStorage.getItem('APP_USER')
-                  ? JSON.parse(localStorage.getItem('APP_USER'))
-                  : [];
-                this.router.navigate(['checkout/:id', { id: this.user.usuario_id }]);
+                this.router.navigate(['checkout/:id', { id: user.usuario_id }]);
               } else {
                 this.router.navigate(['home']);
               }
-
-              this.dataSharingService.isUserLoggedIn.next(true);
-              this.cerrarPanel.emit();
+              // this.dataSharingService.isUserLoggedIn.next(true);
+              // this.cerrarPanel.emit();
             }
           } else {
             this.error = true;
