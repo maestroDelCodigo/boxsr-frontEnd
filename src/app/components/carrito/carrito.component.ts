@@ -15,8 +15,11 @@ export class CarritoComponent implements OnInit {
   @Input() mostrarCarrito = false;
   @Output() cerrarCarrito = new EventEmitter<void>();
   @Output() abrirLogin = new EventEmitter<boolean>();
+  @Output() cerrarPanel = new EventEmitter<boolean>();
 
-
+  logins = [];
+  items = [];
+  login: any;
   carritoItems = [];
   carritoItem: any;
   carritoTotal = 0;
@@ -31,7 +34,9 @@ export class CarritoComponent implements OnInit {
     });
     this.getLocalItems();
     this.calcularTotalCarrito();
-
+    this.user = localStorage.getItem('APP_USER')
+    ? JSON.parse(localStorage.getItem('APP_USER'))
+    : [];
   }
 
   addProductoAlCarrito(producto: Producto): void {
@@ -94,19 +99,20 @@ export class CarritoComponent implements OnInit {
     }
   }
   checkOut(): void {
-    const login = localStorage.getItem('APP_USER');
-    const item = localStorage.getItem('carritoItems');
-    if (login.length && item.length) {
-      this.cerrarCarrito.emit();
-      this.user = localStorage.getItem('APP_USER')
-        ? JSON.parse(localStorage.getItem('APP_USER'))
-        : [];
+    // this.cerrarCarrito.emit();
+    this.items = localStorage.getItem('carritoItems') ? JSON.parse(localStorage.getItem('carritoItems')) : [];
+    this.user = localStorage.getItem('APP_USER')
+    ? JSON.parse(localStorage.getItem('APP_USER'))
+    : [];
+    if (this.user) {
       this.router.navigate(['checkout/:id', { id: this.user.usuario_id }]);
     }
     else {
-      this.cerrarCarrito.emit();
       this.abrirLogin.emit();
     }
+  }
 
+  cerrarCarrito2(): void{
+    this.mostrarCarrito = false;
   }
 }

@@ -35,7 +35,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.abrirLogin(false)
+    this.abrirLogin(false);
+    this.mostrarCarrito(false);
   }
 
 
@@ -45,7 +46,13 @@ export class AppComponent implements OnInit {
   abrirLogin(display: boolean): void{
     this.displayLogin = display;
   }
+  cerrarPanel(display: boolean): void{
+    this.displayLogin = display;
+  }
+  cerrarCarrito(display: boolean): void{
+    this.displayCarrito = display;
 
+  }
   mostrarCarrito(display: boolean): void{
     this.displayCarrito = display;
   }

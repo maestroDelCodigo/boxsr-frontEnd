@@ -1,7 +1,7 @@
 <app-header *ngIf="displayHeader" (showLogin)="mostrarLogin($event)" (showCart)="mostrarCarrito($event)"></app-header>
 <app-login [mostrarLogin]="displayLogin" [abrirLogin]="displayLogin" (cerrarPanel)="displayLogin=false"></app-login>
 <p-toast [baseZIndex]="10000"></p-toast>
-<app-carrito [mostrarCarrito]="displayCarrito" (abrirLogin)="abrirLogin($event)" (cerrarCarrito)="displayCarrito=false"></app-carrito>
+<app-carrito [mostrarCarrito]="displayCarrito" (abrirLogin)="abrirLogin($event)"  (cerrarCarrito)="displayCarrito=false"></app-carrito>
 
 <router-outlet></router-outlet>
 

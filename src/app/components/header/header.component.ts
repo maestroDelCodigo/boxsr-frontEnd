@@ -18,16 +18,17 @@ export class HeaderComponent implements OnInit {
   isUserAuthenticated = false;
 
   constructor(private authService: AuthService, private router: Router, private dataSharingService: DataSharingService) {
-    this.dataSharingService.isUserLoggedIn.subscribe( value => {
-      this.isUserLoggedIn = value;
-  });
-   }
+
+  }
 
   ngOnInit(): void {
+    this.dataSharingService.isUserLoggedIn.subscribe(value => {
+      this.isUserLoggedIn = value;
+    });
     this.isUserAuthenticated = this.authService.isUserAuthenticated();
   }
 
-  logOut(): void{
+  logOut(): void {
     this.authService.removeUser();
     this.isUserAuthenticated = false;
     localStorage.removeItem('APP_USER');

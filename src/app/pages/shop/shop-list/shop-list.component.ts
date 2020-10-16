@@ -27,8 +27,8 @@ export class ShopListComponent implements OnInit {
   AddAlCarrito(producto: Producto): void {
     this.messengerService.sendMsg(producto);
   }
-  checkOut(): void{
+   checkOut(): void{
     this.router.navigate(['checkout']);
-  }
+   }
 
 }
