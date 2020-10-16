@@ -156,6 +156,11 @@ export class PaymentsComponent implements OnInit {
 
   createToken(): void {
     const name = this.stripeForm.get('name').value;
+    const surname = this.stripeForm.get('apellidos').value;
+    // tslint:disable-next-line:variable-name
+    const receiptemail = this.stripeForm.get('email').value;
+    const email = this.stripeForm.get('email').value;
+
     this.stripeService
       .createToken(this.card.element, { name })
       .subscribe((result) => {
@@ -166,6 +171,9 @@ export class PaymentsComponent implements OnInit {
             name: name,
             items: this.carritoItems,
             totalPedido: this.carritoTotal,
+            // tslint:disable-next-line:object-literal-shorthand
+            receiptemail: receiptemail,
+            email,
           };
 
           this.httpclient
