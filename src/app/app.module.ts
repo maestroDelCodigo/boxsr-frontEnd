@@ -50,6 +50,7 @@ import { PaymentsComponent } from './components/payments/payments.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 
+
 @NgModule({
   declarations: [
     ContactoComponent,
@@ -69,6 +70,7 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
     CarritoItemComponent,
     PaymentsComponent,
     CheckoutComponent,
+    
   ],
   imports: [
     BrowserModule,

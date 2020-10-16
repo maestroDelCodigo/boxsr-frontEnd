@@ -40,11 +40,16 @@ import { BuzonAdminComponent } from './pages/buzon/buzon-admin/buzon-admin.compo
 import { ClientesListComponent } from './pages/clientes/clientes-list/clientes-list.component';
 import { ResumenPedidosComponent } from './pages/pedidos/resumen-pedidos/resumen-pedidos.component';
 import { PedidoService } from './services/pedido.service';
+import { DetallePedidosComponent } from './pages/pedidos/detalle-pedidos/detalle-pedidos.component';
+
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
 @NgModule({
   declarations: [
+    
+    DetallePedidosComponent,
     ResumenPedidosComponent,
     AdminComponent,
     BuzonComponent,
@@ -71,6 +76,8 @@ import { PedidoService } from './services/pedido.service';
 
   ],
   imports: [
+    MatDialogModule,
+    MatSortModule,
     CommonModule,
     MatFormFieldModule,
     MatInputModule,
