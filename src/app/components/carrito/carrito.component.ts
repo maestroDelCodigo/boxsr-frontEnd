@@ -2,6 +2,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessengerService } from 'src/app/admin/core/messenger.service';
 import { Producto } from 'src/app/admin/models/producto';
+import { DataSharingService } from 'src/app/shared/data-sharing.service';
+import { Usuario } from 'src/app/models/usuario';
+
 
 @Component({
   selector: 'app-carrito',
@@ -11,20 +14,24 @@ import { Producto } from 'src/app/admin/models/producto';
 export class CarritoComponent implements OnInit {
   @Input() mostrarCarrito = false;
   @Output() cerrarCarrito = new EventEmitter<void>();
+  @Output() abrirLogin = new EventEmitter<boolean>();
+
 
   carritoItems = [];
   carritoItem: any;
-
   carritoTotal = 0;
+  user: any;
 
-  constructor(private messageService: MessengerService, private router: Router) {}
+  constructor(private messageService: MessengerService, private router: Router, private dataSharingService: DataSharingService,) { }
+
 
   ngOnInit(): void {
     this.messageService.getMsg().subscribe((producto: Producto) => {
       this.addProductoAlCarrito(producto);
     });
     this.getLocalItems();
-    console.log(this.carritoItems);
+    this.calcularTotalCarrito();
+
   }
 
   addProductoAlCarrito(producto: Producto): void {
@@ -65,14 +72,41 @@ export class CarritoComponent implements OnInit {
     localStorage.setItem('carritoItems', JSON.stringify(this.carritoItems));
   }
 
+  deleteItem(id): void {
+    this.carritoItems = localStorage.getItem('carritoItems') ? JSON.parse(localStorage.getItem('carritoItems')) : [];
+    let index;
+    for (let i = 0; i < this.carritoItems.length; i++) {
+      if (this.carritoItems[i].producto_id === id) {
+        index = i;
+        break;
+      }
+    }
+    if (index === undefined) return
+    this.carritoItems.splice(index, 1);
+    localStorage.setItem('carritoItems', JSON.stringify(this.carritoItems));
+
+  }
+
   getLocalItems(): void {
     const localItems = JSON.parse(localStorage.getItem('carritoItems'));
-    if (localItems.length) {
+    if (localItems) {
       this.carritoItems = localItems;
     }
   }
-  checkOut(): void{
-    this.router.navigate(['checkout']);
-    this.cerrarCarrito.emit();
+  checkOut(): void {
+    const login = localStorage.getItem('APP_USER');
+    const item = localStorage.getItem('carritoItems');
+    if (login.length && item.length) {
+      this.cerrarCarrito.emit();
+      this.user = localStorage.getItem('APP_USER')
+        ? JSON.parse(localStorage.getItem('APP_USER'))
+        : [];
+      this.router.navigate(['checkout/:id', { id: this.user.usuario_id }]);
+    }
+    else {
+      this.cerrarCarrito.emit();
+      this.abrirLogin.emit();
+    }
+
   }
 }

@@ -1,25 +1,60 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { MessageService } from 'primeng/api';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { environment } from 'src/environments/environment';
+
+import { StripeService, StripeCardComponent } from 'ngx-stripe';
+import {
+  StripeCardElementOptions,
+  StripeElementsOptions,
+} from '@stripe/stripe-js';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Usuario } from 'src/app/models/usuario';
+import { Router, ActivatedRoute } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { RegistroUsuarioService } from 'src/app/services/registro-usuario.service';
 
 @Component({
-  selector: 'app-perfil-usuario',
-  templateUrl: './perfil-usuario.component.html',
-  styleUrls: ['./perfil-usuario.component.scss'],
+  selector: 'app-payments',
+  templateUrl: './payments.component.html',
+  styleUrls: ['./payments.component.scss'],
 })
-export class PerfilUsuarioComponent implements OnInit {
+export class PaymentsComponent implements OnInit {
+  @ViewChild(StripeCardComponent) card: StripeCardComponent;
+
+  carritoItems = [];
   usuario: Usuario;
-  formularioUsuario: FormGroup;
+  stripeToken;
   submitted = false;
-  hide = true;
   messageError = null;
   startDate = new Date(1990, 0, 1);
   id = null;
+
+  cardOptions: StripeCardElementOptions = {
+    style: {
+      base: {
+        iconColor: '#666EE8',
+        color: '#31325F',
+        fontWeight: '300',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontSize: '18px',
+        '::placeholder': {
+          color: '#CFD7E0',
+        },
+      },
+    },
+  };
+
+  elementsOptions: StripeElementsOptions = {
+    locale: 'es',
+  };
+
+  stripeForm: FormGroup;
+  carritoTotal: number;
+
   constructor(
     private fb: FormBuilder,
+    private stripeService: StripeService,
+    private httpclient: HttpClient,
     private messageService: MessageService,
     public registroService: RegistroUsuarioService,
     public router: Router,
@@ -28,17 +63,17 @@ export class PerfilUsuarioComponent implements OnInit {
     activatedRoute.params.subscribe((x) => {
       this.id = x?.id || null;
     });
-    this.elformularioUsuario(fb);
+    this.IniciarstripeForm(fb);
   }
 
   ngOnInit(): void {
     this.registroService.getUser(this.id).subscribe((x) => {
       this.usuario = x;
       console.log(x);
-      this.formularioUsuario = this.fb.group({
-        nombre: [
+      this.stripeForm = this.fb.group({
+        name: [
           this.usuario.nombre,
-          [Validators.required, Validators.maxLength(145)],
+          [Validators.required, Validators.maxLength(60)],
         ],
         apellidos: [
           this.usuario.apellidos,
@@ -46,15 +81,7 @@ export class PerfilUsuarioComponent implements OnInit {
         ],
         email: [
           this.usuario.email,
-          [Validators.required, Validators.maxLength(145)],
-        ],
-        password: [
-          this.usuario.password,
-          [Validators.required, Validators.maxLength(16)],
-        ],
-        fecha_nacimiento: [
-          this.usuario.fecha_nacimiento,
-          [Validators.required, Validators.maxLength(60)],
+          [Validators.required, Validators.maxLength(80)],
         ],
         direccion: [
           this.usuario.direccion,
@@ -72,14 +99,17 @@ export class PerfilUsuarioComponent implements OnInit {
           this.usuario.provincia,
           [Validators.required, Validators.maxLength(60)],
         ],
-        deleted: [0],
       });
     });
+
+    this.carritoItems = JSON.parse(localStorage.getItem('carritoItems')) || 0;
+    this.calcularTotalCarrito();
   }
+
   onSubmit(): void {
     this.submitted = true;
 
-    if (this.formularioUsuario.invalid) {
+    if (this.stripeForm.invalid) {
       return this.messageService.add({
         severity: 'error',
         summary: 'Administrador',
@@ -87,7 +117,7 @@ export class PerfilUsuarioComponent implements OnInit {
       });
     }
 
-    this.usuario.nombre = this.f.nombre.value;
+    this.usuario.nombre = this.f.name.value;
     this.usuario.apellidos = this.f.apellidos.value;
     this.usuario.email = this.f.email.value;
     this.usuario.fecha_nacimiento = this.f.fecha_nacimiento.value;
@@ -116,21 +146,56 @@ export class PerfilUsuarioComponent implements OnInit {
     this.router.navigate(['home']);
   }
 
-  private elformularioUsuario(fb: FormBuilder): void {
-    this.formularioUsuario = fb.group({
-      nombre: ['', [Validators.required, Validators.maxLength(60)]],
+  calcularTotalCarrito(): void {
+    this.carritoTotal = 0;
+    this.carritoItems.forEach((item) => {
+      this.carritoTotal += item.cantidad * item.precio;
+    });
+    console.log(this.carritoTotal);
+  }
+
+  createToken(): void {
+    const name = this.stripeForm.get('name').value;
+    this.stripeService
+      .createToken(this.card.element, { name })
+      .subscribe((result) => {
+        if (result.token) {
+          const pedido = {
+            id: result.token.id,
+            // tslint:disable-next-line:object-literal-shorthand
+            name: name,
+            items: this.carritoItems,
+            totalPedido: this.carritoTotal,
+          };
+
+          this.httpclient
+            .post(`${environment.apiUrl}/checkout`, pedido)
+            .subscribe((data) => {
+              console.log('transaccion ok');
+              console.log(data);
+              console.log(this.carritoItems);
+            });
+
+          console.log(result.token.id);
+        } else if (result.error) {
+          console.log(result.error.message);
+        }
+      });
+  }
+
+  private IniciarstripeForm(fb: FormBuilder): void {
+    this.stripeForm = fb.group({
+      name: ['', [Validators.required, Validators.maxLength(60)]],
       apellidos: ['', [Validators.required, Validators.maxLength(145)]],
       fecha_nacimiento: ['', [Validators.required, Validators.maxLength(15)]],
       email: ['', [Validators.required, Validators.maxLength(80)]],
-      password: ['', [Validators.required, Validators.maxLength(15)]],
       direccion: ['', [Validators.required, Validators.maxLength(145)]],
       codigo_postal: ['', [Validators.required, Validators.maxLength(5)]],
       poblacion: ['', [Validators.required, Validators.maxLength(60)]],
       provincia: ['', [Validators.required, Validators.maxLength(60)]],
-      deleted: [0],
     });
   }
   get f(): any {
-    return this.formularioUsuario.controls;
+    return this.stripeForm.controls;
   }
 }
