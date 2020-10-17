@@ -15,6 +15,8 @@ button {
   padding: 12px 24px;
   font-size: 16px;
   font-weight: 600;
+  transition: 0.3s;
+  outline: none;
 
   &:hover {
     background-color: #4b4a4a;
@@ -69,6 +71,11 @@ button {
     display: flex;
     text-align: center;
     justify-content: center;
+
+    &:hover {
+      transform: scale(1.1);
+      transition: 0.2s;
+    }
   }
   a {
     text-decoration: none;
@@ -86,6 +93,11 @@ button {
       margin-right: 135px;
 
       border-radius: 50px;
+    }
+
+    .step3 {
+      margin-left: 160px;
+      margin-right: 160px;
     }
   }
 }
@@ -115,6 +127,7 @@ button {
         background-color: #4b4a4a;
         color: white;
         border: #4b4a4a 2px solid !important;
+        transition: 0.3s;
       }
     }
   }
@@ -135,6 +148,7 @@ button {
         background-color: #4b4a4a;
         color: white;
         border: #4b4a4a 2px solid !important;
+        transition: 0.3s;
       }
     }
   }
@@ -155,6 +169,7 @@ button {
         background-color: #4b4a4a;
         color: white;
         border: #4b4a4a 2px solid !important;
+        transition: 0.3s;
       }
     }
   }
@@ -167,7 +182,7 @@ button {
     height: 100%;
   }
   .face1 {
-    background-image: url(../../../assets/images/face2recortada-home.png);
+    background-image: url(../../../assets/images/Antiarrugas-facehome.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -176,17 +191,16 @@ button {
     padding: 20px 0px;
     cursor: pointer;
     border: #4b4a4a 1px solid;
-    transition: 0.5s;
+    transition: 0.2s;
 
     &:hover {
-      background-image: url(../../../assets/images/Antiarrugas-facehome.png);
+      background-image: url(../../../assets/images/face2recortada-home.png);
       transition: 0.5s;
-      opacity: 0.8;
     }
   }
 
   .face2 {
-    background-image: url(../../../assets/images/face1recortada-home.jpg);
+    background-image: url(../../../assets/images/goodface-facehome.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -195,12 +209,11 @@ button {
     padding: 20px 0px;
     cursor: pointer;
     border: #4b4a4a 1px solid;
-    transition: 0.5s;
+    transition: 0.2s;
 
     &:hover {
-      background-image: url(../../../assets/images/goodface-facehome.jpg);
+      background-image: url(../../../assets/images/face1recortada-home.jpg);
       transition: 0.5s;
-      opacity: 0.8;
     }
   }
 
