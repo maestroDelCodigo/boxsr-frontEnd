@@ -1,18 +1,26 @@
 // global styles
 * {
   font-family: averta !important;
-
 }
 
 body {
   overflow-x: hidden;
 }
 
-.arrow-button {
-  font-weight: 700;
-  outline: none;
-  padding: 3px 40px 3px 10px;
+button {
   background-color: white;
+  color: #4b4a4a;
+  border: #4b4a4a 2px solid !important;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+
+  &:hover {
+    background-color: #4b4a4a;
+    color: white;
+    border: #4b4a4a 2px solid !important;
+  }
 }
 
 //Slider
@@ -27,18 +35,17 @@ body {
 }
 
 .slider-text {
-  width: 60%;
   margin: 10px;
 
   h1 {
-    color: #4B4A4A;
+    color: #4b4a4a;
     font-size: 30px;
     font-weight: 700;
   }
   h2 {
     margin-bottom: 5px;
     margin-top: 5px;
-    color:#4B4A4A;
+    color: #4b4a4a;
   }
 
   button {
@@ -65,13 +72,13 @@ body {
   }
   a {
     text-decoration: none;
-    color: #4B4A4A;
+    color: #4b4a4a;
     display: flex;
     flex-direction: column;
 
     .step-number {
       color: white;
-      background-color: #4B4A4A;
+      background-color: #4b4a4a;
       width: 30px;
       height: 30px;
       padding: 5px;
@@ -100,6 +107,16 @@ body {
     display: flex;
     align-items: flex-end;
     padding: 20px 0px;
+    cursor: pointer;
+    border: #4b4a4a 1px solid;
+
+    &:hover {
+      button {
+        background-color: #4b4a4a;
+        color: white;
+        border: #4b4a4a 2px solid !important;
+      }
+    }
   }
 
   .muestras {
@@ -110,6 +127,16 @@ body {
     display: flex;
     align-items: flex-end;
     padding: 20px 0px;
+    cursor: pointer;
+    border: #4b4a4a 1px solid;
+
+    &:hover {
+      button {
+        background-color: #4b4a4a;
+        color: white;
+        border: #4b4a4a 2px solid !important;
+      }
+    }
   }
 
   .boxes {
@@ -120,16 +147,42 @@ body {
     display: flex;
     align-items: flex-end;
     padding: 20px 0px;
+    cursor: pointer;
+    border: #4b4a4a 1px solid;
+
+    &:hover {
+      button {
+        background-color: #4b4a4a;
+        color: white;
+        border: #4b4a4a 2px solid !important;
+      }
+    }
   }
 }
 
 //Section faces - best sellers
 .section2 {
+  height: 90vh;
+  .row {
+    height: 100%;
+  }
   .face1 {
     background-image: url(../../../assets/images/face2recortada-home.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px 0px;
+    cursor: pointer;
+    border: #4b4a4a 1px solid;
+    transition: 0.5s;
+
+    &:hover {
+      background-image: url(../../../assets/images/Antiarrugas-facehome.png);
+      transition: 0.5s;
+      opacity: 0.8;
+    }
   }
 
   .face2 {
@@ -137,34 +190,72 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px 0px;
+    cursor: pointer;
+    border: #4b4a4a 1px solid;
+    transition: 0.5s;
+
+    &:hover {
+      background-image: url(../../../assets/images/goodface-facehome.jpg);
+      transition: 0.5s;
+      opacity: 0.8;
+    }
   }
 
-  .row {
-    height: 90vh;
+  .best-sellers {
+    border: #4b4a4a 1px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0px;
+
+    .best-sellers-container {
+      padding: 0px;
+      text-align: center;
+    }
+    .best {
+      border: #4b4a4a 1px solid;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+    h2 {
+      font-size: 40px;
+    }
   }
 }
 
 //Section ingredientes
 .section3 {
-  height: 90vh;
-  background-image: url(../../../assets/images/ingredientes-home.png);
+  height: 60vh;
+  background-image: url(../../../assets/images/exfoliante-home.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   align-items: flex-end;
-  justify-content: flex-end;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.74);
+  }
 
   h1 {
     color: white;
     margin-right: 20px;
     margin-bottom: 20px;
+    text-shadow: 1px 1px 13px rgba(0, 0, 0, 1);
+    margin-top: 5px;
   }
 }
 
 //Section consulta
 .section4 {
-  height: 90vh;
+  height: 60vh;
 
   .row {
     height: 100%;
@@ -174,12 +265,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #4B4A4A;
+    color: #4b4a4a;
   }
 
   .text-box {
-      width: 80%;
-      color: #4B4A4A;
+    width: 80%;
+    color: #4b4a4a;
   }
 
   .consulta-image {
@@ -187,5 +278,66 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+}
+
+// MEDIA QUERIES ------------------------------------------------------------------------------------------
+@media (max-width: 575.98px) {
+  .slider {
+    .slider-text {
+      width: 100%;
+
+      h1 {
+        font-size: 14px;
+        margin-bottom: 0px;
+      }
+      h2 {
+        margin: 0px;
+      }
+    }
+  }
+  .section2 {
+    h2 {
+      font-size: 40px;
+    }
+  }
+  .section3 {
+    height: 30vh;
+  }
+
+  .section3 {
+    h1 {
+      font-size: 12px;
+      margin-bottom: 5px;
+      margin-top: 0px;
+    }
+
+    button {
+      font-size: 12px;
+      padding: 5px;
+    }
+  }
+
+  .section4 {
+    height: 60vh;
+    h1 {
+      font-size: 12px;
+      margin-bottom: 0px;
+    }
+    p {
+      margin-bottom: 0px;
+    }
+    button {
+      margin-top: 5px;
+      font-size: 12px;
+      padding: 5px;
+    }
+    .text-col {
+      height: 30vh;
+    }
+
+    .consulta-image {
+      height: 30vh;
+    }
   }
 }
