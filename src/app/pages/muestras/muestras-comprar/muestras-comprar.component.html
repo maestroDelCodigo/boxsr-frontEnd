@@ -9,12 +9,13 @@
               <h3>{{ producto?.descripcion }}</h3>
           </div>
           <div class="container-fluid buttons-container">
-            <ng-container *ngFor ="let producto of productos">
-                <button  class="tipo" (click)="SeleccionarProducto(producto)"type="button" class="btn btn-outline-secondary">{{producto.tipo_producto}}</button>
-                
-             </ng-container>
-                      <button>COMPRAR AHORA <strong> {{producto?.precio}}€ </strong></button>
-                      <button *ngIf="productoSeleccionado" class="añadir-carro" (click)="AddAlCarrito()">AÑADIR AL CARRO</button>
+              <div class="muestras">
+                <ng-container *ngFor ="let producto of productos">
+                    <button (click)="SeleccionarProducto(producto)"type="button" class="btn btn-outline-secondary tipo">{{producto.tipo_producto}}</button>
+                </ng-container>
+              </div>
+                    <button>COMPRAR AHORA <strong> {{producto?.precio}}€ </strong></button>
+                    <button [disabled]="productoSeleccionado === null" class="añadir-carro" (click)="AddAlCarrito()">AÑADIR AL CARRO</button>
           </div>
       </div>
   </div>
