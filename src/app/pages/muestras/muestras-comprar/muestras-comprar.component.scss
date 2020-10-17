@@ -1,0 +1,86 @@
+.product-container {
+    min-height: 80vh;
+    border-top: gray 1px solid;
+
+  .row {
+      min-height: 80vh;
+  }
+
+  .product-img {
+    background-size: cover;
+    background-position: center;
+    min-height: 40vh;
+  }
+
+  .product-text {
+    padding: 0px;
+    min-height: 80vh;
+    border-left: gray 1px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+    h1, h3 {
+        padding: 30px;
+    }
+    h1 {
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+
+    }
+  }
+
+  h3 {
+      color: gray;
+  }
+
+  .comprar-ahora {
+      padding: 0px;
+
+      h2 {
+        margin-bottom: 0px;
+        text-align: center;
+        padding: 22px;
+        background-color: gray;
+        color: white;
+      }
+  }
+}
+
+.description {
+    border-top: #4b4a4a 1px solid;
+    padding-top: 10px;
+
+    .description-title {
+
+        h1 {
+            font-size: 30px;
+            text-align: center;
+        }
+    }
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    
+}
+
+button {
+    background-color: #4b4a4a;
+    color: white;
+    border: none;
+    padding: 30px 0px;
+    font-size: 16px;
+  }
+
+  .añadir-carro {
+    background-color: white;
+    color: #4b4a4a;
+  }
+  .tipo{
+    padding: 10px 0x;
+    background-color: transparent;
+  }

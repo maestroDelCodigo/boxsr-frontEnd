@@ -21,6 +21,7 @@ import { ProductoComponent } from './pages/shop/producto/producto.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { LoginComponent } from './components/login/login.component';
+import { MuestrasComprarComponent } from './pages/muestras/muestras-comprar/muestras-comprar.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -46,6 +47,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   // { path: 'checkout', component: CheckoutComponent },
   { path: 'checkout/:id', component: CheckoutComponent },
+  { path: 'muestras-comprar', component: MuestrasComprarComponent},
 
 
   {
