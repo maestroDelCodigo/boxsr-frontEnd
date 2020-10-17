@@ -7,7 +7,7 @@ import { combineLatest } from 'rxjs';
 import { first, switchMap, tap } from 'rxjs/operators';
 import { ColeccionesService } from 'src/app/admin/core/colecciones.service';
 import { ProductosService } from 'src/app/admin/core/productos.service';
-import { Coleccion } from 'src/app/admin/models/Coleccion';
+import { Coleccion } from 'src/app/models/coleccion';
 import { UploadFilesService } from 'src/app/core/upload.service';
 
 @Component({

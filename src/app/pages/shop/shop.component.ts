@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { EventEmitter } from 'events';
 import { ColeccionesService } from 'src/app/admin/core/colecciones.service';
 import { ProductosService } from 'src/app/admin/core/productos.service';
-import { Coleccion } from 'src/app/admin/models/Coleccion';
+import { Coleccion } from 'src/app/models/coleccion';
 import { Producto } from 'src/app/models/producto';
 
 @Component({
