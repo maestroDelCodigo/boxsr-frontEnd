@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, } from '@angular/core';
+import { Coleccion } from 'src/app/models/coleccion';
 import { ColeccionesService } from '../../core/colecciones.service';
-import { Coleccion } from '../../models/Coleccion';
 import { ColeccionesListComponent } from './colecciones-list/colecciones-list.component';
 
 @Component({

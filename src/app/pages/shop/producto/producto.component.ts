@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ColeccionesService } from 'src/app/admin/core/colecciones.service';
 import { ProductosService } from 'src/app/admin/core/productos.service';
-import { Coleccion } from 'src/app/admin/models/Coleccion';
+import { Coleccion } from 'src/app/models/coleccion';
 import { Producto } from 'src/app/admin/models/producto';
 import { MessengerService } from 'src/app/admin/core/messenger.service';
 

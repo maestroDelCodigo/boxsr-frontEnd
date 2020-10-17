@@ -49,6 +49,8 @@ import { NgxStripeModule } from 'ngx-stripe';
 import { PaymentsComponent } from './pages/checkout/payments/payments.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { CheckoutResumenPedidoComponent } from './pages/checkout/checkout-resumen-pedido/checkout-resumen-pedido.component';
+import { ColeccionComponent } from './pages/shop/coleccion/coleccion.component';
+import { NumericDirective } from './shared/directives/numeric-directive';
 
 
 
@@ -71,8 +73,9 @@ import { CheckoutResumenPedidoComponent } from './pages/checkout/checkout-resume
     CarritoItemComponent,
     PaymentsComponent,
     CheckoutComponent,
+    ColeccionComponent,
 
-    
+
 
     CheckoutResumenPedidoComponent,
   ],
