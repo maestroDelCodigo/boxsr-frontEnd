@@ -44,10 +44,10 @@ export class ModificarColeccionComponent implements OnInit {
       video_url: [this.coleccion.video_url, [Validators.maxLength(145)]],
       precio_rebajado: [this.coleccion.precio_rebajado, [ Validators.maxLength(5)]],
       precio_original: [{ value : this.coleccion.precio_original, disabled : true}, [Validators.required, Validators.maxLength(5)]],
-      descripcion: [this.coleccion.descripcion, [Validators.required, Validators.maxLength(245)]],
-      utilidad: [this.coleccion.descripcion_sirve, [Validators.required, Validators.maxLength(245)]],
-      usabilidad: [this.coleccion.descripcion_usa, [Validators.required, Validators.maxLength(245)]],
-      ingredientes: [this.coleccion.descripcion_ingredientes, [Validators.required, Validators.maxLength(245)]],
+      descripcion: [this.coleccion.descripcion, [Validators.required, Validators.maxLength(500)]],
+      utilidad: [this.coleccion.descripcion_sirve, [Validators.required, Validators.maxLength(500)]],
+      usabilidad: [this.coleccion.descripcion_usa, [Validators.required, Validators.maxLength(500)]],
+      ingredientes: [this.coleccion.descripcion_ingredientes, [Validators.required, Validators.maxLength(500)]],
     });
 
     console.log(this.coleccion);

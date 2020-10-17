@@ -42,10 +42,10 @@ export class CrearColeccionComponent implements OnInit {
       video_url: ['', [Validators.maxLength(145)]],
       precio_rebajado: ['', [ Validators.maxLength(5)]],
       precio_original: [{value: '', disabled: true}, [Validators.required, Validators.maxLength(10)]],
-      descripcion: ['', [Validators.required, Validators.maxLength(245)]],
-      utilidad: ['', [Validators.required, Validators.maxLength(245)]],
-      usabilidad: ['', [Validators.required, Validators.maxLength(245)]],
-      ingredientes: ['', [Validators.required, Validators.maxLength(245)]],
+      descripcion: ['', [Validators.required, Validators.maxLength(500)]],
+      utilidad: ['', [Validators.required, Validators.maxLength(500)]],
+      usabilidad: ['', [Validators.required, Validators.maxLength(500)]],
+      ingredientes: ['', [Validators.required, Validators.maxLength(500)]],
   });
 
     // Pintamos la tabla de productos

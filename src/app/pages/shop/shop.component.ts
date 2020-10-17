@@ -47,4 +47,11 @@ export class ShopComponent implements OnInit {
       this.router.navigate(['/producto/', producto.producto_id]);
     }
   }
+
+  verColeccion(coleccion: Coleccion): void {
+
+    if (coleccion) {
+      this.router.navigate(['/coleccion/', coleccion.coleccion_id]);
+    }
+  }
 }

@@ -24,6 +24,7 @@ export class Coleccion {
   nombre_imagen: string;
   // tslint:disable-next-line:variable-name
   imagen_url: string;
+  precio: number;
 
   constructor(item?: any) {
     this.nombre = item?.nombre || '';
@@ -39,5 +40,6 @@ export class Coleccion {
     this.descripcion_ingredientes = item?.descripcion_ingredientes || '';
     this.nombre_imagen = item?.nombre_imagen || '';
     this.imagen_url = item?.imagen_url || '';
+    this.precio = item?.precio || null;
   }
 }

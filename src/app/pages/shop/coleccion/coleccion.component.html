@@ -1,1 +1,55 @@
-<p>coleccion works!</p>
+<div class="container-fluid product-container">
+  <div class="row product-container">
+      <div class="col-12 col-md-8 product-img" [ngStyle]="{'background-image':'url(' + coleccion?.imagen_url + ')'}">
+
+      </div>
+      <div class="col-12 col-md-4 product-text">
+          <div>
+              <h1>{{ coleccion?.nombre }}</h1>
+              <h3>{{ coleccion?.descripcion }}</h3>
+          </div>
+          <div class="container-fluid buttons-container">
+                      <div class="precio">PRECIO ORIGINAL <strong> <span class="tachado">{{ coleccion?.precio_original }}€ </span></strong></div>
+                      <button>COMPRAR AHORA <strong> {{coleccion?.precio }}€ </strong></button>
+                      <button class="añadir-carro" (click)="AddAlCarrito()">AÑADIR AL CARRO</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!--sirve-->
+<div class="container-fluid description">
+  <div class="row">
+      <div class="col-12 col-md-4 description-title">
+          <h1>¿Para que sirve?</h1>
+      </div>
+      <div class="col-12 col-md-8 description-text">
+          <p>{{ coleccion?.descripcion_sirve}}</p>
+      </div>
+  </div>
+</div>
+
+<!--uso-->
+<div class="container-fluid description">
+  <div class="row">
+      <div class="col-12 col-md-4 description-title">
+          <h1>¿Como se usa?</h1>
+      </div>
+      <div class="col-12 col-md-8 description-text">
+          <p>{{ coleccion?.descripcion_usa}}</p>
+      </div>
+  </div>
+</div>
+
+<!--ingredientes-->
+<div class="container-fluid description">
+  <div class="row">
+      <div class="col-12 col-md-4 description-title">
+          <h1>Ingredientes</h1>
+      </div>
+      <div class="col-12 col-md-8 description-text">
+          <p>{{ coleccion?.descripcion_ingredientes }}</p>
+
+      </div>
+  </div>
+</div>
