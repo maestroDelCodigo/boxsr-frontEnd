@@ -22,6 +22,7 @@ button {
     background-color: #4b4a4a;
     color: white;
     border: #4b4a4a 2px solid !important;
+    font-weight: 400;
   }
 }
 
@@ -128,6 +129,7 @@ button {
         color: white;
         border: #4b4a4a 2px solid !important;
         transition: 0.3s;
+        font-weight: 400;
       }
     }
   }
@@ -149,6 +151,7 @@ button {
         color: white;
         border: #4b4a4a 2px solid !important;
         transition: 0.3s;
+        font-weight: 400;
       }
     }
   }
@@ -170,6 +173,7 @@ button {
         color: white;
         border: #4b4a4a 2px solid !important;
         transition: 0.3s;
+        font-weight: 400;
       }
     }
   }
@@ -252,9 +256,18 @@ button {
   background-size: cover;
   display: flex;
   align-items: flex-end;
+  padding: 20px 0px;
+  cursor: pointer;
+  border: #4b4a4a 1px solid;
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.74);
+    button {
+      background-color: #4b4a4a;
+      color: white;
+      border: #4b4a4a 2px solid !important;
+      transition: 0.3s;
+      font-weight: 400;
+    }
   }
 
   h1 {
