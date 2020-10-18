@@ -1,11 +1,10 @@
-:host{
-
-  p-dialog  {
+:host {
+  p-dialog {
     ::ng-deep {
-      .mydialog{
+      .mydialog {
         width: 50vw;
 
-        .p-dialog-content{
+        .p-dialog-content {
           text-align: center;
         }
       }
@@ -13,12 +12,12 @@
   }
 
   @media screen and (max-width: 40em) {
-    p-dialog  {
+    p-dialog {
       ::ng-deep {
-        .mydialog{
+        .mydialog {
           width: 75vw;
 
-          .p-dialog-content{
+          .p-dialog-content {
             padding: 0;
           }
         }
@@ -29,15 +28,14 @@
   .container {
     display: flex;
     flex-direction: column;
-      .full-width{
-        justify-content: center;
-        align-items: center;
-        
-        width: 50%;
-      }
-      .reduce-with{
-        margin-right: 50px;
-        width: 23%;
-      }
-    }
+    margin-top: 30px;
+  }
+}
+
+mat-form-field {
+  margin-right: 30px;
+}
+
+.nacimiento {
+  width: 180px;
 }
