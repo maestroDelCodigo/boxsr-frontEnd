@@ -12,7 +12,7 @@
     <div class="row intro-text">
         <div class="col-12">
             <h3>Si aún no sabes que tipo que tipo de producto necesitas consulta con nuestro especialista</h3>
-            <button class="añadir-carro">DESCUBRE AQUÍ COMO CUIDAR TU PIEL</button>
+            <button class="añadir-carro" routerLink="/contacto">DESCUBRE AQUÍ COMO CUIDAR TU PIEL</button>
         </div>
     </div>
 </div>
@@ -50,24 +50,43 @@
             </div>
         </ng-container>
         <ng-container *ngFor="let coleccion of colecciones">
-          <div class="col-12 col-md-6 card-container">
-              <a [routerLink]="['/coleccion', coleccion.coleccion_id]" (click)="onVerColeccion(coleccion)">
-                  <div class="container-fluid card-img"
-                      [ngStyle]="{'background-image':'url(' + coleccion?.imagen_url + ')'}">
-                  </div>
-                  <div class="container-fluid card-text">
-                      <h2>{{ coleccion?.nombre }}</h2>
-                      <p>{{ coleccion?.descripcion_resumen }}</p>
-                      <h3>{{ coleccion?.precio }}€</h3>
-                  </div>
-              </a>
-              <div class="container-fluid buttons-container">
-                  <button (click)="checkOut()">COMPRAR AHORA <strong> {{coleccion?.precio}}€ </strong></button>
-                  <button class="añadir-carro" (click)="AddAlCarrito(coleccion)">AÑADIR AL CARRO</button>
-              </div>
-          </div>
-      </ng-container>
+            <div class="col-12 col-md-6 card-container">
+                <a [routerLink]="['/coleccion', coleccion.coleccion_id]" (click)="onVerColeccion(coleccion)">
+                    <div class="container-fluid card-img"
+                        [ngStyle]="{'background-image':'url(' + coleccion?.imagen_url + ')'}">
+                    </div>
+                    <div class="container-fluid card-text">
+                        <h2>{{ coleccion?.nombre }}</h2>
+                        <p>{{ coleccion?.descripcion_resumen }}</p>
+                        <h3>{{ coleccion?.precio }}€</h3>
+                    </div>
+                </a>
+                <div class="container-fluid buttons-container">
+                    <button (click)="checkOut()">COMPRAR AHORA <strong> {{coleccion?.precio}}€ </strong></button>
+                    <button class="añadir-carro" (click)="AddAlCarrito(coleccion)">AÑADIR AL CARRO</button>
+                </div>
+            </div>
+        </ng-container>
     </div>
+</div>
 
-    <!--REVIEWS COMPONENT-->
-    <!--FOOTER COMPONENT-->
+<!--consulta-->
+<div class="container-fluid section4">
+    <div class="row">
+        <div class="col-12 col-md-4 text-col">
+            <div class="text-box">
+                <p>¿Necesitas ayuda?</p>
+                <h1><strong>Consulta gratuita con un experto de BOXSR</strong></h1>
+                <p>Te resolvemos todas tus dudas en una <strong>sesión de 10 minutos por llamada o
+                        videolalmada</strong>
+                </p>
+                <button class="añadir-carro">RESERVAR</button>
+            </div>
+
+        </div>
+        <div class="col-12 col-md-8 consulta-image"></div>
+    </div>
+</div>
+
+<!--REVIEWS COMPONENT-->
+<!--FOOTER COMPONENT-->
