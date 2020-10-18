@@ -29,7 +29,7 @@ import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.co
 import { RegistroUsuarioComponent } from './pages/registro-usuario/registro-usuario.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 import { ProductoComponent } from './pages/shop/producto/producto.component';
 import { ProductosService } from './admin/core/productos.service';
 import { ColeccionesService } from './admin/core/colecciones.service';
@@ -42,6 +42,7 @@ import { DialogModule } from 'primeng/dialog';
 import { DigitOnlyModule } from '@uiowa/digit-only';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { DataSharingService } from './shared/data-sharing.service';
+import {  MatSelectModule } from '@angular/material/select';
 
 
 import { NgxStripeModule } from 'ngx-stripe';
@@ -59,6 +60,7 @@ import { NumericDirective } from './shared/directives/numeric-directive';
 
 @NgModule({
   declarations: [
+   
     MuestrasComprarComponent,
     ContactoComponent,
     AppComponent,
@@ -84,6 +86,8 @@ import { NumericDirective } from './shared/directives/numeric-directive';
     CheckoutResumenPedidoComponent,
   ],
   imports: [
+    MatOptionModule,
+    MatSelectModule,
     BrowserModule,
     HttpClientModule,
     MatFormFieldModule,
