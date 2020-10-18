@@ -41,7 +41,7 @@ import { ClientesListComponent } from './pages/clientes/clientes-list/clientes-l
 import { ResumenPedidosComponent } from './pages/pedidos/resumen-pedidos/resumen-pedidos.component';
 import { PedidoService } from './services/pedido.service';
 import { DetallePedidosComponent } from './pages/pedidos/detalle-pedidos/detalle-pedidos.component';
-
+import {MatSelectModule} from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { NumericDirective } from '../shared/directives/numeric-directive';
 
@@ -78,6 +78,7 @@ import { NumericDirective } from '../shared/directives/numeric-directive';
 
   ],
   imports: [
+    MatSelectModule,
     MatDialogModule,
     MatSortModule,
     CommonModule,
