@@ -1,8 +1,11 @@
 <app-header-admin></app-header-admin>
-<button (click)="onMostrarCrearColecciones()">Crear coleccion</button>
+<button mat-raised-button (click)="onMostrarCrearColecciones()">Crear coleccion</button>
 
-<app-colecciones-list (modificar)="modificarColeccion($event)" (borrar)="borrarColeccion($event)"></app-colecciones-list>
+<app-colecciones-list (modificar)="modificarColeccion($event)" (borrar)="borrarColeccion($event)">
+</app-colecciones-list>
 
-<app-crear-coleccion [display]="mostrarCrearColecciones" (cerrarDialogo)="onOcultarCrearColecciones()" *ngIf="mostrarCrearColecciones"></app-crear-coleccion>
+<app-crear-coleccion [display]="mostrarCrearColecciones" (cerrarDialogo)="onOcultarCrearColecciones()"
+  *ngIf="mostrarCrearColecciones"></app-crear-coleccion>
 
-<app-modificar-coleccion [display]="mostrarModificarColecciones" [coleccion]="coleccionModificar" (cerrarDialogo)="onOcultarModificarColecciones()" *ngIf="mostrarModificarColecciones"></app-modificar-coleccion>
+<app-modificar-coleccion [display]="mostrarModificarColecciones" [coleccion]="coleccionModificar"
+  (cerrarDialogo)="onOcultarModificarColecciones()" *ngIf="mostrarModificarColecciones"></app-modificar-coleccion>
