@@ -1,5 +1,9 @@
+* {
+  font-family: averta !important;
+}
+
 .container {
-  padding: 1.6rem;
+  padding: 5px;
 }
 
 :host {
@@ -14,4 +18,62 @@
 
 ul {
   padding-left: 0px;
+}
+
+.checkout-button {
+  background-color: white;
+  color: #4b4a4a;
+  border: #4b4a4a 2px solid !important;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.3s;
+  outline: none;
+
+  &:hover {
+    background-color: #4b4a4a;
+    color: white;
+    border: #4b4a4a 2px solid !important;
+  }
+}
+
+.item {
+  display: flex;
+  font-size: 18px;
+  border-top: #4b4a4a 1px solid;
+  border-left: none !important;
+  border-right: none !important;
+
+  .item-precio {
+    font-weight: 700;
+  }
+}
+
+.eliminar-button {
+  color: white;
+  background-color: #4b4a4a;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  margin-right: 0px;
+  position: absolute;
+  right: 5px;
+  top: 20px;
+  padding: 5px;
+  width: 33px;
+
+  &:hover {
+    background-color: rgb(197, 4, 4);
+  }
+}
+
+.total {
+  font-size: 30px;
+  font-weight: 700;
+  border: #4b4a4a 1px solid;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: #4b4a4a 1px solid !important;
+  border-top: #4b4a4a 1px solid !important;
+  padding: 16px;
 }
