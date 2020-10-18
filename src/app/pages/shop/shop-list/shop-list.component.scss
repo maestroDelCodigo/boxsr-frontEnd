@@ -57,6 +57,8 @@ a {
 
 // cards
 .cards-container {
+  padding: 0px;
+  max-width: 90%;
   .card-container {
     display: flex;
     flex-direction: column;
@@ -115,6 +117,49 @@ button {
   border: #4b4a4a 1px solid;
 }
 
+//Section consulta
+.section4 {
+  height: 60vh;
+  margin-top: 30px;
+
+  .row {
+    height: 100%;
+    border-top: #4b4a4a 1px solid;
+  }
+
+  .text-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4b4a4a;
+    border-right: #4b4a4a 1px solid;
+
+    button {
+      &:hover {
+        background-color: #4b4a4a;
+        color: white;
+        border: none;
+        padding: 17px 0px;
+        font-size: 16px;
+        transition: 0.3s;
+      }
+    }
+  }
+
+  .text-box {
+    width: 80%;
+    color: #4b4a4a;
+  }
+
+  .consulta-image {
+    background-image: url(../../../../assets/images/consultacortada-home.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+// MEDIA QUERIES----------------------------------------------------------------------
 @media (max-width: 575.98px) {
   .slider {
     margin-bottom: 10px;
@@ -133,6 +178,32 @@ button {
   .intro-text {
     button {
       width: 80%;
+    }
+  }
+
+  .section4 {
+    height: 60vh;
+    h1 {
+      font-size: 12px;
+      margin-bottom: 0px;
+    }
+    p {
+      margin-bottom: 0px;
+    }
+    button {
+      margin-top: 5px;
+      font-size: 12px;
+      padding: 5px;
+    }
+    .text-col {
+      height: 30vh;
+      border-top: #4b4a4a 1px solid;
+      border-bottom: #4b4a4a 1px solid;
+      border-right: none;
+    }
+
+    .consulta-image {
+      height: 30vh;
     }
   }
 }

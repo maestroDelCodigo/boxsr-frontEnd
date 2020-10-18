@@ -1,22 +1,24 @@
 <p-sidebar [(visible)]="mostrarCarrito" (onHide)="cerrarCarrito.emit()" styleClass="p-sidebar-sm">
     <div class="container">
-        <h1>Carrito</h1>
+        <h1>Tu compra</h1>
 
-        <h2 *ngIf="carritoItems.length === 0">El carrito esta vacio</h2>
+        <h1 *ngIf="carritoItems.length === 0">Tu cesta esta vacia</h1>
 
         <div class="container-fluid" *ngIf="carritoItems.length > 0" class="list-group">
             <ul>
-                <li class="list-group-item" *ngFor="let item of carritoItems">
+                <li class="list-group-item item" *ngFor="let item of carritoItems">
                     <app-carrito-item [carritoItem]="item"></app-carrito-item>
-                    <button (click)="deleteItem(item.producto_id)">Eliminar</button>
+                    <button class="eliminar-button" (click)="deleteItem(item.producto_id)">X</button>
                 </li>
 
-                <li class="list-group-item">
-                    <strong>Total: {{ carritoTotal | currency:'EUR' }}</strong>
+                <li class="list-group-item total">
+                    <span>Total: {{ carritoTotal }}€</span>
                 </li>
             </ul>
-            <button (click)="checkOut()"  *ngIf="this.user.usuario_id" (click)="cerrarCarrito2()"  class="arrow-button">Hacer pedido</button>
-            <button (click)="abrirLogin.emit(true)" (click)="cerrarCarrito2()"   *ngIf="this.user.length === 0" class="arrow-button">Logueate para hacer tu compra</button>
+            <button (click)="checkOut()" *ngIf="this.user.usuario_id" (click)="cerrarCarrito2()"
+                class="checkout-button">Hacer pedido</button>
+            <button (click)="abrirLogin.emit(true)" (click)="cerrarCarrito2()" *ngIf="this.user.length === 0"
+                class="checkout-button">Logueate para hacer tu compra</button>
         </div>
     </div>
 </p-sidebar>

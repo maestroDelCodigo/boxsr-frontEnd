@@ -30,6 +30,7 @@ export class PaymentsComponent implements OnInit {
   id = null;
 
   cardOptions: StripeCardElementOptions = {
+    hidePostalCode: true,
     style: {
       base: {
         iconColor: '#666EE8',
