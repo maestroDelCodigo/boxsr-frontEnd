@@ -31,7 +31,7 @@ export class ShopComponent implements OnInit {
     this.productosService.listarProductos().subscribe((productos: Producto[]) => {
       // filtrar los productos por activos y que no sean muestras
       const productosFiltrados = productos.filter((producto) =>
-      producto.nombre.toLocaleLowerCase() !== 'muestra'  && producto.deleted !== 1);
+      !producto.nombre.toLocaleLowerCase().includes('muestra')  && producto.deleted !== 1);
 
       this.productos = productosFiltrados;
       console.log(this.productos);
@@ -47,7 +47,7 @@ export class ShopComponent implements OnInit {
   }
 
   verProducto(producto: Producto): void {
-      
+
     if (producto) {
       this.router.navigate(['/producto/', producto.producto_id]);
     }
