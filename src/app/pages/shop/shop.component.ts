@@ -47,7 +47,7 @@ export class ShopComponent implements OnInit {
   }
 
   verProducto(producto: Producto): void {
-
+      
     if (producto) {
       this.router.navigate(['/producto/', producto.producto_id]);
     }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+
 
 @Component({
   selector: 'app-muestras',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MuestrasComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+  ) {}
 
   ngOnInit(): void {
+
   }
 
 }
