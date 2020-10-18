@@ -73,9 +73,9 @@ export class CrearColeccionComponent implements OnInit {
     this.submitted = true;
 
     // stop here if form is invalid
-    if (this.coleccionesForm.invalid) {
-        return;
-    }
+    if (this.coleccionesForm.invalid || (!this.productosSeleccionados || this.productosSeleccionados.length === 0)) {
+      return;
+  }
 
     const coleccion = new Coleccion();
     coleccion.nombre = this.f.nombre.value;
