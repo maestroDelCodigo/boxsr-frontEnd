@@ -23,7 +23,7 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { LoginComponent } from './components/login/login.component';
 import { MuestrasComprarComponent } from './pages/muestras/muestras-comprar/muestras-comprar.component';
 import { ColeccionComponent } from './pages/shop/coleccion/coleccion.component';
-
+import { ConfirmacionComponent } from './pages/confirmacion/confirmacion.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -50,8 +50,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   // { path: 'checkout', component: CheckoutComponent },
   { path: 'checkout/:id', component: CheckoutComponent },
-  { path: 'muestras-comprar', component: MuestrasComprarComponent},
-
+  { path: 'muestras-comprar', component: MuestrasComprarComponent },
+  { path: 'confirmacion', component: ConfirmacionComponent },
 
   {
     path: 'admin',
