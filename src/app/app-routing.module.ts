@@ -21,6 +21,9 @@ import { ProductoComponent } from './pages/shop/producto/producto.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { LoginComponent } from './components/login/login.component';
+import { MuestrasComprarComponent } from './pages/muestras/muestras-comprar/muestras-comprar.component';
+import { ColeccionComponent } from './pages/shop/coleccion/coleccion.component';
+import { ConfirmacionComponent } from './pages/confirmacion/confirmacion.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -43,10 +46,12 @@ const routes: Routes = [
   { path: 'registro-usuario', component: RegistroUsuarioComponent },
   { path: 'hablan-de-nosotros', component: HablanDeNosotrosComponent },
   { path: 'producto/:id', component: ProductoComponent },
+  { path: 'coleccion/:id', component: ColeccionComponent },
   { path: 'login', component: LoginComponent },
   // { path: 'checkout', component: CheckoutComponent },
   { path: 'checkout/:id', component: CheckoutComponent },
-
+  { path: 'muestras-comprar', component: MuestrasComprarComponent },
+  { path: 'confirmacion', component: ConfirmacionComponent },
 
   {
     path: 'admin',

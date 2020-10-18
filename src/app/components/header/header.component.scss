@@ -1,39 +1,35 @@
 a {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .header {
-    padding: 0px;
-    background-color: rgba(199, 198, 198, 0.445) !important;
-
+  padding: 0px;
+  background-color: rgb(201, 201, 201) !important;
 }
 
 .navbar {
-    padding: 0px 30px;
-    background-color: transparent !important;
+  padding: 0px 30px;
 }
 
 .navbar-toggler {
-    border: 0px !important;
-    padding: 0px;
+  border: 0px !important;
+  padding: 0px;
 }
 
 button:focus {
-    outline: none !important;
+  outline: none !important;
 }
-
 
 a {
-    color: black;
-    font-size: 18px;
-    font-weight: 700;
-    margin-right: 30px;
+  color: black;
+  font-size: 20px;
+  font-weight: 800;
+  margin-right: 30px;
 
-    &:hover {
-        text-decoration: underline;
-    }
+  &:hover {
+    font-weight: bold;
+  }
 }
-
 
 .left {
   padding-right: 1.6rem;
@@ -41,28 +37,25 @@ a {
   right: 0;
   top: 1.4rem;
 
-   a {
-     color: rgba(199, 198, 198, 0.445);
-     padding : 0.6rem;
-     margin-right: 0px;
-   }
-
-   i {
-       color: black;
-   }
+  i {
+    color: black;
+  }
 }
 
-.dropdown-menu{
-    background: unset;
-    border: unset;
-    // display:none;
-    
-    // &:hover{
-    //     display: block;
-    // }
-  
+.dropdown-menu {
+  border: unset;
+  &:active {
+    text-decoration: none !important;
+    outline: none !important;
+  }
 }
-.dropdown-item{
-    background-color: unset;
-    font-weight: 70;
+
+.dropdown-item {
+  font-weight: 300;
+
+  &:active {
+    text-decoration: none !important;
+    outline: none !important;
+    background-color: rgba(128, 128, 128, 0.466) !important;
+  }
 }

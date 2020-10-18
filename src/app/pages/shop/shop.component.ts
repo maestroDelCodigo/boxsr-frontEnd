@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { EventEmitter } from 'events';
 import { ColeccionesService } from 'src/app/admin/core/colecciones.service';
 import { ProductosService } from 'src/app/admin/core/productos.service';
-import { Coleccion } from 'src/app/admin/models/Coleccion';
+import { Coleccion } from 'src/app/models/coleccion';
 import { Producto } from 'src/app/models/producto';
 
 @Component({
@@ -28,16 +28,21 @@ export class ShopComponent implements OnInit {
   }
 
   obtenerProductos(): void {
-    this.productosService.listarProductos().subscribe((productos) => {
-      this.productos = productos;
+    this.productosService.listarProductos().subscribe((productos: Producto[]) => {
+      // filtrar los productos por activos y que no sean muestras
+      const productosFiltrados = productos.filter((producto) =>
+      !producto.nombre.toLocaleLowerCase().includes('muestra')  && producto.deleted !== 1);
+
+      this.productos = productosFiltrados;
       console.log(this.productos);
     });
   }
 
   obtenerColecciones(): void {
-    this.coleccionesService.listarColecciones().subscribe((colecciones) => {
-      this.colecciones = colecciones;
-      console.log(colecciones);
+    this.coleccionesService.listarColecciones().subscribe((colecciones: Coleccion[]) => {
+
+      const coleccionesFiltradas = colecciones.filter((coleccion) =>  coleccion.deleted !== 1);
+      this.colecciones = coleccionesFiltradas;
     });
   }
 
@@ -45,6 +50,13 @@ export class ShopComponent implements OnInit {
 
     if (producto) {
       this.router.navigate(['/producto/', producto.producto_id]);
+    }
+  }
+
+  verColeccion(coleccion: Coleccion): void {
+
+    if (coleccion) {
+      this.router.navigate(['/coleccion/', coleccion.coleccion_id]);
     }
   }
 }

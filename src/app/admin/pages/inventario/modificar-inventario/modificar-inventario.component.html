@@ -9,7 +9,7 @@
         <div class="form-group">
           <mat-form-field class="full-width">
             <mat-label>Stock</mat-label>
-            <input matInput digitOnly formControlName="stock" [ngClass]="{ 'is-invalid': submitted && f.stock.errors }" />
+            <input matInput appNumeric formControlName="stock" [ngClass]="{ 'is-invalid': submitted && f.stock.errors }" />
             <div *ngIf="submitted && f.stock.errors" class="invalid-feedback">
               <div *ngIf="f.stock.errors.required">Stock de producto requerido</div>
           </div>

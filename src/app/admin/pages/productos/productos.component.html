@@ -1,9 +1,11 @@
 <app-header-admin></app-header-admin>
-<button (click)="onMostrarCrearProductos()">Crear producto</button>
+<button class="boton1" mat-raised-button (click)="onMostrarCrearProductos()">Crear producto</button>
 
 <app-productos-list (modificar)="modificarProducto($event)" (borrar)="borrarProducto($event)"></app-productos-list>
 
 
-<app-crear-productos [display]="mostrarCrearProductos" (cerrarDialogo)="onOcultarCrearProductos()" *ngIf="mostrarCrearProductos"></app-crear-productos>
+<app-crear-productos [display]="mostrarCrearProductos" (cerrarDialogo)="onOcultarCrearProductos()"
+  *ngIf="mostrarCrearProductos"></app-crear-productos>
 
-<app-modificar-productos [display]="mostrarModificarProductos" [producto]="productoModificar" (cerrarDialogo)="onOcultarModificarProductos()" *ngIf="mostrarModificarProductos"></app-modificar-productos>
+<app-modificar-productos [display]="mostrarModificarProductos" [producto]="productoModificar"
+  (cerrarDialogo)="onOcultarModificarProductos()" *ngIf="mostrarModificarProductos"></app-modificar-productos>

@@ -1,6 +1,6 @@
 <div class="container">
-  <form novalidate (ngSubmit)="createToken()"  [formGroup]="stripeForm">
-
+  <h1>2.Confirma tus datos</h1>
+  <form novalidate (ngSubmit)="createToken()" [formGroup]="stripeForm">
     <div class="form-group">
       <mat-form-field class="full-width">
         <mat-label>Nombre</mat-label>
@@ -9,9 +9,6 @@
           <div *ngIf="f.name.errors.required">Nombre requerido</div>
         </div>
       </mat-form-field>
-    </div>
-
-    <div class="form-group">
       <mat-form-field class="full-width">
         <mat-label>Apellidos</mat-label>
         <input matInput formControlName="apellidos" [ngClass]="{ 'is-invalid': submitted && f.apellidos.errors }" />
@@ -19,9 +16,7 @@
           <div *ngIf="f.apellidos.errors.required">Apellido obligatorio</div>
         </div>
       </mat-form-field>
-    </div>
 
-    <div class="form-group">
       <mat-form-field class="full-width">
         <mat-label>Email</mat-label>
         <input matInput formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
@@ -41,9 +36,6 @@
           <div *ngIf="f.direccion.errors.required">Dirección obligatoria</div>
         </div>
       </mat-form-field>
-    </div>
-
-    <div class="form-group">
       <mat-form-field class="reduce-with">
         <mat-label>Población</mat-label>
         <input matInput formControlName="poblacion" [ngClass]="{ 'is-invalid': submitted && f.poblacion.errors }" />
@@ -63,9 +55,7 @@
           <div *ngIf="f.codigo_postal.errors.required">Código postal obligatorio</div>
         </div>
       </mat-form-field>
-    </div>
 
-    <div class="form-group">
       <mat-form-field class="full-width">
         <mat-label>Provincia</mat-label>
         <input matInput formControlName="provincia" [ngClass]="{ 'is-invalid': submitted && f.provincia.errors }" />
@@ -81,14 +71,15 @@
         <mat-label>Notas</mat-label>
         <input matInput formControlName="notas" [ngClass]="{ 'is-invalid': submitted && f.notas.errors }" />
         <div *ngIf="submitted && f.notas.errors" class="invalid-feedback">
-          
         </div>
       </mat-form-field>
     </div>
-
-    <ngx-stripe-card [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>
-    <button type="submit" (click)="guardarPedido(stripeForm.value)">
-      PAGAR
-    </button>
+    <h1>3.Introduce los detalles de pago</h1>
+    <div class="container targeta">
+      <ngx-stripe-card [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>
+      <button mat-raised-button type="submit">
+        PAGAR
+      </button>
+    </div>
   </form>
 </div>

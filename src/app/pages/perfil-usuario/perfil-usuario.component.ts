@@ -82,7 +82,7 @@ export class PerfilUsuarioComponent implements OnInit {
     if (this.formularioUsuario.invalid) {
       return this.messageService.add({
         severity: 'error',
-        summary: 'Administrador',
+        summary: 'No se ha modificado tu perfil',
         detail: 'Los datos no son válidos',
       });
     }
@@ -102,7 +102,7 @@ export class PerfilUsuarioComponent implements OnInit {
         if (resultado) {
           this.messageService.add({
             severity: 'success',
-            summary: 'Todo OK',
+            summary: 'Perfil actualizado',
             detail: 'Tus datos se han modificado correctamente.',
           });
         } else {

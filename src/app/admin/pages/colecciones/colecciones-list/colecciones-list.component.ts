@@ -4,7 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ColeccionesService } from 'src/app/admin/core/colecciones.service';
-import { Coleccion } from 'src/app/admin/models/Coleccion';
+import { Coleccion } from 'src/app/models/coleccion';
 
 
 @Component({

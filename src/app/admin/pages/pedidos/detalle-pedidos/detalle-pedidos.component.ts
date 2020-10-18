@@ -4,7 +4,12 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { DetallePedidoService } from '../../../services/detalle-pedido.service';
-import {PedidoDetalle} from  '../../../models/pedido-detalle';
+import { PedidoDetalle } from '../../../models/pedido-detalle';
+
+interface Estado {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-detalle-pedidos',
@@ -12,15 +17,21 @@ import {PedidoDetalle} from  '../../../models/pedido-detalle';
   styleUrls: ['./detalle-pedidos.component.scss'],
 })
 export class DetallePedidosComponent implements OnInit {
+  selectedValue: string;
+  estados: Estado[] = [
+    { value: 'preparado-0', viewValue: 'Preparado' },
+    { value: 'noPreparado-1', viewValue: 'No preparado' },
+  ];
+
   @Output() ver = new EventEmitter<PedidoDetalle>();
-  @Input() set row (value:any){
-    if(value){
+  @Input() set row(value: any) {
+    if (value) {
       this.dataSource.data = [value];
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     }
-  };
- 
+  }
+
   displayedColumns: string[] = [
     'nombre',
     'apellidos',
@@ -30,22 +41,21 @@ export class DetallePedidosComponent implements OnInit {
     'pedido_id',
     'estado_pago',
     'estado_preparacion',
+    // 'estado',
     'notas',
     'fecha_pedido',
     'iva',
     'total_pedido',
-    'nombre_producto'
+    'nombre_producto',
   ];
   dataSource = new MatTableDataSource<any>();
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private detallePedidoService: DetallePedidoService) { }
+  constructor(private detallePedidoService: DetallePedidoService) {}
 
-  ngOnInit(): void {
-  
-  }
+  ngOnInit(): void {}
 
   applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -56,13 +66,11 @@ export class DetallePedidosComponent implements OnInit {
     }
   }
 
-  modificarProducto(pedidoDetalle: PedidoDetalle): void{
+  modificarProducto(pedidoDetalle: PedidoDetalle): void {
     this.ver.emit(pedidoDetalle);
   }
 
-  
-
-  refresh(): void{
+  refresh(): void {
     this.detallePedidoService.verDetallePedidos().subscribe((data) => {
       this.dataSource.data = data;
     });
@@ -74,6 +82,4 @@ export class DetallePedidosComponent implements OnInit {
   //     this.dataSource.sort = this.sort;
   //   });
   // }
-  
-
 }

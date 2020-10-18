@@ -1,9 +1,18 @@
-<div class="resumenPedido">
-<div class="card border-dark mb-3" style="max-width: 18rem;" *ngFor="let item of carritoItems">
-  <div class="card-header"><h1>{{item.nombre}}</h1></div>
-  <div class="card-body text-dark">
-    <p class="card-title">Precio: {{item.precio}}</p>
-    <p class="card-text">Cantidad: {{item.cantidad}}</p>
+<div class="container">
+  <h1>1.Revisa tu pedido</h1>
+  <div class="list-group">
+    <ul>
+      <li class="list-group-item item" *ngFor="let item of carritoItems">
+        <div class="carrito-item">
+          <span>{{ item.nombre | titlecase}}</span> x
+          <span>{{ item.cantidad }}</span> =
+          <strong class="item-precio">{{ item.precio * item.cantidad }}€</strong>
+        </div>
+      </li>
+      <li class="list-group-item total">
+        <!-- <span>Total: {{ carritoTotal }}€</span> -->
+      </li>
+    </ul>
+
   </div>
-</div>
 </div>

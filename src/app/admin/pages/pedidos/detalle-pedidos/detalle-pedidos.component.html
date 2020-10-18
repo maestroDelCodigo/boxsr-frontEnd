@@ -2,7 +2,7 @@
   (onHide)="cerrarDialogo.emit()">
 <div class="grid-container"> -->
 <div>
- 
+
   <mat-form-field>
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
@@ -33,7 +33,7 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha creacion</th>
         <td mat-cell *matCellDef="let row"> {{row.fecha_creacion}} </td>
       </ng-container>
-      
+
       <ng-container matColumnDef="registrado">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Registrado</th>
         <td mat-cell *matCellDef="let row"> {{row.registrado}} </td>
@@ -47,9 +47,20 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Estado de pago</th>
         <td mat-cell *matCellDef="let row"> {{row.estado_pago}} </td>
       </ng-container>
-      <ng-container matColumnDef="estado_preparacion">
+      <!-- <ng-container matColumnDef="estado_preparacion">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Estado pedido</th>
         <td mat-cell *matCellDef="let row"> {{row.estado_preparacion}} </td>
+      </ng-container> -->
+      <ng-container matColumnDef="estado_preparacion">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Estado Preparacion</th>
+        <td mat-cell *matCellDef="let row">
+
+          <mat-select>
+            <mat-option *ngFor="let estado of estados" [value]="estado.value">
+              {{estado.viewValue}}
+            </mat-option>
+          </mat-select>
+
       </ng-container>
       <ng-container matColumnDef="notas">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Notas</th>
@@ -72,11 +83,6 @@
         <td mat-cell *matCellDef="let row"> {{row.nombre_producto}} </td>
       </ng-container>
 
-      <!-- <ng-container matColumnDef="suscriptor">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Suscriptor</th>
-        <td mat-cell *matCellDef="let row"> {{row.suscriptor}} </td>
-      </ng-container> -->
-
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
@@ -86,7 +92,7 @@
       </tr>
     </table>
 
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    <!-- <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator> -->
   </div>
 
-<!-- </p-dialog> -->
+  <!-- </p-dialog> -->

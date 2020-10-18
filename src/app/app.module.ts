@@ -29,7 +29,7 @@ import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.co
 import { RegistroUsuarioComponent } from './pages/registro-usuario/registro-usuario.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 import { ProductoComponent } from './pages/shop/producto/producto.component';
 import { ProductosService } from './admin/core/productos.service';
 import { ColeccionesService } from './admin/core/colecciones.service';
@@ -42,6 +42,7 @@ import { DialogModule } from 'primeng/dialog';
 import { DigitOnlyModule } from '@uiowa/digit-only';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { DataSharingService } from './shared/data-sharing.service';
+import {  MatSelectModule } from '@angular/material/select';
 
 
 import { NgxStripeModule } from 'ngx-stripe';
@@ -49,11 +50,19 @@ import { NgxStripeModule } from 'ngx-stripe';
 import { PaymentsComponent } from './pages/checkout/payments/payments.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { CheckoutResumenPedidoComponent } from './pages/checkout/checkout-resumen-pedido/checkout-resumen-pedido.component';
+import { MuestrasComprarComponent } from './pages/muestras/muestras-comprar/muestras-comprar.component';
+
+import { ColeccionComponent } from './pages/shop/coleccion/coleccion.component';
+import { NumericDirective } from './shared/directives/numeric-directive';
+import { ConfirmacionComponent } from './pages/confirmacion/confirmacion.component';
+
 
 
 
 @NgModule({
   declarations: [
+   
+    MuestrasComprarComponent,
     ContactoComponent,
     AppComponent,
     HeaderComponent,
@@ -71,12 +80,19 @@ import { CheckoutResumenPedidoComponent } from './pages/checkout/checkout-resume
     CarritoItemComponent,
     PaymentsComponent,
     CheckoutComponent,
+    ColeccionComponent,
 
-    
+
 
     CheckoutResumenPedidoComponent,
+
+
+
+    ConfirmacionComponent,
   ],
   imports: [
+    MatOptionModule,
+    MatSelectModule,
     BrowserModule,
     HttpClientModule,
     MatFormFieldModule,

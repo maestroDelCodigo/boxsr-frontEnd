@@ -1,7 +1,5 @@
-
-
 <div class="container-fluid header sticky-top">
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light background-navbar">
         <button class="navbar-toggler navbar" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -16,32 +14,33 @@
                     <a class="nav-link" routerLink="/shop">SHOP</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/muestras">MUESTRAS</a>
+                    <a class="nav-link" routerLink="/muestras-comprar">MUESTRAS</a>
                 </li>
-                <li class="nav-item dropdown ">
-                    <a class="nav-link dropdown-toogle" href="#" id="navbarDropdown" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/conocenos">SOBRE BOXSR</a>
-                    <div class="dropdown-menu" >
-                        <a class="dropdown-item"   href="/conocenos">Conócenos</a>
-                        <a class="dropdown-item"  href="/piel">La piel del hombre</a>
-                        <a class="dropdown-item"  href="/ingredientes">Ingredientes activos</a>
-                        <a class="dropdown-item"  href="/hablan-de-nosotros">Hablan de nosotros</a>
-                      </div>
-                </li>        
+                <li class="nav-item dropdown drop-list">
+                    <a class="nav-link dropdown-toogle" href="#" id="navbarDropdown" data-toggle="dropdown"
+                        data-hover="dropdown" aria-haspopup="true" aria-expanded="false">SOBRE BOXSR</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/conocenos">Conócenos</a>
+                        <a class="dropdown-item" href="/piel">La piel del hombre</a>
+                        <a class="dropdown-item" href="/ingredientes">Ingredientes activos</a>
+                        <a class="dropdown-item" href="/hablan-de-nosotros">Hablan de nosotros</a>
+                    </div>
+                </li>
             </ul>
         </div>
         <div class="left">
-          <a (click)="showCart.emit(true)">
-              <i class="fas fa-shopping-cart fa-lg"></i>
-          </a>
-          <a *ngIf="!isUserLoggedIn" (click)="showLogin.emit(true)">
-              <i class="fas fa-user fa-lg"></i>
-          </a>
-          <a *ngIf="isUserLoggedIn" (click)="perfilUsuario.emit()">
-            <i class="fas fa-user fa-lg"></i>
-        </a>
-          <a *ngIf="isUserLoggedIn" (click)="logOut()">
-            <i class="fas fa-sign-out-alt fa-lg"></i>
-        </a>
-      </div>
+            <a (click)="showCart.emit(true)">
+                <i class="fas fa-shopping-cart fa-lg"></i>
+            </a>
+            <a *ngIf="!isUserLoggedIn" (click)="showLogin.emit(true)">
+                <i class="fas fa-user fa-lg"></i>
+            </a>
+            <a *ngIf="isUserLoggedIn" (click)="perfilUsuario.emit()">
+                <i class="fas fa-user fa-lg"></i>
+            </a>
+            <a *ngIf="isUserLoggedIn" (click)="logOut()">
+                <i class="fas fa-sign-out-alt fa-lg"></i>
+            </a>
+        </div>
     </nav>
 </div>
