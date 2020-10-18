@@ -1,0 +1,23 @@
+.container {
+  margin-bottom: 40px;
+}
+
+mat-form-field {
+  margin-right: 40px;
+}
+
+.targeta {
+  width: 320px;
+  margin-left: 0px;
+  border: gray 1px solid;
+  padding: 20px;
+  border-radius: 10px;
+
+  button {
+    margin-top: 20px;
+  }
+}
+
+// MEDIA QUERIES ------------------------------------------------------------------------------------------
+@media (max-width: 575.98px) {
+}

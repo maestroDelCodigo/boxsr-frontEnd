@@ -54,6 +54,7 @@ import { MuestrasComprarComponent } from './pages/muestras/muestras-comprar/mues
 
 import { ColeccionComponent } from './pages/shop/coleccion/coleccion.component';
 import { NumericDirective } from './shared/directives/numeric-directive';
+import { ConfirmacionComponent } from './pages/confirmacion/confirmacion.component';
 
 
 
@@ -84,6 +85,10 @@ import { NumericDirective } from './shared/directives/numeric-directive';
 
 
     CheckoutResumenPedidoComponent,
+
+
+
+    ConfirmacionComponent,
   ],
   imports: [
     MatOptionModule,

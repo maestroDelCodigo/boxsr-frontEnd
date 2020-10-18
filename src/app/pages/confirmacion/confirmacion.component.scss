@@ -1,0 +1,34 @@
+.container-fluid {
+  height: auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  h1 {
+    padding-top: 50px;
+    margin-bottom: 0px;
+  }
+  img {
+    width: 50%;
+  }
+}
+
+.checkout-button {
+  background-color: white;
+  color: #4b4a4a;
+  border: #4b4a4a 2px solid !important;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.3s;
+  outline: none;
+
+  &:hover {
+    background-color: #4b4a4a;
+    color: white;
+    border: #4b4a4a 2px solid !important;
+  }
+}

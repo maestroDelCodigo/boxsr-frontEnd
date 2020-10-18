@@ -61,6 +61,7 @@ export class ModificarColeccionComponent implements OnInit {
     }
 
     this.precioTotal = this.coleccion.precio_original;
+    console.log(this.precioTotal, 'precio total');
 
     combineLatest( [this.productosService.listarProductos(),
       this.coleccionesService.obtenerProductosAsociados(this.coleccion.coleccion_id)])
@@ -79,7 +80,10 @@ export class ModificarColeccionComponent implements OnInit {
 
           this.dataSource = new MatTableDataSource(data);
         })
-        ).subscribe();
+        ).subscribe(()=>
+          console.log(this.productosSeleccionados, 'seleccionados')
+
+        );
   }
 
   private estaAsociado(id: number, productos: any[], idColeccion: number): boolean{
@@ -105,7 +109,7 @@ export class ModificarColeccionComponent implements OnInit {
     this.submitted = true;
 
     // stop here if form is invalid
-    if (this.coleccionesForm.invalid) {
+    if (this.coleccionesForm.invalid || (!this.productosSeleccionados || this.productosSeleccionados.length === 0)) {
         return;
     }
 

@@ -11,6 +11,7 @@ import { AuthService } from './core/security-services/auth.service';
 export class AppComponent implements OnInit {
   title = 'boxsr-front';
   displayHeader: boolean;
+  displayFooter: boolean;
   displayLogin = false;
   displayCarrito = false;
   user: any;
@@ -27,9 +28,11 @@ export class AppComponent implements OnInit {
 
         if (url.indexOf('admin') > 0) {
           this.displayHeader = false;
+          this.displayFooter = false;
         }
         else {
           this.displayHeader = true;
+          this.displayFooter = true;
         }
 
       }

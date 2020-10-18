@@ -30,6 +30,7 @@ export class PaymentsComponent implements OnInit {
   id = null;
 
   cardOptions: StripeCardElementOptions = {
+    hidePostalCode: true,
     style: {
       base: {
         iconColor: '#666EE8',
@@ -179,6 +180,7 @@ export class PaymentsComponent implements OnInit {
           this.httpclient
             .post(`${environment.apiUrl}/checkout`, pedido)
             .subscribe((data) => {
+              this.router.navigate(['confirmacion']);
               console.log('transaccion ok');
               console.log(data);
               console.log(this.carritoItems);
