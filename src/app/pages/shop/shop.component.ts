@@ -28,16 +28,21 @@ export class ShopComponent implements OnInit {
   }
 
   obtenerProductos(): void {
-    this.productosService.listarProductos().subscribe((productos) => {
-      this.productos = productos;
+    this.productosService.listarProductos().subscribe((productos: Producto[]) => {
+      // filtrar los productos por activos y que no sean muestras
+      const productosFiltrados = productos.filter((producto) =>
+      producto.nombre.toLocaleLowerCase() !== 'muestra'  && producto.deleted !== 1);
+
+      this.productos = productosFiltrados;
       console.log(this.productos);
     });
   }
 
   obtenerColecciones(): void {
-    this.coleccionesService.listarColecciones().subscribe((colecciones) => {
-      this.colecciones = colecciones;
-      console.log(colecciones);
+    this.coleccionesService.listarColecciones().subscribe((colecciones: Coleccion[]) => {
+
+      const coleccionesFiltradas = colecciones.filter((coleccion) =>  coleccion.deleted !== 1);
+      this.colecciones = coleccionesFiltradas;
     });
   }
 
