@@ -3,6 +3,8 @@ import { EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessengerService } from 'src/app/admin/core/messenger.service';
 import { Producto } from 'src/app/admin/models/producto';
+import { Coleccion } from 'src/app/models/coleccion';
+
 
 @Component({
   selector: 'app-shop-list',
@@ -12,7 +14,9 @@ import { Producto } from 'src/app/admin/models/producto';
 export class ShopListComponent implements OnInit {
 
   @Input() productos: Producto[];
+  @Input() colecciones: Coleccion [];
   @Output() ver = new EventEmitter();
+  @Output() verColeccion = new EventEmitter();
   user: any;
 
 
@@ -26,6 +30,10 @@ export class ShopListComponent implements OnInit {
 
   verProducto(producto: any): void {
     this.ver.emit(producto);
+  }
+
+  onVerColeccion(coleccion: any): void {
+    this.verColeccion.emit(coleccion);
   }
 
   AddAlCarrito(producto: Producto): void {

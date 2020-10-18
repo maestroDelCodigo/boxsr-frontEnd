@@ -34,11 +34,11 @@ export class CrearProductosComponent implements OnInit {
       codigo: ['', [Validators.required, Validators.maxLength(30)]],
       peso: ['', [Validators.required, Validators.maxLength(6)]],
       precio: ['', [Validators.required, Validators.maxLength(5)]],
-      descripcion: ['', [Validators.required, Validators.maxLength(245)]],
-      resumen: ['', [Validators.required, Validators.maxLength(145)]],
-      utilidad: ['', [Validators.required, Validators.maxLength(245)]],
-      usabilidad: ['', [Validators.required, Validators.maxLength(245)]],
-      ingredientes: ['', [Validators.required, Validators.maxLength(245)]],
+      descripcion: ['', [Validators.required, Validators.maxLength(500)]],
+      resumen: ['', [Validators.required, Validators.maxLength(500)]],
+      utilidad: ['', [Validators.required, Validators.maxLength(500)]],
+      usabilidad: ['', [Validators.required, Validators.maxLength(500)]],
+      ingredientes: ['', [Validators.required, Validators.maxLength(500)]],
   });
   }
 

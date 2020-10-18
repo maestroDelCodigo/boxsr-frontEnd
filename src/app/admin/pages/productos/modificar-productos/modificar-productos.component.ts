@@ -35,11 +35,11 @@ export class ModificarProductosComponent implements OnInit {
       codigo: [this.producto.codigo_producto, [Validators.required, Validators.maxLength(30)]],
       peso: [this.producto.peso, [Validators.required, Validators.maxLength(6)]],
       precio: [this.producto.precio, [Validators.required, Validators.maxLength(5)]],
-      descripcion: [this.producto.descripcion, [Validators.required, Validators.maxLength(245)]],
-      resumen: [this.producto.descripcion_resumen, [Validators.required, Validators.maxLength(145)]],
-      utilidad: [this.producto.descripcion_sirve, [Validators.required, Validators.maxLength(245)]],
-      usabilidad: [this.producto.descripcion_usa, [Validators.required, Validators.maxLength(245)]],
-      ingredientes: [this.producto.descripcion_ingredientes, [Validators.required, Validators.maxLength(245)]],
+      descripcion: [this.producto.descripcion, [Validators.required, Validators.maxLength(500)]],
+      resumen: [this.producto.descripcion_resumen, [Validators.required, Validators.maxLength(500)]],
+      utilidad: [this.producto.descripcion_sirve, [Validators.required, Validators.maxLength(500)]],
+      usabilidad: [this.producto.descripcion_usa, [Validators.required, Validators.maxLength(500)]],
+      ingredientes: [this.producto.descripcion_ingredientes, [Validators.required, Validators.maxLength(500)]],
     });
 
     this.imageUrl = this.producto.imagen_url;

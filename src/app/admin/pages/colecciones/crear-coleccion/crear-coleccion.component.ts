@@ -6,7 +6,7 @@ import { MessageService } from 'primeng/api';
 import { first, switchMap } from 'rxjs/operators';
 import { ColeccionesService } from 'src/app/admin/core/colecciones.service';
 import { ProductosService } from 'src/app/admin/core/productos.service';
-import { Coleccion } from 'src/app/admin/models/Coleccion';
+import { Coleccion } from 'src/app/models/coleccion';
 import { UploadFilesService } from 'src/app/core/upload.service';
 
 @Component({
@@ -42,10 +42,10 @@ export class CrearColeccionComponent implements OnInit {
       video_url: ['', [Validators.maxLength(145)]],
       precio_rebajado: ['', [ Validators.maxLength(5)]],
       precio_original: [{value: '', disabled: true}, [Validators.required, Validators.maxLength(10)]],
-      descripcion: ['', [Validators.required, Validators.maxLength(245)]],
-      utilidad: ['', [Validators.required, Validators.maxLength(245)]],
-      usabilidad: ['', [Validators.required, Validators.maxLength(245)]],
-      ingredientes: ['', [Validators.required, Validators.maxLength(245)]],
+      descripcion: ['', [Validators.required, Validators.maxLength(500)]],
+      utilidad: ['', [Validators.required, Validators.maxLength(500)]],
+      usabilidad: ['', [Validators.required, Validators.maxLength(500)]],
+      ingredientes: ['', [Validators.required, Validators.maxLength(500)]],
   });
 
     // Pintamos la tabla de productos

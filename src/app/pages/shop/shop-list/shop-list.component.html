@@ -1,21 +1,31 @@
 <!-- slider -->
 <div class="container-fluid slider">
-    <div class="row slider-text">
+</div>
+
+<div class="container-fluid intro">
+    <div class="row intro-text">
         <div class="col-12">
-            <h1>Tenemos lo que tu piel necesita</h1>
+            <h2>TENEMOS LO QUE TU PIEL NECESITA</h2>
+        </div>
+    </div>
+
+    <div class="row intro-text">
+        <div class="col-12">
+            <h3>Si aún no sabes que tipo que tipo de producto necesitas consulta con nuestro especialista</h3>
+            <button class="añadir-carro">DESCUBRE AQUÍ COMO CUIDAR TU PIEL</button>
         </div>
     </div>
 </div>
 
 <!--filtro-->
-<div class="container-fluid">
+<!-- <div class="container-fluid">
     <div class="row">
         <div class="col-12 filtro">
 
         </div>
 
     </div>
-</div>
+</div> -->
 
 <!-- shop starts -->
 <div class="container-fluid cards-container">
@@ -39,6 +49,24 @@
                 </div>
             </div>
         </ng-container>
+        <ng-container *ngFor="let coleccion of colecciones">
+          <div class="col-12 col-md-6 card-container">
+              <a [routerLink]="['/coleccion', coleccion.coleccion_id]" (click)="onVerColeccion(coleccion)">
+                  <div class="container-fluid card-img"
+                      [ngStyle]="{'background-image':'url(' + coleccion?.imagen_url + ')'}">
+                  </div>
+                  <div class="container-fluid card-text">
+                      <h2>{{ coleccion?.nombre }}</h2>
+                      <p>{{ coleccion?.descripcion_resumen }}</p>
+                      <h3>{{ coleccion?.precio }}€</h3>
+                  </div>
+              </a>
+              <div class="container-fluid buttons-container">
+                  <button (click)="checkOut()">COMPRAR AHORA <strong> {{coleccion?.precio}}€ </strong></button>
+                  <button class="añadir-carro" (click)="AddAlCarrito(coleccion)">AÑADIR AL CARRO</button>
+              </div>
+          </div>
+      </ng-container>
     </div>
 
     <!--REVIEWS COMPONENT-->

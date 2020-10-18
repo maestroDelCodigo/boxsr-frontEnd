@@ -51,6 +51,10 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { CheckoutResumenPedidoComponent } from './pages/checkout/checkout-resumen-pedido/checkout-resumen-pedido.component';
 import { MuestrasComprarComponent } from './pages/muestras/muestras-comprar/muestras-comprar.component';
 
+import { ColeccionComponent } from './pages/shop/coleccion/coleccion.component';
+import { NumericDirective } from './shared/directives/numeric-directive';
+
+
 
 
 @NgModule({
@@ -73,8 +77,9 @@ import { MuestrasComprarComponent } from './pages/muestras/muestras-comprar/mues
     CarritoItemComponent,
     PaymentsComponent,
     CheckoutComponent,
+    ColeccionComponent,
 
-    
+
 
     CheckoutResumenPedidoComponent,
   ],

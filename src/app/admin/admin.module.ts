@@ -43,12 +43,13 @@ import { PedidoService } from './services/pedido.service';
 import { DetallePedidosComponent } from './pages/pedidos/detalle-pedidos/detalle-pedidos.component';
 
 import { MatDialogModule } from '@angular/material/dialog';
+import { NumericDirective } from '../shared/directives/numeric-directive';
 
 
 
 @NgModule({
   declarations: [
-    
+
     DetallePedidosComponent,
     ResumenPedidosComponent,
     AdminComponent,
@@ -72,7 +73,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     InventarioListComponent,
     ModificarInventarioComponent,
     BuzonAdminComponent,
-    ClientesListComponent
+    ClientesListComponent,
+    NumericDirective,
 
   ],
   imports: [

@@ -2,8 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { Coleccion } from 'src/app/models/coleccion';
 import { environment } from 'src/environments/environment';
-import { Coleccion } from '../models/Coleccion';
+
 
 @Injectable()
 export class ColeccionesService {
@@ -36,7 +37,8 @@ export class ColeccionesService {
         map((colecciones: Coleccion[]) => {
           return colecciones.map(coleccion => ({
             ...coleccion,
-            imagen_url: coleccion.nombre_imagen ? `${environment.urlImagesServer}/${coleccion.nombre_imagen}` : ''
+            imagen_url: coleccion.nombre_imagen ? `${environment.urlImagesServer}/${coleccion.nombre_imagen}` : '',
+            precio: coleccion.precio_rebajado ?  coleccion.precio_rebajado : coleccion.precio_original
           }));
         }),
         catchError(e => {
@@ -62,6 +64,13 @@ export class ColeccionesService {
   buscarColeccion(idColeccion: number): Observable<Coleccion>{
     return this.http.get(`${environment.apiUrl}/coleccion/buscarColeccion/${idColeccion}`)
       .pipe(
+        map((coleccion: Coleccion) => {
+          return {
+          ...coleccion,
+          imagen_url: coleccion.nombre_imagen ? `${environment.urlImagesServer}/${coleccion.nombre_imagen}` : '',
+          precio: coleccion.precio_rebajado ?  coleccion.precio_rebajado : coleccion.precio_original
+          };
+        }),
         catchError(e => {
           return of(null);
         })
