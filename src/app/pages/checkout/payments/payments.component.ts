@@ -12,6 +12,7 @@ import { Usuario } from 'src/app/models/usuario';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { RegistroUsuarioService } from 'src/app/services/registro-usuario.service';
+import { PedidoService } from 'src/app/admin/services/pedido.service';
 
 @Component({
   selector: 'app-payments',
@@ -51,6 +52,7 @@ export class PaymentsComponent implements OnInit {
 
   stripeForm: FormGroup;
   carritoTotal: number;
+  user: any;
 
   constructor(
     private fb: FormBuilder,
@@ -58,6 +60,7 @@ export class PaymentsComponent implements OnInit {
     private httpclient: HttpClient,
     private messageService: MessageService,
     public registroService: RegistroUsuarioService,
+    public pedidoService: PedidoService,
     public router: Router,
     activatedRoute: ActivatedRoute
   ) {
@@ -105,6 +108,9 @@ export class PaymentsComponent implements OnInit {
 
     this.carritoItems = JSON.parse(localStorage.getItem('carritoItems')) || 0;
     this.calcularTotalCarrito();
+    this.user = localStorage.getItem('APP_USER')
+      ? JSON.parse(localStorage.getItem('APP_USER'))
+      : [];
   }
 
   onSubmit(): void {
@@ -192,6 +198,20 @@ export class PaymentsComponent implements OnInit {
         }
       });
   }
+  guardarPedido(value): void {
+    const pedidoBaseDeDatos = {
+     totalDelPedido:  this.carritoTotal,
+     fechaPedido: null,
+    //  notas:  this.stripeForm.get('notas').value,
+     usuarioId: this.user.usuario_id,
+     cantidad: null,
+     productoId: this.carritoItems,
+    };
+    console.log(pedidoBaseDeDatos)
+    this.pedidoService.guardarPedido(pedidoBaseDeDatos).subscribe((data) => {
+
+    });
+  }
 
   private IniciarstripeForm(fb: FormBuilder): void {
     this.stripeForm = fb.group({
@@ -203,6 +223,8 @@ export class PaymentsComponent implements OnInit {
       codigo_postal: ['', [Validators.required, Validators.maxLength(5)]],
       poblacion: ['', [Validators.required, Validators.maxLength(60)]],
       provincia: ['', [Validators.required, Validators.maxLength(60)]],
+      notas: ['', [Validators.maxLength(360)]],
+
     });
   }
   get f(): any {

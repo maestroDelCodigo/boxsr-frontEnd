@@ -15,10 +15,10 @@
                     <span>Total: {{ carritoTotal }}€</span>
                 </li>
             </ul>
-            <button (click)="checkOut()" *ngIf="this.user.usuario_id" (click)="cerrarCarrito2()"
-                class="checkout-button">Hacer pedido</button>
-            <button (click)="abrirLogin.emit(true)" (click)="cerrarCarrito2()" *ngIf="this.user.length === 0"
-                class="checkout-button">Logueate para hacer tu compra</button>
+
+            <button (click)="checkOut()"  *ngIf="this.user.usuario_id" (click)="cerrarCarrito2()"  class="arrow-button">Hacer pedido</button>
+            <button (click)="abrirLogin.emit(true)" (click)="cerrarCarrito2()"   *ngIf="this.user.length === 0" class="arrow-button">Inicia sesión para hacer tu compra</button>
+
         </div>
     </div>
 </p-sidebar>
