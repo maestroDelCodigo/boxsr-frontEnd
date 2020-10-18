@@ -12,7 +12,6 @@ export class CheckoutResumenPedidoComponent implements OnInit {
 
   ngOnInit(): void {
     this.carritoItems = JSON.parse(localStorage.getItem('carritoItems')) || 0;
-    
   }
 
 }

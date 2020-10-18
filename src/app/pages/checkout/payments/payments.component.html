@@ -1,5 +1,5 @@
 <div class="container">
-  <form novalidate (ngSubmit)="createToken()" [formGroup]="stripeForm">
+  <form novalidate (ngSubmit)="createToken()"  [formGroup]="stripeForm">
 
     <div class="form-group">
       <mat-form-field class="full-width">
@@ -76,10 +76,18 @@
         </div>
       </mat-form-field>
     </div>
-
+    <div class="form-group">
+      <mat-form-field class="full-width">
+        <mat-label>Notas</mat-label>
+        <input matInput formControlName="notas" [ngClass]="{ 'is-invalid': submitted && f.notas.errors }" />
+        <div *ngIf="submitted && f.notas.errors" class="invalid-feedback">
+          
+        </div>
+      </mat-form-field>
+    </div>
 
     <ngx-stripe-card [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>
-    <button type="submit">
+    <button type="submit" (click)="guardarPedido(stripeForm.value)">
       PAGAR
     </button>
   </form>

@@ -22,8 +22,9 @@ verPedidos(): Observable<Pedido[]>{
     );
 }
 lanzarVistaDetalle(id: any): Observable<any>{
-  return this.http.post<any>(`${environment.apiUrl}/pedidos/obtenerDetalle`, {id})
-    
-}
-
+  return this.http.post<any>(`${environment.apiUrl}/pedidos/obtenerDetalle`, {id});
+  }
+guardarPedido(pedido): Observable<any>{
+  return this.http.post<any>(`${environment.apiUrl}/pedidos/guardarPedido`, pedido);
+  }
 }

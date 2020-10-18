@@ -23,6 +23,7 @@ export class CarritoComponent implements OnInit {
   carritoItems = [];
   carritoItem: any;
   carritoTotal = 0;
+  item: any;
 
   constructor(private messageService: MessengerService, private router: Router, private dataSharingService: DataSharingService,
               ) {
@@ -39,7 +40,7 @@ export class CarritoComponent implements OnInit {
       ? JSON.parse(localStorage.getItem('APP_USER'))
       : [];
   }
-
+// Añadir productos al carrito
   addProductoAlCarrito(producto: Producto): void {
     let productoExiste = false;
 
@@ -67,21 +68,23 @@ export class CarritoComponent implements OnInit {
     ? JSON.parse(localStorage.getItem('APP_USER'))
     : [];
   }
-
+// Total del carrito con actualizacion en tiempo real
   calcularTotalCarrito(): void {
     this.carritoTotal = 0;
     this.carritoItems.forEach((item) => {
+      this.item = localStorage.getItem('carritoItems')
+      ? JSON.parse(localStorage.getItem('carritoItems'))
+      : [];
       this.carritoTotal += item.cantidad * item.precio;
       this.carritoItem = item;
     });
-  
   }
-
+// Añadir productos al localStorage
   addToStorage(): void {
     localStorage.removeItem('carritoItems');
     localStorage.setItem('carritoItems', JSON.stringify(this.carritoItems));
   }
-
+// Borrar elementos del carrito
   deleteItem(id): void {
     this.carritoItems = localStorage.getItem('carritoItems') ? JSON.parse(localStorage.getItem('carritoItems')) : [];
     let index;
@@ -94,7 +97,7 @@ export class CarritoComponent implements OnInit {
     if (index === undefined) return
     this.carritoItems.splice(index, 1);
     localStorage.setItem('carritoItems', JSON.stringify(this.carritoItems));
-
+    this.calcularTotalCarrito();
   }
 
   getLocalItems(): void {
@@ -103,6 +106,7 @@ export class CarritoComponent implements OnInit {
       this.carritoItems = localItems;
     }
   }
+  // Ir a la pasarla de pago. Si no estas logueado te manda loguearte y sino directo al checkout
   checkOut(): void {
     this.items = localStorage.getItem('carritoItems') ? JSON.parse(localStorage.getItem('carritoItems')) : [];
     this.user = localStorage.getItem('APP_USER')
