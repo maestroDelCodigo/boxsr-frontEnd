@@ -5,7 +5,6 @@ import { Producto } from 'src/app/admin/models/producto';
 import { DataSharingService } from 'src/app/shared/data-sharing.service';
 import { Usuario } from 'src/app/models/usuario';
 
-
 @Component({
   selector: 'app-carrito',
   templateUrl: './carrito.component.html',
@@ -24,10 +23,11 @@ export class CarritoComponent implements OnInit {
   carritoItem: any;
   carritoTotal = 0;
 
-  constructor(private messageService: MessengerService, private router: Router, private dataSharingService: DataSharingService,
-              ) {
-  }
-
+  constructor(
+    private messageService: MessengerService,
+    private router: Router,
+    private dataSharingService: DataSharingService
+  ) {}
 
   ngOnInit(): void {
     this.messageService.getMsg().subscribe((producto: Producto) => {
@@ -64,8 +64,8 @@ export class CarritoComponent implements OnInit {
     this.mostrarCarrito = !this.mostrarCarrito;
     this.addToStorage();
     this.user = localStorage.getItem('APP_USER')
-    ? JSON.parse(localStorage.getItem('APP_USER'))
-    : [];
+      ? JSON.parse(localStorage.getItem('APP_USER'))
+      : [];
   }
 
   calcularTotalCarrito(): void {
@@ -74,7 +74,6 @@ export class CarritoComponent implements OnInit {
       this.carritoTotal += item.cantidad * item.precio;
       this.carritoItem = item;
     });
-  
   }
 
   addToStorage(): void {
@@ -83,7 +82,9 @@ export class CarritoComponent implements OnInit {
   }
 
   deleteItem(id): void {
-    this.carritoItems = localStorage.getItem('carritoItems') ? JSON.parse(localStorage.getItem('carritoItems')) : [];
+    this.carritoItems = localStorage.getItem('carritoItems')
+      ? JSON.parse(localStorage.getItem('carritoItems'))
+      : [];
     let index;
     for (let i = 0; i < this.carritoItems.length; i++) {
       if (this.carritoItems[i].producto_id === id) {
@@ -91,10 +92,9 @@ export class CarritoComponent implements OnInit {
         break;
       }
     }
-    if (index === undefined) return
+    if (index === undefined) return;
     this.carritoItems.splice(index, 1);
     localStorage.setItem('carritoItems', JSON.stringify(this.carritoItems));
-
   }
 
   getLocalItems(): void {
@@ -104,14 +104,15 @@ export class CarritoComponent implements OnInit {
     }
   }
   checkOut(): void {
-    this.items = localStorage.getItem('carritoItems') ? JSON.parse(localStorage.getItem('carritoItems')) : [];
+    this.items = localStorage.getItem('carritoItems')
+      ? JSON.parse(localStorage.getItem('carritoItems'))
+      : [];
     this.user = localStorage.getItem('APP_USER')
       ? JSON.parse(localStorage.getItem('APP_USER'))
       : [];
     if (this.user) {
       this.router.navigate(['checkout/:id', { id: this.user.usuario_id }]);
-    }
-    else {
+    } else {
       this.abrirLogin.emit();
     }
   }
@@ -119,5 +120,4 @@ export class CarritoComponent implements OnInit {
   cerrarCarrito2(): void {
     this.mostrarCarrito = false;
   }
-
 }
