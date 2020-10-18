@@ -8,16 +8,11 @@ import { Component, OnInit, Output } from '@angular/core';
 })
 export class MuestrasComponent implements OnInit {
 
- 
-
   constructor(
-    
   ) {}
 
   ngOnInit(): void {
- 
-  }
 
- 
+  }
 
 }
