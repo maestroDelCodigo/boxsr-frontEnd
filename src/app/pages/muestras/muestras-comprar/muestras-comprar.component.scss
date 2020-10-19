@@ -1,9 +1,13 @@
 .product-container {
-    min-height: 80vh;
-    border-top: gray 1px solid;
+  min-height: 80vh;
+  border-top: gray 1px solid;
 
   .row {
-      min-height: 80vh;
+    min-height: 80vh;
+  }
+
+  .muestras {
+    margin-bottom: 15px;
   }
 
   .product-img {
@@ -20,71 +24,80 @@
     flex-direction: column;
     justify-content: space-between;
 
-
-    h1, h3 {
-        padding: 30px;
+    h1,
+    h3 {
+      padding: 30px;
     }
     h1 {
-        padding-bottom: 0px;
-        margin-bottom: 0px;
-
+      padding-bottom: 0px;
+      margin-bottom: 0px;
     }
   }
 
   h3 {
-      color: gray;
+    color: gray;
   }
 
   .comprar-ahora {
-      padding: 0px;
+    padding: 0px;
 
-      h2 {
-        margin-bottom: 0px;
-        text-align: center;
-        padding: 22px;
-        background-color: gray;
-        color: white;
-      }
+    h2 {
+      margin-bottom: 0px;
+      text-align: center;
+      padding: 22px;
+      background-color: gray;
+      color: white;
+    }
   }
 }
 
 .description {
-    border-top: #4b4a4a 1px solid;
-    padding-top: 10px;
+  border-top: #4b4a4a 1px solid;
+  padding-top: 10px;
 
-    .description-title {
-
-        h1 {
-            font-size: 30px;
-            text-align: center;
-        }
+  .description-title {
+    h1 {
+      font-size: 30px;
+      text-align: center;
     }
+  }
 }
 
 .buttons-container {
-    display: flex;
-    flex-direction: column;
-    padding: 0px;
-
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
 }
 
 button {
-    background-color: #4b4a4a;
+  background-color: #4b4a4a;
+  color: white;
+  border: none;
+  padding: 30px 0px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.tipo {
+  padding: 10px 0x;
+  background-color: white;
+  color: #4b4a4a;
+  border: #4b4a4a 1px solid;
+  width: 45%;
+  margin-left: 16px;
+  outline: none;
+  &:hover {
     color: white;
-    border: none;
-    padding: 30px 0px;
-    font-size: 16px;
+    background-color: #4b4a4a;
   }
-
-  .añadir-carro {
-    background-color: white;
-    color: #4b4a4a;
+  &:focus {
+    color: white;
+    background-color: #4b4a4a;
   }
-  .tipo{
-    padding: 10px 0x;
-    background-color:darkgrey;
-    width: 45%;
-    margin-left: 16px;
-  }
+}
 
-
+.añadir-carro {
+  background-color: white;
+  color: #4b4a4a;
+  border: #4b4a4a 1px solid;
+}

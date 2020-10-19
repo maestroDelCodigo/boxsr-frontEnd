@@ -40,7 +40,7 @@ export class CarritoComponent implements OnInit {
       ? JSON.parse(localStorage.getItem('APP_USER'))
       : [];
   }
-// Añadir productos al carrito
+  // Añadir productos al carrito
   addProductoAlCarrito(producto: Producto): void {
     let productoExiste = false;
 
@@ -68,23 +68,23 @@ export class CarritoComponent implements OnInit {
       ? JSON.parse(localStorage.getItem('APP_USER'))
       : [];
   }
-// Total del carrito con actualizacion en tiempo real
+  // Total del carrito con actualizacion en tiempo real
   calcularTotalCarrito(): void {
     this.carritoTotal = 0;
     this.carritoItems.forEach((item) => {
       this.item = localStorage.getItem('carritoItems')
-      ? JSON.parse(localStorage.getItem('carritoItems'))
-      : [];
+        ? JSON.parse(localStorage.getItem('carritoItems'))
+        : [];
       this.carritoTotal += item.cantidad * item.precio;
       this.carritoItem = item;
     });
   }
-// Añadir productos al localStorage
+  // Añadir productos al localStorage
   addToStorage(): void {
     localStorage.removeItem('carritoItems');
     localStorage.setItem('carritoItems', JSON.stringify(this.carritoItems));
   }
-// Borrar elementos del carrito
+  // Borrar elementos del carrito
   deleteItem(id): void {
     this.carritoItems = localStorage.getItem('carritoItems')
       ? JSON.parse(localStorage.getItem('carritoItems'))
@@ -101,7 +101,6 @@ export class CarritoComponent implements OnInit {
     localStorage.setItem('carritoItems', JSON.stringify(this.carritoItems));
 
     this.calcularTotalCarrito();
-
   }
 
   getLocalItems(): void {
