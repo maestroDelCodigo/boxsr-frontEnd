@@ -1,19 +1,29 @@
 @import url("https://use.fontawesome.com/releases/v5.13.1/css/all.css");
 @font-face {
-    font-family: averta;
-    src: url(assets/fonts/Averta-Regular.ttf) format("opentype");
-  }
-
-* {
-    font-family: averta;
+  font-family: averta;
+  src: url(assets/fonts/Averta-Regular.ttf) format("opentype");
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+* {
+  font-family: averta;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 .arrow-button {
   font-weight: 700;
   outline: none;
   padding: 3px 40px 3px 10px;
   background-color: white;
+}
+
+button {
+  outline: none;
 }

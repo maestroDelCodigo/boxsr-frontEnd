@@ -20,6 +20,10 @@ ul {
   padding-left: 0px;
 }
 
+li {
+  padding-left: 0px;
+}
+
 .checkout-button {
   background-color: white;
   color: #4b4a4a;
@@ -51,19 +55,19 @@ ul {
 
 .eliminar-button {
   color: white;
-  background-color: #4b4a4a;
+  background-color: rgb(228, 0, 0);
   outline: none;
   border: none;
   border-radius: 50%;
   margin-right: 0px;
   position: absolute;
-  right: 5px;
-  top: 20px;
-  padding: 5px;
-  width: 33px;
+  right: 0px;
+  top: 5px;
+  width: 25px;
+  height: 25px;
 
   &:hover {
-    background-color: rgb(197, 4, 4);
+    background-color: rgb(255, 0, 0);
   }
 }
 
@@ -76,4 +80,11 @@ ul {
   border-bottom: #4b4a4a 1px solid !important;
   border-top: #4b4a4a 1px solid !important;
   padding: 16px;
+}
+
+img {
+  width: 40px;
+  height: 40px;
+  padding-left: 0px;
+  margin-right: 5px;
 }

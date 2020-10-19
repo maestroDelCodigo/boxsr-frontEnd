@@ -1,6 +1,15 @@
 <div class="carrito-item">
     <span>{{ carritoItem.nombre | titlecase}} <span
-            *ngIf="carritoItem.nombre === 'Muestra'">{{carritoItem.tipo_producto}}</span></span> <br>x
-    <span>{{ carritoItem.cantidad }}</span> =
-    <strong class="item-precio">{{ carritoItem.precio * carritoItem.cantidad }}€</strong>
+            *ngIf="carritoItem.nombre === 'Muestra'"><br>{{carritoItem.tipo_producto}} x
+            {{ carritoItem.cantidad }}
+            <!-- = <strong class="item-precio">{{ carritoItem.precio * carritoItem.cantidad }}€</strong> -->
+        </span>
+
+        <span *ngIf="carritoItem.nombre !== 'Muestra'">
+            <br>x
+            <span>{{ carritoItem.cantidad }}</span> =
+            <strong class="item-precio">{{ carritoItem.precio * carritoItem.cantidad }}€</strong>
+        </span>
+
+    </span>
 </div>
