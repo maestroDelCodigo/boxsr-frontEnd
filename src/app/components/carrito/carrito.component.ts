@@ -59,6 +59,7 @@ export class CarritoComponent implements OnInit {
         nombre: producto.nombre,
         cantidad: 1,
         precio: producto.precio,
+        tipo_producto: producto.tipo_producto,
       });
       if (producto.nombre === 'Muestra') {
         productoExiste = true;
