@@ -109,7 +109,7 @@ export class PaymentsComponent implements OnInit {
 
     this.carritoItems = JSON.parse(localStorage.getItem('carritoItems')) || 0;
     this.calcularTotalCarrito();
-   
+
   }
 
   onSubmit(): void {
@@ -199,18 +199,16 @@ export class PaymentsComponent implements OnInit {
   }
   guardarPedido(value): void {
     this.user = localStorage.getItem('APP_USER')
-    ? JSON.parse(localStorage.getItem('APP_USER'))
-    : [];
+      ? JSON.parse(localStorage.getItem('APP_USER'))
+      : [];
     this.item = localStorage.getItem('carritoItems')
-    ? JSON.parse(localStorage.getItem('carritoItems'))
-    : [];
+      ? JSON.parse(localStorage.getItem('carritoItems'))
+      : [];
     const pedidoBaseDeDatos = {
-     totalDelPedido:  this.carritoTotal,
-     fechaPedido: null,
-    //  notas:  this.stripeForm.get('notas').value,
-     usuarioId: this.user.usuario_id,
-     cantidad: this.item.cantidad,
-     producto_id: this.item.producto_id,
+      total_pedido: this.carritoTotal,
+      // notas:  this.stripeForm.get('notas').value,
+      usuario_id: this.id,
+      pedido: this.item
     };
     this.pedidoService.guardarPedido(pedidoBaseDeDatos).subscribe((data) => {
 
@@ -227,7 +225,7 @@ export class PaymentsComponent implements OnInit {
       codigo_postal: ['', [Validators.required, Validators.maxLength(5)]],
       poblacion: ['', [Validators.required, Validators.maxLength(60)]],
       provincia: ['', [Validators.required, Validators.maxLength(60)]],
-      // notas: ['', [Validators.maxLength(360)]],
+      notas: ['', [Validators.maxLength(360)]],
 
     });
   }
