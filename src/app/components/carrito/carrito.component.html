@@ -1,12 +1,13 @@
 <p-sidebar [(visible)]="mostrarCarrito" (onHide)="cerrarCarrito.emit()" styleClass="p-sidebar-sm">
     <div class="container">
-        <h1>Tu compra</h1>
+        <h1 *ngIf="carritoItems.length > 0">Tu cesta de la compra</h1>
 
         <h1 *ngIf="carritoItems.length === 0">Tu cesta esta vacia</h1>
 
         <div class="container-fluid" *ngIf="carritoItems.length > 0" class="list-group">
             <ul>
                 <li class="list-group-item item" *ngFor="let item of carritoItems">
+                    <img src={{item.imagen}} alt="">
                     <app-carrito-item [carritoItem]="item"></app-carrito-item>
                     <button class="eliminar-button" (click)="deleteItem(item.producto_id)">X</button>
                 </li>

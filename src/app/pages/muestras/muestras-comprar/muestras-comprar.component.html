@@ -1,59 +1,62 @@
 <div class="container-fluid product-container">
-  <div class="row product-container">
-      <div class="col-12 col-md-8 product-img" [ngStyle]="{'background-image':'url(' + producto?.imagen_url + ')'}">
+    <div class="row product-container">
+        <div class="col-12 col-md-8 product-img" [ngStyle]="{'background-image':'url(' + producto?.imagen_url + ')'}">
 
-      </div>
-      <div class="col-12 col-md-4 product-text">
-          <div>
-              <h1>{{ producto?.nombre}}</h1>
-              <h3>{{ producto?.descripcion }}</h3>
-          </div>
-          <div class="container-fluid buttons-container">
-              <div class="muestras">
-                <ng-container *ngFor ="let producto of productos">
-                    <button (click)="SeleccionarProducto(producto)"type="button" class="btn btn-outline-secondary tipo">{{producto.tipo_producto}}</button>
-                </ng-container>
-              </div>
-                    <button>COMPRAR AHORA <strong> {{producto?.precio}}€ </strong></button>
-                    <button [disabled]="productoSeleccionado === null" class="añadir-carro" (click)="AddAlCarrito()">AÑADIR AL CARRO</button>
-          </div>
-      </div>
-  </div>
+        </div>
+        <div class="col-12 col-md-4 product-text">
+            <div>
+                <h1>{{ producto?.nombre}}</h1>
+                <h3>{{ producto?.descripcion }}</h3>
+            </div>
+            <div class="container-fluid buttons-container">
+                <div class="muestras">
+                    <h2 class="selecciona">¡Selecciona que box quieres probar!</h2>
+                    <ng-container *ngFor="let producto of productos">
+                        <button class="añadir-carro tipo" (click)="SeleccionarProducto(producto)" type="button">Prueba
+                            {{producto.tipo_producto}}</button>
+                    </ng-container>
+                </div>
+                <button>COMPRAR AHORA <strong> {{producto?.precio}}€ </strong></button>
+                <button [disabled]="productoSeleccionado === null" class="añadir-carro" (click)="AddAlCarrito()">AÑADIR
+                    AL CARRO</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!--sirve-->
 <div class="container-fluid description">
-  <div class="row">
-      <div class="col-12 col-md-4 description-title">
-          <h1>¿Para que sirve?</h1>
-      </div>
-      <div class="col-12 col-md-8 description-text">
-          <p>{{ producto?.descripcion_sirve}}</p>
-      </div>
-  </div>
+    <div class="row">
+        <div class="col-12 col-md-4 description-title">
+            <h1>¿Para que sirve?</h1>
+        </div>
+        <div class="col-12 col-md-8 description-text">
+            <p>{{ producto?.descripcion_sirve}}</p>
+        </div>
+    </div>
 </div>
 
 <!--uso-->
 <div class="container-fluid description">
-  <div class="row">
-      <div class="col-12 col-md-4 description-title">
-          <h1>¿Como se usa?</h1>
-      </div>
-      <div class="col-12 col-md-8 description-text">
-          <p>{{ producto?.descripcion_usa}}</p>
-      </div>
-  </div>
+    <div class="row">
+        <div class="col-12 col-md-4 description-title">
+            <h1>¿Como se usa?</h1>
+        </div>
+        <div class="col-12 col-md-8 description-text">
+            <p>{{ producto?.descripcion_usa}}</p>
+        </div>
+    </div>
 </div>
 
 <!--ingredientes-->
 <div class="container-fluid description">
-  <div class="row">
-      <div class="col-12 col-md-4 description-title">
-          <h1>Ingredientes</h1>
-      </div>
-      <div class="col-12 col-md-8 description-text">
-          <p>{{ producto?.descripcion_ingredientes }}</p>
+    <div class="row">
+        <div class="col-12 col-md-4 description-title">
+            <h1>Ingredientes</h1>
+        </div>
+        <div class="col-12 col-md-8 description-text">
+            <p>{{ producto?.descripcion_ingredientes }}</p>
 
-      </div>
-  </div>
+        </div>
+    </div>
 </div>

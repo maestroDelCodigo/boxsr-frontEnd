@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessengerService } from 'src/app/admin/core/messenger.service';
 import { Producto } from 'src/app/admin/models/producto';
-import { DataSharingService } from 'src/app/shared/data-sharing.service';
 import { Usuario } from 'src/app/models/usuario';
 
 @Component({
@@ -26,8 +25,7 @@ export class CarritoComponent implements OnInit {
 
   constructor(
     private messageService: MessengerService,
-    private router: Router,
-    private dataSharingService: DataSharingService
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -40,13 +38,15 @@ export class CarritoComponent implements OnInit {
       ? JSON.parse(localStorage.getItem('APP_USER'))
       : [];
   }
-// Añadir productos al carrito
+  // Añadir productos al carrito
   addProductoAlCarrito(producto: Producto): void {
     let productoExiste = false;
 
     for (const i in this.carritoItems) {
       if (this.carritoItems[i].producto_id === producto.producto_id) {
-        this.carritoItems[i].cantidad++;
+        if (producto.nombre !== 'Muestra') {
+          this.carritoItems[i].cantidad++;
+        }
         productoExiste = true;
       }
     }
@@ -57,7 +57,12 @@ export class CarritoComponent implements OnInit {
         nombre: producto.nombre,
         cantidad: 1,
         precio: producto.precio,
+        tipo_producto: producto.tipo_producto,
+        imagen: producto.imagen_url,
       });
+      if (producto.nombre === 'Muestra') {
+        productoExiste = true;
+      }
     }
 
     this.calcularTotalCarrito();
@@ -68,23 +73,23 @@ export class CarritoComponent implements OnInit {
       ? JSON.parse(localStorage.getItem('APP_USER'))
       : [];
   }
-// Total del carrito con actualizacion en tiempo real
+  // Total del carrito con actualizacion en tiempo real
   calcularTotalCarrito(): void {
     this.carritoTotal = 0;
     this.carritoItems.forEach((item) => {
       this.item = localStorage.getItem('carritoItems')
-      ? JSON.parse(localStorage.getItem('carritoItems'))
-      : [];
+        ? JSON.parse(localStorage.getItem('carritoItems'))
+        : [];
       this.carritoTotal += item.cantidad * item.precio;
       this.carritoItem = item;
     });
   }
-// Añadir productos al localStorage
+  // Añadir productos al localStorage
   addToStorage(): void {
     localStorage.removeItem('carritoItems');
     localStorage.setItem('carritoItems', JSON.stringify(this.carritoItems));
   }
-// Borrar elementos del carrito
+  // Borrar elementos del carrito
   deleteItem(id): void {
     this.carritoItems = localStorage.getItem('carritoItems')
       ? JSON.parse(localStorage.getItem('carritoItems'))
@@ -96,12 +101,13 @@ export class CarritoComponent implements OnInit {
         break;
       }
     }
-    if (index === undefined) return;
+    if (index === undefined) {
+      return;
+    }
     this.carritoItems.splice(index, 1);
     localStorage.setItem('carritoItems', JSON.stringify(this.carritoItems));
 
     this.calcularTotalCarrito();
-
   }
 
   getLocalItems(): void {
