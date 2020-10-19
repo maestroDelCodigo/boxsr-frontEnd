@@ -46,7 +46,9 @@ export class CarritoComponent implements OnInit {
 
     for (const i in this.carritoItems) {
       if (this.carritoItems[i].producto_id === producto.producto_id) {
-        this.carritoItems[i].cantidad++;
+        if (producto.nombre !== 'Muestra') {
+          this.carritoItems[i].cantidad++;
+        }
         productoExiste = true;
       }
     }
@@ -58,6 +60,9 @@ export class CarritoComponent implements OnInit {
         cantidad: 1,
         precio: producto.precio,
       });
+      if (producto.nombre === 'Muestra') {
+        productoExiste = true;
+      }
     }
 
     this.calcularTotalCarrito();
