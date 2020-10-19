@@ -6,8 +6,7 @@
         <div class="carrito-item">
           <img src={{item.imagen}} alt="">
 
-          <span>{{ item.nombre | titlecase}} <span
-              *ngIf="item.nombre === 'Muestras'">{{item.tipo_producto}}</span></span> x
+          <span>{{ item.nombre | titlecase}} </span> x
           <span>{{ item.cantidad }}</span> =
           <strong class="item-precio">{{ item.precio * item.cantidad }}€</strong>
         </div>
