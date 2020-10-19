@@ -10,6 +10,7 @@
             </div>
             <div class="container-fluid buttons-container">
                 <div class="muestras">
+                    <h2 class="selecciona">¡Selecciona que box quieres probar!</h2>
                     <ng-container *ngFor="let producto of productos">
                         <button class="añadir-carro tipo" (click)="SeleccionarProducto(producto)" type="button">Prueba
                             {{producto.tipo_producto}}</button>

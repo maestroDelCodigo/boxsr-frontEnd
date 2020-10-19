@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessengerService } from 'src/app/admin/core/messenger.service';
 import { Producto } from 'src/app/admin/models/producto';
-import { DataSharingService } from 'src/app/shared/data-sharing.service';
 import { Usuario } from 'src/app/models/usuario';
 
 @Component({
@@ -26,8 +25,7 @@ export class CarritoComponent implements OnInit {
 
   constructor(
     private messageService: MessengerService,
-    private router: Router,
-    private dataSharingService: DataSharingService
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -103,7 +101,9 @@ export class CarritoComponent implements OnInit {
         break;
       }
     }
-    if (index === undefined) return;
+    if (index === undefined) {
+      return;
+    }
     this.carritoItems.splice(index, 1);
     localStorage.setItem('carritoItems', JSON.stringify(this.carritoItems));
 
