@@ -4,7 +4,10 @@
     <ul>
       <li class="list-group-item item" *ngFor="let item of carritoItems">
         <div class="carrito-item">
-          <span>{{ item.nombre | titlecase}}</span> x
+          <img src={{item.imagen}} alt="">
+
+          <span>{{ item.nombre | titlecase}} <span
+              *ngIf="item.nombre === 'Muestras'">{{item.tipo_producto}}</span></span> x
           <span>{{ item.cantidad }}</span> =
           <strong class="item-precio">{{ item.precio * item.cantidad }}€</strong>
         </div>
