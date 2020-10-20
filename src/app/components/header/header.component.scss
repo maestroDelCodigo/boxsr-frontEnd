@@ -4,7 +4,7 @@ a {
 
 .header {
   padding: 0px;
-  background-color: rgb(201, 201, 201) !important;
+  background-color: rgb(255, 255, 255) !important;
 }
 
 .navbar {
@@ -32,13 +32,16 @@ a {
 }
 
 .left {
-  padding-right: 1.6rem;
+  padding-right: 0.6rem;
   position: absolute;
   right: 0;
   top: 1.4rem;
 
   i {
     color: black;
+  }
+  a {
+    margin-right: 15px;
   }
 }
 
@@ -57,5 +60,12 @@ a {
     text-decoration: none !important;
     outline: none !important;
     background-color: rgba(128, 128, 128, 0.466) !important;
+  }
+}
+
+// MEDIA QUERIES ------------------------------------------------------------------------------------------
+@media (max-width: 575.98px) {
+  .navbar-brand {
+    margin-right: 110px;
   }
 }
