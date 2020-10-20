@@ -1,7 +1,3 @@
-a {
-  cursor: pointer;
-}
-
 .header {
   padding: 0px;
   background-color: white !important;
@@ -21,13 +17,25 @@ button:focus {
 }
 
 a {
+  cursor: pointer;
   color: black !important;
   font-size: 20px;
   margin-right: 80px;
   font-weight: 300;
-  padding: 8px 0px !important;
+}
 
-  &:hover {
+.nav-link {
+  padding: 8px 0px !important;
+  &:hover,
+  &:focus {
+    border-bottom: 1px solid #000;
+    padding-bottom: 3px;
+  }
+}
+
+.dropdown-item {
+  &:hover,
+  &:focus {
     border-bottom: 1px solid #000;
     padding-bottom: 3px;
   }
