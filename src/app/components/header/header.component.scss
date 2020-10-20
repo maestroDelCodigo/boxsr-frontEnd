@@ -24,13 +24,7 @@ a {
   color: black !important;
   font-size: 20px;
   margin-right: 80px;
-  font-weight: 300;
   padding: 8px 0px !important;
-
-  &:hover {
-    border-bottom: 1px solid #000;
-    padding-bottom: 3px;
-  }
 }
 
 .left {
@@ -66,8 +60,8 @@ a {
 }
 
 // MEDIA QUERIES ------------------------------------------------------------------------------------------
-@media (max-width: 575.98px) {
-  .navbar-brand {
-    margin-right: 110px;
+@media (max-width: 991px) {
+  .navbar {
+    justify-content: unset;
   }
 }
