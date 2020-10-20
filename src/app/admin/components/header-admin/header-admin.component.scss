@@ -1,35 +1,14 @@
-// // .nav-link{
-// //   margin-left: 100%;
-// // }
-
-// .container-fluid {
-//   padding: 0px;
-// }
-
-// .navbar {
-//   padding-top: 0px;
-//   padding-bottom: 0px;
-// }
-
-// .navbar-toggler {
-//   border: 0px !important;
-//   padding: 0px;
-// }
-
-// button:focus {
-//   outline: none !important;
-// }
+a {
+  cursor: pointer;
+}
 
 .header {
   padding: 0px;
-  background-color: rgba(199, 198, 198, 0.445) !important;
-
+  background-color: white !important;
 }
 
 .navbar {
-  padding-top: 0px;
-  padding-bottom: 0px;
-  background-color: transparent !important;
+  padding: 0px 30px;
 }
 
 .navbar-toggler {
@@ -41,26 +20,48 @@ button:focus {
   outline: none !important;
 }
 
-
 a {
-  color: black;
-  font-size: 16px;
-
-  &:hover {
-      text-decoration: underline;
-  }
+  color: black !important;
+  font-size: 14px;
+  margin-right: 40px;
+  padding: 8px 0px !important;
 }
 
-
 .left {
-  padding-right: 1.6rem;
+  padding-right: 0.6rem;
   position: absolute;
   right: 0;
   top: 1.4rem;
 
-   a {
-     color: black;
-     padding : 0.6rem;
-   }
+  i {
+    color: black;
+  }
+  a {
+    margin-right: 15px;
+  }
 }
 
+.dropdown-menu {
+  border: unset;
+  &:active {
+    text-decoration: none !important;
+    outline: none !important;
+  }
+}
+
+.dropdown-item {
+  font-weight: 300;
+
+  &:active {
+    text-decoration: none !important;
+    outline: none !important;
+    background-color: rgba(128, 128, 128, 0.466) !important;
+  }
+}
+
+// MEDIA QUERIES ------------------------------------------------------------------------------------------
+@media (max-width: 991px) {
+  .navbar {
+    justify-content: unset;
+  }
+}
