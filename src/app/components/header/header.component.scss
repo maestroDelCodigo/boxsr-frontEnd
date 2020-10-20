@@ -4,7 +4,7 @@ a {
 
 .header {
   padding: 0px;
-  background-color: rgb(255, 255, 255) !important;
+  background-color: white !important;
 }
 
 .navbar {
@@ -21,13 +21,15 @@ button:focus {
 }
 
 a {
-  color: black;
+  color: black !important;
   font-size: 20px;
-  font-weight: 800;
-  margin-right: 30px;
+  margin-right: 80px;
+  font-weight: 300;
+  padding: 8px 0px !important;
 
   &:hover {
-    font-weight: bold;
+    border-bottom: 1px solid #000;
+    padding-bottom: 3px;
   }
 }
 
