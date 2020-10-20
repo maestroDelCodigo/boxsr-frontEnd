@@ -4,7 +4,7 @@ a {
 
 .header {
   padding: 0px;
-  background-color: rgb(201, 201, 201) !important;
+  background-color: white !important;
 }
 
 .navbar {
@@ -21,24 +21,29 @@ button:focus {
 }
 
 a {
-  color: black;
+  color: black !important;
   font-size: 20px;
-  font-weight: 800;
-  margin-right: 30px;
+  margin-right: 80px;
+  font-weight: 300;
+  padding: 8px 0px !important;
 
   &:hover {
-    font-weight: bold;
+    border-bottom: 1px solid #000;
+    padding-bottom: 3px;
   }
 }
 
 .left {
-  padding-right: 1.6rem;
+  padding-right: 0.6rem;
   position: absolute;
   right: 0;
   top: 1.4rem;
 
   i {
     color: black;
+  }
+  a {
+    margin-right: 15px;
   }
 }
 
@@ -57,5 +62,12 @@ a {
     text-decoration: none !important;
     outline: none !important;
     background-color: rgba(128, 128, 128, 0.466) !important;
+  }
+}
+
+// MEDIA QUERIES ------------------------------------------------------------------------------------------
+@media (max-width: 575.98px) {
+  .navbar-brand {
+    margin-right: 110px;
   }
 }
