@@ -35,6 +35,11 @@ input {
     border: #4b4a4a9f 1px solid;
     border-radius: 10px;
     padding: 10px;
+
+    p {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
   }
 
   p {
@@ -44,4 +49,24 @@ input {
 
 .promocion {
   margin-top: 10px;
+}
+
+button {
+  background-color: white;
+  color: #4b4a4a;
+  border: #4b4a4a 2px solid !important;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.3s;
+  outline: none;
+  width: 100%;
+
+  &:hover {
+    background-color: #4b4a4a;
+    color: white;
+    border: #4b4a4a 2px solid !important;
+    font-weight: 400;
+  }
 }

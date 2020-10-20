@@ -22,9 +22,9 @@
             </mat-form-field>
         </div>
         <div class="form-group">
-            <button mat-raised-button [disabled]="loading" (click)="onSubmit()">
+            <button [disabled]="loading" (click)="onSubmit()">
                 <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-                Login
+                INICIA SESIÓN
             </button>
         </div>
         <div class="form-group registro">
@@ -33,7 +33,7 @@
 
                 <button mat-raised-button (click)="registrarUsuario()">
                     <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-                    Registrate aquí
+                    REGISTRATE
                 </button>
             </div>
 
