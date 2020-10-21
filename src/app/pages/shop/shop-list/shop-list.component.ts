@@ -5,22 +5,22 @@ import { MessengerService } from 'src/app/admin/core/messenger.service';
 import { Producto } from 'src/app/admin/models/producto';
 import { Coleccion } from 'src/app/models/coleccion';
 
-
 @Component({
   selector: 'app-shop-list',
   templateUrl: './shop-list.component.html',
-  styleUrls: ['./shop-list.component.scss']
+  styleUrls: ['./shop-list.component.scss'],
 })
 export class ShopListComponent implements OnInit {
-
   @Input() productos: Producto[];
-  @Input() colecciones: Coleccion [];
+  @Input() colecciones: Coleccion[];
   @Output() ver = new EventEmitter();
   @Output() verColeccion = new EventEmitter();
   user: any;
 
-
-  constructor(private messengerService: MessengerService, private router: Router) { }
+  constructor(
+    private messengerService: MessengerService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.user = localStorage.getItem('APP_USER')
@@ -36,11 +36,13 @@ export class ShopListComponent implements OnInit {
     this.verColeccion.emit(coleccion);
   }
 
-  AddAlCarrito(producto: Producto): void {
-    this.messengerService.sendMsg(producto);
+  AddAlCarrito(producto: any): void {
+    this.messengerService.sendMsg({
+      ...producto,
+      producto_id: 'COL' + producto.coleccion_id,
+    });
   }
-   checkOut(): void{
+  checkOut(): void {
     this.router.navigate(['checkout']);
-   }
-
+  }
 }
