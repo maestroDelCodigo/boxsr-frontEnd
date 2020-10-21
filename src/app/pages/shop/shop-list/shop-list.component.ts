@@ -37,10 +37,14 @@ export class ShopListComponent implements OnInit {
   }
 
   AddAlCarrito(producto: any): void {
-    this.messengerService.sendMsg({
-      ...producto,
-      producto_id: producto.coleccion_id,
-    });
+    if (producto.producto_id) {
+      this.messengerService.sendMsg(producto);
+    } else {
+      this.messengerService.sendMsg({
+        ...producto,
+        producto_id: producto.coleccion_id,
+      });
+    }
   }
   checkOut(): void {
     this.router.navigate(['checkout']);
