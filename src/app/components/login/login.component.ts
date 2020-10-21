@@ -11,10 +11,9 @@ import { DataSharingService } from '../../shared/data-sharing.service';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  providers: [LoginService]
+  providers: [LoginService],
 })
 export class LoginComponent implements OnInit {
-
   @Input() mostrarLogin = false;
   @Output() cerrarPanel = new EventEmitter<void>();
   @Input() abrirLogin = false;
@@ -31,23 +30,26 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
     private loginService: LoginService,
-    private dataSharingService: DataSharingService,
-  ) { }
+    private dataSharingService: DataSharingService
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
     });
     this.user = localStorage.getItem('APP_USER')
-                ? JSON.parse(localStorage.getItem('APP_USER'))
-                : [];
-    if (this.user){
+      ? JSON.parse(localStorage.getItem('APP_USER'))
+      : [];
+    if (this.user.usuario_id) {
+      console.log(this.user);
       this.dataSharingService.isUserLoggedIn.next(true);
     }
   }
 
-  get f(): any { return this.loginForm.controls; }
+  get f(): any {
+    return this.loginForm.controls;
+  }
 
   onSubmit(): void {
     this.submitted = true;
@@ -58,7 +60,9 @@ export class LoginComponent implements OnInit {
 
     this.loading = true;
 
-    this.loginService.login(this.f.username.value, this.f.password.value).pipe(first())
+    this.loginService
+      .login(this.f.username.value, this.f.password.value)
+      .pipe(first())
       .subscribe(
         (user) => {
           if (user) {
@@ -69,8 +73,7 @@ export class LoginComponent implements OnInit {
             if (user.rol === 'Admin') {
               // this.cerrarPanel.emit();
               this.router.navigate(['admin']);
-            }
-            else {
+            } else {
               this.item = localStorage.getItem('carritoItems')
                 ? JSON.parse(localStorage.getItem('carritoItems'))
                 : [];
@@ -87,8 +90,6 @@ export class LoginComponent implements OnInit {
           }
 
           this.loading = false;
-
-
         },
         (error) => {
           this.loading = false;

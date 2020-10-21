@@ -4,6 +4,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { Usuario } from 'src/app/models/usuario';
 import { RegistroUsuarioService } from 'src/app/services/registro-usuario.service';
+import { DataSharingService } from 'src/app/shared/data-sharing.service';
 
 @Component({
   selector: 'app-perfil-usuario',
@@ -23,7 +24,8 @@ export class PerfilUsuarioComponent implements OnInit {
     private messageService: MessageService,
     public registroService: RegistroUsuarioService,
     public router: Router,
-    activatedRoute: ActivatedRoute
+    activatedRoute: ActivatedRoute,
+    private dataSharingService: DataSharingService
   ) {
     activatedRoute.params.subscribe((x) => {
       this.id = x?.id || null;
@@ -32,48 +34,51 @@ export class PerfilUsuarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.registroService.getUser(this.id).subscribe((x) => {
-      this.usuario = x;
-      console.log(x);
-      this.formularioUsuario = this.fb.group({
-        nombre: [
-          this.usuario.nombre,
-          [Validators.required, Validators.maxLength(145)],
-        ],
-        apellidos: [
-          this.usuario.apellidos,
-          [Validators.required, Validators.maxLength(145)],
-        ],
-        email: [
-          this.usuario.email,
-          [Validators.required, Validators.maxLength(145)],
-        ],
-        password: [
-          this.usuario.password,
-          [Validators.required, Validators.maxLength(16)],
-        ],
-        fecha_nacimiento: [
-          this.usuario.fecha_nacimiento,
-          [Validators.required, Validators.maxLength(60)],
-        ],
-        direccion: [
-          this.usuario.direccion,
-          [Validators.required, Validators.maxLength(145)],
-        ],
-        codigo_postal: [
-          this.usuario.codigo_postal,
-          [Validators.required, Validators.maxLength(5)],
-        ],
-        poblacion: [
-          this.usuario.poblacion,
-          [Validators.required, Validators.maxLength(60)],
-        ],
-        provincia: [
-          this.usuario.provincia,
-          [Validators.required, Validators.maxLength(60)],
-        ],
-        deleted: [0],
-      });
+    this.usuario = localStorage.getItem('APP_USER')
+      ? JSON.parse(localStorage.getItem('APP_USER'))
+      : [];
+    if (this.usuario.usuario_id) {
+      console.log(this.usuario);
+      this.dataSharingService.isUserLoggedIn.next(true);
+    }
+    this.formularioUsuario = this.fb.group({
+      nombre: [
+        this.usuario.nombre,
+        [Validators.required, Validators.maxLength(145)],
+      ],
+      apellidos: [
+        this.usuario.apellidos,
+        [Validators.required, Validators.maxLength(145)],
+      ],
+      email: [
+        this.usuario.email,
+        [Validators.required, Validators.maxLength(145)],
+      ],
+      password: [
+        this.usuario.password,
+        [Validators.required, Validators.maxLength(16)],
+      ],
+      fecha_nacimiento: [
+        this.usuario.fecha_nacimiento,
+        [Validators.required, Validators.maxLength(60)],
+      ],
+      direccion: [
+        this.usuario.direccion,
+        [Validators.required, Validators.maxLength(145)],
+      ],
+      codigo_postal: [
+        this.usuario.codigo_postal,
+        [Validators.required, Validators.maxLength(5)],
+      ],
+      poblacion: [
+        this.usuario.poblacion,
+        [Validators.required, Validators.maxLength(60)],
+      ],
+      provincia: [
+        this.usuario.provincia,
+        [Validators.required, Validators.maxLength(60)],
+      ],
+      deleted: [0],
     });
   }
   onSubmit(): void {
