@@ -12,6 +12,15 @@ a {
   color: black;
 }
 
+h3 {
+  font-size: 20px;
+}
+
+.precio-original {
+  text-decoration: line-through;
+  color: #4b4a4a;
+}
+
 //Slider
 .slider {
   margin-top: -70px;
@@ -36,6 +45,10 @@ a {
       font-size: 16px;
       transition: 0.3s;
     }
+  }
+
+  .consulta-top {
+    margin-bottom: 30px;
   }
 
   h1 {
@@ -79,6 +92,7 @@ a {
       padding: 0px;
       width: 90%;
       margin-bottom: 20px;
+      min-height: 15vh;
 
       h2 {
         font-size: 24px;
@@ -87,6 +101,7 @@ a {
 
       p {
         color: #4b4a4a;
+        font-size: 16px;
       }
     }
   }

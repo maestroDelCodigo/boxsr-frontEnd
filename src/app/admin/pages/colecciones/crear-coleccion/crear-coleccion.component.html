@@ -1,7 +1,8 @@
-<p-dialog header="Crear colección" [(visible)]="display" styleClass="mydialog" [baseZIndex]="10000" (onHide)="cerrarDialogo.emit()">
+<p-dialog header="Crear colección" [(visible)]="display" styleClass="mydialog" [baseZIndex]="10000"
+  (onHide)="cerrarDialogo.emit()">
 
-   <!-- Upload image -->
-   <div class="avatar-upload">
+  <!-- Upload image -->
+  <div class="avatar-upload">
     <div class="avatar-edit">
       <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" #fileInput (change)="uploadFile($event)" />
       <label for="imageUpload" *ngIf="editFile" [ngClass]="['custom-label', 'upload-image']"></label>
@@ -19,7 +20,7 @@
         <mat-label>Nombre de coleccion</mat-label>
         <input matInput formControlName="nombre" [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }" />
         <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
-            <div *ngIf="f.nombre.errors.required">Nombre requerido</div>
+          <div *ngIf="f.nombre.errors.required">Nombre requerido</div>
         </div>
       </mat-form-field>
     </div>
@@ -32,63 +33,69 @@
     <div class="form-group">
       <mat-form-field class="full-width">
         <mat-label>Precio rebajado</mat-label>
-        <input matInput
-        pattern="^\d+(\.\d{1,2})?$"
-        digitOnly
-        decimal="true"
-        decimalSeparator="."
-        formControlName="precio_rebajado" />
+        <input matInput pattern="^\d+(\.\d{1,2})?$" digitOnly decimal="true" decimalSeparator="."
+          formControlName="precio_rebajado" />
 
       </mat-form-field>
     </div>
     <div class="form-group">
       <mat-form-field class="full-width">
         <mat-label>Precio original</mat-label>
-        <input matInput
-        pattern="^\d+(\.\d{1,2})?$"
-        digitOnly
-        decimal="true"
-        decimalSeparator="."
-        formControlName="precio_original" [ngClass]="{ 'is-invalid': submitted && f.precio_original.errors }" />
+        <input matInput pattern="^\d+(\.\d{1,2})?$" digitOnly decimal="true" decimalSeparator="."
+          formControlName="precio_original" [ngClass]="{ 'is-invalid': submitted && f.precio_original.errors }" />
         <div *ngIf="submitted && f.precio_original.errors" class="invalid-feedback">
-            <div *ngIf="f.precio_original.errors.required">Precio original requerido</div>
+          <div *ngIf="f.precio_original.errors.required">Precio original requerido</div>
+        </div>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="full-width">
+        <mat-label>Resumen de coleccion</mat-label>
+        <textarea matInput formControlName="resumen"
+          [ngClass]="{ 'is-invalid': submitted && f.resumen.errors }"></textarea>
+        <div *ngIf="submitted && f.resumen.errors" class="invalid-feedback">
+          <div *ngIf="f.resumen.errors.required">Resumen de producto requerido</div>
         </div>
       </mat-form-field>
     </div>
     <div class="form-group">
       <mat-form-field class="full-width">
         <mat-label>Descripción de coleccion</mat-label>
-        <textarea matInput formControlName="descripcion" [ngClass]="{ 'is-invalid': submitted && f.descripcion.errors }"></textarea>
-      <div *ngIf="submitted && f.descripcion.errors" class="invalid-feedback">
+        <textarea matInput formControlName="descripcion"
+          [ngClass]="{ 'is-invalid': submitted && f.descripcion.errors }"></textarea>
+        <div *ngIf="submitted && f.descripcion.errors" class="invalid-feedback">
           <div *ngIf="f.descripcion.errors.required">Descripción de producto requerido</div>
-      </div>
+        </div>
       </mat-form-field>
     </div>
     <div class="form-group">
       <mat-form-field class="full-width">
         <mat-label>Descripción de utilidad</mat-label>
-        <textarea matInput formControlName="utilidad" [ngClass]="{ 'is-invalid': submitted && f.utilidad.errors }" ></textarea>
-      <div *ngIf="submitted && f.utilidad.errors" class="invalid-feedback">
+        <textarea matInput formControlName="utilidad"
+          [ngClass]="{ 'is-invalid': submitted && f.utilidad.errors }"></textarea>
+        <div *ngIf="submitted && f.utilidad.errors" class="invalid-feedback">
           <div *ngIf="f.utilidad.errors.required">Descripción de utilidad requerido</div>
-      </div>
+        </div>
       </mat-form-field>
     </div>
     <div class="form-group">
       <mat-form-field class="full-width">
         <mat-label>Descripción de usabilidad</mat-label>
-        <textarea matInput formControlName="usabilidad" [ngClass]="{ 'is-invalid': submitted && f.usabilidad.errors }"></textarea>
-      <div *ngIf="submitted && f.usabilidad.errors" class="invalid-feedback">
+        <textarea matInput formControlName="usabilidad"
+          [ngClass]="{ 'is-invalid': submitted && f.usabilidad.errors }"></textarea>
+        <div *ngIf="submitted && f.usabilidad.errors" class="invalid-feedback">
           <div *ngIf="f.usabilidad.errors.required">Descripción de usabilidad requerido</div>
-      </div>
+        </div>
       </mat-form-field>
     </div>
     <div class="form-group">
       <mat-form-field class="full-width">
         <mat-label>Ingredientes</mat-label>
-        <textarea matInput formControlName="ingredientes" [ngClass]="{ 'is-invalid': submitted && f.ingredientes.errors }"></textarea>
-      <div *ngIf="submitted && f.ingredientes.errors" class="invalid-feedback">
+        <textarea matInput formControlName="ingredientes"
+          [ngClass]="{ 'is-invalid': submitted && f.ingredientes.errors }"></textarea>
+        <div *ngIf="submitted && f.ingredientes.errors" class="invalid-feedback">
           <div *ngIf="f.ingredientes.errors.required">Ingredientes requerido</div>
-      </div>
+        </div>
       </mat-form-field>
     </div>
   </form>
@@ -122,7 +129,8 @@
       <ng-container matColumnDef="seleccionado">
         <th mat-header-cell *matHeaderCellDef> Incluido </th>
         <td mat-cell *matCellDef="let element">
-          <mat-checkbox [(ngModel)]="element.seleccionado" (change)="calcularTotal($event, element.precio, element.id)"></mat-checkbox>
+          <mat-checkbox [(ngModel)]="element.seleccionado" (change)="calcularTotal($event, element.precio, element.id)">
+          </mat-checkbox>
         </td>
       </ng-container>
 
@@ -138,7 +146,7 @@
 
   <ng-template pTemplate="footer">
     <div class="form-group">
-    <!-- <button  class="btn btn-primary">
+      <!-- <button  class="btn btn-primary">
         Crear
     </button> -->
       <button mat-raised-button (click)="onSubmit()">Crear</button>

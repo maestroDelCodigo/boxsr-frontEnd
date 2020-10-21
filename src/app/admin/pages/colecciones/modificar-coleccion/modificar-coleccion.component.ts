@@ -1,4 +1,13 @@
-import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { MatTableDataSource } from '@angular/material/table';
@@ -13,7 +22,7 @@ import { UploadFilesService } from 'src/app/core/upload.service';
 @Component({
   selector: 'app-modificar-coleccion',
   templateUrl: './modificar-coleccion.component.html',
-  styleUrls: ['./modificar-coleccion.component.scss']
+  styleUrls: ['./modificar-coleccion.component.scss'],
 })
 export class ModificarColeccionComponent implements OnInit {
   @ViewChild('fileInput') el: ElementRef;
@@ -32,30 +41,57 @@ export class ModificarColeccionComponent implements OnInit {
   nombreImagen: string;
   file: any;
 
-  constructor(private coleccionesService: ColeccionesService,
-              private formBuilder: FormBuilder,
-              private messageService: MessageService,
-              private productosService: ProductosService,
-              private cd: ChangeDetectorRef, private uploadService: UploadFilesService  ) { }
+  constructor(
+    private coleccionesService: ColeccionesService,
+    private formBuilder: FormBuilder,
+    private messageService: MessageService,
+    private productosService: ProductosService,
+    private cd: ChangeDetectorRef,
+    private uploadService: UploadFilesService
+  ) {}
 
   ngOnInit(): void {
     this.coleccionesForm = this.formBuilder.group({
-      nombre: [this.coleccion.nombre, [Validators.required, Validators.maxLength(145)]],
+      nombre: [
+        this.coleccion.nombre,
+        [Validators.required, Validators.maxLength(145)],
+      ],
       video_url: [this.coleccion.video_url, [Validators.maxLength(145)]],
-      precio_rebajado: [this.coleccion.precio_rebajado, [ Validators.maxLength(5)]],
-      precio_original: [{ value : this.coleccion.precio_original, disabled : true}, [Validators.required, Validators.maxLength(5)]],
-      descripcion: [this.coleccion.descripcion, [Validators.required, Validators.maxLength(500)]],
-      utilidad: [this.coleccion.descripcion_sirve, [Validators.required, Validators.maxLength(500)]],
-      usabilidad: [this.coleccion.descripcion_usa, [Validators.required, Validators.maxLength(500)]],
-      ingredientes: [this.coleccion.descripcion_ingredientes, [Validators.required, Validators.maxLength(500)]],
+      precio_rebajado: [
+        this.coleccion.precio_rebajado,
+        [Validators.maxLength(5)],
+      ],
+      precio_original: [
+        { value: this.coleccion.precio_original, disabled: true },
+        [Validators.required, Validators.maxLength(5)],
+      ],
+      descripcion: [
+        this.coleccion.descripcion,
+        [Validators.required, Validators.maxLength(500)],
+      ],
+      resumen: [
+        this.coleccion.descripcion_resumen,
+        [Validators.required, Validators.maxLength(500)],
+      ],
+      utilidad: [
+        this.coleccion.descripcion_sirve,
+        [Validators.required, Validators.maxLength(500)],
+      ],
+      usabilidad: [
+        this.coleccion.descripcion_usa,
+        [Validators.required, Validators.maxLength(500)],
+      ],
+      ingredientes: [
+        this.coleccion.descripcion_ingredientes,
+        [Validators.required, Validators.maxLength(500)],
+      ],
     });
 
     console.log(this.coleccion);
 
     this.imageUrl = this.coleccion.imagen_url;
 
-    if (this.imageUrl)
-    {
+    if (this.imageUrl) {
       this.editFile = false;
       this.removeUpload = true;
     }
@@ -63,35 +99,49 @@ export class ModificarColeccionComponent implements OnInit {
     this.precioTotal = this.coleccion.precio_original;
     console.log(this.precioTotal, 'precio total');
 
-    combineLatest( [this.productosService.listarProductos(),
-      this.coleccionesService.obtenerProductosAsociados(this.coleccion.coleccion_id)])
+    combineLatest([
+      this.productosService.listarProductos(),
+      this.coleccionesService.obtenerProductosAsociados(
+        this.coleccion.coleccion_id
+      ),
+    ])
       .pipe(
         first(),
         tap(([productos, productosAsociados]) => {
           const data = productos.map((producto) => {
             return {
               id: producto.producto_id,
-              nombre : producto.nombre,
-              precio : producto.precio,
-              tipo : producto.tipo_producto,
-              seleccionado : this.estaAsociado(producto.producto_id, productosAsociados, this.coleccion.coleccion_id)
+              nombre: producto.nombre,
+              precio: producto.precio,
+              tipo: producto.tipo_producto,
+              seleccionado: this.estaAsociado(
+                producto.producto_id,
+                productosAsociados,
+                this.coleccion.coleccion_id
+              ),
             };
           });
 
           this.dataSource = new MatTableDataSource(data);
         })
-        ).subscribe(()=>
-          console.log(this.productosSeleccionados, 'seleccionados')
-
-        );
+      )
+      .subscribe(() =>
+        console.log(this.productosSeleccionados, 'seleccionados')
+      );
   }
 
-  private estaAsociado(id: number, productos: any[], idColeccion: number): boolean{
+  private estaAsociado(
+    id: number,
+    productos: any[],
+    idColeccion: number
+  ): boolean {
+    if (productos) {
+      const existe = productos.find(
+        (producto) =>
+          producto.producto_id === id && producto.coleccion_id === idColeccion
+      );
 
-    if (productos){
-      const existe = productos.find((producto) => producto.producto_id === id && producto.coleccion_id === idColeccion);
-
-      if (existe){
+      if (existe) {
         this.productosSeleccionados.push(id);
         return true;
       }
@@ -100,17 +150,22 @@ export class ModificarColeccionComponent implements OnInit {
     }
 
     return false;
-
   }
 
-  get f(): any { return this.coleccionesForm.controls; }
+  get f(): any {
+    return this.coleccionesForm.controls;
+  }
 
   onSubmit(): void {
     this.submitted = true;
 
     // stop here if form is invalid
-    if (this.coleccionesForm.invalid || (!this.productosSeleccionados || this.productosSeleccionados.length === 0)) {
-        return;
+    if (
+      this.coleccionesForm.invalid ||
+      !this.productosSeleccionados ||
+      this.productosSeleccionados.length === 0
+    ) {
+      return;
     }
 
     this.coleccion.nombre = this.f.nombre.value;
@@ -119,100 +174,109 @@ export class ModificarColeccionComponent implements OnInit {
     this.coleccion.precio_original = this.f.precio_original.value;
     this.coleccion.productos_asociados = this.productosSeleccionados;
     this.coleccion.descripcion = this.f.descripcion.value;
+    this.coleccion.descripcion_resumen = this.f.resumen.value;
     this.coleccion.descripcion_sirve = this.f.utilidad.value;
     this.coleccion.descripcion_usa = this.f.usabilidad.value;
     this.coleccion.descripcion_ingredientes = this.f.ingredientes.value;
 
-    if (this.file)
-    {
+    if (this.file) {
       this.coleccion.nombre_imagen = this.nombreImagen;
 
-      this.uploadService.upload(this.file).pipe(
-        first(),
-        switchMap(() => this.coleccionesService.modificarColeccion(this.coleccion))
-        ).subscribe(
-          (resultado) => {
-            if (resultado){
-              this.messageService.add({severity: 'success', summary: 'Coleccion', detail: 'Coleccion modificado correctamente.'});
-              this.cerrarDialogo.emit();
-            }
-            else{
-              this.messageService.add({severity: 'error', summary: 'Coleccion', detail: 'Hubo un problema al modificar el coleccion.'});
-            }
-          },
-        );
-
-    }else {
-
-      if (!this.imageUrl)
-      {
+      this.uploadService
+        .upload(this.file)
+        .pipe(
+          first(),
+          switchMap(() =>
+            this.coleccionesService.modificarColeccion(this.coleccion)
+          )
+        )
+        .subscribe((resultado) => {
+          if (resultado) {
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Coleccion',
+              detail: 'Coleccion modificado correctamente.',
+            });
+            this.cerrarDialogo.emit();
+          } else {
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Coleccion',
+              detail: 'Hubo un problema al modificar el coleccion.',
+            });
+          }
+        });
+    } else {
+      if (!this.imageUrl) {
         this.coleccion.nombre_imagen = '';
       }
 
       // Llamada al servicio que llama al back
-      this.coleccionesService.modificarColeccion(this.coleccion).subscribe(
-        (resultado) => {
+      this.coleccionesService
+        .modificarColeccion(this.coleccion)
+        .subscribe((resultado) => {
           console.log(resultado);
-          if (resultado){
-            this.messageService.add({severity: 'success', summary: 'Coleccion', detail: 'Coleccion modificado correctamente.'});
+          if (resultado) {
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Coleccion',
+              detail: 'Coleccion modificado correctamente.',
+            });
             this.cerrarDialogo.emit();
+          } else {
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Coleccion',
+              detail: 'Hubo un problema al modificar el coleccion.',
+            });
           }
-          else{
-            this.messageService.add({severity: 'error', summary: 'Coleccion', detail: 'Hubo un problema al modificar el coleccion.'});
-          }
-        },
-      );
-      }
+        });
     }
-
-    applyFilter(event: Event): void {
-      const filterValue = (event.target as HTMLInputElement).value;
-      this.dataSource.filter = filterValue.trim().toLowerCase();
-    }
-
-    calcularTotal(data: MatCheckboxChange, precio: number, id: number): void{
-
-      if (data.checked)
-      {
-        this.precioTotal = this.precioTotal + precio;
-        this.productosSeleccionados.push(id);
-      }
-      else{
-        this.precioTotal = this.precioTotal - precio;
-        const index = this.productosSeleccionados.indexOf(id, 0);
-        if (index > -1) {
-          this.productosSeleccionados.splice(index, 1);
-        }
-      }
-
-      this.f.precio_original.setValue(this.precioTotal);
-    }
-
-    uploadFile(event): void{
-      const reader = new FileReader(); // HTML5 FileReader API
-      const file = event.target.files[0];
-      if (event.target.files && event.target.files[0]) {
-        reader.readAsDataURL(file);
-        this.nombreImagen = event.target.files[0].name;
-        this.file = event.target.files[0];
-        // When file uploads set it to file formcontrol
-        reader.onload = () => {
-          this.imageUrl = reader.result;
-          this.editFile = false;
-          this.removeUpload = true;
-        };
-        // ChangeDetectorRef since file is loading outside the zone
-        this.cd.markForCheck();
-      }
-    }
-
-      // Function to remove uploaded file
-      removeUploadedFile(): void {
-        const newFileList = Array.from(this.el.nativeElement.files);
-        this.imageUrl = '';
-        this.editFile = true;
-        this.removeUpload = false;
-      }
   }
 
+  applyFilter(event: Event): void {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 
+  calcularTotal(data: MatCheckboxChange, precio: number, id: number): void {
+    if (data.checked) {
+      this.precioTotal = this.precioTotal + precio;
+      this.productosSeleccionados.push(id);
+    } else {
+      this.precioTotal = this.precioTotal - precio;
+      const index = this.productosSeleccionados.indexOf(id, 0);
+      if (index > -1) {
+        this.productosSeleccionados.splice(index, 1);
+      }
+    }
+
+    this.f.precio_original.setValue(this.precioTotal);
+  }
+
+  uploadFile(event): void {
+    const reader = new FileReader(); // HTML5 FileReader API
+    const file = event.target.files[0];
+    if (event.target.files && event.target.files[0]) {
+      reader.readAsDataURL(file);
+      this.nombreImagen = event.target.files[0].name;
+      this.file = event.target.files[0];
+      // When file uploads set it to file formcontrol
+      reader.onload = () => {
+        this.imageUrl = reader.result;
+        this.editFile = false;
+        this.removeUpload = true;
+      };
+      // ChangeDetectorRef since file is loading outside the zone
+      this.cd.markForCheck();
+    }
+  }
+
+  // Function to remove uploaded file
+  removeUploadedFile(): void {
+    const newFileList = Array.from(this.el.nativeElement.files);
+    this.imageUrl = '';
+    this.editFile = true;
+    this.removeUpload = false;
+  }
+}

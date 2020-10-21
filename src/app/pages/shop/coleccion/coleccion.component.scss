@@ -2,40 +2,43 @@
   min-height: 80vh;
   border-top: gray 1px solid;
 
-.row {
+  .row {
     min-height: 80vh;
-}
-
-.product-img {
-  background-size: cover;
-  background-position: center;
-  min-height: 40vh;
-}
-
-.product-text {
-  padding: 0px;
-  min-height: 80vh;
-  border-left: gray 1px solid;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-
-  h1, h3 {
-      padding: 30px;
   }
-  h1 {
+
+  .product-img {
+    background-size: cover;
+    background-position: center;
+    min-height: 40vh;
+  }
+
+  .precio-original {
+    text-decoration: line-through;
+  }
+
+  .product-text {
+    padding: 0px;
+    min-height: 80vh;
+    border-left: gray 1px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h1,
+    h3 {
+      padding: 30px;
+    }
+    h1 {
       padding-bottom: 0px;
       margin-bottom: 0px;
-
+    }
   }
-}
 
-h3 {
+  h3 {
     color: gray;
-}
+  }
 
-.comprar-ahora {
+  .comprar-ahora {
     padding: 0px;
 
     h2 {
@@ -45,7 +48,7 @@ h3 {
       background-color: gray;
       color: white;
     }
-}
+  }
 }
 
 .description {
@@ -53,11 +56,10 @@ h3 {
   padding-top: 10px;
 
   .description-title {
-
-      h1 {
-          font-size: 30px;
-          text-align: center;
-      }
+    h1 {
+      font-size: 30px;
+      text-align: center;
+    }
   }
 }
 
@@ -66,7 +68,7 @@ h3 {
   flex-direction: column;
   padding: 0px;
 
-  .precio{
+  .precio {
     background-color: #f5d899;
     color: white;
     border: none;
@@ -74,7 +76,7 @@ h3 {
     font-size: 16px;
     text-align: center;
 
-    .tachado{
+    .tachado {
       text-decoration: line-through;
     }
   }
