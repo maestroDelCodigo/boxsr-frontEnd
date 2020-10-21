@@ -39,7 +39,7 @@ export class ShopListComponent implements OnInit {
   AddAlCarrito(producto: any): void {
     this.messengerService.sendMsg({
       ...producto,
-      producto_id: 'COL' + producto.coleccion_id,
+      producto_id: producto.coleccion_id,
     });
   }
   checkOut(): void {
