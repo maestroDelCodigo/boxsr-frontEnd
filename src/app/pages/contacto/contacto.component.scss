@@ -1,53 +1,60 @@
 * {
-    font-family: averta !important;
-    color: #4B4A4A;
-  }
-  .black{
-    font-weight: revert;
-  }
-  .italic{
-    font-style: italic;
-  }
-  .padding{
-    padding-left: 7%;
-    padding-right: 7%;
-    padding-top: 5%;
-  }
-.contact{
-    padding: 4%;
-    height: 15%;
+  font-family: averta !important;
+  color: #4b4a4a;
 }
 
-// .col-md-3{
-  
-//     padding: 4%;
-  
-//     border-bottom-left-radius: 0.5rem;
-// }
-// .contact-info{
-//     margin-top:10%;
-// }
-// .contact-info img{
-//     margin-bottom: 15%;
-// }
-// .contact-info h2{
-//     margin-bottom: 10%;
-// }
-// .col-md-9{
-//     background: #fff;
-//     padding: 3%;
-    
-//     border-bottom-right-radius: 0.5rem;
-// }
-// .contact-form label{
-//     font-weight:600;
-// }
-// .contact-form button{
-//     background: gray;
-//     color: #fff;
-//     font-weight: 500;
-//     width: 29%;
-// }
-// .contact-form button:focus{
-//     box-shadow:none;
-// }
+.row {
+  min-height: 60vh;
+}
+
+.text-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #4b4a4a;
+  padding: 50px;
+}
+
+form {
+  padding-left: 0px;
+}
+
+.box {
+  border: #4b4a4a 1px solid;
+  border-right: none;
+  display: flex;
+  flex-direction: column;
+}
+
+mat-form-field {
+  margin-right: 20px;
+  width: 80%;
+}
+
+.img {
+  background-image: url(../../../assets/images/Contornodeojos.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: #4b4a4a 1px solid;
+  min-height: 30vh;
+}
+
+button {
+  background-color: white;
+  color: #4b4a4a;
+  border: #4b4a4a 1px solid !important;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.3s;
+  outline: none;
+
+  &:hover {
+    background-color: #4b4a4a;
+    color: white;
+    border: #4b4a4a 1px solid !important;
+    font-weight: 400;
+  }
+}

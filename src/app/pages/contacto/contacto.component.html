@@ -1,54 +1,108 @@
-<div class="container-fluid padding">
+<!-- <div class="container-fluid box">
 	<div class="row">
-		<div class="col-12">
+		<div class="col-6 col-md-12">
 			<h1 class="black">Contacto</h1>
 			<h4>Contacta con nuestro equipo y te asesoramos personalmente.</h4>
+			<form [formGroup]="formContact" class="container">
+				<div class="form-group">
+					<mat-form-field class="full-width">
+						<mat-label>Nombre</mat-label>
+						<input matInput formControlName="nombre" [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }" />
+						<div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+							<div *ngIf="f.nombre.errors.required">Nombre requerido</div>
+						</div>
+					</mat-form-field>
+				</div>
+				<div class="form-group">
+					<mat-form-field class="full-width">
+						<mat-label>Apellidos</mat-label>
+						<input matInput formControlName="apellidos" [ngClass]="{ 'is-invalid': submitted && f.apellidos.errors }" />
+						<div *ngIf="submitted && f.apellidos.errors" class="invalid-feedback">
+							<div *ngIf="f.apellidos.errors.required">Apellido obligatorio</div>
+						</div>
+					</mat-form-field>
+				</div>
+				<div class="form-group">
+					<mat-form-field class="full-width">
+						<mat-label>Email</mat-label>
+						<input matInput formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+						<div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+							<div *ngIf="f.email.errors.required">Email requerido</div>
+						</div>
+					</mat-form-field>
+				</div>
+				<div class="form-group">
+					<mat-form-field class="full-width">
+						<mat-label>Mensaje</mat-label>
+						<input matInput formControlName="mensaje" [ngClass]="{ 'is-invalid': submitted && f.mensaje.errors }" />
+						<div *ngIf="submitted && f.mensaje.errors" class="invalid-feedback">
+							<div *ngIf="f.mensaje.errors.required">El mensaje no se puede enviar en blanco</div>
+						</div>
+					</mat-form-field>
+				</div>
+
+				<div class="form-group">
+
+					<button mat-raised-button (click)="guardar()">ENVIAR</button>
+				</div>
+			</form>
 		</div>
 	</div>
+	<div class="col-6 col-md-12 img">
+
+	</div>
+</div> -->
+
+<!--consulta-->
+<div class="container-fluid box">
+	<div class="row">
+		<div class="col-12 col-md-6 text-col">
+			<h1 class="black">Contacto</h1>
+			<h4>Contacta con nuestro equipo y te asesoramos personalmente.</h4>
+			<form [formGroup]="formContact" class="container">
+				<div class="form-group">
+					<mat-form-field class="full-width">
+						<mat-label>Nombre</mat-label>
+						<input matInput formControlName="nombre" [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }" />
+						<div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+							<div *ngIf="f.nombre.errors.required">Nombre requerido</div>
+						</div>
+					</mat-form-field>
+					<div class="form-group">
+						<mat-form-field class="full-width mensaje">
+							<mat-label>Apellidos</mat-label>
+							<input matInput formControlName="apellidos"
+								[ngClass]="{ 'is-invalid': submitted && f.apellidos.errors }" />
+							<div *ngIf="submitted && f.apellidos.errors" class="invalid-feedback">
+								<div *ngIf="f.apellidos.errors.required">Apellido obligatorio</div>
+							</div>
+						</mat-form-field>
+					</div>
+				</div>
+				<div class="form-group">
+					<mat-form-field class="full-width">
+						<mat-label>Email</mat-label>
+						<input matInput formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+						<div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+							<div *ngIf="f.email.errors.required">Email requerido</div>
+						</div>
+					</mat-form-field>
+				</div>
+				<div class="form-group">
+					<mat-form-field class="full-width mensaje">
+						<mat-label>Mensaje</mat-label>
+						<textarea matInput formControlName="mensaje"
+							[ngClass]="{ 'is-invalid': submitted && f.mensaje.errors }"></textarea>
+						<div *ngIf="submitted && f.mensaje.errors" class="invalid-feedback">
+							<div *ngIf="f.mensaje.errors.required">El mensaje no se puede enviar en blanco</div>
+						</div>
+					</mat-form-field>
+				</div>
+				<div class="form-group">
+					<button (click)="guardar()">ENVIAR</button>
+				</div>
+			</form>
+		</div>
+		<div class="col-12 col-md-6 img"></div>
+	</div>
 </div>
-
-
-<form [formGroup]="formContact" class="container">
-	<div class="form-group">
-		<mat-form-field class="full-width">
-			<mat-label>Nombre</mat-label>
-			<input matInput formControlName="nombre" [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }" />
-			<div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
-				<div *ngIf="f.nombre.errors.required">Nombre requerido</div>
-			</div>
-		</mat-form-field>
-	</div>
-	<div class="form-group">
-		<mat-form-field class="full-width">
-			<mat-label>Apellidos</mat-label>
-			<input matInput formControlName="apellidos" [ngClass]="{ 'is-invalid': submitted && f.apellidos.errors }" />
-			<div *ngIf="submitted && f.apellidos.errors" class="invalid-feedback">
-				<div *ngIf="f.apellidos.errors.required">Apellido obligatorio</div>
-			</div>
-		</mat-form-field>
-	</div>
-	<div class="form-group">
-		<mat-form-field class="full-width">
-			<mat-label>Email</mat-label>
-			<input matInput formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
-			<div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-				<div *ngIf="f.email.errors.required">Email requerido</div>
-			</div>
-		</mat-form-field>
-	</div>
-	<div class="form-group">
-		<mat-form-field class="full-width">
-			<mat-label>Mensaje</mat-label>
-			<input matInput formControlName="mensaje" [ngClass]="{ 'is-invalid': submitted && f.mensaje.errors }" />
-			<div *ngIf="submitted && f.mensaje.errors" class="invalid-feedback">
-				<div *ngIf="f.mensaje.errors.required">El mensaje no se puede enviar en blanco</div>
-			</div>
-		</mat-form-field>
-	</div>
-
-	<div class="form-group">
-
-		<button mat-raised-button (click)="guardar()">ENVIAR</button>
-	</div>
-</form>
-
