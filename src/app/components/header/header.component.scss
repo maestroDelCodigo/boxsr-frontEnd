@@ -1,6 +1,7 @@
 .header {
   padding: 0px;
   background-color: white !important;
+  border-bottom: #4b4a4a85 1px solid;
 }
 
 .navbar {
@@ -39,6 +40,9 @@ a {
 
 .dropdown-menu {
   border: unset;
+  border: #4b4a4a85 1px solid;
+  border-top: none;
+
   &:active {
     text-decoration: none !important;
     outline: none !important;
