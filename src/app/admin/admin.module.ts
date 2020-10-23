@@ -27,7 +27,7 @@ import { DialogModule } from 'primeng/dialog';
 import { ModificarProductosComponent } from './pages/productos/modificar-productos/modificar-productos.component';
 import { CrearColeccionComponent } from './pages/colecciones/crear-coleccion/crear-coleccion.component';
 import { ModificarColeccionComponent } from './pages/colecciones/modificar-coleccion/modificar-coleccion.component';
-import { ColeccionesService } from './core/colecciones.service';
+import { ColeccionesService } from './services/colecciones.service';
 import { DigitOnlyModule } from '@uiowa/digit-only';
 import { OrderListModule } from 'primeng/orderlist';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -43,7 +43,7 @@ import { PedidoService } from './services/pedido.service';
 import { DetallePedidosComponent } from './pages/pedidos/detalle-pedidos/detalle-pedidos.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
-import { NumericDirective } from '../shared/directives/numeric-directive';
+import { NumericDirective } from '../directives/numeric-directive';
 
 @NgModule({
   declarations: [

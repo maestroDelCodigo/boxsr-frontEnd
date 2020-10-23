@@ -32,7 +32,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 import { ProductoComponent } from './pages/shop/producto/producto.component';
 import { ProductosService } from './admin/services/productos.service';
-import { ColeccionesService } from './admin/core/colecciones.service';
+import { ColeccionesService } from './admin/services/colecciones.service';
 import { ShopListComponent } from './pages/shop/shop-list/shop-list.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { CarritoItemComponent } from './components/carrito/carrito-item/carrito-item.component';
@@ -41,7 +41,7 @@ import { AdminRoutingModule } from './admin/admin-routing.module';
 import { DialogModule } from 'primeng/dialog';
 import { DigitOnlyModule } from '@uiowa/digit-only';
 import { ContactoComponent } from './pages/contacto/contacto.component';
-import { DataSharingService } from './shared/data-sharing.service';
+import { DataSharingService } from './services/data-sharing.service';
 import { MatSelectModule } from '@angular/material/select';
 
 import { NgxStripeModule } from 'ngx-stripe';
@@ -52,7 +52,7 @@ import { CheckoutResumenPedidoComponent } from './pages/checkout/checkout-resume
 import { MuestrasComprarComponent } from './pages/muestras/muestras-comprar/muestras-comprar.component';
 
 import { ColeccionComponent } from './pages/shop/coleccion/coleccion.component';
-import { NumericDirective } from './shared/directives/numeric-directive';
+import { NumericDirective } from './directives/numeric-directive';
 import { ConfirmacionComponent } from './pages/confirmacion/confirmacion.component';
 
 @NgModule({

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ColeccionesService } from 'src/app/admin/core/colecciones.service';
+import { ColeccionesService } from 'src/app/admin/services/colecciones.service';
 import { ProductosService } from 'src/app/admin/services/productos.service';
 import { Coleccion } from 'src/app/models/coleccion';
 import { Producto } from 'src/app/admin/models/producto';
-import { MessengerService } from 'src/app/admin/core/messenger.service';
+import { MessengerService } from 'src/app/admin/services/messenger.service';
 
 @Component({
   selector: 'app-producto',
