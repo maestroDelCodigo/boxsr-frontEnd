@@ -2,7 +2,7 @@ import { Component, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { EventEmitter } from 'events';
 import { ColeccionesService } from 'src/app/admin/core/colecciones.service';
-import { ProductosService } from 'src/app/admin/core/productos.service';
+import { ProductosService } from 'src/app/admin/services/productos.service';
 import { Coleccion } from 'src/app/models/coleccion';
 import { Producto } from 'src/app/models/producto';
 
@@ -28,33 +28,39 @@ export class ShopComponent implements OnInit {
   }
 
   obtenerProductos(): void {
-    this.productosService.listarProductos().subscribe((productos: Producto[]) => {
-      // filtrar los productos por activos y que no sean muestras
-      const productosFiltrados = productos.filter((producto) =>
-      !producto.nombre.toLocaleLowerCase().includes('muestra')  && producto.deleted !== 1);
+    this.productosService
+      .listarProductos()
+      .subscribe((productos: Producto[]) => {
+        // filtrar los productos por activos y que no sean muestras
+        const productosFiltrados = productos.filter(
+          (producto) =>
+            !producto.nombre.toLocaleLowerCase().includes('muestra') &&
+            producto.deleted !== 1
+        );
 
-      this.productos = productosFiltrados;
-      console.log(this.productos);
-    });
+        this.productos = productosFiltrados;
+        console.log(this.productos);
+      });
   }
 
   obtenerColecciones(): void {
-    this.coleccionesService.listarColecciones().subscribe((colecciones: Coleccion[]) => {
-
-      const coleccionesFiltradas = colecciones.filter((coleccion) =>  coleccion.deleted !== 1);
-      this.colecciones = coleccionesFiltradas;
-    });
+    this.coleccionesService
+      .listarColecciones()
+      .subscribe((colecciones: Coleccion[]) => {
+        const coleccionesFiltradas = colecciones.filter(
+          (coleccion) => coleccion.deleted !== 1
+        );
+        this.colecciones = coleccionesFiltradas;
+      });
   }
 
   verProducto(producto: Producto): void {
-
     if (producto) {
       this.router.navigate(['/producto/', producto.producto_id]);
     }
   }
 
   verColeccion(coleccion: Coleccion): void {
-
     if (coleccion) {
       this.router.navigate(['/coleccion/', coleccion.coleccion_id]);
     }

@@ -1,6 +1,15 @@
-import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ProductosService } from 'src/app/admin/core/productos.service';
+import { ProductosService } from 'src/app/admin/services/productos.service';
 import { Producto } from 'src/app/models/producto';
 import { MessageService } from 'primeng/api';
 import { UploadFilesService } from 'src/app/core/upload.service';
@@ -9,7 +18,7 @@ import { first, switchMap } from 'rxjs/operators';
 @Component({
   selector: 'app-crear-productos',
   templateUrl: './crear-productos.component.html',
-  styleUrls: ['./crear-productos.component.scss']
+  styleUrls: ['./crear-productos.component.scss'],
 })
 export class CrearProductosComponent implements OnInit {
   @ViewChild('fileInput') el: ElementRef;
@@ -23,11 +32,15 @@ export class CrearProductosComponent implements OnInit {
   nombreImagen: string;
   file: any;
 
-  constructor(private productosService: ProductosService, private formBuilder: FormBuilder,
-              private messageService: MessageService, private cd: ChangeDetectorRef, private uploadService: UploadFilesService ) { }
+  constructor(
+    private productosService: ProductosService,
+    private formBuilder: FormBuilder,
+    private messageService: MessageService,
+    private cd: ChangeDetectorRef,
+    private uploadService: UploadFilesService
+  ) {}
 
   ngOnInit(): void {
-
     this.productosForm = this.formBuilder.group({
       nombre: ['', [Validators.required, Validators.maxLength(145)]],
       tipo: ['', [Validators.required, Validators.maxLength(145)]],
@@ -39,17 +52,19 @@ export class CrearProductosComponent implements OnInit {
       utilidad: ['', [Validators.required, Validators.maxLength(500)]],
       usabilidad: ['', [Validators.required, Validators.maxLength(500)]],
       ingredientes: ['', [Validators.required, Validators.maxLength(500)]],
-  });
+    });
   }
 
-  get f(): any { return this.productosForm.controls; }
+  get f(): any {
+    return this.productosForm.controls;
+  }
 
   onSubmit(): void {
     this.submitted = true;
 
     // stop here if form is invalid
     if (this.productosForm.invalid) {
-        return;
+      return;
     }
 
     const producto = new Producto();
@@ -60,7 +75,10 @@ export class CrearProductosComponent implements OnInit {
     producto.stock = 0;
     producto.precio = this.f.precio.value;
     producto.deleted = 0;
-    producto.fecha_creacion = new Date().toISOString().slice(0, 19).replace('T', ' ');
+    producto.fecha_creacion = new Date()
+      .toISOString()
+      .slice(0, 19)
+      .replace('T', ' ');
     producto.descripcion = this.f.descripcion.value;
     producto.descripcion_resumen = this.f.resumen.value;
     producto.descripcion_sirve = this.f.utilidad.value;
@@ -69,55 +87,76 @@ export class CrearProductosComponent implements OnInit {
 
     // Subimos la imagen
 
-    if (this.file)
-    {
+    if (this.file) {
       producto.nombre_imagen = this.nombreImagen;
 
-      this.uploadService.upload(this.file).pipe(
-        first(),
-        switchMap(() => this.productosService.crearProducto(producto))
-        ).subscribe(
-          (resultado) => {
-            if (resultado){
-              this.messageService.add({severity: 'success', summary: 'Producto', detail: 'Producto creado correctamente.'});
-              this.cerrarDialogo.emit();
-            }
-            else{
-              this.messageService.add({severity: 'error', summary: 'Producto', detail: 'Hubo un problema al crear el producto.'});
-            }
-          },
-        );
-
-    }else {
+      this.uploadService
+        .upload(this.file)
+        .pipe(
+          first(),
+          switchMap(() => this.productosService.crearProducto(producto))
+        )
+        .subscribe((resultado) => {
+          if (resultado) {
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Producto',
+              detail: 'Producto creado correctamente.',
+            });
+            this.cerrarDialogo.emit();
+          } else {
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Producto',
+              detail: 'Hubo un problema al crear el producto.',
+            });
+          }
+        });
+    } else {
       producto.nombre_imagen = '';
       // Llamada al servicio que llama al back
-      this.productosService.crearProducto(producto).subscribe(
-        (resultado) => {
-          if (resultado){
-            this.messageService.add({severity: 'success', summary: 'Producto', detail: 'Producto creado correctamente.'});
-            this.cerrarDialogo.emit();
-          }
-          else{
-            this.messageService.add({severity: 'error', summary: 'Producto', detail: 'Hubo un problema al crear el producto.'});
-          }
-        },
-      );
+      this.productosService.crearProducto(producto).subscribe((resultado) => {
+        if (resultado) {
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Producto',
+            detail: 'Producto creado correctamente.',
+          });
+          this.cerrarDialogo.emit();
+        } else {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Producto',
+            detail: 'Hubo un problema al crear el producto.',
+          });
+        }
+      });
     }
   }
 
   uploadImageServer(file): void {
-
-    this.uploadService.upload(file).pipe(first()).subscribe(
-      event => {
-        this.messageService.add({severity: 'success', summary: 'Upload', detail: 'Fichero subido'});
-      },
-      err => {
-        this.messageService.add({severity: 'error', summary: 'Upload', detail: 'Error subiendo fichero'});
-      });
+    this.uploadService
+      .upload(file)
+      .pipe(first())
+      .subscribe(
+        (event) => {
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Upload',
+            detail: 'Fichero subido',
+          });
+        },
+        (err) => {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Upload',
+            detail: 'Error subiendo fichero',
+          });
+        }
+      );
   }
 
-
-  uploadFile(event): void{
+  uploadFile(event): void {
     const reader = new FileReader(); // HTML5 FileReader API
     const file = event.target.files[0];
     if (event.target.files && event.target.files[0]) {
@@ -142,15 +181,14 @@ export class CrearProductosComponent implements OnInit {
     // }
   }
 
-    // Function to remove uploaded file
-    removeUploadedFile(): void {
-      const newFileList = Array.from(this.el.nativeElement.files);
-      this.imageUrl = '';
-      this.editFile = true;
-      this.removeUpload = false;
-      // this.registrationForm.patchValue({
-      //   file: [null]
-      // });
-    }
-
+  // Function to remove uploaded file
+  removeUploadedFile(): void {
+    const newFileList = Array.from(this.el.nativeElement.files);
+    this.imageUrl = '';
+    this.editFile = true;
+    this.removeUpload = false;
+    // this.registrationForm.patchValue({
+    //   file: [null]
+    // });
+  }
 }

@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { Contacto } from 'src/app/models/contacto';
-import { ContactoService } from '../../core/contacto.service';
+import { ContactoService } from '../../services/contacto.service';
 
 @Component({
   selector: 'app-contacto',

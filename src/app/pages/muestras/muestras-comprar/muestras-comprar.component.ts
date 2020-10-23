@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductosService } from 'src/app/admin/core/productos.service';
+import { ProductosService } from 'src/app/admin/services/productos.service';
 import { Producto } from 'src/app/admin/models/producto';
 import { MessengerService } from 'src/app/admin/core/messenger.service';
 
