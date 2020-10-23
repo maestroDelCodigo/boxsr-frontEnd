@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ColeccionesService } from 'src/app/admin/core/colecciones.service';
-import { ProductosService } from 'src/app/admin/core/productos.service';
+import { ProductosService } from 'src/app/admin/services/productos.service';
 import { Coleccion } from 'src/app/models/coleccion';
 import { Producto } from 'src/app/admin/models/producto';
 import { MessengerService } from 'src/app/admin/core/messenger.service';
@@ -31,7 +31,7 @@ export class ProductoComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.productoId) {
-      this.productosService.getProducto(this.productoId).subscribe(x => {
+      this.productosService.getProducto(this.productoId).subscribe((x) => {
         this.producto = x;
         console.log(this.producto);
         console.log(this.producto.imagen_url);

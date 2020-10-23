@@ -31,7 +31,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 import { ProductoComponent } from './pages/shop/producto/producto.component';
-import { ProductosService } from './admin/core/productos.service';
+import { ProductosService } from './admin/services/productos.service';
 import { ColeccionesService } from './admin/core/colecciones.service';
 import { ShopListComponent } from './pages/shop/shop-list/shop-list.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
@@ -42,8 +42,7 @@ import { DialogModule } from 'primeng/dialog';
 import { DigitOnlyModule } from '@uiowa/digit-only';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { DataSharingService } from './shared/data-sharing.service';
-import {  MatSelectModule } from '@angular/material/select';
-
+import { MatSelectModule } from '@angular/material/select';
 
 import { NgxStripeModule } from 'ngx-stripe';
 
@@ -56,12 +55,8 @@ import { ColeccionComponent } from './pages/shop/coleccion/coleccion.component';
 import { NumericDirective } from './shared/directives/numeric-directive';
 import { ConfirmacionComponent } from './pages/confirmacion/confirmacion.component';
 
-
-
-
 @NgModule({
   declarations: [
-   
     MuestrasComprarComponent,
     ContactoComponent,
     AppComponent,
@@ -82,11 +77,7 @@ import { ConfirmacionComponent } from './pages/confirmacion/confirmacion.compone
     CheckoutComponent,
     ColeccionComponent,
 
-
-
     CheckoutResumenPedidoComponent,
-
-
 
     ConfirmacionComponent,
   ],
@@ -117,7 +108,9 @@ import { ConfirmacionComponent } from './pages/confirmacion/confirmacion.compone
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    NgxStripeModule.forRoot('pk_test_51Hc87kA0e2wVUT1Fvx1JxU9IXXQyoxfmMcAt8Zgwp1MfEj3nQARj8vByNdnbE3AJ1L3iKuOKdDczfcEdWhrSL3dM00zPptpq9c'),
+    NgxStripeModule.forRoot(
+      'pk_test_51Hc87kA0e2wVUT1Fvx1JxU9IXXQyoxfmMcAt8Zgwp1MfEj3nQARj8vByNdnbE3AJ1L3iKuOKdDczfcEdWhrSL3dM00zPptpq9c'
+    ),
   ],
 
   providers: [
@@ -126,9 +119,9 @@ import { ConfirmacionComponent } from './pages/confirmacion/confirmacion.compone
     MatNativeDateModule,
     ProductosService,
     ColeccionesService,
-    DataSharingService
+    DataSharingService,
   ],
 
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

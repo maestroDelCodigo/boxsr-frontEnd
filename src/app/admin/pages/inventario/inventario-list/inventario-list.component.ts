@@ -1,15 +1,21 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { ProductosService } from 'src/app/admin/core/productos.service';
+import { ProductosService } from 'src/app/admin/services/productos.service';
 import { Producto } from 'src/app/models/producto';
 import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-inventario-list',
   templateUrl: './inventario-list.component.html',
-  styleUrls: ['./inventario-list.component.scss']
+  styleUrls: ['./inventario-list.component.scss'],
 })
 export class InventarioListComponent implements OnInit {
   @Output() modificar = new EventEmitter<Producto>();
@@ -20,7 +26,7 @@ export class InventarioListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private productosService: ProductosService) { }
+  constructor(private productosService: ProductosService) {}
 
   ngOnInit(): void {
     this.productosMinimosStock = environment.productosMinimosStock;
@@ -36,11 +42,11 @@ export class InventarioListComponent implements OnInit {
     }
   }
 
-  modificarInventario(producto: Producto): void{
+  modificarInventario(producto: Producto): void {
     this.modificar.emit(producto);
   }
 
-  refresh(): void{
+  refresh(): void {
     this.productosService.listarProductos().subscribe((data) => {
       this.dataSource.data = data;
     });
@@ -53,5 +59,4 @@ export class InventarioListComponent implements OnInit {
       this.dataSource.sort = this.sort;
     });
   }
-
 }

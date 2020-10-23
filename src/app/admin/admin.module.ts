@@ -21,7 +21,7 @@ import { CrearProductosComponent } from './pages/productos/crear-productos/crear
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ProductosService } from './core/productos.service';
+import { ProductosService } from './services/productos.service';
 import { MatButtonModule } from '@angular/material/button';
 import { DialogModule } from 'primeng/dialog';
 import { ModificarProductosComponent } from './pages/productos/modificar-productos/modificar-productos.component';
@@ -34,22 +34,19 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ColeccionesListComponent } from './pages/colecciones/colecciones-list/colecciones-list.component';
 import { InventarioListComponent } from './pages/inventario/inventario-list/inventario-list.component';
 import { ModificarInventarioComponent } from './pages/inventario/modificar-inventario/modificar-inventario.component';
-import { ContactoService } from '../core/contacto.service';
+import { ContactoService } from '../services/contacto.service';
 import { BuzonComponent } from './pages/buzon/buzon.component';
 import { BuzonAdminComponent } from './pages/buzon/buzon-admin/buzon-admin.component';
 import { ClientesListComponent } from './pages/clientes/clientes-list/clientes-list.component';
 import { ResumenPedidosComponent } from './pages/pedidos/resumen-pedidos/resumen-pedidos.component';
 import { PedidoService } from './services/pedido.service';
 import { DetallePedidosComponent } from './pages/pedidos/detalle-pedidos/detalle-pedidos.component';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { NumericDirective } from '../shared/directives/numeric-directive';
 
-
-
 @NgModule({
   declarations: [
-
     DetallePedidosComponent,
     ResumenPedidosComponent,
     AdminComponent,
@@ -75,7 +72,6 @@ import { NumericDirective } from '../shared/directives/numeric-directive';
     BuzonAdminComponent,
     ClientesListComponent,
     NumericDirective,
-
   ],
   imports: [
     MatSelectModule,
@@ -100,7 +96,7 @@ import { NumericDirective } from '../shared/directives/numeric-directive';
     ProductosService,
     ColeccionesService,
     ContactoService,
-    PedidoService
-  ]
+    PedidoService,
+  ],
 })
-export class AdminModule { }
+export class AdminModule {}
