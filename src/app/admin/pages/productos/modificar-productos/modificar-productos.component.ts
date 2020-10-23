@@ -12,7 +12,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductosService } from 'src/app/admin/services/productos.service';
 import { Producto } from 'src/app/models/producto';
 import { MessageService } from 'primeng/api';
-import { UploadFilesService } from 'src/app/core/upload.service';
+import { UploadFilesService } from 'src/app/services/upload.service';
 import { first, switchMap } from 'rxjs/operators';
 
 @Component({

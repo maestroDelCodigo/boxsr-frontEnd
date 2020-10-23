@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { MessengerService } from 'src/app/admin/core/messenger.service';
+import { MessengerService } from 'src/app/admin/services/messenger.service';
 import { Producto } from 'src/app/admin/models/producto';
 import { Coleccion } from 'src/app/models/coleccion';
 

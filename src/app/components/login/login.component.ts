@@ -2,10 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
-import { AuthService } from 'src/app/core/security-services/auth.service';
-import { LoginService } from 'src/app/core/security-services/login.service';
+import { AuthService } from 'src/app/services/security-services/auth.service';
+import { LoginService } from 'src/app/services/security-services/login.service';
 import { Usuario } from 'src/app/models/usuario';
-import { DataSharingService } from '../../shared/data-sharing.service';
+import { DataSharingService } from '../../services/data-sharing.service';
 
 @Component({
   selector: 'app-login',

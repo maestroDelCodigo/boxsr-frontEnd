@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ColeccionesService } from 'src/app/admin/core/colecciones.service';
-import { MessengerService } from 'src/app/admin/core/messenger.service';
+import { ColeccionesService } from 'src/app/admin/services/colecciones.service';
+import { MessengerService } from 'src/app/admin/services/messenger.service';
 import { Coleccion } from 'src/app/models/coleccion';
 
 @Component({
   selector: 'app-coleccion',
   templateUrl: './coleccion.component.html',
-  styleUrls: ['./coleccion.component.scss']
+  styleUrls: ['./coleccion.component.scss'],
 })
 export class ColeccionComponent implements OnInit {
   coleccion: Coleccion;
@@ -26,10 +26,12 @@ export class ColeccionComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.coleccionId) {
-      this.coleccionesService.buscarColeccion(this.coleccionId).subscribe(coleccion => {
-        this.coleccion = coleccion;
-        console.log(this.coleccion);
-      });
+      this.coleccionesService
+        .buscarColeccion(this.coleccionId)
+        .subscribe((coleccion) => {
+          this.coleccion = coleccion;
+          console.log(this.coleccion);
+        });
     }
   }
 

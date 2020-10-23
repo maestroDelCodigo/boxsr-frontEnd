@@ -1,7 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { EventEmitter } from 'events';
-import { ColeccionesService } from 'src/app/admin/core/colecciones.service';
+import { ColeccionesService } from 'src/app/admin/services/colecciones.service';
 import { ProductosService } from 'src/app/admin/services/productos.service';
 import { Coleccion } from 'src/app/models/coleccion';
 import { Producto } from 'src/app/models/producto';

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductosService } from 'src/app/admin/services/productos.service';
 import { Producto } from 'src/app/admin/models/producto';
-import { MessengerService } from 'src/app/admin/core/messenger.service';
+import { MessengerService } from 'src/app/admin/services/messenger.service';
 
 @Component({
   selector: 'app-muestras-comprar',

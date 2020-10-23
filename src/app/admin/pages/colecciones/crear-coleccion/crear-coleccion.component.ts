@@ -13,10 +13,10 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
 import { MatTableDataSource } from '@angular/material/table';
 import { MessageService } from 'primeng/api';
 import { first, switchMap } from 'rxjs/operators';
-import { ColeccionesService } from 'src/app/admin/core/colecciones.service';
+import { ColeccionesService } from 'src/app/admin/services/colecciones.service';
 import { ProductosService } from 'src/app/admin/services/productos.service';
 import { Coleccion } from 'src/app/models/coleccion';
-import { UploadFilesService } from 'src/app/core/upload.service';
+import { UploadFilesService } from 'src/app/services/upload.service';
 
 @Component({
   selector: 'app-crear-coleccion',

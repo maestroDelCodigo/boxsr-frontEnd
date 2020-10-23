@@ -1,8 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { MessengerService } from 'src/app/admin/core/messenger.service';
+import { MessengerService } from 'src/app/admin/services/messenger.service';
 import { Producto } from 'src/app/admin/models/producto';
-import { Usuario } from 'src/app/models/usuario';
 
 @Component({
   selector: 'app-carrito',
@@ -73,6 +72,7 @@ export class CarritoComponent implements OnInit {
       ? JSON.parse(localStorage.getItem('APP_USER'))
       : [];
   }
+
   // Total del carrito con actualizacion en tiempo real
   calcularTotalCarrito(): void {
     this.carritoTotal = 0;
